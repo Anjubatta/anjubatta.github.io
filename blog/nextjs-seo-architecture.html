@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Next.js SEO Architecture: SSR, SSG &amp; ISR for Better Rankings | Anju Batta</title>
+
+  <meta name="description" content="A complete guide to Next.js rendering strategies — how SSR, SSG, and ISR each affect search performance, crawlability, and Core Web Vitals. Real implementation examples and when to use each mode.">
+  <meta name="keywords" content="Next.js SEO, SSR SEO, SSG SEO, ISR Next.js, Next.js crawlability, server side rendering SEO, Next.js performance optimization, getServerSideProps SEO, generateStaticParams SEO">
+  <meta name="author" content="Anju Batta">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://anjubatta.netlify.app/blog/nextjs-seo-architecture">
+
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://anjubatta.netlify.app/blog/nextjs-seo-architecture">
+  <meta property="og:title" content="Next.js SEO Architecture: SSR, SSG &amp; ISR for Better Rankings">
+  <meta property="og:description" content="Choose the right Next.js rendering strategy for SEO. A detailed breakdown of SSR, SSG, and ISR with crawlability, Core Web Vitals, and implementation examples.">
+  <meta property="og:image" content="https://anjubatta.netlify.app/images/abouts.png">
+
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="sitemap" type="application/xml" href="../sitemap.xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/open-iconic-bootstrap.min.css">
+  <link rel="stylesheet" href="../css/icomoon.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/animate.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="../css/animate.css"></noscript>
+
+  <style>
+    .post-hero { background: linear-gradient(135deg,#0d1117,#161b22); padding: 80px 0 50px; color: #fff; }
+    .post-hero .back-link { color: rgba(255,255,255,0.6); font-size:13px; text-decoration:none; display:inline-flex; align-items:center; gap:6px; margin-bottom:20px; }
+    .post-hero .back-link:hover { color:#fff; }
+    .post-badge { display:inline-block; background:rgba(255,255,255,0.15); color:#fff; font-size:11px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; padding:4px 12px; border-radius:20px; margin-bottom:16px; }
+    .post-hero h1 { font-size:clamp(24px,4vw,42px); font-weight:800; line-height:1.3; max-width:800px; }
+    .post-meta { color:rgba(255,255,255,0.6); font-size:13px; margin-top:16px; display:flex; gap:16px; flex-wrap:wrap; }
+    .post-content { max-width:800px; }
+    .post-content h2 { font-size:clamp(20px,2.5vw,26px); font-weight:700; color:#111; margin:40px 0 16px; padding-bottom:10px; border-bottom:2px solid #f0f0f0; }
+    .post-content h3 { font-size:18px; font-weight:700; color:#009688; margin:28px 0 12px; }
+    .post-content p { color:#444; font-size:15px; line-height:1.8; margin-bottom:18px; }
+    .post-content ul, .post-content ol { color:#444; font-size:15px; line-height:1.8; margin-bottom:18px; padding-left:24px; }
+    .post-content li { margin-bottom:8px; }
+    .post-content code { background:#f0faf9; color:#009688; padding:2px 7px; border-radius:4px; font-size:13px; font-family:monospace; }
+    .post-content pre { background:#0d1117; color:#e6edf3; padding:20px 24px; border-radius:10px; overflow-x:auto; font-size:13px; line-height:1.7; margin-bottom:20px; }
+    .info-box { background:#f0faf9; border-left:4px solid #009688; border-radius:0 10px 10px 0; padding:18px 20px; margin:20px 0; }
+    .info-box.orange { background:#fff8f3; border-left-color:#F96D00; }
+    .info-box.purple { background:#f5f0ff; border-left-color:#7c3aed; }
+    .info-box strong { color:#009688; }
+    .info-box.orange strong { color:#F96D00; }
+    .info-box.purple strong { color:#7c3aed; }
+    .rendering-card { background:#fff; border-radius:14px; padding:24px; box-shadow:0 4px 20px rgba(0,0,0,0.07); margin-bottom:20px; border-top:4px solid #009688; }
+    .rendering-card.orange { border-top-color:#F96D00; }
+    .rendering-card.purple { border-top-color:#7c3aed; }
+    .rendering-card h4 { color:#111; font-weight:700; font-size:16px; margin-bottom:10px; }
+    .rendering-card p { color:#555; font-size:13.5px; margin:0 0 12px; }
+    .tag-cloud { display:flex; flex-wrap:wrap; gap:8px; margin:20px 0; }
+    .post-tag { background:#f0faf9; color:#009688; font-size:12px; font-weight:600; padding:4px 12px; border-radius:6px; }
+    .author-box { background:#f9f9f9; border-radius:14px; padding:24px; display:flex; gap:20px; align-items:flex-start; margin-top:48px; border:1px solid #eee; }
+    .author-box img { width:70px; height:70px; border-radius:50%; object-fit:cover; flex-shrink:0; }
+    .author-box h5 { font-size:16px; font-weight:700; color:#111; margin:0 0 6px; }
+    .author-box p { font-size:13px; color:#555; margin:0; }
+    .related-post { background:#fff; border-radius:12px; padding:20px; box-shadow:0 4px 16px rgba(0,0,0,0.06); height:100%; }
+    .related-post h5 { font-size:14px; font-weight:700; color:#111; margin-bottom:8px; }
+    .related-post h5 a { color:inherit; text-decoration:none; }
+    .related-post h5 a:hover { color:#009688; }
+    .related-post p { font-size:12.5px; color:#666; margin:0; }
+    .section-label { display:inline-block; background:linear-gradient(135deg,#009688,#00bfa5); color:#fff; font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; padding:5px 14px; border-radius:20px; margin-bottom:14px; }
+  </style>
+
+  <!-- ArticlePosting Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Next.js SEO Architecture: SSR, SSG & ISR for Better Search Rankings",
+    "description": "A complete guide to Next.js rendering strategies — how SSR, SSG, and ISR each affect search performance, crawlability, and Core Web Vitals.",
+    "url": "https://anjubatta.netlify.app/blog/nextjs-seo-architecture",
+    "datePublished": "2026-03-15",
+    "dateModified": "2026-03-18",
+    "author": { "@type": "Person", "name": "Anju Batta", "url": "https://anjubatta.netlify.app/" },
+    "publisher": { "@type": "Person", "name": "Anju Batta" },
+    "keywords": ["Next.js SEO", "SSR", "SSG", "ISR", "Technical SEO", "Core Web Vitals"],
+    "articleSection": "Next.js Development"
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://anjubatta.netlify.app/" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://anjubatta.netlify.app/blog" },
+      { "@type": "ListItem", "position": 3, "name": "Next.js SEO Architecture", "item": "https://anjubatta.netlify.app/blog/nextjs-seo-architecture" }
+    ]
+  }
+  </script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-N13XNYEVWD"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-N13XNYEVWD');</script>
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
+    <div class="container">
+      <a class="navbar-brand" href="../index.html">
+        <img src="../images/logo.svg" alt="Anju Batta" height="36" width="140" style="vertical-align:middle;">
+      </a>
+      <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="oi oi-menu"></span> Menu
+      </button>
+      <div class="collapse navbar-collapse" id="ftco-nav">
+        <ul class="navbar-nav nav ml-auto">
+          <li class="nav-item"><a href="../index.html#home-section" class="nav-link"><span>Home</span></a></li>
+          <li class="nav-item"><a href="../index.html#about-section" class="nav-link"><span>About</span></a></li>
+          <li class="nav-item"><a href="../index.html#ai-services-section" class="nav-link"><span>Services</span></a></li>
+          <li class="nav-item"><a href="../index.html#nextjs-seo-section" class="nav-link"><span>Next.js &amp; SEO</span></a></li>
+          <li class="nav-item"><a href="../index.html#project-section" class="nav-link"><span>Projects</span></a></li>
+          <li class="nav-item active"><a href="../blog.html" class="nav-link"><span>Blog</span></a></li>
+          <li class="nav-item"><a href="../contact/" class="nav-link"><span>Contact</span></a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Post Hero -->
+  <div class="post-hero" style="margin-top:56px;">
+    <div class="container">
+      <a href="../blog.html" class="back-link">&#8592; Back to Blog</a>
+      <span class="post-badge">Next.js</span>
+      <h1>Next.js SEO Architecture: SSR, SSG &amp; ISR — Choosing the Right Strategy for Search Rankings</h1>
+      <div class="post-meta">
+        <span>&#128197; March 15, 2026</span>
+        <span>&#128336; 8 min read</span>
+        <span>&#9998; Anju Batta</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Post Content -->
+  <section style="background:#f9f9f9;padding:60px 0;">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="post-content">
+
+            <div class="tag-cloud">
+              <span class="post-tag">Next.js</span>
+              <span class="post-tag">SSR</span>
+              <span class="post-tag">SSG</span>
+              <span class="post-tag">ISR</span>
+              <span class="post-tag">Technical SEO</span>
+              <span class="post-tag">Core Web Vitals</span>
+            </div>
+
+            <p>One of the most common questions I get from clients building on Next.js is: <strong>"Which rendering strategy should I use for SEO?"</strong> The answer isn't one-size-fits-all — and choosing the wrong rendering mode can cost you rankings, crawl budget, and user experience all at once.</p>
+
+            <p>After building 50+ Next.js projects over 15 years of development, here's everything you need to know about SSR, SSG, and ISR from a technical SEO perspective.</p>
+
+            <h2>Why Rendering Strategy Matters for SEO</h2>
+
+            <p>Google's crawler (Googlebot) needs to receive fully-formed HTML to index your pages efficiently. When JavaScript handles rendering on the client side (CSR), Googlebot has to execute that JavaScript — which consumes crawl budget, delays indexing, and can result in pages being indexed with missing content.</p>
+
+            <p>Next.js solves this by offering multiple server-side rendering approaches that deliver pre-rendered HTML to crawlers and users alike — each with different trade-offs for performance, freshness, and scalability.</p>
+
+            <h2>SSR — Server-Side Rendering</h2>
+
+            <div class="rendering-card">
+              <h4>Best for: Dashboards, personalised pages, real-time eCommerce, dynamic pricing</h4>
+              <p>SSR renders each page on-demand, per request, on the server. Every visitor (including Googlebot) gets fully-rendered HTML with real, live data on every request.</p>
+              <ul>
+                <li>Canonicals, hreflang, and meta tags are injected server-side — no JavaScript dependency</li>
+                <li>Real-time data (stock levels, user-specific content) is always fresh</li>
+                <li>Slightly slower TTFB vs SSG because each request requires server computation</li>
+                <li>Use the App Router <code>fetch()</code> with <code>no-store</code> cache option or <code>getServerSideProps</code> in Pages Router</li>
+              </ul>
+            </div>
+
+            <div class="info-box">
+              <strong>SEO impact:</strong> Full crawlability for dynamic pages. Googlebot receives complete HTML including meta tags, canonical URLs, structured data, and all content — zero JavaScript rendering delay.
+            </div>
+
+            <h3>SSR Implementation Example (App Router)</h3>
+            <pre><code>// app/products/[id]/page.tsx
+// No cache = SSR behaviour — fresh data every request
+async function ProductPage({ params }) {
+  const product = await fetch(
+    `https://api.example.com/products/${params.id}`,
+    { cache: 'no-store' }
+  ).then(r => r.json());
+
+  return (
+    &lt;&gt;
+      &lt;h1&gt;{product.name}&lt;/h1&gt;
+      &lt;p&gt;{product.description}&lt;/p&gt;
+    &lt;/&gt;
+  );
+}
+
+// Dynamic metadata — injected server-side for SEO
+export async function generateMetadata({ params }) {
+  const product = await fetch(
+    `https://api.example.com/products/${params.id}`,
+    { cache: 'no-store' }
+  ).then(r => r.json());
+  return {
+    title: product.name,
+    description: product.description,
+    openGraph: { title: product.name, images: [product.image] }
+  };
+}</code></pre>
+
+            <h2>SSG — Static Site Generation</h2>
+
+            <div class="rendering-card orange">
+              <h4>Best for: Blogs, landing pages, marketing sites, portfolios, documentation</h4>
+              <p>SSG pre-builds all pages at deploy time. The resulting HTML files are served directly from a CDN with sub-100ms TTFB globally — no server computation needed per request.</p>
+              <ul>
+                <li>Near-perfect Core Web Vitals (LCP, CLS, INP) — pre-built HTML is fastest possible</li>
+                <li>Ideal for content that changes infrequently</li>
+                <li>Sitemap generation at build time is straightforward</li>
+                <li>Use <code>generateStaticParams</code> for dynamic routes (App Router) or <code>getStaticPaths</code> + <code>getStaticProps</code> (Pages Router)</li>
+              </ul>
+            </div>
+
+            <div class="info-box orange">
+              <strong>SEO impact:</strong> Maximum Lighthouse scores and Core Web Vitals. Pages are cached at CDN edge nodes globally, so crawlers and users both get instant responses. Perfect for content-heavy blogs and marketing pages.
+            </div>
+
+            <h2>ISR — Incremental Static Regeneration</h2>
+
+            <div class="rendering-card purple">
+              <h4>Best for: eCommerce catalogues, news sites, job boards, content with 1,000+ pages</h4>
+              <p>ISR gives you static speed with live data. Pages are initially served as static, then automatically revalidate in the background after a set time interval — without a full site rebuild.</p>
+              <ul>
+                <li>Set <code>revalidate</code> seconds on the <code>fetch()</code> call or route segment config</li>
+                <li>On-demand revalidation via <code>revalidatePath()</code> or <code>revalidateTag()</code> for webhook-triggered updates</li>
+                <li>Stale-while-revalidate: users get the cached version instantly while a fresh one builds in the background</li>
+                <li>Best for sites with thousands of pages that can't afford full rebuilds on every content change</li>
+              </ul>
+            </div>
+
+            <h2>SEO Comparison: Which Strategy Should You Choose?</h2>
+
+            <table style="width:100%;border-collapse:collapse;background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.07);margin-bottom:24px;">
+              <thead>
+                <tr style="background:#009688;color:#fff;">
+                  <th style="padding:12px 16px;text-align:left;font-size:13px;">Factor</th>
+                  <th style="padding:12px 16px;text-align:left;font-size:13px;">SSR</th>
+                  <th style="padding:12px 16px;text-align:left;font-size:13px;">SSG</th>
+                  <th style="padding:12px 16px;text-align:left;font-size:13px;">ISR</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom:1px solid #f0f0f0;">
+                  <td style="padding:12px 16px;font-size:13px;font-weight:600;">Crawlability</td>
+                  <td style="padding:12px 16px;font-size:13px;color:#009688;">&#10003; Full HTML</td>
+                  <td style="padding:12px 16px;font-size:13px;color:#009688;">&#10003; Full HTML</td>
+                  <td style="padding:12px 16px;font-size:13px;color:#009688;">&#10003; Full HTML</td>
+                </tr>
+                <tr style="border-bottom:1px solid #f0f0f0;">
+                  <td style="padding:12px 16px;font-size:13px;font-weight:600;">Core Web Vitals</td>
+                  <td style="padding:12px 16px;font-size:13px;color:#F96D00;">Medium</td>
+                  <td style="padding:12px 16px;font-size:13px;color:#009688;">Best</td>
+                  <td style="padding:12px 16px;font-size:13px;color:#009688;">Best</td>
+                </tr>
+                <tr style="border-bottom:1px solid #f0f0f0;">
+                  <td style="padding:12px 16px;font-size:13px;font-weight:600;">Content Freshness</td>
+                  <td style="padding:12px 16px;font-size:13px;color:#009688;">Always fresh</td>
+                  <td style="padding:12px 16px;font-size:13px;color:#F96D00;">Deploy only</td>
+                  <td style="padding:12px 16px;font-size:13px;color:#009688;">Configurable</td>
+                </tr>
+                <tr>
+                  <td style="padding:12px 16px;font-size:13px;font-weight:600;">Server Load</td>
+                  <td style="padding:12px 16px;font-size:13px;color:#F96D00;">Per request</td>
+                  <td style="padding:12px 16px;font-size:13px;color:#009688;">Zero</td>
+                  <td style="padding:12px 16px;font-size:13px;color:#009688;">Minimal</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <h2>Technical SEO Checklist for Next.js Projects</h2>
+            <ul>
+              <li><strong>Metadata API:</strong> Use <code>export const metadata</code> or <code>generateMetadata()</code> in every layout/page for dynamic, server-side meta injection</li>
+              <li><strong>Canonical URLs:</strong> Set <code>alternates.canonical</code> in metadata to prevent duplicate content issues</li>
+              <li><strong>Open Graph:</strong> Generate OG images dynamically using <code>opengraph-image.tsx</code> route segments</li>
+              <li><strong>Sitemap:</strong> Use <code>app/sitemap.ts</code> to auto-generate an XML sitemap at build/request time</li>
+              <li><strong>robots.txt:</strong> Use <code>app/robots.ts</code> to control crawler directives programmatically</li>
+              <li><strong>Structured Data:</strong> Inject JSON-LD via <code>&lt;script type="application/ld+json"&gt;</code> in the page component — server-rendered for crawler access</li>
+              <li><strong>Image Optimization:</strong> Always use <code>&lt;Image&gt;</code> from <code>next/image</code> — auto WebP, lazy load, aspect-ratio locking (prevents CLS)</li>
+              <li><strong>Font Optimization:</strong> Use <code>next/font</code> to eliminate layout shift from web fonts</li>
+            </ul>
+
+            <div class="info-box">
+              <strong>Pro tip from 15 years of experience:</strong> Most Next.js SEO problems I fix in audits aren't about rendering strategy at all — they're about missing canonical tags on dynamic routes, CSR-only metadata, or images without explicit dimensions causing CLS. Get the basics right first.
+            </div>
+
+            <h2>Summary</h2>
+            <p>There's no single best rendering strategy for SEO — the right choice depends on your data freshness requirements and performance goals:</p>
+            <ul>
+              <li><strong>SSR:</strong> Use for user-personalised pages, real-time pricing, dynamic dashboards</li>
+              <li><strong>SSG:</strong> Use for blogs, landing pages, documentation, portfolios — maximum Core Web Vitals</li>
+              <li><strong>ISR:</strong> Use for large catalogs, news, job boards — SSG speed with acceptable data freshness</li>
+            </ul>
+            <p>In practice, most production Next.js applications use all three rendering modes across different route types. The App Router makes this easy — each route segment can independently declare its caching and revalidation behaviour.</p>
+
+            <!-- Author Box -->
+            <div class="author-box">
+              <img src="../images/abouts.webp" alt="Anju Batta" loading="lazy">
+              <div>
+                <h5>Anju Batta</h5>
+                <p>Senior Full Stack Developer, Technical SEO Engineer &amp; AI Automation Architect with 15+ years of experience. Building Next.js platforms, fixing crawlability issues, and designing AI agent systems from Chandigarh, India.</p>
+                <a href="../index.html#contact-section" style="color:#009688;font-size:13px;font-weight:700;text-decoration:none;">Hire Me for Your Next.js Project &#8594;</a>
+              </div>
+            </div>
+
+          </div><!-- /post-content -->
+        </div><!-- /col-lg-8 -->
+
+        <!-- Sidebar -->
+        <div class="col-lg-4">
+          <div style="position:sticky;top:80px;">
+
+            <div style="background:#fff;border-radius:14px;padding:24px;box-shadow:0 4px 20px rgba(0,0,0,0.07);margin-bottom:24px;border-left:4px solid #009688;">
+              <h4 style="font-size:16px;font-weight:700;color:#111;margin-bottom:16px;">Related Articles</h4>
+              <div class="related-post" style="margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid #f0f0f0;">
+                <h5><a href="technical-seo-audit-checklist.html">Technical SEO Audit Checklist 2026</a></h5>
+                <p>50-point checklist covering crawlability, indexing, Core Web Vitals, and more.</p>
+              </div>
+              <div class="related-post" style="margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid #f0f0f0;">
+                <h5><a href="aeo-geo-ai-search-optimization.html">AEO &amp; GEO: Optimize for AI Search</a></h5>
+                <p>How to appear in ChatGPT, Gemini, and Perplexity AI-generated answers.</p>
+              </div>
+              <div class="related-post">
+                <h5><a href="cloudflare-optimization-guide.html">Cloudflare Setup Guide</a></h5>
+                <p>Edge caching, WAF, rate limiting, and bot protection for SEO.</p>
+              </div>
+            </div>
+
+            <div style="background:linear-gradient(135deg,#009688,#00695c);border-radius:14px;padding:24px;color:#fff;">
+              <h4 style="color:#fff;font-size:16px;font-weight:700;margin-bottom:12px;">Need a Next.js SEO Expert?</h4>
+              <p style="color:rgba(255,255,255,0.85);font-size:13px;margin-bottom:18px;">I build and audit Next.js platforms for maximum search performance — SSR, SSG, ISR, Core Web Vitals, schema, and Cloudflare. Free 30-min consultation.</p>
+              <a href="../index.html#contact-section" style="background:#fff;color:#009688;font-size:13px;font-weight:700;padding:10px 18px;border-radius:8px;display:inline-block;text-decoration:none;">Get a Free Audit &#8594;</a>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer style="background:#212529;padding:30px 0;">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6"><p style="color:rgba(255,255,255,0.6);font-size:13px;margin:0;">&copy; <span id="footer-year"></span> Anju Batta. All rights reserved.</p></div>
+        <div class="col-md-6 text-md-right">
+          <a href="../blog.html" style="color:rgba(255,255,255,0.6);font-size:13px;text-decoration:none;">&#8592; All Posts</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/jquery.min.js"></script>
+  <script src="../js/popper.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+  <script src="../js/main.js"></script>
+  <script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

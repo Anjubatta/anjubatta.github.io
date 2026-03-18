@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Technical SEO Audit Checklist 2026: Fix Crawlability, Indexing &amp; Core Web Vitals | Anju Batta</title>
+
+  <meta name="description" content="A 50-point technical SEO audit checklist covering crawl budget, canonicalization, JavaScript rendering, Core Web Vitals, duplicate content, and indexability repair — with tools and fix instructions.">
+  <meta name="keywords" content="technical SEO audit checklist, crawlability fix SEO, indexability repair, Core Web Vitals fix, SEO audit 2026, Screaming Frog SEO audit, canonical tag issues, JavaScript SEO, duplicate content fix, technical SEO Chandigarh">
+  <meta name="author" content="Anju Batta">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://anjubatta.netlify.app/blog/technical-seo-audit-checklist">
+
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://anjubatta.netlify.app/blog/technical-seo-audit-checklist">
+  <meta property="og:title" content="Technical SEO Audit Checklist 2026: Fix Crawlability, Indexing &amp; Core Web Vitals">
+  <meta property="og:description" content="50-point technical SEO audit checklist covering crawl budget, canonicalization, JavaScript rendering, Core Web Vitals, duplicate content, and indexability repair.">
+  <meta property="og:image" content="https://anjubatta.netlify.app/images/abouts.png">
+
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="sitemap" type="application/xml" href="../sitemap.xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/open-iconic-bootstrap.min.css">
+  <link rel="stylesheet" href="../css/icomoon.css">
+  <link rel="stylesheet" href="../css/style.css">
+
+  <style>
+    .post-hero { background: linear-gradient(135deg,#009688,#00695c); padding: 80px 0 50px; color: #fff; }
+    .post-hero .back-link { color: rgba(255,255,255,0.7); font-size:13px; text-decoration:none; display:inline-flex; align-items:center; gap:6px; margin-bottom:20px; }
+    .post-hero .back-link:hover { color:#fff; }
+    .post-badge { display:inline-block; background:rgba(255,255,255,0.2); color:#fff; font-size:11px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; padding:4px 12px; border-radius:20px; margin-bottom:16px; }
+    .post-hero h1 { font-size:clamp(24px,4vw,42px); font-weight:800; line-height:1.3; max-width:800px; }
+    .post-meta { color:rgba(255,255,255,0.65); font-size:13px; margin-top:16px; display:flex; gap:16px; flex-wrap:wrap; }
+    .post-content { max-width:800px; }
+    .post-content h2 { font-size:clamp(20px,2.5vw,26px); font-weight:700; color:#111; margin:40px 0 16px; padding-bottom:10px; border-bottom:2px solid #f0f0f0; }
+    .post-content h3 { font-size:17px; font-weight:700; color:#009688; margin:28px 0 12px; }
+    .post-content p { color:#444; font-size:15px; line-height:1.8; margin-bottom:18px; }
+    .post-content ul, .post-content ol { color:#444; font-size:15px; line-height:1.8; margin-bottom:18px; padding-left:24px; }
+    .post-content li { margin-bottom:8px; }
+    .post-content code { background:#f0faf9; color:#009688; padding:2px 7px; border-radius:4px; font-size:13px; }
+    .checklist-item { display:flex; align-items:flex-start; gap:12px; background:#fff; border-radius:10px; padding:16px; margin-bottom:10px; box-shadow:0 2px 10px rgba(0,0,0,0.05); }
+    .checklist-item .check { width:24px; height:24px; background:linear-gradient(135deg,#009688,#00bfa5); border-radius:6px; display:flex; align-items:center; justify-content:center; color:#fff; font-size:13px; font-weight:700; flex-shrink:0; margin-top:1px; }
+    .checklist-item .check.orange { background:linear-gradient(135deg,#F96D00,#ff9f43); }
+    .checklist-item .check.purple { background:linear-gradient(135deg,#7c3aed,#a78bfa); }
+    .checklist-item h5 { font-size:14px; font-weight:700; color:#111; margin:0 0 4px; }
+    .checklist-item p { font-size:13px; color:#555; margin:0; }
+    .info-box { background:#f0faf9; border-left:4px solid #009688; border-radius:0 10px 10px 0; padding:18px 20px; margin:20px 0; }
+    .info-box.orange { background:#fff8f3; border-left-color:#F96D00; }
+    .tool-badge { display:inline-block; background:#e8f5f3; color:#009688; font-size:11px; font-weight:700; padding:3px 9px; border-radius:5px; margin:2px; }
+    .author-box { background:#f9f9f9; border-radius:14px; padding:24px; display:flex; gap:20px; align-items:flex-start; margin-top:48px; border:1px solid #eee; }
+    .author-box img { width:70px; height:70px; border-radius:50%; object-fit:cover; flex-shrink:0; }
+    .author-box h5 { font-size:16px; font-weight:700; color:#111; margin:0 0 6px; }
+    .author-box p { font-size:13px; color:#555; margin:0; }
+    .tag-cloud { display:flex; flex-wrap:wrap; gap:8px; margin:20px 0; }
+    .post-tag { background:#f0faf9; color:#009688; font-size:12px; font-weight:600; padding:4px 12px; border-radius:6px; }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Technical SEO Audit Checklist 2026: Fix Crawlability, Indexing & Core Web Vitals",
+    "description": "A 50-point technical SEO audit checklist covering crawl budget, canonicalization, JavaScript rendering, Core Web Vitals, duplicate content, and indexability repair.",
+    "url": "https://anjubatta.netlify.app/blog/technical-seo-audit-checklist",
+    "datePublished": "2026-03-12",
+    "dateModified": "2026-03-18",
+    "author": { "@type": "Person", "name": "Anju Batta", "url": "https://anjubatta.netlify.app/" },
+    "keywords": ["Technical SEO", "SEO Audit", "Crawlability", "Core Web Vitals", "Indexability"]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://anjubatta.netlify.app/" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://anjubatta.netlify.app/blog" },
+      { "@type": "ListItem", "position": 3, "name": "Technical SEO Audit Checklist", "item": "https://anjubatta.netlify.app/blog/technical-seo-audit-checklist" }
+    ]
+  }
+  </script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-N13XNYEVWD"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-N13XNYEVWD');</script>
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light" id="ftco-navbar">
+    <div class="container">
+      <a class="navbar-brand" href="../index.html">
+        <img src="../images/logo.svg" alt="Anju Batta" height="36" width="140" style="vertical-align:middle;">
+      </a>
+      <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="oi oi-menu"></span> Menu
+      </button>
+      <div class="collapse navbar-collapse" id="ftco-nav">
+        <ul class="navbar-nav nav ml-auto">
+          <li class="nav-item"><a href="../index.html#home-section" class="nav-link"><span>Home</span></a></li>
+          <li class="nav-item"><a href="../index.html#about-section" class="nav-link"><span>About</span></a></li>
+          <li class="nav-item"><a href="../index.html#ai-services-section" class="nav-link"><span>Services</span></a></li>
+          <li class="nav-item"><a href="../index.html#nextjs-seo-section" class="nav-link"><span>Next.js &amp; SEO</span></a></li>
+          <li class="nav-item"><a href="../index.html#project-section" class="nav-link"><span>Projects</span></a></li>
+          <li class="nav-item active"><a href="../blog.html" class="nav-link"><span>Blog</span></a></li>
+          <li class="nav-item"><a href="../contact/" class="nav-link"><span>Contact</span></a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="post-hero" style="margin-top:56px;">
+    <div class="container">
+      <a href="../blog.html" class="back-link">&#8592; Back to Blog</a>
+      <span class="post-badge">Technical SEO</span>
+      <h1>Technical SEO Audit Checklist 2026: Fix Crawlability, Indexing &amp; Core Web Vitals</h1>
+      <div class="post-meta">
+        <span>&#128197; March 12, 2026</span>
+        <span>&#128336; 12 min read</span>
+        <span>&#9998; Anju Batta</span>
+      </div>
+    </div>
+  </div>
+
+  <section style="background:#f9f9f9;padding:60px 0;">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="post-content">
+
+            <div class="tag-cloud">
+              <span class="post-tag">Technical SEO</span>
+              <span class="post-tag">Crawlability</span>
+              <span class="post-tag">Core Web Vitals</span>
+              <span class="post-tag">Indexability</span>
+              <span class="post-tag">SEO Audit</span>
+            </div>
+
+            <p>After 15+ years of building and auditing websites, I can tell you that most ranking problems are not content problems — they're <strong>technical infrastructure problems</strong> that prevent Google from properly crawling, understanding, and indexing pages.</p>
+
+            <p>This checklist covers every technical SEO dimension I run through in a paid audit. Use it to systematically diagnose and fix what's holding your site back.</p>
+
+            <p><strong>Tools you'll need:</strong>
+              <span class="tool-badge">Google Search Console</span>
+              <span class="tool-badge">Screaming Frog</span>
+              <span class="tool-badge">PageSpeed Insights</span>
+              <span class="tool-badge">Ahrefs / SEMrush</span>
+              <span class="tool-badge">Google Rich Results Test</span>
+            </p>
+
+            <h2>1. Crawlability &amp; Access</h2>
+
+            <div class="checklist-item">
+              <div class="check">1</div>
+              <div>
+                <h5>robots.txt — block nothing critical</h5>
+                <p>Check <code>yourdomain.com/robots.txt</code>. Common mistake: accidentally blocking CSS/JS files or entire sections. Use Google Search Console's robots.txt tester to validate.</p>
+              </div>
+            </div>
+            <div class="checklist-item">
+              <div class="check">2</div>
+              <div>
+                <h5>XML Sitemap — submit and verify</h5>
+                <p>Submit sitemap to Google Search Console. Ensure only indexable, canonical URLs appear. Remove paginated, filtered, and noindex URLs from the sitemap.</p>
+              </div>
+            </div>
+            <div class="checklist-item">
+              <div class="check">3</div>
+              <div>
+                <h5>Server response codes — fix 4xx and 5xx errors</h5>
+                <p>Use Screaming Frog or Search Console to find all 404 errors. Fix broken internal links. Redirect 301 any removed pages that had backlinks.</p>
+              </div>
+            </div>
+            <div class="checklist-item">
+              <div class="check">4</div>
+              <div>
+                <h5>Redirect chains — max 1 hop</h5>
+                <p>Chains of 3+ redirects waste crawl budget and pass less PageRank. Use Screaming Frog to find and collapse redirect chains into direct 301s.</p>
+              </div>
+            </div>
+            <div class="checklist-item">
+              <div class="check">5</div>
+              <div>
+                <h5>Crawl budget — prioritize important pages</h5>
+                <p>Sites with 10,000+ pages need crawl budget management. Use <code>noindex,nofollow</code> on thin/utility pages, and check the "Crawl Stats" report in Search Console.</p>
+              </div>
+            </div>
+
+            <h2>2. Indexability &amp; Canonicalization</h2>
+
+            <div class="checklist-item">
+              <div class="check">6</div>
+              <div>
+                <h5>Canonical tags — every page must have one</h5>
+                <p>Self-referencing canonical tags on every page prevent unintentional duplicate content signals. Ensure canonicals point to the correct version (HTTPS, trailing slash consistent, no parameters).</p>
+              </div>
+            </div>
+            <div class="checklist-item">
+              <div class="check">7</div>
+              <div>
+                <h5>Noindex pages — audit carefully</h5>
+                <p>Use Screaming Frog to list all pages with <code>noindex</code>. Verify none of your important pages are accidentally noindexed. Also check: meta robots, X-Robots-Tag header, robots.txt.</p>
+              </div>
+            </div>
+            <div class="checklist-item">
+              <div class="check">8</div>
+              <div>
+                <h5>Duplicate content — find and fix</h5>
+                <p>Check for: www vs non-www, HTTP vs HTTPS, trailing slash vs no slash, URL parameter variations. All should 301 to the canonical version.</p>
+              </div>
+            </div>
+            <div class="checklist-item">
+              <div class="check orange">9</div>
+              <div>
+                <h5>Pagination — implement correctly</h5>
+                <p>Use proper <code>rel="next"</code>/<code>rel="prev"</code> or consolidate paginated content with infinite scroll crawlability fixes. Never noindex paginated pages if they contain unique content.</p>
+              </div>
+            </div>
+            <div class="checklist-item">
+              <div class="check orange">10</div>
+              <div>
+                <h5>Hreflang — for multilingual sites</h5>
+                <p>Validate hreflang annotations with Screaming Frog. Every language version must reference all others, including itself. Missing self-referencing hreflang is a common bug.</p>
+              </div>
+            </div>
+
+            <h2>3. Core Web Vitals</h2>
+
+            <div class="checklist-item">
+              <div class="check">11</div>
+              <div>
+                <h5>LCP — Largest Contentful Paint under 2.5s</h5>
+                <p>Identify the LCP element (usually hero image or H1). Preload it with <code>&lt;link rel="preload"&gt;</code> and <code>fetchpriority="high"</code>. Serve images as WebP. Use CDN/edge caching.</p>
+              </div>
+            </div>
+            <div class="checklist-item">
+              <div class="check">12</div>
+              <div>
+                <h5>CLS — Cumulative Layout Shift under 0.1</h5>
+                <p>Add explicit <code>width</code> and <code>height</code> attributes to all images. Reserve space for ads and embeds. Use <code>font-display: swap</code> or <code>next/font</code> to prevent font-swap CLS.</p>
+              </div>
+            </div>
+            <div class="checklist-item">
+              <div class="check">13</div>
+              <div>
+                <h5>INP — Interaction to Next Paint under 200ms</h5>
+                <p>Break up long JavaScript tasks. Yield to the main thread with <code>scheduler.yield()</code>. Defer non-critical third-party scripts. Minimize event handler work.</p>
+              </div>
+            </div>
+            <div class="checklist-item">
+              <div class="check">14</div>
+              <div>
+                <h5>TTFB — Time to First Byte under 0.8s</h5>
+                <p>Enable server caching, use CDN edge caching (Cloudflare), optimize database queries, and consider static generation (SSG/ISR) for pages that don't need real-time data.</p>
+              </div>
+            </div>
+
+            <h2>4. JavaScript SEO</h2>
+
+            <div class="checklist-item">
+              <div class="check purple">15</div>
+              <div>
+                <h5>Critical content — must be in initial HTML</h5>
+                <p>Test with "View Page Source" (not DevTools). If important content (H1, body text, links) only appears after JavaScript runs, it's at risk of not being indexed. Use SSR or SSG instead.</p>
+              </div>
+            </div>
+            <div class="checklist-item">
+              <div class="check purple">16</div>
+              <div>
+                <h5>Dynamic rendering — for heavy JS apps</h5>
+                <p>If you can't move to SSR/SSG, use Cloudflare Workers or a prerendering service (Prerender.io) to serve static HTML to crawlers while keeping SPA for users.</p>
+              </div>
+            </div>
+            <div class="checklist-item">
+              <div class="check purple">17</div>
+              <div>
+                <h5>Internal links — must work in HTML source</h5>
+                <p>JavaScript-rendered internal links (spa navigation) are fine for users but use standard <code>&lt;a href=""&gt;</code> tags so crawlers can follow link equity through the site.</p>
+              </div>
+            </div>
+
+            <h2>5. Schema &amp; Structured Data</h2>
+
+            <div class="checklist-item">
+              <div class="check">18</div>
+              <div>
+                <h5>JSON-LD — validate all schemas</h5>
+                <p>Test every schema type through the Google Rich Results Test. Fix all errors and warnings. Broken schema costs you rich snippet eligibility.</p>
+              </div>
+            </div>
+            <div class="checklist-item">
+              <div class="check">19</div>
+              <div>
+                <h5>FAQ schema — for informational pages</h5>
+                <p>Add FAQPage schema to service, about, and blog pages with common questions. This increases snippet size in SERPs and improves AEO (Answer Engine Optimization) visibility.</p>
+              </div>
+            </div>
+            <div class="checklist-item">
+              <div class="check">20</div>
+              <div>
+                <h5>Review / AggregateRating — for service pages</h5>
+                <p>Properly marked-up ratings can show star ratings in search results, significantly improving CTR. Ensure ratings are genuine and match on-page reviews.</p>
+              </div>
+            </div>
+
+            <div class="info-box orange">
+              <strong>The most common issues I find in audits:</strong> Missing canonical tags on filtered/paginated URLs, critical content only rendered by JavaScript (invisible to crawlers), LCP images not preloaded, redirect chains of 3+ hops, and schema that validates with errors in the Rich Results Test but was never checked after deployment.
+            </div>
+
+            <h2>6. Metadata &amp; On-Page Signals</h2>
+
+            <div class="checklist-item">
+              <div class="check">21</div>
+              <div>
+                <h5>Title tags — unique and under 60 characters</h5>
+                <p>Every page must have a unique, descriptive title tag. Avoid duplication — use Screaming Frog to export and audit all title tags at scale.</p>
+              </div>
+            </div>
+            <div class="checklist-item">
+              <div class="check">22</div>
+              <div>
+                <h5>Meta descriptions — unique and under 160 characters</h5>
+                <p>While not a ranking factor, meta descriptions influence click-through rates. Write compelling, descriptive summaries that include the primary keyword naturally.</p>
+              </div>
+            </div>
+            <div class="checklist-item">
+              <div class="check">23</div>
+              <div>
+                <h5>H1 — one per page, matches intent</h5>
+                <p>One H1 per page that clearly communicates the page topic. Must be present in the HTML source (not rendered by JavaScript only).</p>
+              </div>
+            </div>
+            <div class="checklist-item">
+              <div class="check">24</div>
+              <div>
+                <h5>Image alt text — every image must have one</h5>
+                <p>Alt text helps accessibility and image search. Describe the image naturally. Avoid keyword stuffing. Leave alt="" for decorative images.</p>
+              </div>
+            </div>
+
+            <div class="info-box">
+              <strong>Run this audit quarterly.</strong> Technical SEO is not a one-time task — site migrations, CMS updates, plugin changes, and new development regularly introduce new issues. Build a quarterly audit into your workflow.
+            </div>
+
+            <div class="author-box">
+              <img src="../images/abouts.webp" alt="Anju Batta" loading="lazy">
+              <div>
+                <h5>Anju Batta</h5>
+                <p>Senior Full Stack Developer, Technical SEO Engineer &amp; AI Automation Architect with 15+ years of experience. I run full technical SEO audits and fix crawlability, indexability, and Core Web Vitals issues for clients worldwide.</p>
+                <a href="../index.html#contact-section" style="color:#009688;font-size:13px;font-weight:700;text-decoration:none;">Book a Technical SEO Audit &#8594;</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div style="position:sticky;top:80px;">
+            <div style="background:#fff;border-radius:14px;padding:24px;box-shadow:0 4px 20px rgba(0,0,0,0.07);margin-bottom:24px;border-left:4px solid #009688;">
+              <h4 style="font-size:16px;font-weight:700;color:#111;margin-bottom:16px;">Related Articles</h4>
+              <div style="margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid #f0f0f0;">
+                <a href="nextjs-seo-architecture.html" style="color:#333;font-size:13px;font-weight:600;text-decoration:none;display:block;margin-bottom:4px;line-height:1.4;">Next.js SEO Architecture: SSR, SSG &amp; ISR</a>
+                <span style="font-size:11px;color:#888;">8 min read</span>
+              </div>
+              <div style="margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid #f0f0f0;">
+                <a href="aeo-geo-ai-search-optimization.html" style="color:#333;font-size:13px;font-weight:600;text-decoration:none;display:block;margin-bottom:4px;line-height:1.4;">AEO &amp; GEO: Optimize for AI Search Engines</a>
+                <span style="font-size:11px;color:#888;">10 min read</span>
+              </div>
+              <div>
+                <a href="schema-engineering-guide.html" style="color:#333;font-size:13px;font-weight:600;text-decoration:none;display:block;margin-bottom:4px;line-height:1.4;">Schema Engineering: JSON-LD &amp; Rich Results Guide</a>
+                <span style="font-size:11px;color:#888;">9 min read</span>
+              </div>
+            </div>
+            <div style="background:linear-gradient(135deg,#009688,#00695c);border-radius:14px;padding:24px;color:#fff;">
+              <h4 style="color:#fff;font-size:16px;font-weight:700;margin-bottom:12px;">Need a Technical SEO Audit?</h4>
+              <p style="color:rgba(255,255,255,0.85);font-size:13px;margin-bottom:18px;">I fix crawlability, indexability, Core Web Vitals, and schema issues. Free 30-min consultation. Responds within 2 hours.</p>
+              <a href="../index.html#contact-section" style="background:#fff;color:#009688;font-size:13px;font-weight:700;padding:10px 18px;border-radius:8px;display:inline-block;text-decoration:none;">Get a Free Audit &#8594;</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer style="background:#212529;padding:30px 0;">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6"><p style="color:rgba(255,255,255,0.6);font-size:13px;margin:0;">&copy; <span id="footer-year"></span> Anju Batta. All rights reserved.</p></div>
+        <div class="col-md-6 text-md-right"><a href="../blog.html" style="color:rgba(255,255,255,0.6);font-size:13px;text-decoration:none;">&#8592; All Posts</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/jquery.min.js"></script>
+  <script src="../js/popper.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+  <script src="../js/main.js"></script>
+  <script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

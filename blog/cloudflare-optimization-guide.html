@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Cloudflare Setup Guide: Edge Caching, WAF, Rate Limiting &amp; Bot Protection for SEO | Anju Batta</title>
+
+  <meta name="description" content="A complete Cloudflare configuration guide for SEO professionals — edge caching, WAF rules, rate limiting, bot protection, and prerender setup for JavaScript-heavy sites.">
+  <meta name="keywords" content="Cloudflare setup guide, Cloudflare WAF configuration, Cloudflare edge caching SEO, Cloudflare rate limiting, bot protection Cloudflare, Cloudflare prerender setup, CDN optimization">
+  <meta name="author" content="Anju Batta">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://anjubatta.netlify.app/blog/cloudflare-optimization-guide">
+
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://anjubatta.netlify.app/blog/cloudflare-optimization-guide">
+  <meta property="og:title" content="Cloudflare Setup Guide: Edge Caching, WAF, Rate Limiting &amp; Bot Protection for SEO">
+  <meta property="og:description" content="Step-by-step Cloudflare configuration for maximum SEO benefit — edge caching, prerender for JS sites, WAF rules that don't block Googlebot, and smart rate limiting.">
+  <meta property="og:image" content="https://anjubatta.netlify.app/images/abouts.png">
+
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="sitemap" type="application/xml" href="../sitemap.xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/open-iconic-bootstrap.min.css">
+  <link rel="stylesheet" href="../css/icomoon.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/animate.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="../css/animate.css"></noscript>
+
+  <style>
+    .post-hero { background: linear-gradient(135deg,#F96D00,#e65c00); padding: 80px 0 50px; color: #fff; }
+    .post-hero .back-link { color: rgba(255,255,255,0.6); font-size:13px; text-decoration:none; display:inline-flex; align-items:center; gap:6px; margin-bottom:20px; }
+    .post-hero .back-link:hover { color:#fff; }
+    .post-badge { display:inline-block; background:rgba(255,255,255,0.15); color:#fff; font-size:11px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; padding:4px 12px; border-radius:20px; margin-bottom:16px; }
+    .post-hero h1 { font-size:clamp(24px,4vw,42px); font-weight:800; line-height:1.3; max-width:800px; }
+    .post-meta { color:rgba(255,255,255,0.6); font-size:13px; margin-top:16px; display:flex; gap:16px; flex-wrap:wrap; }
+    .post-content { max-width:800px; }
+    .post-content h2 { font-size:clamp(20px,2.5vw,26px); font-weight:700; color:#111; margin:40px 0 16px; padding-bottom:10px; border-bottom:2px solid #f0f0f0; }
+    .post-content h3 { font-size:18px; font-weight:700; color:#F96D00; margin:28px 0 12px; }
+    .post-content p { color:#444; font-size:15px; line-height:1.8; margin-bottom:18px; }
+    .post-content ul, .post-content ol { color:#444; font-size:15px; line-height:1.8; margin-bottom:18px; padding-left:24px; }
+    .post-content li { margin-bottom:8px; }
+    .post-content code { background:#fff8f3; color:#e65c00; padding:2px 7px; border-radius:4px; font-size:13px; font-family:monospace; }
+    .post-content pre { background:#0d1117; color:#e6edf3; padding:20px 24px; border-radius:10px; overflow-x:auto; font-size:13px; line-height:1.7; margin-bottom:20px; }
+    .info-box { background:#fff8f3; border-left:4px solid #F96D00; border-radius:0 10px 10px 0; padding:18px 20px; margin:20px 0; }
+    .info-box.teal { background:#f0faf9; border-left-color:#009688; }
+    .info-box.red { background:#fff5f5; border-left-color:#dc2626; }
+    .info-box.blue { background:#eff6ff; border-left-color:#2563eb; }
+    .info-box.warning { background:#fffbeb; border-left-color:#d97706; border:2px solid #d97706; border-radius:10px; padding:20px; }
+    .info-box strong { color:#F96D00; }
+    .info-box.teal strong { color:#009688; }
+    .info-box.red strong { color:#dc2626; }
+    .info-box.blue strong { color:#2563eb; }
+    .info-box.warning strong { color:#d97706; }
+    .config-card { background:#fff; border-radius:14px; padding:24px; box-shadow:0 4px 20px rgba(0,0,0,0.07); margin-bottom:20px; border-top:4px solid #F96D00; }
+    .config-card.teal { border-top-color:#009688; }
+    .config-card.blue { border-top-color:#2563eb; }
+    .config-card h4 { color:#111; font-weight:700; font-size:16px; margin-bottom:10px; }
+    .config-card p { color:#555; font-size:13.5px; margin:0 0 12px; }
+    .tag-cloud { display:flex; flex-wrap:wrap; gap:8px; margin:20px 0; }
+    .post-tag { background:#fff8f3; color:#F96D00; font-size:12px; font-weight:600; padding:4px 12px; border-radius:6px; }
+    .author-box { background:#f9f9f9; border-radius:14px; padding:24px; display:flex; gap:20px; align-items:flex-start; margin-top:48px; border:1px solid #eee; }
+    .author-box img { width:70px; height:70px; border-radius:50%; object-fit:cover; flex-shrink:0; }
+    .author-box h5 { font-size:16px; font-weight:700; color:#111; margin:0 0 6px; }
+    .author-box p { font-size:13px; color:#555; margin:0; }
+    .step-list { counter-reset:steps; list-style:none; padding:0; }
+    .step-list li { counter-increment:steps; display:flex; gap:16px; align-items:flex-start; margin-bottom:20px; }
+    .step-list li::before { content:counter(steps); background:#F96D00; color:#fff; width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:700; flex-shrink:0; margin-top:2px; }
+    .step-content h5 { font-size:14px; font-weight:700; color:#111; margin:0 0 6px; }
+    .step-content p { font-size:13.5px; color:#555; margin:0; }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Cloudflare Setup Guide: Edge Caching, WAF, Rate Limiting & Bot Protection for SEO",
+    "description": "A complete Cloudflare configuration guide for SEO professionals — edge caching, WAF rules, rate limiting, bot protection, and prerender setup for JavaScript-heavy sites.",
+    "url": "https://anjubatta.netlify.app/blog/cloudflare-optimization-guide",
+    "datePublished": "2026-03-08",
+    "dateModified": "2026-03-18",
+    "author": { "@type": "Person", "name": "Anju Batta", "url": "https://anjubatta.netlify.app/" },
+    "publisher": { "@type": "Person", "name": "Anju Batta" },
+    "keywords": ["Cloudflare setup guide", "Cloudflare WAF configuration", "Cloudflare edge caching SEO", "Cloudflare rate limiting", "bot protection Cloudflare"],
+    "articleSection": "Technical SEO"
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://anjubatta.netlify.app/" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://anjubatta.netlify.app/blog" },
+      { "@type": "ListItem", "position": 3, "name": "Cloudflare Setup Guide", "item": "https://anjubatta.netlify.app/blog/cloudflare-optimization-guide" }
+    ]
+  }
+  </script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-N13XNYEVWD"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-N13XNYEVWD');</script>
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
+    <div class="container">
+      <a class="navbar-brand" href="../index.html">
+        <img src="../images/logo.svg" alt="Anju Batta" height="36" width="140" style="vertical-align:middle;">
+      </a>
+      <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="oi oi-menu"></span> Menu
+      </button>
+      <div class="collapse navbar-collapse" id="ftco-nav">
+        <ul class="navbar-nav nav ml-auto">
+          <li class="nav-item"><a href="../index.html#home-section" class="nav-link"><span>Home</span></a></li>
+          <li class="nav-item"><a href="../index.html#about-section" class="nav-link"><span>About</span></a></li>
+          <li class="nav-item"><a href="../index.html#ai-services-section" class="nav-link"><span>Services</span></a></li>
+          <li class="nav-item"><a href="../index.html#nextjs-seo-section" class="nav-link"><span>Next.js &amp; SEO</span></a></li>
+          <li class="nav-item"><a href="../index.html#project-section" class="nav-link"><span>Projects</span></a></li>
+          <li class="nav-item active"><a href="../blog.html" class="nav-link"><span>Blog</span></a></li>
+          <li class="nav-item"><a href="../contact/" class="nav-link"><span>Contact</span></a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Post Hero -->
+  <div class="post-hero" style="margin-top:56px;">
+    <div class="container">
+      <a href="../blog.html" class="back-link">&#8592; Back to Blog</a>
+      <span class="post-badge">Cloudflare</span>
+      <h1>Cloudflare Setup Guide: Edge Caching, WAF, Rate Limiting &amp; Bot Protection for SEO</h1>
+      <div class="post-meta">
+        <span>&#128197; March 8, 2026</span>
+        <span>&#128336; 11 min read</span>
+        <span>&#9998; Anju Batta</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Post Content -->
+  <section style="background:#f9f9f9;padding:60px 0;">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="post-content">
+
+            <div class="tag-cloud">
+              <span class="post-tag">Cloudflare</span>
+              <span class="post-tag">CDN</span>
+              <span class="post-tag">Edge Caching</span>
+              <span class="post-tag">WAF</span>
+              <span class="post-tag">Bot Protection</span>
+              <span class="post-tag">Technical SEO</span>
+              <span class="post-tag">Core Web Vitals</span>
+            </div>
+
+            <p>Cloudflare is one of the most powerful tools in a technical SEO engineer's arsenal — and one of the most dangerous when misconfigured. Done right, it dramatically improves TTFB, protects your crawl budget, and shields your site from downtime. Done wrong, it blocks Googlebot, breaks crawler access, and tanks your rankings.</p>
+
+            <p>After configuring Cloudflare for dozens of client sites over 15 years, here's the complete setup guide — edge caching, WAF, prerender for JavaScript sites, rate limiting, and bot protection — all configured with SEO outcomes in mind.</p>
+
+            <h2>1. Why Cloudflare Matters for SEO</h2>
+
+            <p>Cloudflare is a reverse proxy CDN sitting between your origin server and the world. Every request — from users, crawlers, and bots — passes through Cloudflare's edge network before reaching your server. This gives you:</p>
+
+            <div class="config-card">
+              <h4>Speed and Core Web Vitals</h4>
+              <p>Cloudflare serves cached assets from edge nodes closest to the visitor, dramatically reducing TTFB. Faster TTFB improves LCP (Largest Contentful Paint) — one of Google's Core Web Vitals. In my testing, a well-configured Cloudflare cache typically reduces TTFB from 400–800ms to under 100ms for cached pages globally.</p>
+            </div>
+
+            <div class="config-card teal">
+              <h4>Crawlability and Crawl Budget</h4>
+              <p>Cloudflare caches pages so Googlebot receives fast responses and can crawl more pages within your crawl budget. A slow server forces Googlebot to slow its crawl rate — Cloudflare's edge caching eliminates this bottleneck. DDoS protection prevents downtime that would otherwise remove pages from Google's index.</p>
+            </div>
+
+            <div class="info-box warning">
+              <strong>&#9888; Critical SEO Warning:</strong> Cloudflare's security features — WAF, Bot Fight Mode, Rate Limiting, and Firewall Rules — can and will block Googlebot and legitimate SEO crawlers if configured incorrectly. Every security feature you enable must be reviewed to ensure search engine crawlers are explicitly whitelisted or excluded. I've seen entire sites drop from Google's index due to overly aggressive WAF rules blocking Googlebot.
+            </div>
+
+            <h2>2. Edge Caching Setup</h2>
+
+            <p>Cloudflare's default caching configuration is conservative — it only caches static assets (images, CSS, JS) and does NOT cache HTML pages by default. For SEO, you want to cache HTML pages at the edge. Here's how to configure it properly:</p>
+
+            <h3>Cache Rules (Recommended Approach)</h3>
+            <p>Use Cloudflare's Cache Rules (under Caching &gt; Cache Rules) to define precisely what gets cached and for how long:</p>
+
+            <pre><code># Cache Rule 1: Cache static marketing pages for 24 hours
+Field: URI Path
+Operator: starts with
+Value: /blog/ OR /services/ OR /about/
+
+Action: Eligible for cache
+Edge TTL: Respect origin, override to 86400 (24h)
+Browser TTL: 3600 (1h)
+
+# Cache Rule 2: Bypass cache for dynamic/authenticated pages
+Field: URI Path
+Operator: starts with
+Value: /admin/ OR /api/ OR /cart/ OR /checkout/
+
+Action: Bypass cache
+
+# Cache Rule 3: Cache static assets aggressively
+Field: File extension
+Operator: is in
+Value: css, js, png, jpg, webp, svg, woff2
+
+Action: Eligible for cache
+Edge TTL: 2592000 (30 days)
+Browser TTL: 86400 (1 day)</code></pre>
+
+            <h3>Cache Level Configuration</h3>
+            <p>Under Caching &gt; Configuration, set <strong>Caching Level</strong> to <strong>Standard</strong>. Do not use "Ignore Query String" unless you've verified that your site doesn't use query strings for different content — this setting can cause Cloudflare to serve wrong cached versions.</p>
+
+            <h3>Purge Cache on Deploy</h3>
+            <p>Always purge the Cloudflare cache when you deploy new content. Use the Cloudflare API or the dashboard's "Purge Everything" button. For CMS sites, set up a deploy hook to call <code>POST /zones/{zone_id}/purge_cache</code> with <code>{"purge_everything": true}</code> automatically.</p>
+
+            <div class="info-box teal">
+              <strong>SEO tip:</strong> Enable <strong>Always Online</strong> in Cloudflare (Speed &gt; Optimization). This serves a cached version of your pages even when your origin server is down, preventing pages from returning 5xx errors to Googlebot during maintenance or outages.
+            </div>
+
+            <h2>3. Prerender Setup for JavaScript-Heavy Sites</h2>
+
+            <p>If your site uses React, Vue, Angular, or any JavaScript-heavy framework without server-side rendering, Googlebot may struggle to index your content. JavaScript rendering consumes crawl budget and can delay indexing by days or weeks.</p>
+
+            <p>The solution: use a prerender service to serve fully-rendered HTML to crawlers, while real users get the JavaScript SPA experience. This can be implemented via Cloudflare Workers:</p>
+
+            <h3>Cloudflare Worker: Prerender for Crawlers</h3>
+
+            <pre><code>// Cloudflare Worker — serve prerendered HTML to crawlers
+// Deploy in Workers & Pages > Create Worker
+
+const PRERENDER_SERVICE = 'https://service.prerender.io/';
+const PRERENDER_TOKEN = 'YOUR_PRERENDER_TOKEN';
+
+// User agents that should receive prerendered HTML
+const CRAWLER_AGENTS = [
+  'googlebot', 'bingbot', 'slurp', 'duckduckbot',
+  'baiduspider', 'yandexbot', 'facebot', 'twitterbot',
+  'linkedinbot', 'embedly', 'quora link preview',
+  'showyoubot', 'outbrain', 'pinterest', 'developers.google.com'
+];
+
+export default {
+  async fetch(request) {
+    const url = new URL(request.url);
+    const userAgent = (request.headers.get('User-Agent') || '').toLowerCase();
+
+    const isCrawler = CRAWLER_AGENTS.some(agent =>
+      userAgent.includes(agent)
+    );
+
+    // Only prerender for crawlers, not for real users
+    if (isCrawler && !url.pathname.match(/\.(js|css|xml|less|png|jpg|jpeg|gif|pdf|doc|txt|ico|rss|zip|mp3|rar|exe|wmv|doc|avi|ppt|mpg|mpeg|tif|wav|mov|psd|ai|xls|mp4|m4a|swf|dat|dmg|iso|flv|m4v|torrent|ttf|woff|woff2|svg)$/)) {
+      const prerenderUrl = `${PRERENDER_SERVICE}${request.url}`;
+      const prerenderRequest = new Request(prerenderUrl, {
+        headers: {
+          'X-Prerender-Token': PRERENDER_TOKEN,
+          'User-Agent': request.headers.get('User-Agent') || ''
+        }
+      });
+      return fetch(prerenderRequest);
+    }
+
+    // Regular users get the origin response
+    return fetch(request);
+  }
+};</code></pre>
+
+            <div class="info-box">
+              <strong>Alternative:</strong> If you're using Next.js, Nuxt, or another SSR framework, you don't need prerendering — server-rendered HTML is already served to crawlers. Prerendering is specifically for pure client-side SPAs that don't have a server rendering layer.
+            </div>
+
+            <h2>4. WAF Configuration</h2>
+
+            <p>Cloudflare's Web Application Firewall (WAF) is essential for security, but it must be configured carefully to avoid blocking legitimate crawlers. The default managed rulesets are generally safe, but custom rules need careful attention.</p>
+
+            <h3>Managed Rulesets</h3>
+            <p>Enable the <strong>Cloudflare Managed Ruleset</strong> and the <strong>OWASP Core Ruleset</strong> (Security &gt; WAF &gt; Managed Rules). Start with "Log" action before switching to "Block" — this lets you see what would be blocked without impacting traffic. Review the logs for false positives, particularly from known good crawlers, before enabling Block mode.</p>
+
+            <h3>Whitelist Googlebot and SEO Crawlers</h3>
+            <p>Create a WAF Skip rule to bypass all WAF checks for verified search engine crawlers. Place this rule at the top of your WAF rule order with the highest priority:</p>
+
+            <pre><code># WAF Skip Rule — Whitelist known good crawlers
+# Security > WAF > Custom Rules > Create Rule
+# Place this FIRST (highest priority) in your rule list
+
+Rule Name: Skip WAF for Search Engine Crawlers
+
+IF (
+  (http.user_agent contains "Googlebot") OR
+  (http.user_agent contains "Google-InspectionTool") OR
+  (http.user_agent contains "Bingbot") OR
+  (http.user_agent contains "Slurp") OR
+  (http.user_agent contains "DuckDuckBot") OR
+  (http.user_agent contains "Screaming Frog") OR
+  (http.user_agent contains "Semrushbot") OR
+  (http.user_agent contains "AhrefsBot")
+)
+
+THEN: Skip > WAF Managed Rules</code></pre>
+
+            <div class="info-box warning">
+              <strong>&#9888; Important:</strong> User-agent strings can be spoofed. For truly sensitive security rules, use Cloudflare's verified bot feature (Bot Management &gt; Bot Fight Mode) which validates the actual IP ranges of known crawlers rather than trusting self-declared user agents. Never rely solely on UA strings for security decisions.
+            </div>
+
+            <h3>Custom WAF Rules for Common Threats</h3>
+            <p>Beyond the managed rulesets, these custom rules cover common threats without impacting crawlers:</p>
+            <ul>
+              <li>Block requests with empty User-Agent strings (legitimate crawlers always identify themselves)</li>
+              <li>Block requests scanning for <code>wp-admin</code>, <code>xmlrpc.php</code> if you're not running WordPress</li>
+              <li>Block SQL injection patterns in URL query strings</li>
+              <li>Challenge (not block) requests from countries with no legitimate business relevance to your site</li>
+            </ul>
+
+            <h2>5. Rate Limiting</h2>
+
+            <p>Rate limiting protects your origin server from being overwhelmed — by DDoS attacks, credential stuffing, and aggressive scrapers. The key is to set limits high enough that legitimate crawlers are never affected.</p>
+
+            <h3>Safe Rate Limiting Thresholds</h3>
+
+            <div class="config-card blue">
+              <h4>Recommended Rate Limits by Endpoint Type</h4>
+              <p>These thresholds protect against abuse without impacting Googlebot (which typically crawls at 1–3 req/sec for most sites):</p>
+              <ul style="color:#555;font-size:13.5px;padding-left:18px;">
+                <li><strong>API endpoints</strong> (<code>/api/*</code>): 100 requests / 60 seconds per IP</li>
+                <li><strong>Login / auth forms</strong>: 5 requests / 60 seconds per IP — Log + Challenge</li>
+                <li><strong>Contact / signup forms</strong>: 10 requests / 60 seconds per IP</li>
+                <li><strong>General pages</strong>: 500 requests / 60 seconds per IP (rarely needed unless under attack)</li>
+                <li><strong>XML sitemap</strong>: No rate limit (Googlebot needs unrestricted access)</li>
+              </ul>
+            </div>
+
+            <h3>Exclude Verified Good Bots from Rate Limits</h3>
+            <p>In each Rate Limiting rule, add an exception condition. Under "When incoming requests match... except if":</p>
+
+            <pre><code># Rate Limit Exception for Known Good Crawlers
+Except if: (cf.client.bot) is true
+
+# The cf.client.bot field is Cloudflare's verified bot detection
+# It validates the actual IP range, not just the user agent string
+# This safely excludes Googlebot, Bingbot, and other verified crawlers</code></pre>
+
+            <h2>6. Bot Protection</h2>
+
+            <p>Cloudflare's bot protection tiers range from free basic tools to enterprise Bot Management. Here's how to configure each level without breaking crawler access:</p>
+
+            <h3>Bot Fight Mode (Free/Pro)</h3>
+            <p>Bot Fight Mode (Security &gt; Bots) detects and blocks obvious bots — automated traffic using headless browsers, known attack tools, and scrapers. It does NOT block verified good bots like Googlebot by default. Safe to enable on most sites. Start with "Log" mode first to verify no false positives.</p>
+
+            <h3>Super Bot Fight Mode (Business/Enterprise)</h3>
+            <p>Super Bot Fight Mode adds more sophisticated bot detection including TLS fingerprinting and behavioral analysis. Critical configuration for SEO:</p>
+
+            <ul>
+              <li>Set <strong>Verified Bots</strong> to "Allow" — this covers Googlebot, Bingbot, and other verified search engine crawlers</li>
+              <li>Set <strong>Definitely Automated</strong> to "Managed Challenge" (not Block) initially, then review logs</li>
+              <li>Set <strong>Likely Automated</strong> to "Log" only — never "Block" without extensive monitoring</li>
+            </ul>
+
+            <div class="info-box teal">
+              <strong>SEO audit check:</strong> After enabling any bot protection feature, always verify Googlebot can still access your site. Use Google Search Console's URL Inspection tool to fetch a page live and confirm it's accessible. Check the "Coverage" report for any sudden increases in crawl errors. Monitor for spikes in 403 or 503 errors in your server logs.
+            </div>
+
+            <h3>Custom Bot Rules for SEO Scrapers</h3>
+            <p>You may want to allow some third-party SEO tools while blocking generic scrapers. Use Firewall Rules to manage specific UA strings:</p>
+
+            <pre><code># Allow specific SEO tools, block generic scrapers
+# Security > WAF > Custom Rules
+
+# ALLOW Rule (priority 1):
+IF user_agent contains "Screaming Frog" OR
+   user_agent contains "Ahrefs" OR
+   user_agent contains "SEMrush" OR
+   user_agent contains "Moz"
+THEN: Skip all security features
+
+# CHALLENGE Rule (priority 2):
+IF user_agent contains "python-requests" OR
+   user_agent contains "curl" OR
+   user_agent contains "wget" OR
+   user_agent is empty
+THEN: Managed Challenge</code></pre>
+
+            <h2>Summary: Cloudflare SEO Configuration Checklist</h2>
+            <ul>
+              <li>&#9989; Cache Rules configured — HTML pages cached at edge, dynamic pages bypassed</li>
+              <li>&#9989; Always Online enabled to prevent 5xx during downtime</li>
+              <li>&#9989; Cache purge integrated into deployment pipeline</li>
+              <li>&#9989; WAF Skip rule for verified search engine crawlers (highest priority)</li>
+              <li>&#9989; WAF Managed Ruleset + OWASP enabled — Log mode first, then Block</li>
+              <li>&#9989; Rate Limiting on API/form endpoints, with <code>cf.client.bot</code> exception</li>
+              <li>&#9989; Bot Fight Mode enabled with Verified Bots set to Allow</li>
+              <li>&#9989; Prerender Worker deployed (if using client-side only JS framework)</li>
+              <li>&#9989; Post-setup verification: Google Search Console URL Inspection test</li>
+            </ul>
+
+            <!-- Author Box -->
+            <div class="author-box">
+              <img src="../images/abouts.webp" alt="Anju Batta" loading="lazy">
+              <div>
+                <h5>Anju Batta</h5>
+                <p>Senior Full Stack Developer, Technical SEO Engineer &amp; AI Automation Architect with 15+ years of experience. Configuring Cloudflare, Next.js, and AI agent systems for maximum performance from Chandigarh, India.</p>
+                <a href="../index.html#contact-section" style="color:#F96D00;font-size:13px;font-weight:700;text-decoration:none;">Get Cloudflare Configuration Help &#8594;</a>
+              </div>
+            </div>
+
+          </div><!-- /post-content -->
+        </div><!-- /col-lg-8 -->
+
+        <!-- Sidebar -->
+        <div class="col-lg-4">
+          <div style="position:sticky;top:80px;">
+
+            <div style="background:#fff;border-radius:14px;padding:24px;box-shadow:0 4px 20px rgba(0,0,0,0.07);margin-bottom:24px;border-left:4px solid #F96D00;">
+              <h4 style="font-size:16px;font-weight:700;color:#111;margin-bottom:16px;">Related Articles</h4>
+              <div style="margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid #f0f0f0;">
+                <h5 style="font-size:14px;font-weight:700;color:#111;margin-bottom:6px;"><a href="technical-seo-audit-checklist.html" style="color:inherit;text-decoration:none;">Technical SEO Audit Checklist 2026</a></h5>
+                <p style="font-size:12.5px;color:#666;margin:0;">50-point checklist covering crawlability, indexing, Core Web Vitals, and more.</p>
+              </div>
+              <div style="margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid #f0f0f0;">
+                <h5 style="font-size:14px;font-weight:700;color:#111;margin-bottom:6px;"><a href="nextjs-seo-architecture.html" style="color:inherit;text-decoration:none;">Next.js SEO Architecture</a></h5>
+                <p style="font-size:12.5px;color:#666;margin:0;">SSR, SSG &amp; ISR — choosing the right rendering strategy for search rankings.</p>
+              </div>
+              <div>
+                <h5 style="font-size:14px;font-weight:700;color:#111;margin-bottom:6px;"><a href="aeo-geo-ai-search-optimization.html" style="color:inherit;text-decoration:none;">AEO &amp; GEO: Optimize for AI Search</a></h5>
+                <p style="font-size:12.5px;color:#666;margin:0;">How to appear in ChatGPT, Gemini, and Perplexity AI-generated answers.</p>
+              </div>
+            </div>
+
+            <div style="background:linear-gradient(135deg,#009688,#00695c);border-radius:14px;padding:24px;color:#fff;">
+              <h4 style="color:#fff;font-size:16px;font-weight:700;margin-bottom:12px;">Need Cloudflare Setup Help?</h4>
+              <p style="color:rgba(255,255,255,0.85);font-size:13px;margin-bottom:18px;">I configure Cloudflare for SEO-optimal performance — edge caching, WAF rules that don't break crawlers, prerender for JS sites, and bot protection. Free 30-min consultation.</p>
+              <a href="../index.html#contact-section" style="background:#fff;color:#009688;font-size:13px;font-weight:700;padding:10px 18px;border-radius:8px;display:inline-block;text-decoration:none;">Get a Free Audit &#8594;</a>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer style="background:#212529;padding:30px 0;">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6"><p style="color:rgba(255,255,255,0.6);font-size:13px;margin:0;">&copy; <span id="footer-year"></span> Anju Batta. All rights reserved.</p></div>
+        <div class="col-md-6 text-md-right">
+          <a href="../blog.html" style="color:rgba(255,255,255,0.6);font-size:13px;text-decoration:none;">&#8592; All Posts</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/jquery.min.js"></script>
+  <script src="../js/popper.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+  <script src="../js/main.js"></script>
+  <script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

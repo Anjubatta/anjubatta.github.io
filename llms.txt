@@ -1,0 +1,57 @@
+# Anju Batta
+
+> Senior Full Stack Developer & AI Automation Architect with 12+ years of experience, based in Chandigarh, India. Expert in AI Agent Development, n8n Automation, Shopify, Laravel, WordPress, and Mobile App Development. Available for new projects — response within 2 hours.
+
+Anju Batta helps businesses build scalable digital systems while automating repetitive processes to drive real revenue. She bridges complex code (Laravel/Shopify) with modern automation (n8n/AI Agents), eliminating 20+ hours of manual work weekly for her clients. Best suited for Shopify stores, SaaS companies, and agencies ready to scale.
+
+## Core Services
+
+- [AI Agent Development](https://anjubatta.netlify.app/#ai-services-section): Builds autonomous AI agents using Claude, ChatGPT, and OpenAI APIs. Support bots with context awareness, data analysis agents, and research assistants. Rapid prototyping with Bolt, Lovable, and V0.
+- [Business Automation – n8n & Zapier](https://anjubatta.netlify.app/#ai-services-section): Replaces fragile Zaps with robust n8n workflows. eCommerce: Shopify → Inventory → Shipping → Customer Email. CRM Sync, Lead Routing, Financial Reporting. Self-hosted n8n for enterprise-grade reliability.
+- [Full Stack & Shopify Architecture](https://anjubatta.netlify.app/#ai-services-section): Custom Shopify 2.0 themes with automated inventory and Stripe/PayPal. Laravel/Node.js clean backend for SaaS apps. React, VueJS, Tailwind CSS frontends. REST APIs and GraphQL.
+- [Mobile App Development](https://anjubatta.netlify.app/#about-section): iOS and Android apps using Ionic and Angular.
+- [WordPress Development](https://anjubatta.netlify.app/#project-section): Custom themes, plugins, and WooCommerce integrations.
+
+## Technology Stack
+
+- AI & GenAI: Claude, ChatGPT, Claude Code, Bolt, Lovable, V0, OpenAI API
+- Automation: n8n (self-hosted), Zapier, Make, Webhooks
+- Backend: Laravel, PHP, Node.js, Express.js, REST APIs, GraphQL
+- Frontend: React, VueJS, JavaScript, Tailwind CSS, HTML, CSS
+- CMS: WordPress, Shopify, Ghost, Wix, BigCommerce, Kajabi, Framer
+- Databases: MySQL, PostgreSQL, MongoDB, Redis, Airtable
+- BI Tools: Power BI, Google Analytics, Tableau
+- Mobile: Ionic, Angular
+
+## Portfolio
+
+- [All Projects (20+)](https://anjubatta.netlify.app/project_list.html): Web development, eCommerce, real estate, SaaS, and automation projects for clients in India, UK, USA, and Australia.
+
+## Experience
+
+- 12+ years of professional development experience
+- 500+ websites and applications delivered
+- Team Leader at Paradise Tech Soft Solution Pvt. Ltd. (2017–2021)
+- Freelance Developer for Property Webmaster UK (2021–2024)
+- Junior/Mid PHP Developer at Cweb Consultants & 3 Beavers (2014–2017)
+
+## Education
+
+- MCA – Lovely Professional University (2016)
+- B.Sc. IT – Punjab Technical University (2014)
+
+## Contact
+
+- Email: battaanju983@gmail.com
+- Phone: +91 9646175638
+- Location: Chandigarh, India
+- LinkedIn: https://www.linkedin.com/in/anju-batta-820a3660/
+- GitHub: https://github.com/anjudeveloper/
+- Portfolio: https://anjubatta.netlify.app/
+- Response time: Within 2 hours
+- Free 30-minute consultation available
+
+## Optional
+
+- [Download CV](https://anjubatta.netlify.app/BlueSimpleProfessionalCVResume.pdf)
+- [Contact Page](https://anjubatta.netlify.app/contact.html)

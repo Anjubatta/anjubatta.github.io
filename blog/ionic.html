@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Ionic Framework: Building Cross-Platform Mobile Apps with Web Technologies | Anju Batta</title>
+
+  <meta name="description" content="A complete guide to Ionic Framework for building performant cross-platform iOS and Android apps using HTML, CSS, and JavaScript. Best practices, architecture tips, and real-world examples from 15+ years of mobile app development.">
+  <meta name="keywords" content="Ionic Framework, Ionic mobile app development, cross-platform app development, Ionic Angular, Ionic React, Ionic Vue, Capacitor, hybrid app development, iOS Android app India, Ionic developer Chandigarh">
+  <meta name="author" content="Anju Batta">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://anjubatta.netlify.app/blog/ionic">
+
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://anjubatta.netlify.app/blog/ionic">
+  <meta property="og:title" content="Ionic Framework: Building Cross-Platform Mobile Apps with Web Technologies">
+  <meta property="og:description" content="A complete guide to Ionic Framework for building performant cross-platform iOS and Android apps. Architecture, best practices, and real-world tips from 15+ years of mobile development.">
+  <meta property="og:image" content="https://anjubatta.netlify.app/images/abouts.png">
+
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="sitemap" type="application/xml" href="../sitemap.xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/open-iconic-bootstrap.min.css">
+  <link rel="stylesheet" href="../css/icomoon.css">
+  <link rel="stylesheet" href="../css/style.css">
+
+  <style>
+    .post-hero { background: linear-gradient(135deg,#3880ff,#4c8dff); padding: 80px 0 50px; color: #fff; }
+    .post-hero .back-link { color: rgba(255,255,255,0.7); font-size:13px; text-decoration:none; display:inline-flex; align-items:center; gap:6px; margin-bottom:20px; }
+    .post-hero .back-link:hover { color:#fff; }
+    .post-badge { display:inline-block; background:rgba(255,255,255,0.2); color:#fff; font-size:11px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; padding:4px 12px; border-radius:20px; margin-bottom:16px; }
+    .post-hero h1 { font-size:clamp(24px,4vw,42px); font-weight:800; line-height:1.3; max-width:800px; }
+    .post-meta { color:rgba(255,255,255,0.65); font-size:13px; margin-top:16px; display:flex; gap:16px; flex-wrap:wrap; }
+    .post-content { max-width:800px; }
+    .post-content h2 { font-size:clamp(20px,2.5vw,26px); font-weight:700; color:#111; margin:40px 0 16px; padding-bottom:10px; border-bottom:2px solid #f0f0f0; }
+    .post-content h3 { font-size:17px; font-weight:700; color:#3880ff; margin:28px 0 12px; }
+    .post-content p { color:#444; font-size:15px; line-height:1.8; margin-bottom:18px; }
+    .post-content ul, .post-content ol { color:#444; font-size:15px; line-height:1.8; margin-bottom:18px; padding-left:24px; }
+    .post-content li { margin-bottom:8px; }
+    .post-content code { background:#eef2ff; color:#3880ff; padding:2px 7px; border-radius:4px; font-size:13px; font-family:monospace; }
+    .post-content pre { background:#0d1117; color:#e6edf3; padding:20px 24px; border-radius:10px; overflow-x:auto; font-size:13px; line-height:1.7; margin-bottom:20px; }
+    .info-box { background:#eef2ff; border-left:4px solid #3880ff; border-radius:0 10px 10px 0; padding:18px 20px; margin:20px 0; }
+    .info-box.green { background:#f0faf9; border-left-color:#009688; }
+    .info-box.orange { background:#fff8f3; border-left-color:#F96D00; }
+    .info-box strong { color:#3880ff; }
+    .info-box.green strong { color:#009688; }
+    .info-box.orange strong { color:#F96D00; }
+    .comparison-card { background:#fff; border-radius:12px; padding:22px; box-shadow:0 4px 16px rgba(0,0,0,0.07); margin-bottom:16px; border-left:4px solid #3880ff; }
+    .comparison-card h4 { color:#111; font-weight:700; font-size:15px; margin-bottom:8px; }
+    .comparison-card p { color:#555; font-size:13.5px; margin:0; }
+    .tag-cloud { display:flex; flex-wrap:wrap; gap:8px; margin:20px 0; }
+    .post-tag { background:#eef2ff; color:#3880ff; font-size:12px; font-weight:600; padding:4px 12px; border-radius:6px; }
+    .author-box { background:#f9f9f9; border-radius:14px; padding:24px; display:flex; gap:20px; align-items:flex-start; margin-top:48px; border:1px solid #eee; }
+    .author-box img { width:70px; height:70px; border-radius:50%; object-fit:cover; flex-shrink:0; }
+    .author-box h5 { font-size:16px; font-weight:700; color:#111; margin:0 0 6px; }
+    .author-box p { font-size:13px; color:#555; margin:0; }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Ionic Framework: Building Cross-Platform Mobile Apps with Web Technologies",
+    "description": "A complete guide to Ionic Framework for building performant cross-platform iOS and Android apps using HTML, CSS, and JavaScript.",
+    "url": "https://anjubatta.netlify.app/blog/ionic",
+    "datePublished": "2026-01-20",
+    "dateModified": "2026-03-18",
+    "author": { "@type": "Person", "name": "Anju Batta", "url": "https://anjubatta.netlify.app/" },
+    "keywords": ["Ionic Framework", "Cross-Platform App Development", "Mobile App Development", "Capacitor", "Ionic Angular"]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://anjubatta.netlify.app/" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://anjubatta.netlify.app/blog" },
+      { "@type": "ListItem", "position": 3, "name": "Ionic Framework Guide", "item": "https://anjubatta.netlify.app/blog/ionic" }
+    ]
+  }
+  </script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-N13XNYEVWD"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-N13XNYEVWD');</script>
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
+    <div class="container">
+      <a class="navbar-brand" href="../index.html">
+        <img src="../images/logo.svg" alt="Anju Batta" height="36" width="140" style="vertical-align:middle;">
+      </a>
+      <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="oi oi-menu"></span> Menu
+      </button>
+      <div class="collapse navbar-collapse" id="ftco-nav">
+        <ul class="navbar-nav nav ml-auto">
+          <li class="nav-item"><a href="../index.html#home-section" class="nav-link"><span>Home</span></a></li>
+          <li class="nav-item"><a href="../index.html#about-section" class="nav-link"><span>About</span></a></li>
+          <li class="nav-item"><a href="../index.html#ai-services-section" class="nav-link"><span>Services</span></a></li>
+          <li class="nav-item"><a href="../index.html#nextjs-seo-section" class="nav-link"><span>Next.js &amp; SEO</span></a></li>
+          <li class="nav-item"><a href="../index.html#project-section" class="nav-link"><span>Projects</span></a></li>
+          <li class="nav-item active"><a href="../blog.html" class="nav-link"><span>Blog</span></a></li>
+          <li class="nav-item"><a href="../contact/" class="nav-link"><span>Contact</span></a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Post Hero -->
+  <div class="post-hero" style="margin-top:56px;">
+    <div class="container">
+      <a href="../blog.html" class="back-link">&#8592; Back to Blog</a>
+      <span class="post-badge">Mobile Development</span>
+      <h1>Ionic Framework: Building Cross-Platform Mobile Apps with Web Technologies</h1>
+      <div class="post-meta">
+        <span>&#128197; January 20, 2026</span>
+        <span>&#128336; 10 min read</span>
+        <span>&#9998; Anju Batta</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Post Content -->
+  <section style="background:#f9f9f9;padding:60px 0;">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="post-content">
+
+            <div class="tag-cloud">
+              <span class="post-tag">Ionic Framework</span>
+              <span class="post-tag">Cross-Platform</span>
+              <span class="post-tag">Mobile App</span>
+              <span class="post-tag">Capacitor</span>
+              <span class="post-tag">Angular</span>
+              <span class="post-tag">React</span>
+            </div>
+
+            <p><strong>Ionic Framework</strong> is an open source UI toolkit for building performant, high-quality mobile, desktop, and Progressive Web Apps using standard web technologies — HTML, CSS, and JavaScript. It lets a single team of web developers build apps that run natively on iOS, Android, and the web.</p>
+
+            <p>I've been building Ionic applications for clients since the early days of the framework. From small startups to enterprise-grade apps, here's everything you need to know to build production-ready Ionic apps in 2026.</p>
+
+            <h2>What is Ionic Framework?</h2>
+
+            <p>Ionic is not a JavaScript framework itself — it's a <strong>UI component library</strong> that works with Angular, React, or Vue (and plain JavaScript). The magic comes from <strong>Capacitor</strong> (Ionic's native runtime layer), which wraps your web app and gives it access to native iOS and Android device APIs.</p>
+
+            <p>This means you write one codebase — using your existing web development skills — and compile it to:</p>
+            <ul>
+              <li>Native iOS app (via Xcode / Apple App Store)</li>
+              <li>Native Android app (via Android Studio / Google Play Store)</li>
+              <li>Progressive Web App (PWA) — runs in any browser</li>
+              <li>Electron desktop app (optional)</li>
+            </ul>
+
+            <div class="info-box">
+              <strong>Why choose Ionic over React Native or Flutter?</strong> If your team already knows web technologies (HTML/CSS/JS, Angular, React, Vue), Ionic has the lowest learning curve and the fastest time-to-market. React Native requires JavaScript + native bridge knowledge. Flutter requires learning Dart. Ionic uses skills you already have.
+            </div>
+
+            <h2>Ionic + Capacitor Architecture</h2>
+
+            <p>Modern Ionic apps (Ionic 7+) use Capacitor as the native runtime, replacing the older Cordova approach. The architecture works like this:</p>
+
+            <ol>
+              <li>Your app is built as a standard web app (Angular/React/Vue)</li>
+              <li>Capacitor wraps it in a native WebView (WKWebView on iOS, Android WebView on Android)</li>
+              <li>Capacitor Plugins bridge your JavaScript code to native device APIs (Camera, GPS, Push Notifications, File System, etc.)</li>
+              <li>The result is a native <code>.ipa</code> (iOS) or <code>.apk/.aab</code> (Android) app that passes App Store review</li>
+            </ol>
+
+            <pre><code>// Installing Ionic + Capacitor
+npm install -g @ionic/cli
+
+# Create new Ionic app with Angular
+ionic start myapp tabs --type=angular
+
+# Add native platforms
+ionic cap add ios
+ionic cap add android
+
+# Build and sync
+ionic build
+ionic cap sync
+
+# Open in native IDE
+ionic cap open ios     # opens Xcode
+ionic cap open android # opens Android Studio</code></pre>
+
+            <h2>Ionic UI Components — What Makes It Powerful</h2>
+
+            <p>Ionic ships with 100+ pre-built UI components that automatically adapt their styling to match the host platform — iOS or Android. The same <code>&lt;ion-button&gt;</code> looks like an iOS button on iPhone and a Material Design button on Android.</p>
+
+            <div class="comparison-card">
+              <h4>Key UI Components</h4>
+              <p><strong>Navigation:</strong> <code>ion-tabs</code>, <code>ion-menu</code>, <code>ion-router-outlet</code>, <code>ion-back-button</code><br>
+              <strong>Lists:</strong> <code>ion-list</code>, <code>ion-item</code>, <code>ion-virtual-scroll</code> (for large datasets)<br>
+              <strong>Forms:</strong> <code>ion-input</code>, <code>ion-select</code>, <code>ion-toggle</code>, <code>ion-datetime</code><br>
+              <strong>Overlays:</strong> <code>ion-modal</code>, <code>ion-alert</code>, <code>ion-toast</code>, <code>ion-action-sheet</code><br>
+              <strong>Media:</strong> <code>ion-img</code>, <code>ion-avatar</code>, <code>ion-thumbnail</code></p>
+            </div>
+
+            <h2>Accessing Native Device Features with Capacitor</h2>
+
+            <p>One of the most common questions is: "Can I access the phone's camera, GPS, notifications?" Yes — through official Capacitor plugins:</p>
+
+            <pre><code>// Camera Plugin
+import { Camera, CameraResultType } from '@capacitor/camera';
+
+async function takePicture() {
+  const image = await Camera.getPhoto({
+    quality: 90,
+    allowEditing: true,
+    resultType: CameraResultType.Uri
+  });
+  const imageUrl = image.webPath;
+  // Display the image in your template
+}
+
+// Geolocation Plugin
+import { Geolocation } from '@capacitor/geolocation';
+
+async function getCurrentPosition() {
+  const coordinates = await Geolocation.getCurrentPosition();
+  console.log('Current position:', coordinates);
+  // { coords: { latitude: 30.73, longitude: 76.77 } }
+}
+
+// Push Notifications Plugin
+import { PushNotifications } from '@capacitor/push-notifications';
+
+async function registerPushNotifications() {
+  const result = await PushNotifications.requestPermissions();
+  if (result.receive === 'granted') {
+    await PushNotifications.register();
+  }
+}</code></pre>
+
+            <h2>Performance Best Practices for Ionic Apps</h2>
+
+            <p>Ionic apps can feel sluggish if not optimized. After building 50+ Ionic apps, here are the patterns that matter most:</p>
+
+            <h3>1. Use Virtual Scroll for Long Lists</h3>
+            <p>Rendering 500 list items at once kills performance. Use <code>ion-virtual-scroll</code> or the CDK virtual scroll to only render visible items:</p>
+
+            <pre><code>&lt;!-- Renders only visible items, not all 10,000 --&gt;
+&lt;ion-virtual-scroll [items]="largeDataset" approxItemHeight="73px"&gt;
+  &lt;ion-item *virtualItem="let item"&gt;
+    {{ item.name }}
+  &lt;/ion-item&gt;
+&lt;/ion-virtual-scroll&gt;</code></pre>
+
+            <h3>2. Lazy Load Pages</h3>
+            <p>Split your app into lazy-loaded modules so the initial bundle stays small:</p>
+
+            <pre><code>// app-routing.module.ts
+const routes: Routes = [
+  {
+    path: 'home',
+    loadChildren: () => import('./home/home.module')
+      .then(m => m.HomePageModule)
+  },
+  {
+    path: 'profile',
+    loadChildren: () => import('./profile/profile.module')
+      .then(m => m.ProfilePageModule)
+  }
+];</code></pre>
+
+            <h3>3. Optimize Images</h3>
+            <p>Use <code>ion-img</code> which lazy-loads images as they scroll into view. Serve WebP format images. Use Capacitor's image compression when uploading user photos.</p>
+
+            <h3>4. Use OnPush Change Detection (Angular)</h3>
+            <p>Set <code>changeDetection: ChangeDetectionStrategy.OnPush</code> on all components that receive data as inputs. Reduces unnecessary re-renders by 60–80% in data-heavy screens.</p>
+
+            <h2>Ionic vs React Native vs Flutter — Which to Choose?</h2>
+
+            <table style="width:100%;border-collapse:collapse;background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.07);margin-bottom:24px;">
+              <thead>
+                <tr style="background:#3880ff;color:#fff;">
+                  <th style="padding:12px 16px;text-align:left;font-size:13px;">Factor</th>
+                  <th style="padding:12px 16px;text-align:left;font-size:13px;">Ionic</th>
+                  <th style="padding:12px 16px;text-align:left;font-size:13px;">React Native</th>
+                  <th style="padding:12px 16px;text-align:left;font-size:13px;">Flutter</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom:1px solid #f0f0f0;">
+                  <td style="padding:12px 16px;font-size:13px;font-weight:600;">Language</td>
+                  <td style="padding:12px 16px;font-size:13px;">HTML/CSS/JS</td>
+                  <td style="padding:12px 16px;font-size:13px;">JavaScript/TypeScript</td>
+                  <td style="padding:12px 16px;font-size:13px;">Dart</td>
+                </tr>
+                <tr style="border-bottom:1px solid #f0f0f0;">
+                  <td style="padding:12px 16px;font-size:13px;font-weight:600;">Web App Support</td>
+                  <td style="padding:12px 16px;font-size:13px;color:#009688;">&#10003; Excellent PWA</td>
+                  <td style="padding:12px 16px;font-size:13px;color:#F96D00;">Limited</td>
+                  <td style="padding:12px 16px;font-size:13px;color:#F96D00;">Beta</td>
+                </tr>
+                <tr style="border-bottom:1px solid #f0f0f0;">
+                  <td style="padding:12px 16px;font-size:13px;font-weight:600;">Learning Curve</td>
+                  <td style="padding:12px 16px;font-size:13px;color:#009688;">Low (web skills)</td>
+                  <td style="padding:12px 16px;font-size:13px;color:#F96D00;">Medium</td>
+                  <td style="padding:12px 16px;font-size:13px;color:#F96D00;">High (learn Dart)</td>
+                </tr>
+                <tr style="border-bottom:1px solid #f0f0f0;">
+                  <td style="padding:12px 16px;font-size:13px;font-weight:600;">Performance</td>
+                  <td style="padding:12px 16px;font-size:13px;">Good (WebView)</td>
+                  <td style="padding:12px 16px;font-size:13px;color:#009688;">Near-native</td>
+                  <td style="padding:12px 16px;font-size:13px;color:#009688;">Near-native</td>
+                </tr>
+                <tr>
+                  <td style="padding:12px 16px;font-size:13px;font-weight:600;">Best For</td>
+                  <td style="padding:12px 16px;font-size:13px;">Web-first teams, MVPs, B2B apps</td>
+                  <td style="padding:12px 16px;font-size:13px;">High-performance consumer apps</td>
+                  <td style="padding:12px 16px;font-size:13px;">Graphics-heavy apps, games</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="info-box green">
+              <strong>My recommendation after 15+ years:</strong> Use Ionic when you want the fastest time-to-market with a web development team. Use React Native when native performance is critical. Use Flutter when you need rich animations or GPU-heavy graphics. For most business apps — CRMs, dashboards, booking apps, delivery tracking — Ionic is the right choice.
+            </div>
+
+            <h2>Real-World Ionic App Architecture</h2>
+
+            <p>For production Ionic apps, I recommend this folder structure:</p>
+
+            <pre><code>src/
+├── app/
+│   ├── core/           # Singletons: AuthService, ApiService, StorageService
+│   ├── shared/         # Shared components, pipes, directives
+│   ├── features/       # Feature modules (lazy-loaded)
+│   │   ├── home/
+│   │   ├── profile/
+│   │   └── dashboard/
+│   └── app-routing.module.ts
+├── environments/       # environment.ts, environment.prod.ts
+└── theme/
+    └── variables.scss  # Ionic CSS variables (brand colours, fonts)</code></pre>
+
+            <div class="info-box orange">
+              <strong>Common mistake I fix in Ionic audits:</strong> Storing sensitive data (auth tokens, user PII) in <code>localStorage</code> or <code>sessionStorage</code>. These are accessible from JavaScript and extractable on rooted devices. Always use <code>@capacitor/preferences</code> (secure native storage) for sensitive data in production apps.
+            </div>
+
+            <h2>Deploying Ionic Apps</h2>
+            <ul>
+              <li><strong>iOS:</strong> Build with Xcode, submit to App Store Connect, await Apple review (1–3 days)</li>
+              <li><strong>Android:</strong> Build signed APK/AAB in Android Studio, upload to Google Play Console (review ~1–3 hours for updates)</li>
+              <li><strong>PWA:</strong> Deploy the web build to Netlify, Vercel, or any CDN — no App Store needed</li>
+              <li><strong>Live Updates:</strong> Use Appflow (Ionic's CI/CD) or Capawesome Live Updates to push JS/HTML/CSS changes without App Store review</li>
+            </ul>
+
+            <div class="author-box">
+              <img src="../images/abouts.webp" alt="Anju Batta" loading="lazy">
+              <div>
+                <h5>Anju Batta</h5>
+                <p>Senior Full Stack Developer, Technical SEO Engineer &amp; AI Automation Architect with 15+ years of experience. I build Ionic mobile apps for iOS and Android alongside web platforms using Laravel, Next.js, and Shopify. Available for new projects from Chandigarh, India.</p>
+                <a href="../index.html#contact-section" style="color:#009688;font-size:13px;font-weight:700;text-decoration:none;">Hire Me for Your Mobile App Project &#8594;</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="col-lg-4">
+          <div style="position:sticky;top:80px;">
+            <div style="background:#fff;border-radius:14px;padding:24px;box-shadow:0 4px 20px rgba(0,0,0,0.07);margin-bottom:24px;border-left:4px solid #3880ff;">
+              <h4 style="font-size:16px;font-weight:700;color:#111;margin-bottom:16px;">Related Articles</h4>
+              <div style="margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid #f0f0f0;">
+                <a href="nextjs-seo-architecture.html" style="color:#333;font-size:13px;font-weight:600;text-decoration:none;display:block;margin-bottom:4px;line-height:1.4;">Next.js SEO Architecture: SSR, SSG &amp; ISR</a>
+                <span style="font-size:11px;color:#888;">8 min read</span>
+              </div>
+              <div style="margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid #f0f0f0;">
+                <a href="ai-agent-architecture.html" style="color:#333;font-size:13px;font-weight:600;text-decoration:none;display:block;margin-bottom:4px;line-height:1.4;">AI Agent Architecture: Context, Memory &amp; Vector DBs</a>
+                <span style="font-size:11px;color:#888;">14 min read</span>
+              </div>
+              <div>
+                <a href="technical-seo-audit-checklist.html" style="color:#333;font-size:13px;font-weight:600;text-decoration:none;display:block;margin-bottom:4px;line-height:1.4;">Technical SEO Audit Checklist 2026</a>
+                <span style="font-size:11px;color:#888;">12 min read</span>
+              </div>
+            </div>
+            <div style="background:linear-gradient(135deg,#009688,#00695c);border-radius:14px;padding:24px;color:#fff;">
+              <h4 style="color:#fff;font-size:16px;font-weight:700;margin-bottom:12px;">Need a Mobile App Developer?</h4>
+              <p style="color:rgba(255,255,255,0.85);font-size:13px;margin-bottom:18px;">I build Ionic mobile apps for iOS and Android with clean architecture, native device integration, and App Store-ready deployment. Free 30-min consultation.</p>
+              <a href="../index.html#contact-section" style="background:#fff;color:#009688;font-size:13px;font-weight:700;padding:10px 18px;border-radius:8px;display:inline-block;text-decoration:none;">Discuss Your App &#8594;</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer style="background:#212529;padding:30px 0;">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6"><p style="color:rgba(255,255,255,0.6);font-size:13px;margin:0;">&copy; <span id="footer-year"></span> Anju Batta. All rights reserved.</p></div>
+        <div class="col-md-6 text-md-right"><a href="../blog.html" style="color:rgba(255,255,255,0.6);font-size:13px;text-decoration:none;">&#8592; All Posts</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/jquery.min.js"></script>
+  <script src="../js/popper.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+  <script src="../js/main.js"></script>
+  <script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
