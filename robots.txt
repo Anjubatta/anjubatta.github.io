@@ -1,4 +1,4 @@
-# robots.txt – anjubatta.github.io
+# robots.txt – anjubatta.netlify.app
 # Anju Batta | Senior Full Stack Developer, Technical SEO Engineer & AI Automation Architect
 
 # Allow all bots by default
@@ -68,4 +68,4 @@ User-agent: DuckDuckBot
 Allow: /
 
 # Sitemap & AI discovery files
-Sitemap: https://anjubatta.github.io/sitemap.xml
+Sitemap: https://anjubatta.netlify.app/sitemap.xml

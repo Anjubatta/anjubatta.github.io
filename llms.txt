@@ -6,11 +6,11 @@ Anju Batta helps businesses build scalable digital systems while automating repe
 
 ## Core Services
 
-- [AI Agent Development](https://anjubatta.github.io/#ai-services-section): Builds autonomous AI agents using Claude, ChatGPT, and OpenAI APIs. Support bots with context awareness, data analysis agents, and research assistants. Rapid prototyping with Bolt, Lovable, and V0.
-- [Business Automation – n8n & Zapier](https://anjubatta.github.io/#ai-services-section): Replaces fragile Zaps with robust n8n workflows. eCommerce: Shopify → Inventory → Shipping → Customer Email. CRM Sync, Lead Routing, Financial Reporting. Self-hosted n8n for enterprise-grade reliability.
-- [Full Stack & Shopify Architecture](https://anjubatta.github.io/#ai-services-section): Custom Shopify 2.0 themes with automated inventory and Stripe/PayPal. Laravel/Node.js clean backend for SaaS apps. React, VueJS, Tailwind CSS frontends. REST APIs and GraphQL.
-- [Mobile App Development](https://anjubatta.github.io/#about-section): iOS and Android apps using Ionic and Angular.
-- [WordPress Development](https://anjubatta.github.io/#project-section): Custom themes, plugins, and WooCommerce integrations.
+- [AI Agent Development](https://anjubatta.netlify.app/#ai-services-section): Builds autonomous AI agents using Claude, ChatGPT, and OpenAI APIs. Support bots with context awareness, data analysis agents, and research assistants. Rapid prototyping with Bolt, Lovable, and V0.
+- [Business Automation – n8n & Zapier](https://anjubatta.netlify.app/#ai-services-section): Replaces fragile Zaps with robust n8n workflows. eCommerce: Shopify → Inventory → Shipping → Customer Email. CRM Sync, Lead Routing, Financial Reporting. Self-hosted n8n for enterprise-grade reliability.
+- [Full Stack & Shopify Architecture](https://anjubatta.netlify.app/#ai-services-section): Custom Shopify 2.0 themes with automated inventory and Stripe/PayPal. Laravel/Node.js clean backend for SaaS apps. React, VueJS, Tailwind CSS frontends. REST APIs and GraphQL.
+- [Mobile App Development](https://anjubatta.netlify.app/#about-section): iOS and Android apps using Ionic and Angular.
+- [WordPress Development](https://anjubatta.netlify.app/#project-section): Custom themes, plugins, and WooCommerce integrations.
 
 ## Technology Stack
 
@@ -25,7 +25,7 @@ Anju Batta helps businesses build scalable digital systems while automating repe
 
 ## Portfolio
 
-- [All Projects (20+)](https://anjubatta.github.io/project_list.html): Web development, eCommerce, real estate, SaaS, and automation projects for clients in India, UK, USA, and Australia.
+- [All Projects (20+)](https://anjubatta.netlify.app/project_list.html): Web development, eCommerce, real estate, SaaS, and automation projects for clients in India, UK, USA, and Australia.
 
 ## Experience
 
@@ -47,11 +47,11 @@ Anju Batta helps businesses build scalable digital systems while automating repe
 - Location: Chandigarh, India
 - LinkedIn: https://www.linkedin.com/in/anju-batta-820a3660/
 - GitHub: https://github.com/anjudeveloper/
-- Portfolio: https://anjubatta.github.io/
+- Portfolio: https://anjubatta.netlify.app/
 - Response time: Within 2 hours
 - Free 30-minute consultation available
 
 ## Optional
 
-- [Download CV](https://anjubatta.github.io/BlueSimpleProfessionalCVResume.pdf)
-- [Contact Page](https://anjubatta.github.io/contact.html)
+- [Download CV](https://anjubatta.netlify.app/BlueSimpleProfessionalCVResume.pdf)
+- [Contact Page](https://anjubatta.netlify.app/contact.html)
