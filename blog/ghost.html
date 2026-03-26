@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Ghost CMS: Headless Publishing Platform for Developers | Anju Batta</title>
+
+  <meta name="description" content="A complete developer's guide to Ghost CMS — the open source headless publishing platform. Learn Ghost's Content API, headless setup with Next.js, membership features, newsletter integration, and how it compares to WordPress for modern publishing.">
+  <meta name="keywords" content="Ghost CMS, Ghost headless CMS, Ghost Content API, Ghost vs WordPress, Ghost Next.js, Ghost developer, headless publishing, Ghost membership, Ghost newsletter, CMS developer India">
+  <meta name="author" content="Anju Batta">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://anjubatta.github.io/blog/ghost">
+
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://anjubatta.github.io/blog/ghost">
+  <meta property="og:title" content="Ghost CMS: Headless Publishing Platform for Developers">
+  <meta property="og:description" content="A complete developer's guide to Ghost CMS — headless Content API, Next.js integration, membership features, and how Ghost compares to WordPress for modern publishing.">
+  <meta property="og:image" content="https://anjubatta.github.io/images/abouts.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ghost CMS: Headless Publishing Platform for Developers">
+  <meta name="twitter:description" content="Developer's guide to Ghost CMS — Content API, headless setup, membership, and Ghost vs WordPress comparison from 15+ years of CMS experience.">
+  <meta name="twitter:image" content="https://anjubatta.github.io/images/abouts.png">
+
+  <meta name="geo.region" content="IN-PB">
+  <meta name="geo.placename" content="Chandigarh, India">
+
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="sitemap" type="application/xml" href="../sitemap.xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/open-iconic-bootstrap.min.css">
+  <link rel="stylesheet" href="../css/icomoon.css">
+  <link rel="stylesheet" href="../css/style.css">
+
+  <style>
+    .post-hero { background: linear-gradient(135deg,#15171a,#394047); padding: 80px 0 50px; color: #fff; }
+    .post-hero .back-link { color: rgba(255,255,255,0.7); font-size:13px; text-decoration:none; display:inline-flex; align-items:center; gap:6px; margin-bottom:20px; }
+    .post-hero .back-link:hover { color:#fff; }
+    .post-badge { display:inline-block; background:rgba(255,255,255,0.15); color:#fff; font-size:11px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; padding:4px 12px; border-radius:20px; margin-bottom:16px; }
+    .post-hero h1 { font-size:clamp(24px,4vw,42px); font-weight:800; line-height:1.3; max-width:800px; }
+    .post-meta { color:rgba(255,255,255,0.65); font-size:13px; margin-top:16px; display:flex; gap:16px; flex-wrap:wrap; }
+    .post-content { max-width:800px; }
+    .post-content h2 { font-size:clamp(20px,2.5vw,26px); font-weight:700; color:#111; margin:40px 0 16px; padding-bottom:10px; border-bottom:2px solid #f0f0f0; }
+    .post-content h3 { font-size:17px; font-weight:700; color:#394047; margin:28px 0 12px; }
+    .post-content p { color:#444; font-size:15px; line-height:1.8; margin-bottom:18px; }
+    .post-content ul, .post-content ol { color:#444; font-size:15px; line-height:1.8; margin-bottom:18px; padding-left:24px; }
+    .post-content li { margin-bottom:8px; }
+    .post-content code { background:#f5f5f5; color:#15171a; padding:2px 7px; border-radius:4px; font-size:13px; font-family:monospace; border:1px solid #e0e0e0; }
+    .post-content pre { background:#0d1117; color:#e6edf3; padding:20px 24px; border-radius:10px; overflow-x:auto; font-size:13px; line-height:1.7; margin-bottom:20px; }
+    .info-box { background:#f5f5f5; border-left:4px solid #394047; border-radius:0 10px 10px 0; padding:18px 20px; margin:20px 0; }
+    .info-box.green { background:#f0faf9; border-left-color:#009688; }
+    .info-box.orange { background:#fff8f3; border-left-color:#F96D00; }
+    .info-box strong { color:#15171a; }
+    .info-box.green strong { color:#009688; }
+    .info-box.orange strong { color:#F96D00; }
+    .comparison-card { background:#fff; border-radius:12px; padding:22px; box-shadow:0 4px 16px rgba(0,0,0,0.07); margin-bottom:16px; border-left:4px solid #394047; }
+    .comparison-card h4 { color:#111; font-weight:700; font-size:15px; margin-bottom:8px; }
+    .comparison-card p { color:#555; font-size:13.5px; margin:0; line-height:1.7; }
+    .tag-cloud { display:flex; flex-wrap:wrap; gap:8px; margin:20px 0; }
+    .post-tag { background:#f5f5f5; color:#394047; font-size:12px; font-weight:600; padding:4px 12px; border-radius:6px; border:1px solid #e0e0e0; }
+    .author-box { background:#f9f9f9; border-radius:14px; padding:24px; display:flex; gap:20px; align-items:flex-start; margin-top:48px; border:1px solid #eee; }
+    .author-box img { width:70px; height:70px; border-radius:50%; object-fit:cover; flex-shrink:0; }
+    .author-box h5 { font-size:16px; font-weight:700; color:#111; margin:0 0 6px; }
+    .author-box p { font-size:13px; color:#555; margin:0; }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Ghost CMS: Headless Publishing Platform for Developers",
+    "description": "A complete developer's guide to Ghost CMS — headless Content API, Next.js integration, membership features, and Ghost vs WordPress comparison.",
+    "url": "https://anjubatta.github.io/blog/ghost",
+    "datePublished": "2025-12-15",
+    "dateModified": "2026-03-20",
+    "author": { "@type": "Person", "name": "Anju Batta", "url": "https://anjubatta.github.io/" },
+    "keywords": ["Ghost CMS", "Headless CMS", "Ghost Content API", "Ghost vs WordPress", "Publishing Platform"]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://anjubatta.github.io/" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://anjubatta.github.io/blog" },
+      { "@type": "ListItem", "position": 3, "name": "Ghost CMS Guide", "item": "https://anjubatta.github.io/blog/ghost" }
+    ]
+  }
+  </script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-N13XNYEVWD"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-N13XNYEVWD');</script>
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
+    <div class="container">
+      <a class="navbar-brand" href="../index.html">
+        <img src="../images/logo.svg" alt="Anju Batta" height="36" width="140" style="vertical-align:middle;">
+      </a>
+      <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="oi oi-menu"></span> Menu
+      </button>
+      <div class="collapse navbar-collapse" id="ftco-nav">
+        <ul class="navbar-nav nav ml-auto">
+          <li class="nav-item"><a href="../index.html#home-section" class="nav-link"><span>Home</span></a></li>
+          <li class="nav-item"><a href="../index.html#about-section" class="nav-link"><span>About</span></a></li>
+          <li class="nav-item"><a href="../index.html#ai-services-section" class="nav-link"><span>Services</span></a></li>
+          <li class="nav-item"><a href="../index.html#nextjs-seo-section" class="nav-link"><span>Next.js &amp; SEO</span></a></li>
+          <li class="nav-item"><a href="../index.html#project-section" class="nav-link"><span>Projects</span></a></li>
+          <li class="nav-item active"><a href="../blog.html" class="nav-link"><span>Blog</span></a></li>
+          <li class="nav-item"><a href="../contact/" class="nav-link"><span>Contact</span></a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Post Hero -->
+  <div class="post-hero" style="margin-top:56px;">
+    <div class="container">
+      <a href="../blog.html" class="back-link">&#8592; Back to Blog</a>
+      <span class="post-badge">Headless CMS</span>
+      <h1>Ghost CMS: Headless Publishing Platform for Developers</h1>
+      <div class="post-meta">
+        <span>&#128197; December 15, 2025</span>
+        <span>&#128336; 9 min read</span>
+        <span>&#9998; Anju Batta</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Post Content -->
+  <section style="background:#f9f9f9;padding:60px 0;">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="post-content">
+
+            <div class="tag-cloud">
+              <span class="post-tag">Ghost CMS</span>
+              <span class="post-tag">Headless CMS</span>
+              <span class="post-tag">Content API</span>
+              <span class="post-tag">Node.js</span>
+              <span class="post-tag">Next.js</span>
+              <span class="post-tag">Publishing</span>
+            </div>
+
+            <p><strong>Ghost</strong> is an open source, Node.js-based publishing platform built specifically for professional content creators, newsletters, and membership sites. While WordPress powers 43% of the web, Ghost has carved out a distinct niche: a fast, focused, developer-friendly CMS that does one thing extremely well — content publishing with monetization built in.</p>
+
+            <p>I've migrated several client sites from WordPress to Ghost and built custom Ghost integrations over the years. This guide covers everything a developer needs to know to evaluate Ghost for their project and get started quickly.</p>
+
+            <h2>What Is Ghost CMS?</h2>
+
+            <p>Ghost is not a general-purpose CMS like WordPress. It's purpose-built for:</p>
+            <ul>
+              <li><strong>Publishing</strong> — clean editorial interface, Markdown and card-based editor</li>
+              <li><strong>Newsletters</strong> — built-in email sending via Mailgun or custom SMTP</li>
+              <li><strong>Memberships</strong> — free/paid tiers, Stripe integration, member-only content</li>
+              <li><strong>Headless / API-first</strong> — full REST and GraphQL-like Content API for decoupled frontends</li>
+            </ul>
+
+            <div class="info-box">
+              <strong>Ghost's architecture in one line:</strong> Ghost is a Node.js application (not PHP) with a SQLite or MySQL database, a built-in admin UI, and two API layers — the Content API (public read) and Admin API (authenticated read/write) — that let you use any frontend you want.
+            </div>
+
+            <h2>Ghost vs WordPress: Which Should You Choose?</h2>
+
+            <div class="comparison-card">
+              <h4>Choose Ghost when:</h4>
+              <p>
+                &#10003; Your primary use case is a newsletter or publication<br>
+                &#10003; You want built-in membership and paid subscriptions (Stripe ready)<br>
+                &#10003; You want a faster, simpler admin experience<br>
+                &#10003; You're using a headless/decoupled frontend (Next.js, Nuxt, Gatsby)<br>
+                &#10003; Your team is comfortable with Node.js for self-hosting<br>
+                &#10003; You want clean, SEO-friendly URLs and automatic sitemap without plugins
+              </p>
+            </div>
+
+            <div class="comparison-card">
+              <h4>Choose WordPress when:</h4>
+              <p>
+                &#10003; You need a large plugin ecosystem (WooCommerce, LMS, booking systems)<br>
+                &#10003; Your client is non-technical and needs a familiar CMS<br>
+                &#10003; You need extensive page builder capabilities (Elementor, Divi)<br>
+                &#10003; You're building an eCommerce site with complex product catalogs<br>
+                &#10003; The hosting team only knows PHP/cPanel<br>
+                &#10003; You need deep multisite or multilingual support
+              </p>
+            </div>
+
+            <h2>Ghost Content API: Using Ghost Headless</h2>
+
+            <p>Ghost's Content API is its most powerful feature for developers. It's a read-only REST API that returns all your posts, pages, authors, tags, and settings as JSON — no authentication needed for published content.</p>
+
+            <pre><code>// Ghost Content API with the official JavaScript SDK
+import GhostContentAPI from '@tryghost/content-api';
+
+const api = new GhostContentAPI({
+    url: 'https://your-ghost-site.com',
+    key: 'your_content_api_key',  // found in Ghost Admin > Integrations
+    version: 'v5.0'
+});
+
+// Fetch all published posts
+const posts = await api.posts.browse({
+    limit: 'all',
+    include: 'tags,authors',
+    filter: 'featured:true'
+});
+
+// Fetch a single post by slug
+const post = await api.posts.read({
+    slug: 'my-post-slug'
+}, {
+    include: 'authors,tags'
+});
+
+// Fetch all tags
+const tags = await api.tags.browse({
+    limit: 'all',
+    include: 'count.posts'
+});
+
+console.log(posts[0].title);         // "My First Post"
+console.log(posts[0].html);          // Full rendered HTML content
+console.log(posts[0].custom_excerpt); // SEO excerpt
+console.log(posts[0].feature_image);  // Featured image URL</code></pre>
+
+            <h2>Ghost + Next.js: Headless Setup</h2>
+
+            <p>The most common production setup I recommend: Ghost as backend CMS, Next.js as the frontend. Ghost handles content, Stripe subscriptions, and email. Next.js handles SEO, performance, and UI.</p>
+
+            <pre><code>// pages/blog/[slug].js — Dynamic post page in Next.js
+
+import GhostContentAPI from '@tryghost/content-api';
+
+const api = new GhostContentAPI({
+    url: process.env.GHOST_API_URL,
+    key: process.env.GHOST_CONTENT_API_KEY,
+    version: 'v5.0'
+});
+
+// ISR: revalidate every 60 seconds
+export async function getStaticProps({ params }) {
+    const post = await api.posts.read(
+        { slug: params.slug },
+        { include: 'authors,tags' }
+    );
+
+    return {
+        props: { post },
+        revalidate: 60
+    };
+}
+
+// Pre-generate all post slugs at build time
+export async function getStaticPaths() {
+    const posts = await api.posts.browse({ limit: 'all' });
+    const paths = posts.map(post =&gt; ({
+        params: { slug: post.slug }
+    }));
+    return { paths, fallback: 'blocking' };
+}
+
+export default function PostPage({ post }) {
+    return (
+        &lt;article&gt;
+            &lt;h1&gt;{post.title}&lt;/h1&gt;
+            &lt;div dangerouslySetInnerHTML={{ __html: post.html }} /&gt;
+        &lt;/article&gt;
+    );
+}</code></pre>
+
+            <div class="info-box green">
+              <strong>SEO advantage of Ghost + Next.js headless:</strong> Ghost generates clean, semantic HTML for your content. Next.js adds SSG/ISR for lightning-fast delivery, automatic image optimization, and full control over meta tags and Open Graph. You get the best of both: Ghost's editorial experience and Next.js's performance.
+            </div>
+
+            <h2>Ghost Admin API: Reading and Writing Content Programmatically</h2>
+
+            <p>The Admin API requires authentication and gives full read/write access — use it for automations, migrations, and CMS integrations:</p>
+
+            <pre><code>import GhostAdminAPI from '@tryghost/admin-api';
+
+const adminApi = new GhostAdminAPI({
+    url: 'https://your-ghost-site.com',
+    key: 'your_admin_api_key:your_admin_api_secret',
+    version: 'v5.0'
+});
+
+// Create a new post programmatically
+const newPost = await adminApi.posts.add({
+    title: 'Automated Post from API',
+    html: '&lt;p&gt;This post was created via the Ghost Admin API.&lt;/p&gt;',
+    status: 'published',
+    tags: [{ name: 'API', slug: 'api' }],
+    custom_excerpt: 'A brief excerpt for SEO meta description'
+});
+
+// Update an existing post
+const updated = await adminApi.posts.edit({
+    id: newPost.id,
+    title: 'Updated Post Title',
+    updated_at: newPost.updated_at  // required for conflict detection
+});
+
+// Upload an image
+const image = await adminApi.images.upload({
+    file: '/path/to/image.jpg'
+});</code></pre>
+
+            <h2>Ghost Membership &amp; Newsletter Features</h2>
+
+            <p>Ghost's built-in membership system is a significant differentiator from WordPress. No plugins needed:</p>
+
+            <h3>Member Tiers</h3>
+            <ul>
+              <li><strong>Free tier</strong> — visitors can sign up for a free newsletter subscription</li>
+              <li><strong>Paid tiers</strong> — Stripe-powered monthly/annual subscriptions with custom pricing</li>
+              <li><strong>Complimentary</strong> — manually grant paid access to specific users</li>
+            </ul>
+
+            <h3>Email Newsletter</h3>
+            <p>Every post can be sent as a newsletter email to all or a subset of members. Ghost connects to Mailgun (recommended) or any SMTP provider. The email template is customizable via Handlebars:</p>
+
+            <pre><code>{{!-- Ghost email template: email.hbs --}}
+&lt;div class="email-body"&gt;
+    &lt;h1&gt;{{post.title}}&lt;/h1&gt;
+    {{post.html}}
+    &lt;div class="email-footer"&gt;
+        &lt;p&gt;You're receiving this because you subscribed to {{@site.title}}.&lt;/p&gt;
+        &lt;a href="{{unsubscribe_url}}"&gt;Unsubscribe&lt;/a&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+            <h2>Self-Hosting Ghost: Deployment Options</h2>
+
+            <h3>Ghost(Pro) — Managed Hosting</h3>
+            <p>The official managed hosting. Starts at $9/month (Starter). Handles updates, backups, Mailgun setup, and CDN. Best option if you want zero server maintenance.</p>
+
+            <h3>Self-Hosting on a VPS</h3>
+            <pre><code># Install Ghost CLI
+npm install ghost-cli@latest -g
+
+# Create installation directory
+mkdir /var/www/ghost
+cd /var/www/ghost
+
+# Install Ghost (interactive setup — prompts for domain, DB, Nginx, SSL)
+ghost install
+
+# Ghost CLI commands
+ghost start
+ghost stop
+ghost restart
+ghost update    # updates Ghost to latest version
+ghost log       # view logs
+ghost status    # check running status</code></pre>
+
+            <h3>Ghost with Docker</h3>
+            <pre><code># docker-compose.yml for Ghost + MySQL
+version: '3'
+services:
+  ghost:
+    image: ghost:5-alpine
+    restart: always
+    ports:
+      - "2368:2368"
+    environment:
+      database__client: mysql
+      database__connection__host: db
+      database__connection__user: root
+      database__connection__password: ${MYSQL_ROOT_PASSWORD}
+      database__connection__database: ghost
+      url: https://your-domain.com
+    volumes:
+      - ghost-content:/var/lib/ghost/content
+  db:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    volumes:
+      - mysql-data:/var/lib/mysql
+volumes:
+  ghost-content:
+  mysql-data:</code></pre>
+
+            <div class="info-box orange">
+              <strong>Ghost self-hosting tip:</strong> Always run Ghost behind Nginx as a reverse proxy with SSL via Let's Encrypt. The Ghost CLI handles this automatically on Ubuntu/Debian if you run <code>ghost install</code> with root access. For Docker deployments, add a Traefik or Caddy container for automatic SSL.
+            </div>
+
+            <h2>Ghost Themes: Handlebars Templating</h2>
+
+            <p>Ghost themes use Handlebars.js templating. The structure is straightforward:</p>
+
+            <pre><code>my-ghost-theme/
+├── index.hbs        // Blog listing page
+├── post.hbs         // Single post template
+├── page.hbs         // Static page template
+├── tag.hbs          // Tag archive page
+├── author.hbs       // Author archive page
+├── error.hbs        // Error page
+├── default.hbs      // Base layout (wrapped by all templates)
+├── package.json     // Theme metadata &amp; config
+└── assets/
+    ├── css/
+    └── js/</code></pre>
+
+            <pre><code>{{!-- post.hbs -- single post template --}}
+{{!&lt; default}}
+
+&lt;article class="post {{post_class}}"&gt;
+    &lt;header&gt;
+        &lt;h1 class="post-title"&gt;{{title}}&lt;/h1&gt;
+        &lt;div class="post-meta"&gt;
+            {{authors}} · {{date format="DD MMM YYYY"}} · {{reading_time}}
+        &lt;/div&gt;
+        {{#if feature_image}}
+        &lt;img src="{{feature_image}}" alt="{{title}}"&gt;
+        {{/if}}
+    &lt;/header&gt;
+
+    &lt;section class="post-content"&gt;
+        {{content}}
+    &lt;/section&gt;
+
+    {{#foreach tags as |tag|}}
+    &lt;a href="{{tag.url}}"&gt;#{{tag.name}}&lt;/a&gt;
+    {{/foreach}}
+&lt;/article&gt;</code></pre>
+
+            <div class="author-box">
+              <img src="../images/abouts.webp" alt="Anju Batta" loading="lazy">
+              <div>
+                <h5>Anju Batta</h5>
+                <p>Senior Full Stack Developer, Technical SEO Engineer &amp; AI Automation Architect with 15+ years of experience. I work with Ghost CMS, WordPress, Next.js, Laravel, and Shopify to build publishing platforms and digital products for clients across India and internationally.</p>
+                <a href="../index.html#contact-section" style="color:#394047;font-size:13px;font-weight:700;text-decoration:none;">Hire Me for Your CMS Project &#8594;</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="col-lg-4">
+          <div style="position:sticky;top:80px;">
+            <div style="background:#fff;border-radius:14px;padding:24px;box-shadow:0 4px 20px rgba(0,0,0,0.07);margin-bottom:24px;border-left:4px solid #394047;">
+              <h4 style="font-size:16px;font-weight:700;color:#111;margin-bottom:16px;">Related Articles</h4>
+              <div style="margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid #f0f0f0;">
+                <a href="wordpress-hooks.html" style="color:#333;font-size:13px;font-weight:600;text-decoration:none;display:block;margin-bottom:4px;line-height:1.4;">WordPress Hooks: Mastering Actions &amp; Filters</a>
+                <span style="font-size:11px;color:#888;">11 min read</span>
+              </div>
+              <div style="margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid #f0f0f0;">
+                <a href="nextjs-seo-architecture.html" style="color:#333;font-size:13px;font-weight:600;text-decoration:none;display:block;margin-bottom:4px;line-height:1.4;">Next.js SEO Architecture: SSR, SSG &amp; ISR</a>
+                <span style="font-size:11px;color:#888;">8 min read</span>
+              </div>
+              <div>
+                <a href="technical-seo-audit-checklist.html" style="color:#333;font-size:13px;font-weight:600;text-decoration:none;display:block;margin-bottom:4px;line-height:1.4;">Technical SEO Audit Checklist 2026</a>
+                <span style="font-size:11px;color:#888;">12 min read</span>
+              </div>
+            </div>
+            <div style="background:linear-gradient(135deg,#15171a,#394047);border-radius:14px;padding:24px;color:#fff;">
+              <h4 style="color:#fff;font-size:16px;font-weight:700;margin-bottom:12px;">Need a CMS Developer?</h4>
+              <p style="color:rgba(255,255,255,0.85);font-size:13px;margin-bottom:18px;">I set up and customise Ghost, WordPress, and headless CMS stacks for publications, startups, and agencies. Free 30-min consultation to discuss your project.</p>
+              <a href="../index.html#contact-section" style="background:#fff;color:#15171a;font-size:13px;font-weight:700;padding:10px 18px;border-radius:8px;display:inline-block;text-decoration:none;">Discuss Your Project &#8594;</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer style="background:#212529;padding:30px 0;">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6"><p style="color:rgba(255,255,255,0.6);font-size:13px;margin:0;">&copy; <span id="footer-year"></span> Anju Batta. All rights reserved.</p></div>
+        <div class="col-md-6 text-md-right"><a href="../blog.html" style="color:rgba(255,255,255,0.6);font-size:13px;text-decoration:none;">&#8592; All Posts</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/jquery.min.js"></script>
+  <script src="../js/popper.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+  <script src="../js/main.js"></script>
+  <script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

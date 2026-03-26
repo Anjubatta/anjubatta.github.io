@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>WordPress Hooks: Mastering Actions &amp; Filters for Custom Development | Anju Batta</title>
+
+  <meta name="description" content="A complete guide to WordPress hooks — actions and filters. Learn how to use add_action, add_filter, do_action, and apply_filters to build modular, maintainable WordPress plugins and themes without modifying core files.">
+  <meta name="keywords" content="WordPress hooks, WordPress actions, WordPress filters, add_action, add_filter, WordPress plugin development, custom hooks WordPress, do_action apply_filters, WordPress developer India, WordPress developer Chandigarh">
+  <meta name="author" content="Anju Batta">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://anjubatta.github.io/blog/wordpress-hooks">
+
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://anjubatta.github.io/blog/wordpress-hooks">
+  <meta property="og:title" content="WordPress Hooks: Mastering Actions &amp; Filters for Custom Development">
+  <meta property="og:description" content="Master WordPress actions and filters to build modular, maintainable plugins and themes without touching core files. Includes real-world examples and best practices.">
+  <meta property="og:image" content="https://anjubatta.github.io/images/abouts.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="WordPress Hooks: Mastering Actions &amp; Filters">
+  <meta name="twitter:description" content="Master WordPress actions and filters to build modular plugins and themes. Real-world examples from 15+ years of WordPress development.">
+  <meta name="twitter:image" content="https://anjubatta.github.io/images/abouts.png">
+
+  <meta name="geo.region" content="IN-PB">
+  <meta name="geo.placename" content="Chandigarh, India">
+
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="sitemap" type="application/xml" href="../sitemap.xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/open-iconic-bootstrap.min.css">
+  <link rel="stylesheet" href="../css/icomoon.css">
+  <link rel="stylesheet" href="../css/style.css">
+
+  <style>
+    .post-hero { background: linear-gradient(135deg,#21759b,#0073aa); padding: 80px 0 50px; color: #fff; }
+    .post-hero .back-link { color: rgba(255,255,255,0.7); font-size:13px; text-decoration:none; display:inline-flex; align-items:center; gap:6px; margin-bottom:20px; }
+    .post-hero .back-link:hover { color:#fff; }
+    .post-badge { display:inline-block; background:rgba(255,255,255,0.2); color:#fff; font-size:11px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; padding:4px 12px; border-radius:20px; margin-bottom:16px; }
+    .post-hero h1 { font-size:clamp(24px,4vw,42px); font-weight:800; line-height:1.3; max-width:800px; }
+    .post-meta { color:rgba(255,255,255,0.65); font-size:13px; margin-top:16px; display:flex; gap:16px; flex-wrap:wrap; }
+    .post-content { max-width:800px; }
+    .post-content h2 { font-size:clamp(20px,2.5vw,26px); font-weight:700; color:#111; margin:40px 0 16px; padding-bottom:10px; border-bottom:2px solid #f0f0f0; }
+    .post-content h3 { font-size:17px; font-weight:700; color:#0073aa; margin:28px 0 12px; }
+    .post-content p { color:#444; font-size:15px; line-height:1.8; margin-bottom:18px; }
+    .post-content ul, .post-content ol { color:#444; font-size:15px; line-height:1.8; margin-bottom:18px; padding-left:24px; }
+    .post-content li { margin-bottom:8px; }
+    .post-content code { background:#f0f6fc; color:#0073aa; padding:2px 7px; border-radius:4px; font-size:13px; font-family:monospace; }
+    .post-content pre { background:#0d1117; color:#e6edf3; padding:20px 24px; border-radius:10px; overflow-x:auto; font-size:13px; line-height:1.7; margin-bottom:20px; }
+    .info-box { background:#f0f6fc; border-left:4px solid #0073aa; border-radius:0 10px 10px 0; padding:18px 20px; margin:20px 0; }
+    .info-box.green { background:#f0faf9; border-left-color:#009688; }
+    .info-box.orange { background:#fff8f3; border-left-color:#F96D00; }
+    .info-box strong { color:#0073aa; }
+    .info-box.green strong { color:#009688; }
+    .info-box.orange strong { color:#F96D00; }
+    .comparison-card { background:#fff; border-radius:12px; padding:22px; box-shadow:0 4px 16px rgba(0,0,0,0.07); margin-bottom:16px; border-left:4px solid #0073aa; }
+    .comparison-card h4 { color:#111; font-weight:700; font-size:15px; margin-bottom:8px; }
+    .comparison-card p { color:#555; font-size:13.5px; margin:0; }
+    .tag-cloud { display:flex; flex-wrap:wrap; gap:8px; margin:20px 0; }
+    .post-tag { background:#f0f6fc; color:#0073aa; font-size:12px; font-weight:600; padding:4px 12px; border-radius:6px; }
+    .author-box { background:#f9f9f9; border-radius:14px; padding:24px; display:flex; gap:20px; align-items:flex-start; margin-top:48px; border:1px solid #eee; }
+    .author-box img { width:70px; height:70px; border-radius:50%; object-fit:cover; flex-shrink:0; }
+    .author-box h5 { font-size:16px; font-weight:700; color:#111; margin:0 0 6px; }
+    .author-box p { font-size:13px; color:#555; margin:0; }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "WordPress Hooks: Mastering Actions &amp; Filters for Custom Development",
+    "description": "A complete guide to WordPress hooks — actions and filters. Learn how to use add_action, add_filter, do_action, and apply_filters to build modular WordPress plugins and themes.",
+    "url": "https://anjubatta.github.io/blog/wordpress-hooks",
+    "datePublished": "2026-01-10",
+    "dateModified": "2026-03-20",
+    "author": { "@type": "Person", "name": "Anju Batta", "url": "https://anjubatta.github.io/" },
+    "keywords": ["WordPress Hooks", "WordPress Actions", "WordPress Filters", "Plugin Development", "add_action", "add_filter"]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://anjubatta.github.io/" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://anjubatta.github.io/blog" },
+      { "@type": "ListItem", "position": 3, "name": "WordPress Hooks Guide", "item": "https://anjubatta.github.io/blog/wordpress-hooks" }
+    ]
+  }
+  </script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-N13XNYEVWD"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-N13XNYEVWD');</script>
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
+    <div class="container">
+      <a class="navbar-brand" href="../index.html">
+        <img src="../images/logo.svg" alt="Anju Batta" height="36" width="140" style="vertical-align:middle;">
+      </a>
+      <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="oi oi-menu"></span> Menu
+      </button>
+      <div class="collapse navbar-collapse" id="ftco-nav">
+        <ul class="navbar-nav nav ml-auto">
+          <li class="nav-item"><a href="../index.html#home-section" class="nav-link"><span>Home</span></a></li>
+          <li class="nav-item"><a href="../index.html#about-section" class="nav-link"><span>About</span></a></li>
+          <li class="nav-item"><a href="../index.html#ai-services-section" class="nav-link"><span>Services</span></a></li>
+          <li class="nav-item"><a href="../index.html#nextjs-seo-section" class="nav-link"><span>Next.js &amp; SEO</span></a></li>
+          <li class="nav-item"><a href="../index.html#project-section" class="nav-link"><span>Projects</span></a></li>
+          <li class="nav-item active"><a href="../blog.html" class="nav-link"><span>Blog</span></a></li>
+          <li class="nav-item"><a href="../contact/" class="nav-link"><span>Contact</span></a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Post Hero -->
+  <div class="post-hero" style="margin-top:56px;">
+    <div class="container">
+      <a href="../blog.html" class="back-link">&#8592; Back to Blog</a>
+      <span class="post-badge">WordPress Development</span>
+      <h1>WordPress Hooks: Mastering Actions &amp; Filters for Custom Development</h1>
+      <div class="post-meta">
+        <span>&#128197; January 10, 2026</span>
+        <span>&#128336; 11 min read</span>
+        <span>&#9998; Anju Batta</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Post Content -->
+  <section style="background:#f9f9f9;padding:60px 0;">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="post-content">
+
+            <div class="tag-cloud">
+              <span class="post-tag">WordPress</span>
+              <span class="post-tag">Actions</span>
+              <span class="post-tag">Filters</span>
+              <span class="post-tag">Plugin Development</span>
+              <span class="post-tag">PHP</span>
+              <span class="post-tag">Theme Development</span>
+            </div>
+
+            <p><strong>WordPress hooks</strong> are the backbone of extensible WordPress development. They let you inject custom code at specific points in WordPress's execution without editing core files — which means your customizations survive updates and remain maintainable for years.</p>
+
+            <p>After building 100+ WordPress plugins and custom themes over 15 years, I can say: understanding hooks deeply is the single most important skill for any serious WordPress developer. This guide covers everything from the fundamentals to advanced patterns I use on production sites.</p>
+
+            <h2>What Are WordPress Hooks?</h2>
+
+            <p>WordPress hooks are a form of the <strong>observer pattern</strong>. WordPress "fires" a hook at a specific point during execution (loading a page, saving a post, sending an email). Your code "hooks in" to listen for that event and run when it fires.</p>
+
+            <p>There are two types of hooks:</p>
+            <ul>
+              <li><strong>Actions</strong> — let you execute your own code at a specific point. WordPress runs a hook, your code runs. You don't return a value.</li>
+              <li><strong>Filters</strong> — let you modify data before WordPress uses it. WordPress passes a value through a filter; you can change it and must return it.</li>
+            </ul>
+
+            <div class="info-box">
+              <strong>Memory aid:</strong> Actions <em>do</em> something (side effects: send an email, save data, enqueue a script). Filters <em>transform</em> something (input → modified output). If you're not returning a value, you need an action. If you are returning a modified value, you need a filter.
+            </div>
+
+            <h2>Actions: add_action and do_action</h2>
+
+            <p>Actions use two core functions:</p>
+            <ul>
+              <li><code>do_action( $hook_name, ...$args )</code> — fires an action hook (called by WordPress core or your code)</li>
+              <li><code>add_action( $hook_name, $callback, $priority, $accepted_args )</code> — registers your callback to run when that hook fires</li>
+            </ul>
+
+            <pre><code>// WordPress fires 'wp_footer' near the closing &lt;/body&gt; tag.
+// We hook in to inject our custom tracking script.
+
+add_action( 'wp_footer', 'my_custom_tracking_script' );
+
+function my_custom_tracking_script() {
+    echo '&lt;script&gt;console.log("Page loaded");&lt;/script&gt;';
+}
+
+// Equivalent using an anonymous function (PHP 5.3+):
+add_action( 'wp_footer', function() {
+    echo '&lt;script&gt;console.log("Page loaded");&lt;/script&gt;';
+} );</code></pre>
+
+            <h3>Priority and Accepted Arguments</h3>
+            <p><code>add_action</code> takes two optional parameters that are often misunderstood:</p>
+
+            <pre><code>add_action( $hook_name, $callback, $priority = 10, $accepted_args = 1 );
+
+// $priority (default 10): lower = runs earlier. Range: 1–9999.
+// $accepted_args: how many arguments your callback accepts.
+
+// Example: run AFTER default WordPress functions (priority > 10)
+add_action( 'init', 'my_late_init', 20 );
+
+// Example: accept all arguments passed by the hook
+add_action( 'save_post', 'on_post_saved', 10, 3 );
+
+function on_post_saved( $post_id, $post, $update ) {
+    if ( $update ) {
+        // Post was updated, not created
+        error_log( 'Post updated: ' . $post->post_title );
+    }
+}</code></pre>
+
+            <h2>Filters: add_filter and apply_filters</h2>
+
+            <p>Filters modify data flowing through WordPress. The critical rule: <strong>always return a value in a filter callback</strong>. Forgetting to return will break your site silently.</p>
+
+            <pre><code>// apply_filters() is called by WordPress to pass data through registered filters.
+// add_filter() registers your callback.
+
+// Example 1: Modify the post title on the frontend
+add_filter( 'the_title', 'prefix_post_title' );
+
+function prefix_post_title( $title ) {
+    if ( is_singular() ) {
+        return '&#128221; ' . $title; // prefix with an icon
+    }
+    return $title; // ALWAYS return the value
+}
+
+// Example 2: Modify the_content to add a CTA after every post
+add_filter( 'the_content', 'append_post_cta' );
+
+function append_post_cta( $content ) {
+    if ( is_single() &amp;&amp; in_the_loop() &amp;&amp; is_main_query() ) {
+        $cta = '&lt;div class="post-cta"&gt;&lt;p&gt;Found this useful? &lt;a href="/contact"&gt;Hire me&lt;/a&gt; for your next project.&lt;/p&gt;&lt;/div&gt;';
+        return $content . $cta;
+    }
+    return $content;
+}
+
+// Example 3: Modify login redirect URL
+add_filter( 'login_redirect', 'custom_login_redirect', 10, 3 );
+
+function custom_login_redirect( $redirect_to, $requested_redirect_to, $user ) {
+    if ( $user &amp;&amp; isset( $user-&gt;roles ) &amp;&amp; in_array( 'editor', $user-&gt;roles ) ) {
+        return admin_url( 'edit.php' ); // redirect editors to posts list
+    }
+    return $redirect_to;
+}</code></pre>
+
+            <h2>Creating Custom Hooks</h2>
+
+            <p>You can define your own hooks in plugins or themes to make your own code extensible. This is how premium plugin developers let users extend their plugins without editing files.</p>
+
+            <pre><code>// In your plugin: define a custom action hook
+function my_plugin_process_order( $order_id ) {
+    $order = get_order( $order_id );
+
+    // ... your order processing logic ...
+
+    // Fire a custom action — other plugins/themes can hook in here
+    do_action( 'my_plugin_after_order_processed', $order_id, $order );
+}
+
+// In your plugin: define a custom filter hook
+function my_plugin_get_shipping_cost( $base_cost, $order ) {
+    // Allow other code to modify the shipping cost
+    return apply_filters( 'my_plugin_shipping_cost', $base_cost, $order );
+}
+
+// In a client's child theme: extend the plugin without editing it
+add_action( 'my_plugin_after_order_processed', function( $order_id, $order ) {
+    // Send a Slack notification when an order is processed
+    send_slack_notification( 'New order: #' . $order_id );
+}, 10, 2 );
+
+add_filter( 'my_plugin_shipping_cost', function( $cost, $order ) {
+    // Free shipping for orders over ₹2000
+    if ( $order-&gt;get_total() &gt; 2000 ) {
+        return 0;
+    }
+    return $cost;
+}, 10, 2 );</code></pre>
+
+            <h2>Essential WordPress Action Hooks</h2>
+
+            <div class="comparison-card">
+              <h4>Page Lifecycle Hooks (in execution order)</h4>
+              <p>
+                <code>muplugins_loaded</code> — Must-use plugins loaded<br>
+                <code>plugins_loaded</code> — All plugins loaded<br>
+                <code>setup_theme</code> → <code>after_setup_theme</code> — Theme loaded<br>
+                <code>init</code> — WordPress initialised (register CPTs, taxonomies here)<br>
+                <code>wp_loaded</code> — After init, before query<br>
+                <code>wp_enqueue_scripts</code> — Enqueue front-end CSS/JS here<br>
+                <code>wp_head</code> — Inside &lt;head&gt; tag<br>
+                <code>the_post</code> — Before post content renders<br>
+                <code>wp_footer</code> — Before &lt;/body&gt;
+              </p>
+            </div>
+
+            <div class="comparison-card">
+              <h4>Content &amp; Admin Hooks</h4>
+              <p>
+                <code>save_post</code> — When a post is saved (created or updated)<br>
+                <code>delete_post</code> — When a post is deleted<br>
+                <code>user_register</code> — New user registered<br>
+                <code>wp_login</code> — User logs in<br>
+                <code>admin_init</code> — WordPress admin initialised<br>
+                <code>admin_menu</code> — Add custom admin menu items<br>
+                <code>admin_enqueue_scripts</code> — Enqueue admin CSS/JS
+              </p>
+            </div>
+
+            <h2>Essential WordPress Filter Hooks</h2>
+
+            <pre><code>// the_title — filter post titles
+add_filter( 'the_title', function( $title ) { return $title; } );
+
+// the_content — filter post body HTML
+add_filter( 'the_content', function( $content ) { return $content; } );
+
+// excerpt_length — change default excerpt word count (default: 55)
+add_filter( 'excerpt_length', function( $length ) { return 30; } );
+
+// excerpt_more — change the "..." at end of excerpts
+add_filter( 'excerpt_more', function() { return ' [&hellip;]'; } );
+
+// wp_title / document_title_parts — SEO title manipulation
+add_filter( 'document_title_parts', function( $title ) {
+    $title['tagline'] = 'Custom Site Tagline';
+    return $title;
+} );
+
+// body_class — add custom CSS classes to &lt;body&gt;
+add_filter( 'body_class', function( $classes ) {
+    if ( is_page( 'about' ) ) {
+        $classes[] = 'about-page';
+    }
+    return $classes;
+} );
+
+// wp_nav_menu_items — add items to navigation menus
+add_filter( 'wp_nav_menu_items', function( $items, $args ) {
+    if ( $args-&gt;theme_location === 'primary' ) {
+        $items .= '&lt;li class="menu-item"&gt;&lt;a href="/contact"&gt;Hire Me&lt;/a&gt;&lt;/li&gt;';
+    }
+    return $items;
+}, 10, 2 );
+
+// upload_mimes — allow additional file types in Media Library
+add_filter( 'upload_mimes', function( $mimes ) {
+    $mimes['svg'] = 'image/svg+xml';
+    $mimes['webp'] = 'image/webp';
+    return $mimes;
+} );</code></pre>
+
+            <h2>Removing Hooks: remove_action and remove_filter</h2>
+
+            <p>You can remove hooks that were added by themes, plugins, or WordPress core. This is how you cleanly override behaviour without editing other people's code.</p>
+
+            <pre><code>// To remove a hook, you need: hook name, callback reference, and priority.
+// The callback MUST be a named function or a stored reference — not an inline closure.
+
+// Example: remove a theme's default footer credit
+remove_action( 'my_theme_footer', 'my_theme_display_credit', 10 );
+
+// Example: remove WordPress's default oEmbed discovery links
+remove_action( 'wp_head', 'wp_oembed_add_discovery_links' );
+remove_action( 'wp_head', 'wp_oembed_add_host_js' );
+
+// Example: remove XML-RPC pingback (security best practice)
+add_filter( 'xmlrpc_methods', function( $methods ) {
+    unset( $methods['pingback.ping'] );
+    return $methods;
+} );
+
+// You cannot remove anonymous closures directly.
+// This is why named callbacks are preferred in removable hooks:
+function my_theme_display_credit() {
+    echo '&lt;p&gt;Theme by My Theme&lt;/p&gt;';
+}
+add_action( 'my_theme_footer', 'my_theme_display_credit', 10 );
+// Later, in child theme:
+remove_action( 'my_theme_footer', 'my_theme_display_credit', 10 ); // works!</code></pre>
+
+            <h2>Hook Execution Order Debugging</h2>
+
+            <p>When hooks fire in unexpected orders, use <code>current_filter()</code> and <code>doing_action()</code> to debug:</p>
+
+            <pre><code>// Log every hook as it fires (development only — never use in production!)
+add_action( 'all', function( $hook ) {
+    if ( strpos( $hook, 'my_plugin' ) !== false ) {
+        error_log( 'Firing hook: ' . $hook . ' | Priority stack: ' . current_filter() );
+    }
+} );
+
+// Check if a specific action has fired
+if ( did_action( 'init' ) ) {
+    // init has already run
+}
+
+// Check if we're currently inside a specific hook
+if ( doing_action( 'save_post' ) ) {
+    // We're inside save_post right now
+}
+
+// Check if a filter/action has been registered
+if ( has_action( 'wp_footer', 'my_tracking_function' ) ) {
+    remove_action( 'wp_footer', 'my_tracking_function' );
+}</code></pre>
+
+            <h2>Best Practices for Production WordPress Development</h2>
+
+            <h3>1. Use Namespaced Function Names</h3>
+            <p>Prefix all your functions and hook callbacks to avoid collisions with other plugins:</p>
+
+            <pre><code>// BAD — collides with any other plugin using the same name
+add_action( 'init', 'register_post_types' );
+
+// GOOD — unique prefix prevents collisions
+add_action( 'init', 'myplugin_register_post_types' );
+function myplugin_register_post_types() { /* ... */ }</code></pre>
+
+            <h3>2. Check Context Before Acting</h3>
+            <p>Many performance issues come from hooks running on every page load. Always check context:</p>
+
+            <pre><code>add_action( 'wp_enqueue_scripts', 'myplugin_enqueue_assets' );
+
+function myplugin_enqueue_assets() {
+    // Only load on specific page — not everywhere
+    if ( ! is_page( 'checkout' ) ) {
+        return;
+    }
+    wp_enqueue_script( 'my-checkout-js', plugin_dir_url(__FILE__) . 'checkout.js', ['jquery'], '1.0', true );
+}</code></pre>
+
+            <h3>3. Late Hook Registration</h3>
+            <p>Some hooks need to be registered very early. Others should wait. Use the right hook for the right job:</p>
+
+            <pre><code>// Register custom post types on 'init' (not earlier)
+add_action( 'init', 'myplugin_register_cpt' );
+
+// Enqueue admin scripts only on admin pages
+add_action( 'admin_enqueue_scripts', 'myplugin_admin_scripts' );
+
+// Add meta boxes only in admin
+add_action( 'add_meta_boxes', 'myplugin_add_meta_boxes' );
+
+// Flush rewrite rules ONCE after CPT registration, not on every load
+register_activation_hook( __FILE__, function() {
+    myplugin_register_cpt();
+    flush_rewrite_rules();
+} );</code></pre>
+
+            <div class="info-box green">
+              <strong>Performance tip:</strong> <code>flush_rewrite_rules()</code> is expensive. Never call it on <code>init</code> or any hook that fires on every request. Only call it on plugin activation/deactivation or after intentional settings changes.
+            </div>
+
+            <div class="info-box orange">
+              <strong>Security reminder:</strong> Always sanitize input and escape output in hook callbacks. Hooks are extension points — malicious data can enter through them. Use <code>sanitize_text_field()</code>, <code>absint()</code>, <code>esc_html()</code>, <code>wp_kses_post()</code> as appropriate for the data type.
+            </div>
+
+            <div class="author-box">
+              <img src="../images/abouts.webp" alt="Anju Batta" loading="lazy">
+              <div>
+                <h5>Anju Batta</h5>
+                <p>Senior Full Stack Developer, Technical SEO Engineer &amp; AI Automation Architect with 15+ years of experience. I build custom WordPress plugins, themes, and WooCommerce solutions for clients across India and internationally. Available for new projects from Chandigarh, India.</p>
+                <a href="../index.html#contact-section" style="color:#0073aa;font-size:13px;font-weight:700;text-decoration:none;">Hire Me for Your WordPress Project &#8594;</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="col-lg-4">
+          <div style="position:sticky;top:80px;">
+            <div style="background:#fff;border-radius:14px;padding:24px;box-shadow:0 4px 20px rgba(0,0,0,0.07);margin-bottom:24px;border-left:4px solid #0073aa;">
+              <h4 style="font-size:16px;font-weight:700;color:#111;margin-bottom:16px;">Related Articles</h4>
+              <div style="margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid #f0f0f0;">
+                <a href="ghost.html" style="color:#333;font-size:13px;font-weight:600;text-decoration:none;display:block;margin-bottom:4px;line-height:1.4;">Ghost CMS: Headless Publishing for Developers</a>
+                <span style="font-size:11px;color:#888;">9 min read</span>
+              </div>
+              <div style="margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid #f0f0f0;">
+                <a href="technical-seo-audit-checklist.html" style="color:#333;font-size:13px;font-weight:600;text-decoration:none;display:block;margin-bottom:4px;line-height:1.4;">Technical SEO Audit Checklist 2026</a>
+                <span style="font-size:11px;color:#888;">12 min read</span>
+              </div>
+              <div>
+                <a href="schema-engineering-guide.html" style="color:#333;font-size:13px;font-weight:600;text-decoration:none;display:block;margin-bottom:4px;line-height:1.4;">Schema Engineering: JSON-LD &amp; Rich Results</a>
+                <span style="font-size:11px;color:#888;">9 min read</span>
+              </div>
+            </div>
+            <div style="background:linear-gradient(135deg,#21759b,#0073aa);border-radius:14px;padding:24px;color:#fff;">
+              <h4 style="color:#fff;font-size:16px;font-weight:700;margin-bottom:12px;">Need a WordPress Developer?</h4>
+              <p style="color:rgba(255,255,255,0.85);font-size:13px;margin-bottom:18px;">I build custom WordPress plugins, WooCommerce solutions, and performance-optimized themes. 15+ years of WordPress expertise. Free 30-min consultation.</p>
+              <a href="../index.html#contact-section" style="background:#fff;color:#0073aa;font-size:13px;font-weight:700;padding:10px 18px;border-radius:8px;display:inline-block;text-decoration:none;">Discuss Your Project &#8594;</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer style="background:#212529;padding:30px 0;">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6"><p style="color:rgba(255,255,255,0.6);font-size:13px;margin:0;">&copy; <span id="footer-year"></span> Anju Batta. All rights reserved.</p></div>
+        <div class="col-md-6 text-md-right"><a href="../blog.html" style="color:rgba(255,255,255,0.6);font-size:13px;text-decoration:none;">&#8592; All Posts</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/jquery.min.js"></script>
+  <script src="../js/popper.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+  <script src="../js/main.js"></script>
+  <script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

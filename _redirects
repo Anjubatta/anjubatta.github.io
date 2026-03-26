@@ -12,6 +12,17 @@
 /blog             /blog/index.html       200
 /blog/            /blog/index.html       200
 
+# Blog posts – trailing slash → canonical (301 permanent redirect)
+/blog/ionic/                          /blog/ionic                          301
+/blog/nextjs-seo-architecture/        /blog/nextjs-seo-architecture        301
+/blog/technical-seo-audit-checklist/  /blog/technical-seo-audit-checklist  301
+/blog/aeo-geo-ai-search-optimization/ /blog/aeo-geo-ai-search-optimization 301
+/blog/cloudflare-optimization-guide/  /blog/cloudflare-optimization-guide  301
+/blog/ai-agent-architecture/          /blog/ai-agent-architecture          301
+/blog/schema-engineering-guide/       /blog/schema-engineering-guide       301
+/blog/wordpress-hooks/                /blog/wordpress-hooks                301
+/blog/ghost/                          /blog/ghost                          301
+
 # Blog posts – clean URL → .html (200 rewrite keeps URL clean in browser)
 /blog/ionic                          /blog/ionic.html                          200
 /blog/nextjs-seo-architecture        /blog/nextjs-seo-architecture.html        200
@@ -20,3 +31,5 @@
 /blog/cloudflare-optimization-guide  /blog/cloudflare-optimization-guide.html  200
 /blog/ai-agent-architecture          /blog/ai-agent-architecture.html          200
 /blog/schema-engineering-guide       /blog/schema-engineering-guide.html       200
+/blog/wordpress-hooks                /blog/wordpress-hooks.html                200
+/blog/ghost                          /blog/ghost.html                          200
