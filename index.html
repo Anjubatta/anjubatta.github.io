@@ -579,6 +579,33 @@
   }
   </script>
 
+  <!-- Google Consent Mode v2 — must load BEFORE gtag.js -->
+  <script>
+    // Define dataLayer and the gtag function.
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+
+    // IMPORTANT - DO NOT COPY/PASTE WITHOUT MODIFYING REGION LIST
+    // Set default consent for specific regions according to your requirements
+    gtag('consent', 'default', {
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied',
+      'analytics_storage': 'denied',
+      'regions': ['AT','BE','BG','CY','CZ','DE','DK','EE','ES','FI','FR','GB','GR','HR','HU','IE','IT','LT','LU','LV','MT','NL','PL','PT','RO','SE','SI','SK','NO','IS','LI']
+    });
+
+    // Set default consent for all other regions according to your requirements
+    gtag('consent', 'default', {
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied',
+      'analytics_storage': 'denied'
+    });
+  </script>
+
+  <!--Banner script here!-->
+
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-2XGJV4RHLZ"></script>
   <script>
