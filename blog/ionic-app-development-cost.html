@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>How to Reduce Ionic App Development Cost Without Sacrificing Quality | Anju Batta</title>
+  <meta name="description" content="Practical strategies to reduce Ionic app development cost without cutting corners. Includes India vs USA pricing, hidden costs, MVP scoping, and budget planning tips from 15+ years experience.">
+  <meta name="keywords" content="ionic app development cost, how much does ionic app development cost, ionic app development cost india, reduce mobile app development cost, ionic developer rates india, mobile app development budget">
+  <meta name="author" content="Anju Batta">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://anjubatta.netlify.app/blog/ionic-app-development-cost">
+
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://anjubatta.netlify.app/blog/ionic-app-development-cost">
+  <meta property="og:title" content="How to Reduce Ionic App Development Cost Without Sacrificing Quality">
+  <meta property="og:description" content="Practical strategies to cut Ionic app development costs. India pricing, MVP scoping, and budget planning from 15+ years experience.">
+  <meta property="og:image" content="https://anjubatta.netlify.app/images/abouts.png">
+
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="sitemap" type="application/xml" href="../sitemap.xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/open-iconic-bootstrap.min.css">
+  <link rel="stylesheet" href="../css/icomoon.css">
+  <link rel="stylesheet" href="../css/style.css">
+
+  <style>
+    .post-hero{background:linear-gradient(135deg,#e65100,#ff9800);padding:80px 0 50px;color:#fff}
+    .post-hero .back-link{color:rgba(255,255,255,0.7);font-size:13px;text-decoration:none;display:inline-flex;align-items:center;gap:6px;margin-bottom:20px}
+    .post-hero .back-link:hover{color:#fff}
+    .post-badge{display:inline-block;background:rgba(255,255,255,0.2);color:#fff;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:4px 12px;border-radius:20px;margin-bottom:16px}
+    .post-hero h1{font-size:clamp(24px,4vw,42px);font-weight:800;line-height:1.3;max-width:800px}
+    .post-meta{color:rgba(255,255,255,0.65);font-size:13px;margin-top:16px;display:flex;gap:16px;flex-wrap:wrap}
+    .post-content{max-width:800px}
+    .post-content h2{font-size:clamp(20px,2.5vw,26px);font-weight:700;color:#111;margin:40px 0 16px;padding-bottom:10px;border-bottom:2px solid #f0f0f0}
+    .post-content h3{font-size:17px;font-weight:700;color:#e65100;margin:28px 0 12px}
+    .post-content p{color:#444;font-size:15px;line-height:1.8;margin-bottom:18px}
+    .post-content ul,.post-content ol{color:#444;font-size:15px;line-height:1.8;margin-bottom:18px;padding-left:24px}
+    .post-content li{margin-bottom:8px}
+    .post-content code{background:#fff3e0;color:#e65100;padding:2px 7px;border-radius:4px;font-size:13px;font-family:monospace}
+    .info-box{background:#fff3e0;border-left:4px solid #ff9800;border-radius:0 10px 10px 0;padding:18px 20px;margin:20px 0;font-size:14.5px;color:#333;line-height:1.7}
+    .info-box.green{background:#f0faf9;border-left-color:#009688}
+    .info-box.blue{background:#eef2ff;border-left-color:#3880ff}
+    .info-box strong{color:#e65100}
+    .info-box.green strong{color:#009688}
+    .info-box.blue strong{color:#3880ff}
+    .tag-cloud{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0}
+    .post-tag{background:#fff3e0;color:#e65100;font-size:12px;font-weight:600;padding:4px 12px;border-radius:6px}
+    .author-box{background:#f9f9f9;border-radius:14px;padding:24px;display:flex;gap:20px;align-items:flex-start;margin-top:48px;border:1px solid #eee}
+    .author-box img{width:70px;height:70px;border-radius:50%;object-fit:cover;flex-shrink:0}
+    .author-box h5{font-size:16px;font-weight:700;color:#111;margin:0 0 6px}
+    .author-box p{font-size:13px;color:#555;margin:0}
+    .cost-table{width:100%;border-collapse:collapse;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.07);margin:20px 0;font-size:13px}
+    .cost-table thead tr{background:#e65100}
+    .cost-table th{padding:13px 16px;color:#fff;text-align:left;font-weight:700}
+    .cost-table td{padding:12px 16px;color:#444;border-bottom:1px solid #f0f0f0}
+    .cost-table tr:last-child td{border-bottom:none}
+    .cost-table tr:nth-child(even){background:#fffaf7}
+    .cost-table td:first-child{font-weight:600;color:#111}
+    .saving-card{background:#fff;border-radius:12px;padding:22px 24px;border-left:5px solid #ff9800;box-shadow:0 3px 14px rgba(0,0,0,0.06);margin-bottom:16px}
+    .saving-card h4{font-size:15px;font-weight:700;color:#111;margin:0 0 8px;display:flex;align-items:center;gap:10px}
+    .saving-card p{font-size:14px;color:#555;margin:0;line-height:1.7}
+    .saving-badge{background:#fff3e0;color:#e65100;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px}
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "headline":"How to Reduce Ionic App Development Cost Without Sacrificing Quality",
+    "description":"Practical strategies to cut Ionic mobile app development costs including India pricing, MVP scoping, and vendor selection tips.",
+    "url":"https://anjubatta.netlify.app/blog/ionic-app-development-cost",
+    "datePublished":"2026-03-31",
+    "dateModified":"2026-03-31",
+    "author":{"@type":"Person","name":"Anju Batta","url":"https://anjubatta.netlify.app/"},
+    "keywords":["Ionic app development cost","mobile app development cost India","hire Ionic developer","cross-platform app budget"]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {
+        "@type":"Question",
+        "name":"How much does it cost to build an Ionic app in India?",
+        "acceptedAnswer":{"@type":"Answer","text":"Ionic app development in India costs $800–$1,500 for a simple MVP, $2,000–$5,000 for a full iOS + Android app, and $5,000–$15,000+ for enterprise applications. Hourly rates range from $15–$40/hour depending on experience level. India offers some of the best value globally — senior-level quality at 60–70% lower cost than US/UK developers."}
+      },
+      {
+        "@type":"Question",
+        "name":"What are the hidden costs of Ionic app development?",
+        "acceptedAnswer":{"@type":"Answer","text":"Common hidden costs include: Apple Developer Account ($99/year), Google Play Developer Account ($25 one-time), backend server hosting ($20–$100/month), push notification service (free–$50/month), app maintenance for OS updates (10–20% of build cost annually), and third-party API subscription fees. Budget for these from the start."}
+      }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://anjubatta.netlify.app/"},
+      {"@type":"ListItem","position":2,"name":"Blog","item":"https://anjubatta.netlify.app/blog"},
+      {"@type":"ListItem","position":3,"name":"Ionic App Development Cost","item":"https://anjubatta.netlify.app/blog/ionic-app-development-cost"}
+    ]
+  }
+  </script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2XGJV4RHLZ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2XGJV4RHLZ');</script>
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
+    <div class="container">
+      <a class="navbar-brand" href="../index.html">
+        <img src="../images/logo.svg" alt="Anju Batta" height="36" width="140" style="vertical-align:middle;">
+      </a>
+      <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="oi oi-menu"></span> Menu
+      </button>
+      <div class="collapse navbar-collapse" id="ftco-nav">
+        <ul class="navbar-nav nav ml-auto">
+          <li class="nav-item"><a href="../index.html#home-section" class="nav-link"><span>Home</span></a></li>
+          <li class="nav-item"><a href="../index.html#about-section" class="nav-link"><span>About</span></a></li>
+          <li class="nav-item"><a href="../index.html#ai-services-section" class="nav-link"><span>Services</span></a></li>
+          <li class="nav-item"><a href="../index.html#project-section" class="nav-link"><span>Projects</span></a></li>
+          <li class="nav-item active"><a href="../blog.html" class="nav-link"><span>Blog</span></a></li>
+          <li class="nav-item"><a href="../contact/" class="nav-link"><span>Contact</span></a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="post-hero" style="margin-top:56px;">
+    <div class="container">
+      <a href="../blog.html" class="back-link">&#8592; Back to Blog</a>
+      <span class="post-badge">Budget &amp; Planning</span>
+      <h1>How to Reduce Ionic App Development Cost Without Sacrificing Quality</h1>
+      <div class="post-meta">
+        <span>&#128197; March 31, 2026</span>
+        <span>&#128336; 9 min read</span>
+        <span>&#9998; Anju Batta</span>
+      </div>
+    </div>
+  </div>
+
+  <section style="background:#f9f9f9;padding:60px 0;">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="post-content">
+
+            <div class="tag-cloud">
+              <span class="post-tag">App Cost</span>
+              <span class="post-tag">Ionic Development</span>
+              <span class="post-tag">India Pricing</span>
+              <span class="post-tag">MVP</span>
+              <span class="post-tag">Budget Planning</span>
+            </div>
+
+            <p>The first question almost every client asks me is: <strong>"How much will my app cost?"</strong> The honest answer is: it depends — but I can give you real numbers, real cost drivers, and the strategies I use to help clients build great apps without overspending.</p>
+
+            <p>I've seen clients burn $50,000 on apps that could have launched for $8,000. I've also seen $3,000 apps that were brilliant because the scope was right. The difference is almost never the technology — it's the scope, the process, and the developer selection. This article covers all three.</p>
+
+            <h2>What Does Ionic App Development Actually Cost in 2026?</h2>
+
+            <p>Here are honest market rates based on current engagements. These reflect India-based senior freelance and small agency pricing — the sweet spot for quality without enterprise pricing.</p>
+
+            <table class="cost-table">
+              <thead>
+                <tr>
+                  <th>App Type</th>
+                  <th>Screens</th>
+                  <th>India (USD)</th>
+                  <th>USA/UK (USD)</th>
+                  <th>Timeline</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Simple MVP</td>
+                  <td>3–5 screens</td>
+                  <td>$800–$1,500</td>
+                  <td>$5,000–$12,000</td>
+                  <td>3–4 weeks</td>
+                </tr>
+                <tr>
+                  <td>Standard App</td>
+                  <td>8–15 screens</td>
+                  <td>$2,000–$4,000</td>
+                  <td>$12,000–$30,000</td>
+                  <td>6–10 weeks</td>
+                </tr>
+                <tr>
+                  <td>Full-Featured App</td>
+                  <td>15–30 screens</td>
+                  <td>$4,000–$8,000</td>
+                  <td>$25,000–$60,000</td>
+                  <td>3–5 months</td>
+                </tr>
+                <tr>
+                  <td>Enterprise App</td>
+                  <td>30+ screens</td>
+                  <td>$8,000–$20,000+</td>
+                  <td>$60,000–$200,000+</td>
+                  <td>6–12 months</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="info-box blue">
+              <strong>Why is India so much cheaper?</strong> Indian developers are not cheaper because they are less skilled — many senior Indian developers have 10–15 years of experience with internationally known clients. The cost difference is purely due to lower cost of living and currency exchange rates. You pay Indian prices for skills that would cost 4–6× more in the US or UK.
+            </div>
+
+            <h2>What Drives Ionic App Development Cost — The 6 Real Factors</h2>
+
+            <h3>1. Number of Screens and Features</h3>
+            <p>Every screen and every feature takes time to build, test, and integrate. A login screen with email/password takes 4–6 hours. A login screen with social login (Google, Apple, Facebook), biometric login, forgot password, and email verification takes 16–24 hours. Features compound. This is why scoping is the single most important cost-control activity.</p>
+
+            <h3>2. Backend &amp; API Complexity</h3>
+            <p>A simple app reading data from a public REST API is cheap. An app with a custom backend (user management, database, file uploads, push notification triggers, scheduled jobs) adds significantly to cost. A full Laravel backend for a medium-complexity app adds $1,500–$4,000 to the project budget.</p>
+
+            <h3>3. Design Requirements</h3>
+            <p>If you supply finished Figma designs, development is faster. If the developer must create the design from scratch, add 20–30% to the budget. If you need custom animations, complex onboarding flows, or heavily branded UI — add more. Plain functional UI (typical for B2B apps) is faster and cheaper than consumer-grade design.</p>
+
+            <h3>4. Third-Party Integrations</h3>
+            <p>Each external integration (payment gateway, CRM, maps, analytics, video SDK, SMS OTP) adds development and testing time. Payment gateways (Stripe, Razorpay) typically add 8–16 hours. Maps and geolocation add 6–12 hours. Video calling SDKs (Agora, Twilio) can add 20–40 hours.</p>
+
+            <h3>5. Platforms: One or Both</h3>
+            <p>One of Ionic's biggest advantages is that iOS and Android share the same codebase. However, there is always some platform-specific work — different UI guidelines, different native API behaviors, different App Store submission processes. A dual-platform Ionic app typically costs 20–30% more than a single-platform build, not 100% more like building native apps.</p>
+
+            <h3>6. Developer Experience and Location</h3>
+            <p>A junior developer charging $10/hour may look cheap but can cost more in the long run — bugs, poor architecture, extra revisions, and code that's hard to maintain. A senior developer at $30–$40/hour gets the architecture right the first time, writes maintainable code, and typically delivers in fewer hours. For anything beyond a simple MVP, senior > junior.</p>
+
+            <h2>Hidden Costs Nobody Tells You About</h2>
+
+            <table class="cost-table">
+              <thead>
+                <tr>
+                  <th>Hidden Cost</th>
+                  <th>Amount</th>
+                  <th>Frequency</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Apple Developer Account</td>
+                  <td>$99</td>
+                  <td>Per year</td>
+                </tr>
+                <tr>
+                  <td>Google Play Developer Account</td>
+                  <td>$25</td>
+                  <td>One-time</td>
+                </tr>
+                <tr>
+                  <td>Backend Hosting (VPS/Cloud)</td>
+                  <td>$20–$100/month</td>
+                  <td>Monthly</td>
+                </tr>
+                <tr>
+                  <td>Push Notification Service</td>
+                  <td>Free–$50/month</td>
+                  <td>Monthly</td>
+                </tr>
+                <tr>
+                  <td>SSL Certificate</td>
+                  <td>Free (Let's Encrypt)</td>
+                  <td>Annually</td>
+                </tr>
+                <tr>
+                  <td>Annual OS Update Maintenance</td>
+                  <td>10–20% of build cost</td>
+                  <td>Per year</td>
+                </tr>
+                <tr>
+                  <td>App Store Screenshots &amp; Metadata</td>
+                  <td>$100–$500</td>
+                  <td>One-time</td>
+                </tr>
+                <tr>
+                  <td>Third-Party API Subscriptions</td>
+                  <td>$0–$500+/month</td>
+                  <td>Monthly</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="info-box">
+              <strong>Budget rule of thumb:</strong> Add 15–20% of your development cost as an annual maintenance budget. iOS and Android release major OS updates every year. Capacitor plugins need updates. App Store policies change. A $5,000 app needs roughly $750–$1,000/year in maintenance to stay healthy.
+            </div>
+
+            <h2>7 Proven Strategies to Reduce Ionic App Cost</h2>
+
+            <div class="saving-card">
+              <h4>1. Start with an MVP — Not the Full Vision <span class="saving-badge">Save 50–70%</span></h4>
+              <p>List every feature you want. Then ask: "What is the minimum set of features that lets us validate our idea and get our first 100 users?" Build that first. Everything else is version 2. MVPs typically cost 30–50% of the "full vision" app and teach you more about what users actually need.</p>
+            </div>
+
+            <div class="saving-card">
+              <h4>2. Use Ionic's Pre-Built UI Components <span class="saving-badge">Save 20–30%</span></h4>
+              <p>Ionic ships 100+ production-ready UI components. Don't pay a developer to build a date picker, modal, tab bar, or pull-to-refresh from scratch — use the framework's components. Only invest in custom UI where it genuinely differentiates your product.</p>
+            </div>
+
+            <div class="saving-card">
+              <h4>3. Choose Firebase Over a Custom Backend (for Simple Apps) <span class="saving-badge">Save $1,500–$3,000</span></h4>
+              <p>For apps with standard CRUD operations, user auth, file storage, and real-time data, Firebase eliminates the need for a custom backend entirely. Firebase free tier covers most MVP use cases. Only build a custom Laravel/Node backend when your business logic genuinely requires it.</p>
+            </div>
+
+            <div class="saving-card">
+              <h4>4. Hire a Senior Full Stack Developer, Not Two Specialists <span class="saving-badge">Save 30–40%</span></h4>
+              <p>A developer who builds both the Ionic frontend and the backend API saves you 30–40% versus hiring a frontend specialist and a backend specialist separately. It also eliminates integration headaches and communication overhead. This is why full stack Ionic developers command a premium — they're worth it.</p>
+            </div>
+
+            <div class="saving-card">
+              <h4>5. Provide Clear Requirements Before Development Starts <span class="saving-badge">Save 20–35%</span></h4>
+              <p>Scope creep — adding features mid-development — is the single biggest budget killer. Every new feature during development costs 2–3× more than if it had been scoped upfront. Write a clear requirements document. Review wireframes before development starts. Freeze scope for v1.</p>
+            </div>
+
+            <div class="saving-card">
+              <h4>6. Use Capacitor Over Custom Native Modules <span class="saving-badge">Save $500–$2,000</span></h4>
+              <p>Capacitor has official plugins for Camera, Geolocation, Push Notifications, Biometrics, File System, and more — all free and open source. Only build a custom native module when there is genuinely no Capacitor plugin for what you need. Custom native code requires writing Kotlin/Swift and is expensive.</p>
+            </div>
+
+            <div class="saving-card">
+              <h4>7. Hire from India, Not the US or UK <span class="saving-badge">Save 60–75%</span></h4>
+              <p>A senior Ionic developer in India charges $20–$40/hour. The same experience level in the USA charges $100–$180/hour. For a 500-hour project, that's a $40,000–$70,000 difference for the same quality output. India's pool of senior mobile developers with global client experience is deep and growing.</p>
+            </div>
+
+            <h2>The Right Questions to Ask Any Ionic Developer Before Hiring</h2>
+
+            <ul>
+              <li><strong>Can I see your Ionic apps on the App Store?</strong> — Real apps, not just screenshots</li>
+              <li><strong>Do you write TypeScript or JavaScript?</strong> — TypeScript indicates senior-level discipline</li>
+              <li><strong>What state management approach do you use?</strong> — NgRx, Services, or Signals — they should have a clear answer</li>
+              <li><strong>Have you used Capacitor or Cordova?</strong> — Capacitor is the modern standard; Cordova-only experience is outdated</li>
+              <li><strong>Will you handle the App Store submission?</strong> — Some developers build but won't handle publishing</li>
+              <li><strong>What is included in your post-launch support?</strong> — Get specifics, not vague promises</li>
+            </ul>
+
+            <div style="background:linear-gradient(135deg,#e65100,#ff9800);border-radius:16px;padding:32px;color:#fff;text-align:center;margin:40px 0;">
+              <h3 style="color:#fff;font-size:20px;font-weight:700;margin-bottom:10px;">Get a Fixed-Price Quote for Your Ionic App</h3>
+              <p style="color:rgba(255,255,255,0.9);font-size:14px;margin-bottom:20px;">Tell me what you need in a free 30-minute call. I'll give you an honest scope, a fixed quote, and a clear delivery plan — no hourly surprises.</p>
+              <a href="../services/ionic-app-development.html" style="background:#fff;color:#e65100;font-weight:700;font-size:14px;padding:12px 28px;border-radius:8px;text-decoration:none;display:inline-block;">View Pricing Packages &#8594;</a>
+            </div>
+
+            <div class="author-box">
+              <img src="../images/abouts.webp" alt="Anju Batta" loading="lazy">
+              <div>
+                <h5>Anju Batta</h5>
+                <p>Senior Full Stack Developer with 15+ years of experience and 500+ projects. I've helped dozens of clients scope, budget, and build Ionic apps that launched on time and on budget. Based in Chandigarh, India — available globally.</p>
+                <a href="../contact/" style="color:#e65100;font-size:13px;font-weight:700;text-decoration:none;display:inline-block;margin-top:8px;">Get Free Consultation &#8594;</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div style="position:sticky;top:80px;">
+            <div style="background:linear-gradient(135deg,#e65100,#ff9800);border-radius:14px;padding:24px;color:#fff;margin-bottom:24px;">
+              <h4 style="color:#fff;font-size:16px;font-weight:700;margin-bottom:10px;">Need an Ionic Developer?</h4>
+              <p style="color:rgba(255,255,255,0.8);font-size:13px;margin-bottom:18px;">Fixed pricing, transparent quotes, senior-level quality. Free 30-min consultation.</p>
+              <a href="../contact/" style="background:#fff;color:#e65100;font-size:13px;font-weight:700;padding:10px 18px;border-radius:8px;display:inline-block;text-decoration:none;">Get Free Quote &#8594;</a>
+            </div>
+            <div style="background:#fff;border-radius:14px;padding:24px;box-shadow:0 4px 20px rgba(0,0,0,0.07);">
+              <h4 style="font-size:15px;font-weight:700;color:#111;margin-bottom:16px;">Related Articles</h4>
+              <div style="margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid #f0f0f0;">
+                <a href="ionic-vs-flutter-vs-react-native.html" style="color:#333;font-size:13px;font-weight:600;text-decoration:none;display:block;margin-bottom:4px;line-height:1.5;">Ionic vs Flutter vs React Native 2026</a>
+                <span style="font-size:11px;color:#888;">12 min read</span>
+              </div>
+              <div style="margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid #f0f0f0;">
+                <a href="ionic-app-store-submission-checklist.html" style="color:#333;font-size:13px;font-weight:600;text-decoration:none;display:block;margin-bottom:4px;line-height:1.5;">Ionic App Store Submission Checklist</a>
+                <span style="font-size:11px;color:#888;">8 min read</span>
+              </div>
+              <div>
+                <a href="ionic.html" style="color:#333;font-size:13px;font-weight:600;text-decoration:none;display:block;margin-bottom:4px;line-height:1.5;">Ionic Framework Complete Guide</a>
+                <span style="font-size:11px;color:#888;">10 min read</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer style="background:#212529;padding:30px 0;">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6"><p style="color:rgba(255,255,255,0.6);font-size:13px;margin:0;">&copy; <span id="footer-year"></span> Anju Batta. All rights reserved.</p></div>
+        <div class="col-md-6 text-md-right"><a href="../blog.html" style="color:rgba(255,255,255,0.6);font-size:13px;text-decoration:none;">&#8592; All Posts</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/jquery.min.js"></script>
+  <script src="../js/popper.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+  <script src="../js/main.js"></script>
+  <script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

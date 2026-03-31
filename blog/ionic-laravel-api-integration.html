@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Ionic + Laravel REST API Integration Guide 2026 | Anju Batta</title>
+  <meta name="description" content="Complete step-by-step guide to connecting an Ionic app to a Laravel backend. JWT authentication, CRUD operations, file uploads, error handling, and deployment — with real code examples.">
+  <meta name="keywords" content="ionic laravel api integration, ionic angular laravel, ionic jwt authentication, ionic rest api laravel, capacitor laravel backend, ionic laravel tutorial 2026">
+  <meta name="author" content="Anju Batta">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://anjubatta.netlify.app/blog/ionic-laravel-api-integration">
+
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://anjubatta.netlify.app/blog/ionic-laravel-api-integration">
+  <meta property="og:title" content="Ionic + Laravel REST API Integration Guide 2026">
+  <meta property="og:description" content="Complete guide: JWT auth, CRUD, file uploads, and error handling for Ionic Angular + Laravel REST API.">
+  <meta property="og:image" content="https://anjubatta.netlify.app/images/abouts.png">
+
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="sitemap" type="application/xml" href="../sitemap.xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/open-iconic-bootstrap.min.css">
+  <link rel="stylesheet" href="../css/icomoon.css">
+  <link rel="stylesheet" href="../css/style.css">
+
+  <style>
+    .post-hero{background:linear-gradient(135deg,#880e4f,#e91e63);padding:80px 0 50px;color:#fff}
+    .post-hero .back-link{color:rgba(255,255,255,0.7);font-size:13px;text-decoration:none;display:inline-flex;align-items:center;gap:6px;margin-bottom:20px}
+    .post-hero .back-link:hover{color:#fff}
+    .post-badge{display:inline-block;background:rgba(255,255,255,0.2);color:#fff;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:4px 12px;border-radius:20px;margin-bottom:16px}
+    .post-hero h1{font-size:clamp(24px,4vw,42px);font-weight:800;line-height:1.3;max-width:800px}
+    .post-meta{color:rgba(255,255,255,0.65);font-size:13px;margin-top:16px;display:flex;gap:16px;flex-wrap:wrap}
+    .post-content{max-width:800px}
+    .post-content h2{font-size:clamp(20px,2.5vw,26px);font-weight:700;color:#111;margin:40px 0 16px;padding-bottom:10px;border-bottom:2px solid #f0f0f0}
+    .post-content h3{font-size:17px;font-weight:700;color:#880e4f;margin:28px 0 12px}
+    .post-content p{color:#444;font-size:15px;line-height:1.8;margin-bottom:18px}
+    .post-content ul,.post-content ol{color:#444;font-size:15px;line-height:1.8;margin-bottom:18px;padding-left:24px}
+    .post-content li{margin-bottom:8px}
+    .post-content code{background:#fce4ec;color:#880e4f;padding:2px 7px;border-radius:4px;font-size:13px;font-family:monospace}
+    .post-content pre{background:#0d1117;color:#e6edf3;padding:20px 24px;border-radius:10px;overflow-x:auto;font-size:13px;line-height:1.7;margin-bottom:20px}
+    .info-box{background:#fce4ec;border-left:4px solid #e91e63;border-radius:0 10px 10px 0;padding:18px 20px;margin:20px 0;font-size:14.5px;color:#333;line-height:1.7}
+    .info-box.green{background:#f0faf9;border-left-color:#009688}
+    .info-box.blue{background:#eef2ff;border-left-color:#3880ff}
+    .info-box strong{color:#880e4f}
+    .info-box.green strong{color:#009688}
+    .info-box.blue strong{color:#3880ff}
+    .tag-cloud{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0}
+    .post-tag{background:#fce4ec;color:#880e4f;font-size:12px;font-weight:600;padding:4px 12px;border-radius:6px}
+    .author-box{background:#f9f9f9;border-radius:14px;padding:24px;display:flex;gap:20px;align-items:flex-start;margin-top:48px;border:1px solid #eee}
+    .author-box img{width:70px;height:70px;border-radius:50%;object-fit:cover;flex-shrink:0}
+    .author-box h5{font-size:16px;font-weight:700;color:#111;margin:0 0 6px}
+    .author-box p{font-size:13px;color:#555;margin:0}
+    .step-badge{display:inline-block;background:#e91e63;color:#fff;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:10px;letter-spacing:.5px}
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "headline":"Ionic + Laravel REST API Integration Guide 2026",
+    "description":"Complete step-by-step guide connecting an Ionic Angular app to a Laravel backend with JWT authentication, CRUD operations, and file uploads.",
+    "url":"https://anjubatta.netlify.app/blog/ionic-laravel-api-integration",
+    "datePublished":"2026-03-31",
+    "dateModified":"2026-03-31",
+    "author":{"@type":"Person","name":"Anju Batta","url":"https://anjubatta.netlify.app/"},
+    "keywords":["Ionic Laravel","Ionic REST API","Ionic JWT authentication","Ionic Angular Laravel tutorial"]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://anjubatta.netlify.app/"},
+      {"@type":"ListItem","position":2,"name":"Blog","item":"https://anjubatta.netlify.app/blog"},
+      {"@type":"ListItem","position":3,"name":"Ionic Laravel API Integration","item":"https://anjubatta.netlify.app/blog/ionic-laravel-api-integration"}
+    ]
+  }
+  </script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2XGJV4RHLZ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2XGJV4RHLZ');</script>
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
+    <div class="container">
+      <a class="navbar-brand" href="../index.html">
+        <img src="../images/logo.svg" alt="Anju Batta" height="36" width="140" style="vertical-align:middle;">
+      </a>
+      <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="oi oi-menu"></span> Menu
+      </button>
+      <div class="collapse navbar-collapse" id="ftco-nav">
+        <ul class="navbar-nav nav ml-auto">
+          <li class="nav-item"><a href="../index.html#home-section" class="nav-link"><span>Home</span></a></li>
+          <li class="nav-item"><a href="../index.html#about-section" class="nav-link"><span>About</span></a></li>
+          <li class="nav-item"><a href="../index.html#ai-services-section" class="nav-link"><span>Services</span></a></li>
+          <li class="nav-item"><a href="../index.html#project-section" class="nav-link"><span>Projects</span></a></li>
+          <li class="nav-item active"><a href="../blog.html" class="nav-link"><span>Blog</span></a></li>
+          <li class="nav-item"><a href="../contact/" class="nav-link"><span>Contact</span></a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="post-hero" style="margin-top:56px;">
+    <div class="container">
+      <a href="../blog.html" class="back-link">&#8592; Back to Blog</a>
+      <span class="post-badge">Full Stack Integration</span>
+      <h1>Ionic + Laravel REST API: Complete Integration Guide for 2026</h1>
+      <div class="post-meta">
+        <span>&#128197; March 31, 2026</span>
+        <span>&#128336; 14 min read</span>
+        <span>&#9998; Anju Batta</span>
+      </div>
+    </div>
+  </div>
+
+  <section style="background:#f9f9f9;padding:60px 0;">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="post-content">
+
+            <div class="tag-cloud">
+              <span class="post-tag">Ionic Angular</span>
+              <span class="post-tag">Laravel</span>
+              <span class="post-tag">JWT Auth</span>
+              <span class="post-tag">REST API</span>
+              <span class="post-tag">Full Stack</span>
+            </div>
+
+            <p>Ionic and Laravel are a natural stack combination. Ionic gives you a cross-platform mobile app; Laravel gives you a clean, well-structured backend API. Together they power some of the most reliable and cost-effective mobile app systems I've built for clients across India, the UK, and Australia.</p>
+
+            <p>This is a practical guide — real code, real patterns, and the specific gotchas I've hit (and fixed) across 15+ years of building this exact stack in production.</p>
+
+            <div class="info-box blue">
+              <strong>Stack used in this guide:</strong> Ionic 7 + Angular 17 + Capacitor 5 (frontend) and Laravel 11 + Sanctum / tymon/jwt-auth (backend). All examples use TypeScript on the Ionic side and PHP 8.2+ on the Laravel side.
+            </div>
+
+            <h2>Step 1: Laravel API Setup</h2>
+
+            <div class="step-badge">Laravel Backend</div>
+            <h3>Install and Configure Laravel Sanctum (Recommended)</h3>
+            <p>For most mobile apps, Laravel Sanctum with token-based auth is the cleanest approach. It's built into Laravel and handles mobile token issuance simply.</p>
+
+            <pre><code># Create new Laravel project
+composer create-project laravel/laravel my-api
+cd my-api
+
+# Install Sanctum (included in Laravel 11 by default)
+php artisan install:api
+
+# Run migrations
+php artisan migrate</code></pre>
+
+            <h3>Configure CORS for Mobile Development</h3>
+            <p>This is the most common first blocker developers hit. Your Ionic app (running on a device or simulator) will make requests from a different origin than your Laravel server. Configure CORS correctly from the start.</p>
+
+            <pre><code>// config/cors.php
+return [
+    'paths' => ['api/*'],
+    'allowed_methods' => ['*'],
+    'allowed_origins' => ['*'],  // Restrict to your domain in production
+    'allowed_origins_patterns' => [],
+    'allowed_headers' => ['*'],
+    'exposed_headers' => [],
+    'max_age' => 0,
+    'supports_credentials' => false,
+];</code></pre>
+
+            <div class="info-box">
+              <strong>Production CORS:</strong> In production, replace <code>'allowed_origins' =&gt; ['*']</code> with your actual domains: <code>['https://yourdomain.com', 'capacitor://localhost', 'http://localhost']</code>. Capacitor iOS uses <code>capacitor://localhost</code> as the WebView origin.
+            </div>
+
+            <h3>Auth Controller</h3>
+
+            <pre><code>// app/Http/Controllers/Api/AuthController.php
+namespace App\Http\Controllers\Api;
+
+use App\Http\Controllers\Controller;
+use App\Models\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+
+class AuthController extends Controller
+{
+    public function register(Request $request)
+    {
+        $request->validate([
+            'name'     => 'required|string|max:255',
+            'email'    => 'required|string|email|unique:users',
+            'password' => 'required|string|min:8|confirmed',
+        ]);
+
+        $user = User::create([
+            'name'     => $request->name,
+            'email'    => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
+
+        $token = $user->createToken('mobile-app')->plainTextToken;
+
+        return response()->json([
+            'user'  => $user,
+            'token' => $token,
+        ], 201);
+    }
+
+    public function login(Request $request)
+    {
+        $request->validate([
+            'email'    => 'required|email',
+            'password' => 'required',
+        ]);
+
+        $user = User::where('email', $request->email)->first();
+
+        if (!$user || !Hash::check($request->password, $user->password)) {
+            return response()->json([
+                'message' => 'Invalid credentials'
+            ], 401);
+        }
+
+        // Revoke old tokens on login (optional — good for security)
+        $user->tokens()->delete();
+        $token = $user->createToken('mobile-app')->plainTextToken;
+
+        return response()->json([
+            'user'  => $user,
+            'token' => $token,
+        ]);
+    }
+
+    public function logout(Request $request)
+    {
+        $request->user()->currentAccessToken()->delete();
+        return response()->json(['message' => 'Logged out successfully']);
+    }
+}</code></pre>
+
+            <h3>API Routes</h3>
+
+            <pre><code>// routes/api.php
+use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\PostController;
+
+Route::post('/register', [AuthController::class, 'register']);
+Route::post('/login',    [AuthController::class, 'login']);
+
+Route::middleware('auth:sanctum')->group(function () {
+    Route::post('/logout', [AuthController::class, 'logout']);
+    Route::apiResource('posts', PostController::class);
+});</code></pre>
+
+            <h2>Step 2: Ionic Angular — API Service</h2>
+
+            <div class="step-badge">Ionic Frontend</div>
+            <h3>Create the API Service</h3>
+            <p>Centralise all HTTP calls in a dedicated service. Never call <code>HttpClient</code> directly from components — it makes your code hard to test and maintain.</p>
+
+            <pre><code>// src/app/core/services/api.service.ts
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { environment } from '../../../environments/environment';
+
+@Injectable({ providedIn: 'root' })
+export class ApiService {
+
+  private baseUrl = environment.apiUrl; // e.g. https://api.yourdomain.com/api
+
+  constructor(private http: HttpClient) {}
+
+  get&lt;T&gt;(endpoint: string): Observable&lt;T&gt; {
+    return this.http.get&lt;T&gt;(`${this.baseUrl}/${endpoint}`);
+  }
+
+  post&lt;T&gt;(endpoint: string, body: any): Observable&lt;T&gt; {
+    return this.http.post&lt;T&gt;(`${this.baseUrl}/${endpoint}`, body);
+  }
+
+  put&lt;T&gt;(endpoint: string, body: any): Observable&lt;T&gt; {
+    return this.http.put&lt;T&gt;(`${this.baseUrl}/${endpoint}`, body);
+  }
+
+  delete&lt;T&gt;(endpoint: string): Observable&lt;T&gt; {
+    return this.http.delete&lt;T&gt;(`${this.baseUrl}/${endpoint}`);
+  }
+}</code></pre>
+
+            <h3>JWT Interceptor — Attach Token to Every Request</h3>
+            <p>An HTTP interceptor automatically injects the Bearer token into every outgoing request, so you never have to add it manually in each service call.</p>
+
+            <pre><code>// src/app/core/interceptors/auth.interceptor.ts
+import { HttpInterceptorFn, HttpRequest, HttpHandlerFn } from '@angular/common/http';
+import { inject } from '@angular/core';
+import { StorageService } from '../services/storage.service';
+import { from, switchMap } from 'rxjs';
+
+export const authInterceptor: HttpInterceptorFn = (
+  req: HttpRequest&lt;unknown&gt;,
+  next: HttpHandlerFn
+) =&gt; {
+  const storage = inject(StorageService);
+
+  return from(storage.get('auth_token')).pipe(
+    switchMap(token =&gt; {
+      if (token) {
+        const cloned = req.clone({
+          setHeaders: { Authorization: `Bearer ${token}` }
+        });
+        return next(cloned);
+      }
+      return next(req);
+    })
+  );
+};</code></pre>
+
+            <pre><code>// app.config.ts — register the interceptor
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
+import { authInterceptor } from './core/interceptors/auth.interceptor';
+
+export const appConfig: ApplicationConfig = {
+  providers: [
+    provideHttpClient(withInterceptors([authInterceptor])),
+    // ... other providers
+  ]
+};</code></pre>
+
+            <h2>Step 3: Authentication Service</h2>
+
+            <pre><code>// src/app/core/services/auth.service.ts
+import { Injectable, signal } from '@angular/core';
+import { ApiService } from './api.service';
+import { StorageService } from './storage.service';
+import { Router } from '@angular/router';
+import { tap } from 'rxjs/operators';
+
+@Injectable({ providedIn: 'root' })
+export class AuthService {
+  isAuthenticated = signal(false);
+
+  constructor(
+    private api: ApiService,
+    private storage: StorageService,
+    private router: Router
+  ) {}
+
+  login(email: string, password: string) {
+    return this.api.post&lt;{user: any, token: string}&gt;('login', { email, password })
+      .pipe(
+        tap(async response =&gt; {
+          await this.storage.set('auth_token', response.token);
+          await this.storage.set('user', response.user);
+          this.isAuthenticated.set(true);
+        })
+      );
+  }
+
+  async logout() {
+    await this.api.post('logout', {}).toPromise();
+    await this.storage.remove('auth_token');
+    await this.storage.remove('user');
+    this.isAuthenticated.set(false);
+    this.router.navigate(['/login']);
+  }
+
+  async checkAuth(): Promise&lt;boolean&gt; {
+    const token = await this.storage.get('auth_token');
+    this.isAuthenticated.set(!!token);
+    return !!token;
+  }
+}</code></pre>
+
+            <div class="info-box green">
+              <strong>Use Capacitor Preferences for token storage:</strong> Never store auth tokens in <code>localStorage</code> — it's accessible via JavaScript and exposed on rooted devices. Use <code>@capacitor/preferences</code> (secure native storage). The <code>StorageService</code> wrapper above should use <code>Preferences.set()</code> / <code>Preferences.get()</code> internally.
+            </div>
+
+            <h2>Step 4: CRUD Operations</h2>
+
+            <pre><code>// src/app/features/posts/post.service.ts
+import { Injectable } from '@angular/core';
+import { ApiService } from '../../core/services/api.service';
+import { Observable } from 'rxjs';
+
+export interface Post {
+  id: number;
+  title: string;
+  body: string;
+  created_at: string;
+}
+
+@Injectable({ providedIn: 'root' })
+export class PostService {
+  constructor(private api: ApiService) {}
+
+  getAll(): Observable&lt;Post[]&gt; {
+    return this.api.get&lt;Post[]&gt;('posts');
+  }
+
+  getOne(id: number): Observable&lt;Post&gt; {
+    return this.api.get&lt;Post&gt;(`posts/${id}`);
+  }
+
+  create(post: Partial&lt;Post&gt;): Observable&lt;Post&gt; {
+    return this.api.post&lt;Post&gt;('posts', post);
+  }
+
+  update(id: number, post: Partial&lt;Post&gt;): Observable&lt;Post&gt; {
+    return this.api.put&lt;Post&gt;(`posts/${id}`, post);
+  }
+
+  delete(id: number): Observable&lt;void&gt; {
+    return this.api.delete&lt;void&gt;(`posts/${id}`);
+  }
+}</code></pre>
+
+            <h2>Step 5: File Upload (Capacitor Camera → Laravel)</h2>
+
+            <pre><code>// Ionic: capture and upload image
+import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
+import { HttpClient } from '@angular/common/http';
+
+async uploadPhoto() {
+  // Step 1: Capture image via Capacitor Camera
+  const photo = await Camera.getPhoto({
+    quality: 80,
+    allowEditing: false,
+    resultType: CameraResultType.Base64,
+    source: CameraSource.Camera
+  });
+
+  // Step 2: Convert base64 to Blob
+  const blob = this.base64ToBlob(photo.base64String!, 'image/jpeg');
+
+  // Step 3: Create FormData and POST to Laravel
+  const formData = new FormData();
+  formData.append('photo', blob, 'photo.jpg');
+  formData.append('post_id', '123');
+
+  return this.http.post(`${environment.apiUrl}/upload-photo`, formData).toPromise();
+}
+
+private base64ToBlob(base64: string, mimeType: string): Blob {
+  const byteCharacters = atob(base64);
+  const byteArray = new Uint8Array(byteCharacters.length);
+  for (let i = 0; i &lt; byteCharacters.length; i++) {
+    byteArray[i] = byteCharacters.charCodeAt(i);
+  }
+  return new Blob([byteArray], { type: mimeType });
+}</code></pre>
+
+            <pre><code>// Laravel: handle the upload
+// app/Http/Controllers/Api/UploadController.php
+public function uploadPhoto(Request $request)
+{
+    $request->validate([
+        'photo' => 'required|image|max:5120', // 5MB max
+    ]);
+
+    $path = $request->file('photo')->store('uploads', 'public');
+
+    return response()->json([
+        'url' => asset('storage/' . $path),
+        'path' => $path,
+    ]);
+}</code></pre>
+
+            <h2>Step 6: Error Handling Interceptor</h2>
+
+            <pre><code>// src/app/core/interceptors/error.interceptor.ts
+import { HttpInterceptorFn, HttpErrorResponse } from '@angular/common/http';
+import { inject } from '@angular/core';
+import { ToastController } from '@ionic/angular/standalone';
+import { catchError, throwError } from 'rxjs';
+import { AuthService } from '../services/auth.service';
+
+export const errorInterceptor: HttpInterceptorFn = (req, next) =&gt; {
+  const toastCtrl = inject(ToastController);
+  const auth = inject(AuthService);
+
+  return next(req).pipe(
+    catchError(async (err: HttpErrorResponse) =&gt; {
+      let message = 'An error occurred. Please try again.';
+
+      if (err.status === 401) {
+        await auth.logout();
+        message = 'Session expired. Please log in again.';
+      } else if (err.status === 422) {
+        // Laravel validation errors
+        const errors = err.error?.errors;
+        message = errors ? Object.values(errors).flat()[0] as string : err.error?.message;
+      } else if (err.status === 0) {
+        message = 'No internet connection. Check your network.';
+      } else if (err.status >= 500) {
+        message = 'Server error. Please try again later.';
+      }
+
+      const toast = await toastCtrl.create({
+        message,
+        duration: 3000,
+        color: 'danger',
+        position: 'top',
+      });
+      await toast.present();
+
+      return throwError(() =&gt; err);
+    })
+  );
+};</code></pre>
+
+            <h2>Step 7: Environment Configuration</h2>
+
+            <pre><code>// src/environments/environment.ts (development)
+export const environment = {
+  production: false,
+  apiUrl: 'http://localhost:8000/api'
+};
+
+// src/environments/environment.prod.ts (production)
+export const environment = {
+  production: true,
+  apiUrl: 'https://api.yourdomain.com/api'
+};</code></pre>
+
+            <div class="info-box">
+              <strong>Testing on real devices:</strong> When testing on a physical phone, <code>localhost</code> does not point to your dev machine. Use your machine's local IP (e.g. <code>http://192.168.1.10:8000/api</code>) or deploy your Laravel API to a staging server. I always use a staging server from day one — it avoids a whole class of "works on simulator, broken on device" issues.
+            </div>
+
+            <h2>Common Integration Issues and Fixes</h2>
+
+            <ul>
+              <li><strong>CORS errors on device:</strong> Add <code>capacitor://localhost</code> and <code>http://localhost</code> to Laravel's allowed origins</li>
+              <li><strong>Mixed content (HTTP/HTTPS):</strong> Always use HTTPS for your API in production. Capacitor blocks mixed content by default on iOS</li>
+              <li><strong>401 on every request:</strong> Check that the interceptor is adding the correct token header and that Sanctum middleware is applied to the route</li>
+              <li><strong>Large file upload timeouts:</strong> Set <code>timeout</code> in HttpClient for uploads and increase Laravel's <code>post_max_size</code> and <code>upload_max_filesize</code> in php.ini</li>
+              <li><strong>iOS blocking HTTP requests:</strong> Add <code>NSAllowsArbitraryLoads</code> to <code>Info.plist</code> during development only — remove it before App Store submission</li>
+            </ul>
+
+            <div style="background:linear-gradient(135deg,#880e4f,#e91e63);border-radius:16px;padding:32px;color:#fff;text-align:center;margin:40px 0;">
+              <h3 style="color:#fff;font-size:20px;font-weight:700;margin-bottom:10px;">Need an Ionic + Laravel App Built?</h3>
+              <p style="color:rgba(255,255,255,0.9);font-size:14px;margin-bottom:20px;">I build the complete stack — Ionic frontend and Laravel backend — so you get one developer who owns the entire integration. Free 30-minute consultation.</p>
+              <a href="../services/ionic-app-development.html" style="background:#fff;color:#880e4f;font-weight:700;font-size:14px;padding:12px 28px;border-radius:8px;text-decoration:none;display:inline-block;">View Ionic Development Services &#8594;</a>
+            </div>
+
+            <div class="author-box">
+              <img src="../images/abouts.webp" alt="Anju Batta" loading="lazy">
+              <div>
+                <h5>Anju Batta</h5>
+                <p>Senior Full Stack Developer with 15+ years building Ionic + Laravel apps for clients globally. I own the entire stack — mobile to API to database — so there are no finger-pointing moments between frontend and backend teams. Based in Chandigarh, India.</p>
+                <a href="../contact/" style="color:#880e4f;font-size:13px;font-weight:700;text-decoration:none;display:inline-block;margin-top:8px;">Hire Me for Your Project &#8594;</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div style="position:sticky;top:80px;">
+            <div style="background:linear-gradient(135deg,#880e4f,#e91e63);border-radius:14px;padding:24px;color:#fff;margin-bottom:24px;">
+              <h4 style="color:#fff;font-size:16px;font-weight:700;margin-bottom:10px;">Full Stack Ionic Developer</h4>
+              <p style="color:rgba(255,255,255,0.8);font-size:13px;margin-bottom:18px;">I build both the Ionic app and the Laravel API. Free 30-minute consultation.</p>
+              <a href="../contact/" style="background:#fff;color:#880e4f;font-size:13px;font-weight:700;padding:10px 18px;border-radius:8px;display:inline-block;text-decoration:none;">Get Free Consultation &#8594;</a>
+            </div>
+            <div style="background:#fff;border-radius:14px;padding:24px;box-shadow:0 4px 20px rgba(0,0,0,0.07);">
+              <h4 style="font-size:15px;font-weight:700;color:#111;margin-bottom:16px;">Related Articles</h4>
+              <div style="margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid #f0f0f0;">
+                <a href="ionic.html" style="color:#333;font-size:13px;font-weight:600;text-decoration:none;display:block;margin-bottom:4px;line-height:1.5;">Ionic Framework: Building Cross-Platform Apps</a>
+                <span style="font-size:11px;color:#888;">10 min read</span>
+              </div>
+              <div style="margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid #f0f0f0;">
+                <a href="ionic-capacitor-plugins-guide.html" style="color:#333;font-size:13px;font-weight:600;text-decoration:none;display:block;margin-bottom:4px;line-height:1.5;">Ionic Capacitor Plugins Guide</a>
+                <span style="font-size:11px;color:#888;">11 min read</span>
+              </div>
+              <div>
+                <a href="ionic-app-store-submission-checklist.html" style="color:#333;font-size:13px;font-weight:600;text-decoration:none;display:block;margin-bottom:4px;line-height:1.5;">App Store Submission Checklist</a>
+                <span style="font-size:11px;color:#888;">8 min read</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer style="background:#212529;padding:30px 0;">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6"><p style="color:rgba(255,255,255,0.6);font-size:13px;margin:0;">&copy; <span id="footer-year"></span> Anju Batta. All rights reserved.</p></div>
+        <div class="col-md-6 text-md-right"><a href="../blog.html" style="color:rgba(255,255,255,0.6);font-size:13px;text-decoration:none;">&#8592; All Posts</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/jquery.min.js"></script>
+  <script src="../js/popper.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+  <script src="../js/main.js"></script>
+  <script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

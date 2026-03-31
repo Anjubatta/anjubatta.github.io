@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Ionic Capacitor Plugins Guide: Camera, GPS, Push Notifications & More | Anju Batta</title>
+  <meta name="description" content="Complete guide to the most essential Ionic Capacitor plugins — Camera, Geolocation, Push Notifications, Biometrics, and Storage. Real code examples for Angular, production tips, and common pitfalls.">
+  <meta name="keywords" content="ionic capacitor plugins, capacitor camera plugin, capacitor geolocation, capacitor push notifications, capacitor biometrics, ionic native plugins guide 2026, capacitor preferences storage">
+  <meta name="author" content="Anju Batta">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://anjubatta.netlify.app/blog/ionic-capacitor-plugins-guide">
+
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://anjubatta.netlify.app/blog/ionic-capacitor-plugins-guide">
+  <meta property="og:title" content="Ionic Capacitor Plugins Guide: Camera, GPS, Push Notifications & More">
+  <meta property="og:description" content="Real code examples for the most-used Capacitor plugins. Camera, Geolocation, Push Notifications, Biometrics, Storage — production-ready patterns.">
+  <meta property="og:image" content="https://anjubatta.netlify.app/images/abouts.png">
+
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="sitemap" type="application/xml" href="../sitemap.xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/open-iconic-bootstrap.min.css">
+  <link rel="stylesheet" href="../css/icomoon.css">
+  <link rel="stylesheet" href="../css/style.css">
+
+  <style>
+    .post-hero{background:linear-gradient(135deg,#1565c0,#3880ff);padding:80px 0 50px;color:#fff}
+    .post-hero .back-link{color:rgba(255,255,255,0.7);font-size:13px;text-decoration:none;display:inline-flex;align-items:center;gap:6px;margin-bottom:20px}
+    .post-hero .back-link:hover{color:#fff}
+    .post-badge{display:inline-block;background:rgba(255,255,255,0.2);color:#fff;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:4px 12px;border-radius:20px;margin-bottom:16px}
+    .post-hero h1{font-size:clamp(24px,4vw,42px);font-weight:800;line-height:1.3;max-width:800px}
+    .post-meta{color:rgba(255,255,255,0.65);font-size:13px;margin-top:16px;display:flex;gap:16px;flex-wrap:wrap}
+    .post-content{max-width:800px}
+    .post-content h2{font-size:clamp(20px,2.5vw,26px);font-weight:700;color:#111;margin:40px 0 16px;padding-bottom:10px;border-bottom:2px solid #f0f0f0}
+    .post-content h3{font-size:17px;font-weight:700;color:#3880ff;margin:28px 0 12px}
+    .post-content p{color:#444;font-size:15px;line-height:1.8;margin-bottom:18px}
+    .post-content ul,.post-content ol{color:#444;font-size:15px;line-height:1.8;margin-bottom:18px;padding-left:24px}
+    .post-content li{margin-bottom:8px}
+    .post-content code{background:#eef2ff;color:#3880ff;padding:2px 7px;border-radius:4px;font-size:13px;font-family:monospace}
+    .post-content pre{background:#0d1117;color:#e6edf3;padding:20px 24px;border-radius:10px;overflow-x:auto;font-size:13px;line-height:1.7;margin-bottom:20px}
+    .info-box{background:#eef2ff;border-left:4px solid #3880ff;border-radius:0 10px 10px 0;padding:18px 20px;margin:20px 0;font-size:14.5px;color:#333;line-height:1.7}
+    .info-box.green{background:#f0faf9;border-left-color:#009688}
+    .info-box.orange{background:#fff8f3;border-left-color:#F96D00}
+    .info-box.red{background:#fce4ec;border-left-color:#e53935}
+    .info-box strong{color:#3880ff}
+    .info-box.green strong{color:#009688}
+    .info-box.orange strong{color:#F96D00}
+    .info-box.red strong{color:#e53935}
+    .tag-cloud{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0}
+    .post-tag{background:#eef2ff;color:#3880ff;font-size:12px;font-weight:600;padding:4px 12px;border-radius:6px}
+    .author-box{background:#f9f9f9;border-radius:14px;padding:24px;display:flex;gap:20px;align-items:flex-start;margin-top:48px;border:1px solid #eee}
+    .author-box img{width:70px;height:70px;border-radius:50%;object-fit:cover;flex-shrink:0}
+    .author-box h5{font-size:16px;font-weight:700;color:#111;margin:0 0 6px}
+    .author-box p{font-size:13px;color:#555;margin:0}
+    .plugin-header{display:flex;align-items:center;gap:14px;background:#fff;border-radius:12px;padding:20px;margin-bottom:20px;box-shadow:0 3px 14px rgba(0,0,0,0.06);border-left:5px solid #3880ff}
+    .plugin-icon{width:50px;height:50px;background:#eef2ff;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0}
+    .plugin-meta{flex:1}
+    .plugin-meta h3{font-size:17px;font-weight:700;color:#111;margin:0 0 4px}
+    .plugin-meta code{font-size:12px}
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "headline":"Ionic Capacitor Plugins Guide: Camera, GPS, Push Notifications & More",
+    "description":"Complete guide to essential Ionic Capacitor plugins with production-ready Angular code examples for Camera, Geolocation, Push Notifications, Biometrics, and secure Storage.",
+    "url":"https://anjubatta.netlify.app/blog/ionic-capacitor-plugins-guide",
+    "datePublished":"2026-03-31",
+    "dateModified":"2026-03-31",
+    "author":{"@type":"Person","name":"Anju Batta","url":"https://anjubatta.netlify.app/"},
+    "keywords":["Ionic Capacitor plugins","Capacitor Camera","Capacitor Geolocation","Capacitor Push Notifications","Ionic native device features"]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://anjubatta.netlify.app/"},
+      {"@type":"ListItem","position":2,"name":"Blog","item":"https://anjubatta.netlify.app/blog"},
+      {"@type":"ListItem","position":3,"name":"Ionic Capacitor Plugins Guide","item":"https://anjubatta.netlify.app/blog/ionic-capacitor-plugins-guide"}
+    ]
+  }
+  </script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2XGJV4RHLZ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2XGJV4RHLZ');</script>
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
+    <div class="container">
+      <a class="navbar-brand" href="../index.html">
+        <img src="../images/logo.svg" alt="Anju Batta" height="36" width="140" style="vertical-align:middle;">
+      </a>
+      <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="oi oi-menu"></span> Menu
+      </button>
+      <div class="collapse navbar-collapse" id="ftco-nav">
+        <ul class="navbar-nav nav ml-auto">
+          <li class="nav-item"><a href="../index.html#home-section" class="nav-link"><span>Home</span></a></li>
+          <li class="nav-item"><a href="../index.html#about-section" class="nav-link"><span>About</span></a></li>
+          <li class="nav-item"><a href="../index.html#ai-services-section" class="nav-link"><span>Services</span></a></li>
+          <li class="nav-item"><a href="../index.html#project-section" class="nav-link"><span>Projects</span></a></li>
+          <li class="nav-item active"><a href="../blog.html" class="nav-link"><span>Blog</span></a></li>
+          <li class="nav-item"><a href="../contact/" class="nav-link"><span>Contact</span></a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="post-hero" style="margin-top:56px;">
+    <div class="container">
+      <a href="../blog.html" class="back-link">&#8592; Back to Blog</a>
+      <span class="post-badge">Native Device Features</span>
+      <h1>Ionic Capacitor Plugins Guide: Camera, GPS, Push Notifications &amp; More</h1>
+      <div class="post-meta">
+        <span>&#128197; March 31, 2026</span>
+        <span>&#128336; 11 min read</span>
+        <span>&#9998; Anju Batta</span>
+      </div>
+    </div>
+  </div>
+
+  <section style="background:#f9f9f9;padding:60px 0;">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="post-content">
+
+            <div class="tag-cloud">
+              <span class="post-tag">Capacitor</span>
+              <span class="post-tag">Camera</span>
+              <span class="post-tag">Geolocation</span>
+              <span class="post-tag">Push Notifications</span>
+              <span class="post-tag">Biometrics</span>
+              <span class="post-tag">Storage</span>
+            </div>
+
+            <p>One of the most frequent questions from developers new to Ionic is: <strong>"Can my app actually access the device's camera, location, and push notifications?"</strong> Absolutely — through Capacitor's official plugin suite. Each plugin bridges your TypeScript code to the real native iOS and Android APIs, resulting in behaviour identical to a fully native app.</p>
+
+            <p>This guide covers the five plugins I use in almost every production app: Camera, Geolocation, Push Notifications, Biometric Authentication, and Preferences (secure storage). Each section has the install command, the required native configuration, and production-ready Angular code.</p>
+
+            <div class="info-box">
+              <strong>Before you start:</strong> All Capacitor plugins require <code>npx cap sync</code> after installation to copy plugin code into the native iOS and Android projects. Running <code>npm install</code> alone is not enough — always follow with <code>npx cap sync</code>.
+            </div>
+
+            <!-- ══ PLUGIN 1: CAMERA ══ -->
+            <h2>Plugin 1: @capacitor/camera</h2>
+
+            <div class="plugin-header">
+              <div class="plugin-icon">&#128247;</div>
+              <div class="plugin-meta">
+                <h3>Capacitor Camera Plugin</h3>
+                <code>npm install @capacitor/camera &amp;&amp; npx cap sync</code>
+              </div>
+            </div>
+
+            <h3>Required iOS Permission (Info.plist)</h3>
+            <pre><code>&lt;!-- ios/App/App/Info.plist --&gt;
+&lt;key&gt;NSCameraUsageDescription&lt;/key&gt;
+&lt;string&gt;This app uses the camera to capture photos.&lt;/string&gt;
+
+&lt;key&gt;NSPhotoLibraryUsageDescription&lt;/key&gt;
+&lt;string&gt;This app accesses your photo library to select images.&lt;/string&gt;
+
+&lt;key&gt;NSPhotoLibraryAddUsageDescription&lt;/key&gt;
+&lt;string&gt;This app saves photos to your library.&lt;/string&gt;</code></pre>
+
+            <h3>Production-Ready Camera Service (Angular)</h3>
+            <pre><code>import { Injectable } from '@angular/core';
+import { Camera, CameraResultType, CameraSource, Photo } from '@capacitor/camera';
+
+@Injectable({ providedIn: 'root' })
+export class CameraService {
+
+  // Take a new photo (returns base64 string)
+  async takePhoto(): Promise&lt;string | undefined&gt; {
+    const photo = await Camera.getPhoto({
+      quality: 85,
+      allowEditing: false,
+      resultType: CameraResultType.Base64,
+      source: CameraSource.Camera,
+      correctOrientation: true, // Auto-fix portrait/landscape EXIF
+    });
+    return photo.base64String;
+  }
+
+  // Pick from photo library
+  async pickFromGallery(): Promise&lt;string | undefined&gt; {
+    const photo = await Camera.getPhoto({
+      quality: 90,
+      allowEditing: true,
+      resultType: CameraResultType.DataUrl, // Returns data:image/jpeg;base64,...
+      source: CameraSource.Photos,
+    });
+    return photo.dataUrl;
+  }
+
+  // Multiple photo selection (Capacitor 5+)
+  async pickMultiple(): Promise&lt;string[]&gt; {
+    const result = await Camera.pickImages({
+      quality: 80,
+      limit: 5,
+    });
+    return result.photos
+      .filter(p =&gt; p.dataUrl)
+      .map(p =&gt; p.dataUrl!);
+  }
+}</code></pre>
+
+            <div class="info-box orange">
+              <strong>Common mistake:</strong> Using <code>CameraResultType.Uri</code> to get a file:// URL. This URL is not accessible from the WebView context on Android for display in <code>&lt;img&gt;</code> tags. Use <code>CameraResultType.DataUrl</code> for immediate display, or <code>CameraResultType.Base64</code> for server uploads.
+            </div>
+
+            <!-- ══ PLUGIN 2: GEOLOCATION ══ -->
+            <h2>Plugin 2: @capacitor/geolocation</h2>
+
+            <div class="plugin-header" style="border-left-color:#009688;">
+              <div class="plugin-icon" style="background:#f0faf9;">&#128205;</div>
+              <div class="plugin-meta">
+                <h3 style="color:#009688;">Capacitor Geolocation Plugin</h3>
+                <code>npm install @capacitor/geolocation &amp;&amp; npx cap sync</code>
+              </div>
+            </div>
+
+            <h3>Required Permissions</h3>
+            <pre><code>&lt;!-- iOS: Info.plist --&gt;
+&lt;key&gt;NSLocationWhenInUseUsageDescription&lt;/key&gt;
+&lt;string&gt;Your location is used to show nearby services.&lt;/string&gt;
+
+&lt;!-- Android: AndroidManifest.xml --&gt;
+&lt;uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /&gt;
+&lt;uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /&gt;</code></pre>
+
+            <h3>Location Service (Angular)</h3>
+            <pre><code>import { Injectable } from '@angular/core';
+import { Geolocation, Position } from '@capacitor/geolocation';
+
+@Injectable({ providedIn: 'root' })
+export class LocationService {
+
+  async getCurrentPosition(): Promise&lt;{lat: number, lng: number}&gt; {
+    // Always request permission before getting location
+    const permission = await Geolocation.requestPermissions();
+
+    if (permission.location !== 'granted') {
+      throw new Error('Location permission denied');
+    }
+
+    const position: Position = await Geolocation.getCurrentPosition({
+      enableHighAccuracy: true,   // GPS-level accuracy (slower, more battery)
+      timeout: 10000,             // Fail if no position in 10s
+      maximumAge: 30000,          // Accept cached position up to 30s old
+    });
+
+    return {
+      lat: position.coords.latitude,
+      lng: position.coords.longitude,
+    };
+  }
+
+  // Watch position — for real-time tracking (delivery apps, etc.)
+  watchPosition(callback: (pos: {lat: number, lng: number}) =&gt; void): string {
+    return Geolocation.watchPosition(
+      { enableHighAccuracy: true },
+      (position, err) =&gt; {
+        if (err) { console.error(err); return; }
+        if (position) {
+          callback({
+            lat: position.coords.latitude,
+            lng: position.coords.longitude,
+          });
+        }
+      }
+    ) as unknown as string;
+  }
+
+  stopWatching(watchId: string) {
+    Geolocation.clearWatch({ id: watchId });
+  }
+}</code></pre>
+
+            <div class="info-box green">
+              <strong>Accuracy vs battery:</strong> <code>enableHighAccuracy: true</code> uses GPS — accurate to 5–10 metres but drains battery quickly. <code>enableHighAccuracy: false</code> uses cell towers / WiFi — accurate to 50–100 metres but very battery-friendly. Use high accuracy for turn-by-turn navigation; use low accuracy for "show me nearby" features.
+            </div>
+
+            <!-- ══ PLUGIN 3: PUSH NOTIFICATIONS ══ -->
+            <h2>Plugin 3: @capacitor/push-notifications</h2>
+
+            <div class="plugin-header" style="border-left-color:#7c3aed;">
+              <div class="plugin-icon" style="background:#f5f3ff;">&#128276;</div>
+              <div class="plugin-meta">
+                <h3 style="color:#7c3aed;">Capacitor Push Notifications Plugin</h3>
+                <code>npm install @capacitor/push-notifications &amp;&amp; npx cap sync</code>
+              </div>
+            </div>
+
+            <h3>Push Notification Service</h3>
+            <pre><code>import { Injectable } from '@angular/core';
+import {
+  PushNotifications,
+  PushNotificationSchema,
+  ActionPerformed,
+  Token
+} from '@capacitor/push-notifications';
+import { Router } from '@angular/router';
+
+@Injectable({ providedIn: 'root' })
+export class PushNotificationService {
+
+  constructor(private router: Router) {}
+
+  async initialize() {
+    // 1. Request permission
+    const result = await PushNotifications.requestPermissions();
+    if (result.receive !== 'granted') {
+      console.warn('Push notification permission denied');
+      return;
+    }
+
+    // 2. Register with APNs (iOS) / FCM (Android)
+    await PushNotifications.register();
+
+    // 3. Get the device token (send to your backend)
+    PushNotifications.addListener('registration', (token: Token) =&gt; {
+      console.log('Push registration token:', token.value);
+      // TODO: Send token.value to your Laravel API
+      // this.api.post('device-token', { token: token.value }).subscribe();
+    });
+
+    // 4. Handle registration errors
+    PushNotifications.addListener('registrationError', (error: any) =&gt; {
+      console.error('Push registration error:', JSON.stringify(error));
+    });
+
+    // 5. Handle incoming notification while app is in foreground
+    PushNotifications.addListener(
+      'pushNotificationReceived',
+      (notification: PushNotificationSchema) =&gt; {
+        console.log('Foreground notification:', notification.title);
+        // Optionally show an in-app toast or banner
+      }
+    );
+
+    // 6. Handle tap on notification (app opened from notification)
+    PushNotifications.addListener(
+      'pushNotificationActionPerformed',
+      (action: ActionPerformed) =&gt; {
+        const data = action.notification.data;
+        // Deep-link based on notification payload
+        if (data?.route) {
+          this.router.navigate([data.route]);
+        }
+      }
+    );
+  }
+}</code></pre>
+
+            <div class="info-box">
+              <strong>FCM setup required:</strong> Android push notifications require a Google <code>google-services.json</code> file placed in <code>android/app/</code>. Download it from Firebase Console → Your Project → Project Settings → Android app. iOS requires APNs certificates uploaded to Firebase or your push provider (OneSignal, etc.).
+            </div>
+
+            <!-- ══ PLUGIN 4: BIOMETRICS ══ -->
+            <h2>Plugin 4: @aparajita/capacitor-biometric-auth</h2>
+
+            <div class="plugin-header" style="border-left-color:#e53935;">
+              <div class="plugin-icon" style="background:#fce4ec;">&#128274;</div>
+              <div class="plugin-meta">
+                <h3 style="color:#e53935;">Biometric Authentication Plugin</h3>
+                <code>npm install @aparajita/capacitor-biometric-auth &amp;&amp; npx cap sync</code>
+              </div>
+            </div>
+
+            <pre><code>import { Injectable } from '@angular/core';
+import {
+  BiometricAuth,
+  CheckBiometryResult,
+  BiometryType,
+} from '@aparajita/capacitor-biometric-auth';
+
+@Injectable({ providedIn: 'root' })
+export class BiometricService {
+
+  async isAvailable(): Promise&lt;boolean&gt; {
+    const result: CheckBiometryResult = await BiometricAuth.checkBiometry();
+    return result.isAvailable;
+  }
+
+  async authenticate(reason: string): Promise&lt;boolean&gt; {
+    const available = await this.isAvailable();
+    if (!available) return false;
+
+    try {
+      await BiometricAuth.authenticate({
+        reason,                            // Shown in Face ID / fingerprint dialog
+        cancelTitle: 'Cancel',
+        allowDeviceCredential: true,       // Fallback to PIN if biometric fails
+        iosFallbackTitle: 'Use Passcode',
+      });
+      return true;
+    } catch (err) {
+      return false;
+    }
+  }
+}
+
+// Usage in a component:
+// const ok = await biometricService.authenticate('Confirm your identity to view account details');
+// if (ok) { /* proceed */ }</code></pre>
+
+            <h3>iOS Info.plist</h3>
+            <pre><code>&lt;key&gt;NSFaceIDUsageDescription&lt;/key&gt;
+&lt;string&gt;Use Face ID to securely authenticate to your account.&lt;/string&gt;</code></pre>
+
+            <!-- ══ PLUGIN 5: PREFERENCES (STORAGE) ══ -->
+            <h2>Plugin 5: @capacitor/preferences (Secure Storage)</h2>
+
+            <div class="plugin-header" style="border-left-color:#F96D00;">
+              <div class="plugin-icon" style="background:#fff8f3;">&#128220;</div>
+              <div class="plugin-meta">
+                <h3 style="color:#F96D00;">Capacitor Preferences Plugin</h3>
+                <code>npm install @capacitor/preferences &amp;&amp; npx cap sync</code>
+              </div>
+            </div>
+
+            <pre><code>import { Injectable } from '@angular/core';
+import { Preferences } from '@capacitor/preferences';
+
+@Injectable({ providedIn: 'root' })
+export class StorageService {
+
+  async set(key: string, value: any): Promise&lt;void&gt; {
+    await Preferences.set({
+      key,
+      value: typeof value === 'string' ? value : JSON.stringify(value),
+    });
+  }
+
+  async get&lt;T = string&gt;(key: string): Promise&lt;T | null&gt; {
+    const result = await Preferences.get({ key });
+    if (result.value === null) return null;
+
+    try {
+      return JSON.parse(result.value) as T;
+    } catch {
+      return result.value as unknown as T;
+    }
+  }
+
+  async remove(key: string): Promise&lt;void&gt; {
+    await Preferences.remove({ key });
+  }
+
+  async clear(): Promise&lt;void&gt; {
+    await Preferences.clear();
+  }
+}</code></pre>
+
+            <div class="info-box red">
+              <strong>Never use localStorage for sensitive data.</strong> <code>localStorage</code> is accessible from any JavaScript running on the page and is readable on rooted Android devices. <code>@capacitor/preferences</code> uses <code>UserDefaults</code> on iOS and <code>SharedPreferences</code> on Android — both sandboxed to your app. For highly sensitive data (like biometric-protected secrets), use the Capacitor Secure Storage plugin instead.
+            </div>
+
+            <h2>Plugin Installation Summary</h2>
+
+            <pre><code># Install all five plugins at once
+npm install @capacitor/camera @capacitor/geolocation @capacitor/push-notifications @aparajita/capacitor-biometric-auth @capacitor/preferences
+
+# Sync to native projects (required after any plugin install)
+npx cap sync
+
+# Verify plugins are linked correctly
+npx cap doctor</code></pre>
+
+            <h2>Testing Plugins — Important Notes</h2>
+
+            <ul>
+              <li><strong>Camera &amp; Geolocation:</strong> Will not work in a browser — must test on a real device or simulator/emulator with Xcode/Android Studio</li>
+              <li><strong>Push Notifications:</strong> Must test on a real device — simulators cannot receive push notifications from APNs/FCM</li>
+              <li><strong>Biometrics:</strong> Can test Face ID on iOS Simulator (Features → Face ID → Enrolled), but fingerprint on Android Emulator requires extra setup</li>
+              <li><strong>Preferences:</strong> Works in browser for development (falls back to localStorage), but uses native storage on real devices</li>
+            </ul>
+
+            <div style="background:linear-gradient(135deg,#1565c0,#3880ff);border-radius:16px;padding:32px;color:#fff;text-align:center;margin:40px 0;">
+              <h3 style="color:#fff;font-size:20px;font-weight:700;margin-bottom:10px;">Need an Ionic App With Native Device Features?</h3>
+              <p style="color:rgba(255,255,255,0.9);font-size:14px;margin-bottom:20px;">Camera, GPS, push notifications, biometrics — I integrate all of these into production Ionic apps for iOS and Android. Free 30-minute consultation.</p>
+              <a href="../services/ionic-app-development.html" style="background:#fff;color:#1565c0;font-weight:700;font-size:14px;padding:12px 28px;border-radius:8px;text-decoration:none;display:inline-block;">View Ionic Development Services &#8594;</a>
+            </div>
+
+            <div class="author-box">
+              <img src="../images/abouts.webp" alt="Anju Batta" loading="lazy">
+              <div>
+                <h5>Anju Batta</h5>
+                <p>Senior Full Stack Developer with 15+ years building Ionic apps with native device integrations. Every plugin example in this guide comes from production code, not documentation samples. Based in Chandigarh, India.</p>
+                <a href="../contact/" style="color:#3880ff;font-size:13px;font-weight:700;text-decoration:none;display:inline-block;margin-top:8px;">Hire Me for Your Ionic App &#8594;</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div style="position:sticky;top:80px;">
+            <div style="background:linear-gradient(135deg,#1565c0,#3880ff);border-radius:14px;padding:24px;color:#fff;margin-bottom:24px;">
+              <h4 style="color:#fff;font-size:16px;font-weight:700;margin-bottom:10px;">Hire an Ionic Developer</h4>
+              <p style="color:rgba(255,255,255,0.8);font-size:13px;margin-bottom:18px;">I build Ionic apps with full native device integration. Free 30-min consultation.</p>
+              <a href="../contact/" style="background:#fff;color:#1565c0;font-size:13px;font-weight:700;padding:10px 18px;border-radius:8px;display:inline-block;text-decoration:none;">Get Free Consultation &#8594;</a>
+            </div>
+            <div style="background:#fff;border-radius:14px;padding:24px;box-shadow:0 4px 20px rgba(0,0,0,0.07);">
+              <h4 style="font-size:15px;font-weight:700;color:#111;margin-bottom:16px;">Related Articles</h4>
+              <div style="margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid #f0f0f0;">
+                <a href="ionic.html" style="color:#333;font-size:13px;font-weight:600;text-decoration:none;display:block;margin-bottom:4px;line-height:1.5;">Ionic Framework: Building Cross-Platform Apps</a>
+                <span style="font-size:11px;color:#888;">10 min read</span>
+              </div>
+              <div style="margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid #f0f0f0;">
+                <a href="ionic-laravel-api-integration.html" style="color:#333;font-size:13px;font-weight:600;text-decoration:none;display:block;margin-bottom:4px;line-height:1.5;">Ionic + Laravel REST API Integration</a>
+                <span style="font-size:11px;color:#888;">14 min read</span>
+              </div>
+              <div>
+                <a href="ionic-app-store-submission-checklist.html" style="color:#333;font-size:13px;font-weight:600;text-decoration:none;display:block;margin-bottom:4px;line-height:1.5;">App Store Submission Checklist</a>
+                <span style="font-size:11px;color:#888;">8 min read</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer style="background:#212529;padding:30px 0;">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6"><p style="color:rgba(255,255,255,0.6);font-size:13px;margin:0;">&copy; <span id="footer-year"></span> Anju Batta. All rights reserved.</p></div>
+        <div class="col-md-6 text-md-right"><a href="../blog.html" style="color:rgba(255,255,255,0.6);font-size:13px;text-decoration:none;">&#8592; All Posts</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/jquery.min.js"></script>
+  <script src="../js/popper.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+  <script src="../js/main.js"></script>
+  <script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

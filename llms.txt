@@ -9,7 +9,7 @@ Anju Batta helps businesses build scalable digital systems while automating repe
 - [AI Agent Development](https://anjubatta.netlify.app/#ai-services-section): Builds autonomous AI agents using Claude, ChatGPT, and OpenAI APIs. Support bots with context awareness, data analysis agents, and research assistants. Rapid prototyping with Bolt, Lovable, and V0.
 - [Business Automation – n8n & Zapier](https://anjubatta.netlify.app/#ai-services-section): Replaces fragile Zaps with robust n8n workflows. eCommerce: Shopify → Inventory → Shipping → Customer Email. CRM Sync, Lead Routing, Financial Reporting. Self-hosted n8n for enterprise-grade reliability.
 - [Full Stack & Shopify Architecture](https://anjubatta.netlify.app/#ai-services-section): Custom Shopify 2.0 themes with automated inventory and Stripe/PayPal. Laravel/Node.js clean backend for SaaS apps. React, VueJS, Tailwind CSS frontends. REST APIs and GraphQL.
-- [Mobile App Development](https://anjubatta.netlify.app/#about-section): iOS and Android apps using Ionic and Angular.
+- [Mobile App Development – Ionic](https://anjubatta.netlify.app/services/ionic-app-development): Cross-platform iOS and Android apps using Ionic Framework (v7+), Angular, and Capacitor. Services include custom Ionic app development, cross-platform deployment, API integration, PWA development, Ionic migration (Cordova → Capacitor), and post-launch maintenance. Pricing from $800 USD. Free 30-minute consultation available.
 - [WordPress Development](https://anjubatta.netlify.app/#project-section): Custom themes, plugins, and WooCommerce integrations.
 
 ## Technology Stack
