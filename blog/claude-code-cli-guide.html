@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Claude Code CLI Guide: The AI Terminal That Reads, Edits & Runs Your Code | Anju Batta</title>
+  <meta name="description" content="A complete guide to Claude Code — Anthropic's AI-powered CLI that works directly inside your codebase. Setup, key commands, hooks, MCP servers, real workflows and tips from daily use.">
+  <meta name="keywords" content="claude code cli guide, claude code tutorial, anthropic claude code, claude code vs cursor, AI coding CLI, claude code setup, claude code hooks, MCP servers claude code, open claw ai tool">
+  <meta name="author" content="Anju Batta">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://anjubatta.netlify.app/blog/claude-code-cli-guide">
+
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://anjubatta.netlify.app/blog/claude-code-cli-guide">
+  <meta property="og:title" content="Claude Code CLI Guide: The AI Terminal That Reads, Edits & Runs Your Code">
+  <meta property="og:description" content="Complete guide to Claude Code — setup, commands, hooks, MCP servers, and real workflows from daily use.">
+  <meta property="og:image" content="https://anjubatta.netlify.app/images/abouts.png">
+
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="sitemap" type="application/xml" href="../sitemap.xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/open-iconic-bootstrap.min.css">
+  <link rel="stylesheet" href="../css/icomoon.css">
+  <link rel="stylesheet" href="../css/style.css">
+
+  <style>
+    .post-hero{background:linear-gradient(135deg,#0d1117,#333);padding:80px 0 50px;color:#fff}
+    .post-hero .back-link{color:rgba(255,255,255,0.7);font-size:13px;text-decoration:none;display:inline-flex;align-items:center;gap:6px;margin-bottom:20px}
+    .post-hero .back-link:hover{color:#fff}
+    .post-badge{display:inline-block;background:rgba(255,255,255,0.15);color:#fff;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:4px 12px;border-radius:20px;margin-bottom:16px}
+    .post-hero h1{font-size:clamp(24px,4vw,42px);font-weight:800;line-height:1.3;max-width:800px}
+    .post-meta{color:rgba(255,255,255,0.65);font-size:13px;margin-top:16px;display:flex;gap:16px;flex-wrap:wrap}
+    .post-content{max-width:800px}
+    .post-content h2{font-size:clamp(20px,2.5vw,26px);font-weight:700;color:#111;margin:40px 0 16px;padding-bottom:10px;border-bottom:2px solid #f0f0f0}
+    .post-content h3{font-size:17px;font-weight:700;color:#333;margin:28px 0 12px}
+    .post-content p{color:#444;font-size:15px;line-height:1.8;margin-bottom:18px}
+    .post-content ul,.post-content ol{color:#444;font-size:15px;line-height:1.8;margin-bottom:18px;padding-left:24px}
+    .post-content li{margin-bottom:8px}
+    .post-content code{background:#f1f3f4;color:#333;padding:2px 7px;border-radius:4px;font-size:13px;font-family:monospace}
+    .post-content pre{background:#0d1117;color:#e6edf3;padding:20px 24px;border-radius:10px;overflow-x:auto;font-size:13px;line-height:1.7;margin-bottom:20px}
+    .info-box{background:#f1f3f4;border-left:4px solid #333;border-radius:0 10px 10px 0;padding:18px 20px;margin:20px 0;font-size:14.5px;color:#333;line-height:1.7}
+    .info-box.green{background:#f0faf9;border-left-color:#009688}
+    .info-box.purple{background:#f5f3ff;border-left-color:#7c3aed}
+    .info-box strong{color:#111}
+    .info-box.green strong{color:#009688}
+    .info-box.purple strong{color:#7c3aed}
+    .tag-cloud{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0}
+    .post-tag{background:#f1f3f4;color:#333;font-size:12px;font-weight:600;padding:4px 12px;border-radius:6px}
+    .author-box{background:#f9f9f9;border-radius:14px;padding:24px;display:flex;gap:20px;align-items:flex-start;margin-top:48px;border:1px solid #eee}
+    .author-box img{width:70px;height:70px;border-radius:50%;object-fit:cover;flex-shrink:0}
+    .author-box h5{font-size:16px;font-weight:700;color:#111;margin:0 0 6px}
+    .author-box p{font-size:13px;color:#555;margin:0}
+    .cmd-block{background:#0d1117;border-radius:10px;padding:14px 18px;margin:12px 0;font-family:monospace;font-size:13px;color:#e6edf3;line-height:1.7}
+    .cmd-block .prompt{color:#7c3aed;}
+    .feature-row{display:flex;gap:16px;margin-bottom:20px;background:#fff;border-radius:12px;padding:20px;box-shadow:0 3px 14px rgba(0,0,0,0.06)}
+    .feature-icon{font-size:28px;flex-shrink:0;line-height:1}
+    .feature-body h4{font-size:15px;font-weight:700;color:#111;margin:0 0 6px}
+    .feature-body p{font-size:13.5px;color:#555;margin:0;line-height:1.7}
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "headline":"Claude Code CLI Guide: The AI Terminal That Reads, Edits & Runs Your Code",
+    "description":"Complete guide to Claude Code — Anthropic's AI-powered CLI. Setup, commands, CLAUDE.md configuration, hooks, MCP servers, and real developer workflows.",
+    "url":"https://anjubatta.netlify.app/blog/claude-code-cli-guide",
+    "datePublished":"2026-03-31",
+    "dateModified":"2026-03-31",
+    "author":{"@type":"Person","name":"Anju Batta","url":"https://anjubatta.netlify.app/"},
+    "keywords":["Claude Code","Claude CLI","Anthropic Claude Code","AI coding tool","Claude Code MCP","CLAUDE.md"]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://anjubatta.netlify.app/"},
+      {"@type":"ListItem","position":2,"name":"Blog","item":"https://anjubatta.netlify.app/blog"},
+      {"@type":"ListItem","position":3,"name":"Claude Code CLI Guide","item":"https://anjubatta.netlify.app/blog/claude-code-cli-guide"}
+    ]
+  }
+  </script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2XGJV4RHLZ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2XGJV4RHLZ');</script>
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
+    <div class="container">
+      <a class="navbar-brand" href="../index.html">
+        <img src="../images/logo.svg" alt="Anju Batta" height="36" width="140" style="vertical-align:middle;">
+      </a>
+      <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="oi oi-menu"></span> Menu
+      </button>
+      <div class="collapse navbar-collapse" id="ftco-nav">
+        <ul class="navbar-nav nav ml-auto">
+          <li class="nav-item"><a href="../index.html#home-section" class="nav-link"><span>Home</span></a></li>
+          <li class="nav-item"><a href="../index.html#about-section" class="nav-link"><span>About</span></a></li>
+          <li class="nav-item"><a href="../index.html#ai-services-section" class="nav-link"><span>Services</span></a></li>
+          <li class="nav-item"><a href="../index.html#project-section" class="nav-link"><span>Projects</span></a></li>
+          <li class="nav-item active"><a href="../blog.html" class="nav-link"><span>Blog</span></a></li>
+          <li class="nav-item"><a href="../contact/" class="nav-link"><span>Contact</span></a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="post-hero" style="margin-top:56px;">
+    <div class="container">
+      <a href="../blog.html" class="back-link">&#8592; Back to Blog</a>
+      <span class="post-badge">AI Developer Tools</span>
+      <h1>Claude Code: The "Open Claw" AI CLI That Lives Inside Your Codebase</h1>
+      <div class="post-meta">
+        <span>&#128197; March 31, 2026</span>
+        <span>&#128336; 10 min read</span>
+        <span>&#9998; Anju Batta</span>
+      </div>
+    </div>
+  </div>
+
+  <section style="background:#f9f9f9;padding:60px 0;">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="post-content">
+
+            <div class="tag-cloud">
+              <span class="post-tag">Claude Code</span>
+              <span class="post-tag">AI CLI</span>
+              <span class="post-tag">Anthropic</span>
+              <span class="post-tag">Developer Tools</span>
+              <span class="post-tag">MCP</span>
+            </div>
+
+            <p><strong>Claude Code</strong> (nicknamed "open claw" by developers for its distinctive claw-bracket icon <code>&gt;_</code>) is Anthropic's agentic CLI tool that runs inside your terminal, reads your actual codebase, writes files, runs shell commands, and executes multi-step tasks autonomously. It's not a chat interface — it's an AI that operates directly on your project.</p>
+
+            <p>This is a complete guide covering installation, daily workflows, the CLAUDE.md configuration file, hooks, MCP server integration, and the real-world scenarios where Claude Code saves the most time.</p>
+
+            <div class="info-box purple">
+              <strong>Claude Code vs Claude.ai (web):</strong> Claude.ai is a conversational interface — you paste code, it responds. Claude Code runs as a CLI inside your terminal, reads files from your filesystem, edits them, runs <code>git</code> commands, executes tests, and handles multi-step tasks spanning many files — autonomously. They use the same underlying model but operate completely differently.
+            </div>
+
+            <h2>Installation &amp; Setup</h2>
+
+            <pre><code># Prerequisites: Node.js 18+ required
+node --version  # must be >= 18
+
+# Install Claude Code globally
+npm install -g @anthropic-ai/claude-code
+
+# Verify installation
+claude --version
+
+# Authenticate (opens browser for OAuth)
+claude
+
+# Or set API key directly
+export ANTHROPIC_API_KEY=sk-ant-...</code></pre>
+
+            <p>After authentication, run <code>claude</code> from any project directory and it immediately has access to your full file structure. It will read files, understand the codebase, and ask clarifying questions before making changes.</p>
+
+            <h2>Key Features That Make Claude Code Different</h2>
+
+            <div class="feature-row">
+              <div class="feature-icon">&#128193;</div>
+              <div class="feature-body">
+                <h4>Full Codebase Awareness</h4>
+                <p>Claude Code reads your actual files — not just what you paste. It understands imports, function calls across files, schema definitions, and project structure without you explaining anything.</p>
+              </div>
+            </div>
+
+            <div class="feature-row">
+              <div class="feature-icon">&#9998;</div>
+              <div class="feature-body">
+                <h4>Direct File Editing</h4>
+                <p>It makes precise edits to your source files — adding functions, refactoring logic, updating configs. Every edit is shown as a diff for your review before being applied (unless you enable auto-approve).</p>
+              </div>
+            </div>
+
+            <div class="feature-row">
+              <div class="feature-icon">&#128640;</div>
+              <div class="feature-body">
+                <h4>Shell Command Execution</h4>
+                <p>Runs terminal commands as part of its workflow — <code>npm install</code>, <code>php artisan migrate</code>, <code>git status</code>, test runners. It chains commands intelligently based on the task.</p>
+              </div>
+            </div>
+
+            <div class="feature-row">
+              <div class="feature-icon">&#129520;</div>
+              <div class="feature-body">
+                <h4>Agentic Multi-Step Tasks</h4>
+                <p>Give it a high-level goal — "Add JWT authentication to this Laravel API" — and it plans the steps, executes them in order, checks for errors, and iterates until the task is complete.</p>
+              </div>
+            </div>
+
+            <div class="feature-row">
+              <div class="feature-icon">&#128279;</div>
+              <div class="feature-body">
+                <h4>MCP Server Integration</h4>
+                <p>Model Context Protocol (MCP) servers extend Claude Code with external tools — database introspection, API access, web search, Figma design reading, and more. The ecosystem is growing rapidly.</p>
+              </div>
+            </div>
+
+            <h2>CLAUDE.md — Your Project's AI Brain</h2>
+
+            <p>The most powerful Claude Code feature most developers underuse is the <code>CLAUDE.md</code> file. Place it in your project root and Claude Code reads it at the start of every session — giving it persistent context about your project without you repeating yourself.</p>
+
+            <pre><code># CLAUDE.md example
+
+## Project: Property Management App
+**Stack:** Ionic 7 + Angular 17 + Laravel 11 + MySQL
+
+## Code Conventions
+- Use TypeScript strict mode everywhere
+- Services are injectable singletons in core/services/
+- All API calls go through ApiService — never use HttpClient directly in components
+- Use NgRx Signals for state management (not BehaviorSubjects)
+- Laravel controllers use Form Requests for all validation
+- Return format: { success: bool, data: any, message: string }
+
+## Architecture Rules
+- Feature modules are lazy-loaded — never import them eagerly
+- Sensitive data uses @capacitor/preferences, never localStorage
+- All DB queries use Eloquent — no raw SQL except for complex reports
+
+## Testing
+- Run tests: `npm run test` (Ionic) and `php artisan test` (Laravel)
+- Coverage minimum: 80% for services and controllers
+
+## DO NOT
+- Use `any` type in TypeScript without a comment explaining why
+- Write direct SQL queries in controllers
+- Store auth tokens in localStorage</code></pre>
+
+            <div class="info-box green">
+              <strong>CLAUDE.md tip:</strong> The more specific your CLAUDE.md, the fewer corrections you'll need to make. Include "DO NOT" rules for the things your team has historically gotten wrong — Claude Code will avoid them automatically.
+            </div>
+
+            <h2>Slash Commands</h2>
+
+            <p>Claude Code has built-in slash commands for common operations:</p>
+
+            <table style="width:100%;border-collapse:collapse;font-size:13px;background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 3px 14px rgba(0,0,0,0.06);margin-bottom:24px;">
+              <thead><tr style="background:#333;color:#fff;">
+                <th style="padding:11px 14px;text-align:left;">Command</th>
+                <th style="padding:11px 14px;text-align:left;">What it does</th>
+              </tr></thead>
+              <tbody>
+                <tr style="border-bottom:1px solid #f0f0f0;"><td style="padding:10px 14px;font-family:monospace;color:#7c3aed;">/help</td><td style="padding:10px 14px;color:#444;">Show all available commands</td></tr>
+                <tr style="border-bottom:1px solid #f0f0f0;background:#fafafa;"><td style="padding:10px 14px;font-family:monospace;color:#7c3aed;">/clear</td><td style="padding:10px 14px;color:#444;">Clear conversation history (start fresh)</td></tr>
+                <tr style="border-bottom:1px solid #f0f0f0;"><td style="padding:10px 14px;font-family:monospace;color:#7c3aed;">/compact</td><td style="padding:10px 14px;color:#444;">Summarise and compress the conversation to free up context window</td></tr>
+                <tr style="border-bottom:1px solid #f0f0f0;background:#fafafa;"><td style="padding:10px 14px;font-family:monospace;color:#7c3aed;">/model</td><td style="padding:10px 14px;color:#444;">Switch between Claude models mid-session</td></tr>
+                <tr style="border-bottom:1px solid #f0f0f0;"><td style="padding:10px 14px;font-family:monospace;color:#7c3aed;">/review</td><td style="padding:10px 14px;color:#444;">Review a pull request (with GitHub MCP)</td></tr>
+                <tr style="border-bottom:1px solid #f0f0f0;background:#fafafa;"><td style="padding:10px 14px;font-family:monospace;color:#7c3aed;">/commit</td><td style="padding:10px 14px;color:#444;">Auto-generate a git commit message from staged changes</td></tr>
+                <tr style="border-bottom:1px solid #f0f0f0;"><td style="padding:10px 14px;font-family:monospace;color:#7c3aed;">/init</td><td style="padding:10px 14px;color:#444;">Analyse the project and auto-generate a CLAUDE.md file</td></tr>
+                <tr style="background:#fafafa;"><td style="padding:10px 14px;font-family:monospace;color:#7c3aed;">/cost</td><td style="padding:10px 14px;color:#444;">Show token usage and API cost for the current session</td></tr>
+              </tbody>
+            </table>
+
+            <h2>Hooks — Automate Claude Code Behaviour</h2>
+
+            <p>Hooks let you run shell commands automatically in response to Claude Code events — before/after tool calls, when files are saved, when tests run. Configured in <code>~/.claude/settings.json</code>:</p>
+
+            <pre><code>// ~/.claude/settings.json
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "npx eslint --fix ${file}"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo 'Running: ${command}' >> ~/.claude/audit.log"
+          }
+        ]
+      }
+    ]
+  }
+}</code></pre>
+
+            <p>Practical hook uses: auto-run ESLint after file edits, auto-format with Prettier, log all shell commands for audit, run affected tests after each edit.</p>
+
+            <h2>MCP Servers — Extending Claude Code's Reach</h2>
+
+            <p>Model Context Protocol (MCP) servers give Claude Code access to external systems. Configure them in <code>~/.claude/settings.json</code>:</p>
+
+            <pre><code>{
+  "mcpServers": {
+    "github": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": { "GITHUB_PERSONAL_ACCESS_TOKEN": "ghp_..." }
+    },
+    "filesystem": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "/home/user/projects"]
+    },
+    "postgres": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-postgres", "postgresql://localhost/mydb"]
+    }
+  }
+}</code></pre>
+
+            <p>With the GitHub MCP server, Claude Code can read PRs, create issues, review code, and push branches. With the Postgres MCP server, it can introspect your actual database schema before writing migration files.</p>
+
+            <h2>Real Workflows I Use Daily</h2>
+
+            <h3>1. New feature from ticket to commit</h3>
+            <div class="cmd-block">
+              <span class="prompt">$</span> claude<br>
+              <span style="color:#aaa;">&gt; Read the GitHub issue #234 (with GitHub MCP), then implement the feature</span><br>
+              <span style="color:#aaa;">&gt; described. Follow the conventions in CLAUDE.md. Run tests when done.</span>
+            </div>
+
+            <h3>2. Bug fix from error log</h3>
+            <div class="cmd-block">
+              <span class="prompt">$</span> claude<br>
+              <span style="color:#aaa;">&gt; Here's an error from our production logs: [paste log]</span><br>
+              <span style="color:#aaa;">&gt; Find the cause in the codebase and fix it. Show me the diff before applying.</span>
+            </div>
+
+            <h3>3. Codebase-wide refactor</h3>
+            <div class="cmd-block">
+              <span class="prompt">$</span> claude<br>
+              <span style="color:#aaa;">&gt; Find all places where we're using localStorage directly.</span><br>
+              <span style="color:#aaa;">&gt; Replace them all with StorageService.get() / StorageService.set().</span><br>
+              <span style="color:#aaa;">&gt; Update imports where needed. Show me a summary of every file changed.</span>
+            </div>
+
+            <h3>4. Generate tests for existing code</h3>
+            <div class="cmd-block">
+              <span class="prompt">$</span> claude<br>
+              <span style="color:#aaa;">&gt; Read src/app/core/services/auth.service.ts and generate</span><br>
+              <span style="color:#aaa;">&gt; comprehensive Jest unit tests for it. Mock all dependencies.</span><br>
+              <span style="color:#aaa;">&gt; Aim for 90%+ branch coverage. Place tests in auth.service.spec.ts.</span>
+            </div>
+
+            <h2>Permission Modes &amp; Safety</h2>
+            <p>Claude Code operates in one of three permission modes:</p>
+            <ul>
+              <li><strong>Default (ask):</strong> Prompts you to approve every file write and shell command — safest for unfamiliar codebases</li>
+              <li><strong>Auto-approve:</strong> Approve a specific tool type for the session — e.g. always allow file writes, always ask about shell commands</li>
+              <li><strong>YOLO mode (<code>--dangerously-skip-permissions</code>):</strong> Fully autonomous — never asks, does everything. Use only in isolated/sandboxed environments</li>
+            </ul>
+
+            <div class="info-box">
+              <strong>My recommendation:</strong> Default mode for anything touching production code. YOLO mode is genuinely useful for scaffolding new projects from scratch in a clean directory where there's nothing to accidentally break.
+            </div>
+
+            <div style="background:linear-gradient(135deg,#0d1117,#333);border-radius:16px;padding:32px;color:#fff;text-align:center;margin:40px 0;">
+              <h3 style="color:#fff;font-size:20px;font-weight:700;margin-bottom:10px;">Need an AI-Powered Development Workflow?</h3>
+              <p style="color:rgba(255,255,255,0.9);font-size:14px;margin-bottom:20px;">I use Claude Code daily to build Ionic, Laravel, and Next.js projects faster. Let's discuss how AI tooling can speed up your development process.</p>
+              <a href="../contact/" style="background:#fff;color:#333;font-weight:700;font-size:14px;padding:12px 28px;border-radius:8px;text-decoration:none;display:inline-block;">Get Free Consultation &#8594;</a>
+            </div>
+
+            <div class="author-box">
+              <img src="../images/abouts.webp" alt="Anju Batta" loading="lazy">
+              <div>
+                <h5>Anju Batta</h5>
+                <p>Senior Full Stack Developer &amp; AI Automation Architect. I use Claude Code every day across Ionic, Laravel, and Next.js projects. Based in Chandigarh, India.</p>
+                <a href="claude-ai-for-developers.html" style="color:#333;font-size:13px;font-weight:700;text-decoration:none;display:inline-block;margin-top:8px;">Read Also: Co-Working with Claude AI &#8594;</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div style="position:sticky;top:80px;">
+            <div style="background:linear-gradient(135deg,#0d1117,#333);border-radius:14px;padding:24px;color:#fff;margin-bottom:24px;">
+              <h4 style="color:#fff;font-size:16px;font-weight:700;margin-bottom:10px;">AI-Powered Development</h4>
+              <p style="color:rgba(255,255,255,0.8);font-size:13px;margin-bottom:18px;">I use Claude Code to build faster. Let's work together — free 30-min consultation.</p>
+              <a href="../contact/" style="background:#fff;color:#333;font-size:13px;font-weight:700;padding:10px 18px;border-radius:8px;display:inline-block;text-decoration:none;">Get Free Consultation &#8594;</a>
+            </div>
+            <div style="background:#fff;border-radius:14px;padding:24px;box-shadow:0 4px 20px rgba(0,0,0,0.07);">
+              <h4 style="font-size:15px;font-weight:700;color:#111;margin-bottom:16px;">Related Articles</h4>
+              <div style="margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid #f0f0f0;">
+                <a href="claude-ai-for-developers.html" style="color:#333;font-size:13px;font-weight:600;text-decoration:none;display:block;margin-bottom:4px;line-height:1.5;">Claude AI for Developers: Co-Working with AI</a>
+                <span style="font-size:11px;color:#888;">11 min read</span>
+              </div>
+              <div style="margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid #f0f0f0;">
+                <a href="claude-vs-chatgpt-vs-gemini.html" style="color:#333;font-size:13px;font-weight:600;text-decoration:none;display:block;margin-bottom:4px;line-height:1.5;">Claude vs ChatGPT vs Gemini Comparison</a>
+                <span style="font-size:11px;color:#888;">12 min read</span>
+              </div>
+              <div>
+                <a href="building-with-claude-api.html" style="color:#333;font-size:13px;font-weight:600;text-decoration:none;display:block;margin-bottom:4px;line-height:1.5;">Building Apps with the Claude API</a>
+                <span style="font-size:11px;color:#888;">14 min read</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer style="background:#212529;padding:30px 0;">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6"><p style="color:rgba(255,255,255,0.6);font-size:13px;margin:0;">&copy; <span id="footer-year"></span> Anju Batta. All rights reserved.</p></div>
+        <div class="col-md-6 text-md-right"><a href="../blog.html" style="color:rgba(255,255,255,0.6);font-size:13px;text-decoration:none;">&#8592; All Posts</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/jquery.min.js"></script>
+  <script src="../js/popper.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+  <script src="../js/main.js"></script>
+  <script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

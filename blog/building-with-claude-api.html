@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Building Apps with the Anthropic Claude API: A Developer's Guide 2026 | Anju Batta</title>
+  <meta name="description" content="Complete technical guide to building production apps with the Anthropic Claude API in 2026. Messages API, streaming, tool use, system prompts, TypeScript SDK, and real-world patterns.">
+  <meta name="keywords" content="anthropic claude api, claude api tutorial, claude messages api, claude tool use, claude streaming, anthropic sdk typescript, build with claude api, claude api example 2026">
+  <meta name="author" content="Anju Batta">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://anjubatta.netlify.app/blog/building-with-claude-api">
+
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://anjubatta.netlify.app/blog/building-with-claude-api">
+  <meta property="og:title" content="Building Apps with the Anthropic Claude API: A Developer's Guide 2026">
+  <meta property="og:description" content="Complete technical guide: Messages API, streaming, tool use, system prompts, TypeScript SDK patterns, and production tips for Claude API applications.">
+  <meta property="og:image" content="https://anjubatta.netlify.app/images/abouts.png">
+
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="sitemap" type="application/xml" href="../sitemap.xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/open-iconic-bootstrap.min.css">
+  <link rel="stylesheet" href="../css/icomoon.css">
+  <link rel="stylesheet" href="../css/style.css">
+
+  <style>
+    .post-hero{background:linear-gradient(135deg,#0a2342,#6d28d9);padding:80px 0 50px;color:#fff}
+    .post-hero .back-link{color:rgba(255,255,255,0.7);font-size:13px;text-decoration:none;display:inline-flex;align-items:center;gap:6px;margin-bottom:20px}
+    .post-hero .back-link:hover{color:#fff}
+    .post-badge{display:inline-block;background:rgba(255,255,255,0.2);color:#fff;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:4px 12px;border-radius:20px;margin-bottom:16px}
+    .post-hero h1{font-size:clamp(24px,4vw,42px);font-weight:800;line-height:1.3;max-width:800px}
+    .post-meta{color:rgba(255,255,255,0.65);font-size:13px;margin-top:16px;display:flex;gap:16px;flex-wrap:wrap}
+    .post-content{max-width:800px}
+    .post-content h2{font-size:clamp(20px,2.5vw,26px);font-weight:700;color:#111;margin:40px 0 16px;padding-bottom:10px;border-bottom:2px solid #f0f0f0}
+    .post-content h3{font-size:17px;font-weight:700;color:#6d28d9;margin:28px 0 12px}
+    .post-content p{color:#444;font-size:15px;line-height:1.8;margin-bottom:18px}
+    .post-content ul,.post-content ol{color:#444;font-size:15px;line-height:1.8;margin-bottom:18px;padding-left:24px}
+    .post-content li{margin-bottom:8px}
+    .post-content code{background:#f3e8ff;color:#6d28d9;padding:2px 7px;border-radius:4px;font-size:13px;font-family:monospace}
+    .code-block{background:#1a1a2e;border-radius:12px;padding:20px 24px;margin:20px 0;overflow-x:auto;position:relative}
+    .code-block pre{color:#e2e8f0;font-family:'Courier New',monospace;font-size:13px;line-height:1.7;margin:0;white-space:pre}
+    .code-label{position:absolute;top:10px;right:14px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,0.3)}
+    .info-box{background:#f3e8ff;border-left:4px solid #6d28d9;border-radius:0 10px 10px 0;padding:18px 20px;margin:20px 0;font-size:14.5px;color:#333;line-height:1.7}
+    .info-box.green{background:#f0faf9;border-left-color:#009688}
+    .info-box.orange{background:#fff8f3;border-left-color:#F96D00}
+    .info-box.blue{background:#e8f0fe;border-left-color:#1565c0}
+    .info-box strong{color:#6d28d9}
+    .info-box.green strong{color:#009688}
+    .info-box.orange strong{color:#F96D00}
+    .info-box.blue strong{color:#1565c0}
+    .tag-cloud{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0}
+    .post-tag{background:#f3e8ff;color:#6d28d9;font-size:12px;font-weight:600;padding:4px 12px;border-radius:6px}
+    .author-box{background:#f9f9f9;border-radius:14px;padding:24px;display:flex;gap:20px;align-items:flex-start;margin-top:48px;border:1px solid #eee}
+    .author-box img{width:70px;height:70px;border-radius:50%;object-fit:cover;flex-shrink:0}
+    .author-box h5{font-size:16px;font-weight:700;color:#111;margin:0 0 6px}
+    .author-box p{font-size:13px;color:#555;margin:0}
+    .step-card{background:#fff;border-radius:12px;padding:22px 24px;margin-bottom:16px;box-shadow:0 2px 12px rgba(0,0,0,0.06);border-left:4px solid #6d28d9;display:flex;gap:18px;align-items:flex-start}
+    .step-num{min-width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#6d28d9,#9333ea);color:#fff;font-weight:800;font-size:16px;display:flex;align-items:center;justify-content:center}
+    .step-card h4{font-size:15px;font-weight:700;color:#111;margin:0 0 6px}
+    .step-card p{font-size:13.5px;color:#555;margin:0;line-height:1.7}
+    .model-table{width:100%;border-collapse:collapse;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.07);margin:20px 0;font-size:13px}
+    .model-table thead tr{background:#0a2342}
+    .model-table th{padding:12px 16px;color:#fff;text-align:left;font-weight:700}
+    .model-table td{padding:11px 16px;color:#444;border-bottom:1px solid #f0f0f0}
+    .model-table tr:last-child td{border-bottom:none}
+    .model-table tr:nth-child(even){background:#fafbff}
+    .model-table td:first-child{font-weight:600;color:#111}
+    .badge-rec{display:inline-block;background:#f3e8ff;color:#6d28d9;font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;margin-left:6px;vertical-align:middle}
+    .faq-item{background:#fff;border-radius:12px;padding:20px 24px;margin-bottom:12px;box-shadow:0 2px 12px rgba(0,0,0,0.05);border-left:4px solid #6d28d9}
+    .faq-item h3{font-size:15px;font-weight:700;color:#111;margin:0 0 8px}
+    .faq-item p{font-size:14px;color:#555;margin:0;line-height:1.8}
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "headline":"Building Apps with the Anthropic Claude API: A Developer's Technical Guide 2026",
+    "description":"Complete technical guide to building production applications with the Anthropic Claude API — Messages API, streaming, tool use, system prompts, and TypeScript SDK.",
+    "url":"https://anjubatta.netlify.app/blog/building-with-claude-api",
+    "datePublished":"2026-03-31",
+    "dateModified":"2026-03-31",
+    "author":{"@type":"Person","name":"Anju Batta","url":"https://anjubatta.netlify.app/"},
+    "keywords":["Claude API","Anthropic API","Claude tool use","Claude streaming","build with Claude","TypeScript AI app"]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"HowTo",
+    "name":"How to Build an App with the Claude API",
+    "step":[
+      {"@type":"HowToStep","name":"Install the Anthropic SDK","text":"Run npm install @anthropic-ai/sdk and add your ANTHROPIC_API_KEY to environment variables."},
+      {"@type":"HowToStep","name":"Send your first message","text":"Use client.messages.create() with model, max_tokens, and messages array to get a response."},
+      {"@type":"HowToStep","name":"Add a system prompt","text":"Include a system field in your request to set Claude's persona, constraints, and output format."},
+      {"@type":"HowToStep","name":"Implement streaming","text":"Use stream: true or client.messages.stream() to receive tokens in real time for chat-style UIs."},
+      {"@type":"HowToStep","name":"Add tool use","text":"Define tools with JSON Schema and handle tool_use content blocks to let Claude call your functions."}
+    ]
+  }
+  </script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2XGJV4RHLZ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2XGJV4RHLZ');</script>
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
+    <div class="container">
+      <a class="navbar-brand" href="../index.html"><img src="../images/logo.svg" alt="Anju Batta" height="36" width="140" style="vertical-align:middle;"></a>
+      <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-expanded="false" aria-label="Toggle navigation"><span class="oi oi-menu"></span> Menu</button>
+      <div class="collapse navbar-collapse" id="ftco-nav">
+        <ul class="navbar-nav nav ml-auto">
+          <li class="nav-item"><a href="../index.html#home-section" class="nav-link"><span>Home</span></a></li>
+          <li class="nav-item"><a href="../index.html#about-section" class="nav-link"><span>About</span></a></li>
+          <li class="nav-item"><a href="../index.html#ai-services-section" class="nav-link"><span>Services</span></a></li>
+          <li class="nav-item"><a href="../index.html#project-section" class="nav-link"><span>Projects</span></a></li>
+          <li class="nav-item active"><a href="../blog.html" class="nav-link"><span>Blog</span></a></li>
+          <li class="nav-item"><a href="../contact/" class="nav-link"><span>Contact</span></a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="post-hero" style="margin-top:56px;">
+    <div class="container">
+      <a href="../blog.html" class="back-link">&#8592; Back to Blog</a>
+      <span class="post-badge">Claude API</span>
+      <h1>Building Apps with the Anthropic Claude API: A Developer's Technical Guide</h1>
+      <div class="post-meta">
+        <span>&#128197; March 31, 2026</span>
+        <span>&#128336; 14 min read</span>
+        <span>&#9998; Anju Batta</span>
+      </div>
+    </div>
+  </div>
+
+  <section style="background:#f9f9f9;padding:60px 0;">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="post-content">
+
+            <div class="tag-cloud">
+              <span class="post-tag">Anthropic</span>
+              <span class="post-tag">Claude API</span>
+              <span class="post-tag">TypeScript</span>
+              <span class="post-tag">Tool Use</span>
+              <span class="post-tag">Streaming</span>
+              <span class="post-tag">AI Development</span>
+            </div>
+
+            <p>The Anthropic Claude API is one of the cleanest, most developer-friendly AI APIs available today. Unlike some competitors, Anthropic invested heavily in predictable behaviour, honest limitations, and instruction-following accuracy — qualities that matter enormously in production applications.</p>
+
+            <p>This guide is for developers who already know how to code and want to build <em>real applications</em> with Claude — not toy demos. We'll cover the Messages API, streaming, tool use, system prompts, multi-turn conversations, and production patterns in TypeScript.</p>
+
+            <div class="info-box">
+              <strong>Prerequisites:</strong> Node.js 18+, basic TypeScript, an Anthropic account with API key. All examples use <code>@anthropic-ai/sdk</code> v0.40+. Set <code>ANTHROPIC_API_KEY</code> in your environment.
+            </div>
+
+            <h2>1. Choosing the Right Model</h2>
+
+            <p>Anthropic offers several Claude models. Here's a practical guide to which one to use:</p>
+
+            <table class="model-table">
+              <thead>
+                <tr>
+                  <th>Model</th>
+                  <th>Best For</th>
+                  <th>Context</th>
+                  <th>Speed</th>
+                  <th>Cost (input/1M)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>claude-opus-4-6 <span class="badge-rec">Most Capable</span></td>
+                  <td>Complex reasoning, architecture, senior-level code review</td>
+                  <td>200K</td>
+                  <td>Slower</td>
+                  <td>$15</td>
+                </tr>
+                <tr>
+                  <td>claude-sonnet-4-6 <span class="badge-rec">Recommended</span></td>
+                  <td>Production apps, coding assistant, daily tasks</td>
+                  <td>200K</td>
+                  <td>Fast</td>
+                  <td>$3</td>
+                </tr>
+                <tr>
+                  <td>claude-haiku-4-5</td>
+                  <td>High-volume, low-latency tasks, classification</td>
+                  <td>200K</td>
+                  <td>Very Fast</td>
+                  <td>$0.25</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <p><strong>For most production apps:</strong> Start with <code>claude-sonnet-4-6</code>. It hits the best balance of intelligence, speed, and cost. Upgrade to Opus only for high-stakes reasoning; downgrade to Haiku for classification, tagging, or other simple high-volume tasks.</p>
+
+            <h2>2. Installation and First Request</h2>
+
+            <div class="code-block">
+              <span class="code-label">bash</span>
+              <pre>npm install @anthropic-ai/sdk
+# Add to .env:
+# ANTHROPIC_API_KEY=sk-ant-...</pre>
+            </div>
+
+            <div class="code-block">
+              <span class="code-label">TypeScript</span>
+              <pre>import Anthropic from '@anthropic-ai/sdk';
+
+const client = new Anthropic({
+  apiKey: process.env.ANTHROPIC_API_KEY,
+});
+
+async function ask(question: string): Promise&lt;string&gt; {
+  const message = await client.messages.create({
+    model: 'claude-sonnet-4-6',
+    max_tokens: 1024,
+    messages: [
+      { role: 'user', content: question }
+    ],
+  });
+
+  // message.content is an array of content blocks
+  const block = message.content[0];
+  if (block.type === 'text') return block.text;
+  throw new Error('Unexpected response type');
+}
+
+const answer = await ask('What is the time complexity of quicksort?');
+console.log(answer);</pre>
+            </div>
+
+            <div class="info-box blue">
+              <strong>Important:</strong> <code>message.content</code> is always an array, even for simple text responses. Always check <code>block.type === 'text'</code> before accessing <code>block.text</code>. This becomes critical when you add tool use.
+            </div>
+
+            <h2>3. System Prompts — Your Most Important Tool</h2>
+
+            <p>The <code>system</code> field shapes Claude's entire behaviour for the session. A well-crafted system prompt is the single most impactful thing you can do to improve response quality.</p>
+
+            <div class="code-block">
+              <span class="code-label">TypeScript</span>
+              <pre>const message = await client.messages.create({
+  model: 'claude-sonnet-4-6',
+  max_tokens: 2048,
+  system: `You are a senior TypeScript engineer reviewing code for a financial services startup.
+
+RULES:
+- Flag any potential security vulnerabilities immediately with SEVERITY: HIGH/MEDIUM/LOW
+- Always explain WHY something is a problem, not just what the problem is
+- Suggest specific fixes with code examples
+- Check for: SQL injection, XSS, insecure deserialization, improper auth
+- Output format: structured JSON with keys: issues[], suggestions[], overall_score (1-10)
+
+CONSTRAINTS:
+- Do not rewrite the entire file — only identify and fix specific issues
+- If no issues are found, say so explicitly and explain what you checked`,
+
+  messages: [
+    { role: 'user', content: `Review this code:\n\`\`\`typescript\n${userCode}\n\`\`\`` }
+  ],
+});</pre>
+            </div>
+
+            <h3>System Prompt Best Practices</h3>
+            <ul>
+              <li><strong>Persona first:</strong> Start with "You are a..." to set the context immediately</li>
+              <li><strong>Explicit rules:</strong> Use numbered or bulleted rules — Claude follows structured instructions very well</li>
+              <li><strong>Output format:</strong> Specify JSON, markdown, or prose explicitly to get consistent parsing</li>
+              <li><strong>Constraints matter:</strong> Tell Claude what NOT to do — it reduces hallucination and scope creep</li>
+              <li><strong>Keep it focused:</strong> One job per system prompt. Don't try to make one prompt do everything</li>
+            </ul>
+
+            <h2>4. Multi-Turn Conversations</h2>
+
+            <p>The Claude API is stateless — you must send the full conversation history with every request. This is different from some chat APIs that maintain sessions server-side.</p>
+
+            <div class="code-block">
+              <span class="code-label">TypeScript</span>
+              <pre>import Anthropic from '@anthropic-ai/sdk';
+import type { MessageParam } from '@anthropic-ai/sdk';
+
+const client = new Anthropic();
+
+class ConversationSession {
+  private history: MessageParam[] = [];
+  private system: string;
+
+  constructor(system: string) {
+    this.system = system;
+  }
+
+  async chat(userMessage: string): Promise&lt;string&gt; {
+    // Add user message to history
+    this.history.push({ role: 'user', content: userMessage });
+
+    const response = await client.messages.create({
+      model: 'claude-sonnet-4-6',
+      max_tokens: 2048,
+      system: this.system,
+      messages: this.history,
+    });
+
+    const block = response.content[0];
+    if (block.type !== 'text') throw new Error('Expected text response');
+
+    // Add assistant response to history
+    this.history.push({ role: 'assistant', content: block.text });
+
+    return block.text;
+  }
+
+  reset() { this.history = []; }
+  getHistory() { return [...this.history]; }
+}
+
+// Usage
+const session = new ConversationSession(
+  'You are a helpful coding assistant. Keep responses concise.'
+);
+
+console.log(await session.chat('How do I read a file in Node.js?'));
+console.log(await session.chat('And how do I write to a file?'));
+console.log(await session.chat('Can you show me both in a single function?'));</pre>
+            </div>
+
+            <div class="info-box orange">
+              <strong>Context window management:</strong> At 200K tokens, the context window is large — but not infinite. For long-running sessions, implement a sliding window strategy: keep the system prompt, the last N messages, and a summary of earlier conversation injected as context.
+            </div>
+
+            <h2>5. Streaming Responses</h2>
+
+            <p>Streaming is essential for any user-facing chat interface. Without it, users stare at a blank screen for seconds before anything appears. The Anthropic SDK makes streaming straightforward:</p>
+
+            <div class="code-block">
+              <span class="code-label">TypeScript — Basic Streaming</span>
+              <pre>async function streamResponse(prompt: string): Promise&lt;void&gt; {
+  const stream = await client.messages.stream({
+    model: 'claude-sonnet-4-6',
+    max_tokens: 1024,
+    messages: [{ role: 'user', content: prompt }],
+  });
+
+  // Stream tokens to stdout as they arrive
+  for await (const chunk of stream) {
+    if (
+      chunk.type === 'content_block_delta' &&
+      chunk.delta.type === 'text_delta'
+    ) {
+      process.stdout.write(chunk.delta.text);
+    }
+  }
+
+  // Get the final message once streaming is complete
+  const finalMessage = await stream.finalMessage();
+  console.log('\n\nStop reason:', finalMessage.stop_reason);
+  console.log('Input tokens:', finalMessage.usage.input_tokens);
+  console.log('Output tokens:', finalMessage.usage.output_tokens);
+}</pre>
+            </div>
+
+            <div class="code-block">
+              <span class="code-label">TypeScript — Streaming in Express API</span>
+              <pre>import express from 'express';
+import Anthropic from '@anthropic-ai/sdk';
+
+const app = express();
+app.use(express.json());
+const client = new Anthropic();
+
+app.post('/api/chat', async (req, res) =&gt; {
+  const { messages, system } = req.body;
+
+  // Set SSE headers
+  res.setHeader('Content-Type', 'text/event-stream');
+  res.setHeader('Cache-Control', 'no-cache');
+  res.setHeader('Connection', 'keep-alive');
+
+  try {
+    const stream = await client.messages.stream({
+      model: 'claude-sonnet-4-6',
+      max_tokens: 2048,
+      system,
+      messages,
+    });
+
+    for await (const chunk of stream) {
+      if (
+        chunk.type === 'content_block_delta' &&
+        chunk.delta.type === 'text_delta'
+      ) {
+        res.write(`data: ${JSON.stringify({ text: chunk.delta.text })}\n\n`);
+      }
+    }
+
+    res.write('data: [DONE]\n\n');
+    res.end();
+
+  } catch (error) {
+    res.write(`data: ${JSON.stringify({ error: 'Stream failed' })}\n\n`);
+    res.end();
+  }
+});</pre>
+            </div>
+
+            <h2>6. Tool Use (Function Calling)</h2>
+
+            <p>Tool use is where Claude becomes genuinely powerful. You define tools with JSON Schema, Claude decides when to call them, you execute the function, then send the result back. This enables agents, data pipelines, and AI-powered automations.</p>
+
+            <div class="code-block">
+              <span class="code-label">TypeScript — Tool Definition and Execution</span>
+              <pre>import Anthropic from '@anthropic-ai/sdk';
+import type { Tool, MessageParam } from '@anthropic-ai/sdk';
+
+const client = new Anthropic();
+
+// Define your tools
+const tools: Tool[] = [
+  {
+    name: 'get_weather',
+    description: 'Get current weather for a city. Returns temperature, condition, and humidity.',
+    input_schema: {
+      type: 'object',
+      properties: {
+        city: { type: 'string', description: 'City name, e.g. "London" or "New York"' },
+        units: {
+          type: 'string',
+          enum: ['celsius', 'fahrenheit'],
+          description: 'Temperature units. Defaults to celsius.'
+        }
+      },
+      required: ['city']
+    }
+  },
+  {
+    name: 'search_database',
+    description: 'Search the product database. Returns matching products with price and stock.',
+    input_schema: {
+      type: 'object',
+      properties: {
+        query: { type: 'string', description: 'Search query' },
+        limit: { type: 'number', description: 'Max results (default 5, max 20)' }
+      },
+      required: ['query']
+    }
+  }
+];
+
+// Mock tool executors — replace with real implementations
+async function executeTool(name: string, input: Record&lt;string, unknown&gt;): Promise&lt;string&gt; {
+  if (name === 'get_weather') {
+    const { city, units = 'celsius' } = input as { city: string; units?: string };
+    // In production: call a real weather API here
+    return JSON.stringify({
+      city,
+      temperature: units === 'celsius' ? 22 : 72,
+      condition: 'Partly cloudy',
+      humidity: '65%',
+      units
+    });
+  }
+
+  if (name === 'search_database') {
+    const { query, limit = 5 } = input as { query: string; limit?: number };
+    // In production: query your real database
+    return JSON.stringify({
+      results: [
+        { id: 1, name: `${query} Pro`, price: 99.99, stock: 42 },
+        { id: 2, name: `${query} Lite`, price: 49.99, stock: 8 }
+      ].slice(0, limit)
+    });
+  }
+
+  return JSON.stringify({ error: `Unknown tool: ${name}` });
+}
+
+// Agentic loop — handles multiple tool calls automatically
+async function runAgent(userMessage: string): Promise&lt;string&gt; {
+  const messages: MessageParam[] = [
+    { role: 'user', content: userMessage }
+  ];
+
+  while (true) {
+    const response = await client.messages.create({
+      model: 'claude-sonnet-4-6',
+      max_tokens: 4096,
+      tools,
+      messages,
+    });
+
+    // If Claude is done, return the final text response
+    if (response.stop_reason === 'end_turn') {
+      const textBlock = response.content.find(b =&gt; b.type === 'text');
+      return textBlock?.type === 'text' ? textBlock.text : '';
+    }
+
+    // Handle tool calls
+    if (response.stop_reason === 'tool_use') {
+      // Add Claude's response (with tool_use blocks) to history
+      messages.push({ role: 'assistant', content: response.content });
+
+      // Execute all tool calls and collect results
+      const toolResults = await Promise.all(
+        response.content
+          .filter(block =&gt; block.type === 'tool_use')
+          .map(async block =&gt; {
+            if (block.type !== 'tool_use') return null;
+            const result = await executeTool(
+              block.name,
+              block.input as Record&lt;string, unknown&gt;
+            );
+            return {
+              type: 'tool_result' as const,
+              tool_use_id: block.id,
+              content: result
+            };
+          })
+      );
+
+      // Add tool results to history and continue the loop
+      messages.push({
+        role: 'user',
+        content: toolResults.filter(Boolean) as Anthropic.ToolResultBlockParam[]
+      });
+    }
+  }
+}
+
+// Test it
+const result = await runAgent(
+  'What\'s the weather in Tokyo right now? Also find me some "wireless headphones" in the store.'
+);
+console.log(result);</pre>
+            </div>
+
+            <div class="info-box">
+              <strong>Key insight:</strong> The agentic loop runs until <code>stop_reason === 'end_turn'</code>. Claude may call tools multiple times in a single turn, or chain tool calls together. Your loop must handle this automatically — that's the whole architecture.
+            </div>
+
+            <h2>7. Structured JSON Output</h2>
+
+            <p>A very common pattern: force Claude to return structured JSON that your application can parse reliably. Two approaches work well:</p>
+
+            <div class="code-block">
+              <span class="code-label">TypeScript — Approach 1: System Prompt + JSON Mode</span>
+              <pre>import { z } from 'zod';
+
+// Define the expected schema
+const ProductSchema = z.object({
+  name: z.string(),
+  category: z.string(),
+  price_range: z.object({
+    min: z.number(),
+    max: z.number(),
+    currency: z.string()
+  }),
+  features: z.array(z.string()),
+  sentiment: z.enum(['positive', 'neutral', 'negative']),
+  confidence: z.number().min(0).max(1)
+});
+
+type Product = z.infer&lt;typeof ProductSchema&gt;;
+
+async function extractProductData(rawText: string): Promise&lt;Product&gt; {
+  const response = await client.messages.create({
+    model: 'claude-sonnet-4-6',
+    max_tokens: 1024,
+    system: `You are a data extraction API. Always respond with valid JSON only.
+No markdown, no explanation, no code fences — just the raw JSON object.
+Schema: ${JSON.stringify(ProductSchema.shape, null, 2)}`,
+    messages: [
+      { role: 'user', content: `Extract product data from this text:\n\n${rawText}` }
+    ]
+  });
+
+  const block = response.content[0];
+  if (block.type !== 'text') throw new Error('Expected text');
+
+  const parsed = JSON.parse(block.text);
+  return ProductSchema.parse(parsed); // Zod validates AND types the output
+}</pre>
+            </div>
+
+            <div class="code-block">
+              <span class="code-label">TypeScript — Approach 2: Tool Use for Guaranteed Structure</span>
+              <pre>// Using a "fake" tool as a structured output mechanism
+// Claude MUST call the tool, so output is always structured
+
+const response = await client.messages.create({
+  model: 'claude-sonnet-4-6',
+  max_tokens: 1024,
+  tool_choice: { type: 'tool', name: 'save_product' }, // Force this tool
+  tools: [{
+    name: 'save_product',
+    description: 'Save the extracted product information',
+    input_schema: {
+      type: 'object',
+      properties: {
+        name: { type: 'string' },
+        price: { type: 'number' },
+        in_stock: { type: 'boolean' },
+        tags: { type: 'array', items: { type: 'string' } }
+      },
+      required: ['name', 'price', 'in_stock', 'tags']
+    }
+  }],
+  messages: [
+    { role: 'user', content: `Extract: ${rawText}` }
+  ]
+});
+
+// The tool call input IS your structured data
+const toolUse = response.content.find(b =&gt; b.type === 'tool_use');
+if (toolUse?.type === 'tool_use') {
+  const data = toolUse.input; // Guaranteed to match your schema
+  console.log(data);
+}</pre>
+            </div>
+
+            <h2>8. Error Handling and Retries</h2>
+
+            <p>Production Claude API applications need robust error handling. The main error types to handle:</p>
+
+            <div class="code-block">
+              <span class="code-label">TypeScript</span>
+              <pre>import Anthropic from '@anthropic-ai/sdk';
+
+const client = new Anthropic();
+
+async function robustCall(
+  messages: Anthropic.MessageParam[],
+  retries = 3
+): Promise&lt;string&gt; {
+  for (let attempt = 1; attempt &lt;= retries; attempt++) {
+    try {
+      const response = await client.messages.create({
+        model: 'claude-sonnet-4-6',
+        max_tokens: 1024,
+        messages,
+      });
+
+      const block = response.content[0];
+      if (block.type === 'text') return block.text;
+      throw new Error('No text in response');
+
+    } catch (error) {
+      if (error instanceof Anthropic.RateLimitError) {
+        // 429 — wait before retry
+        const waitMs = Math.pow(2, attempt) * 1000; // Exponential backoff
+        console.warn(`Rate limited. Waiting ${waitMs}ms before retry ${attempt}/${retries}`);
+        await new Promise(r =&gt; setTimeout(r, waitMs));
+        continue;
+      }
+
+      if (error instanceof Anthropic.APIError) {
+        if (error.status === 529) {
+          // API overloaded — brief wait
+          await new Promise(r =&gt; setTimeout(r, 2000 * attempt));
+          continue;
+        }
+        if (error.status &gt;= 500) {
+          // Server error — retry
+          await new Promise(r =&gt; setTimeout(r, 1000 * attempt));
+          continue;
+        }
+        // 4xx errors (except 429) are not retriable — bad request, auth, etc.
+        throw error;
+      }
+
+      throw error; // Unknown error — rethrow
+    }
+  }
+
+  throw new Error(`Failed after ${retries} attempts`);
+}</pre>
+            </div>
+
+            <h2>9. Real-World Patterns</h2>
+
+            <div class="step-card">
+              <div class="step-num">1</div>
+              <div>
+                <h4>Code Review Bot in CI/CD</h4>
+                <p>Trigger on PR open via GitHub Actions. Send diff + changed files to Claude with a code review system prompt. Post Claude's feedback as a PR comment automatically. Filter by file type to only review TypeScript/PHP/etc. Haiku is cost-effective for this at scale.</p>
+              </div>
+            </div>
+
+            <div class="step-card">
+              <div class="step-num">2</div>
+              <div>
+                <h4>Document Processing Pipeline</h4>
+                <p>Feed PDFs/Word docs as extracted text. Use structured output (tool use pattern) to extract entities, dates, amounts, clauses. Store in a database. Claude Sonnet handles 200K tokens — most legal or financial docs fit in one call without chunking.</p>
+              </div>
+            </div>
+
+            <div class="step-card">
+              <div class="step-num">3</div>
+              <div>
+                <h4>Customer Support Agent</h4>
+                <p>System prompt defines product knowledge, escalation rules, and tone. Tool use connects to your CRM (order lookup, account status). Conversation history provides context. Use Claude Haiku for first-pass triage, escalate to Sonnet for complex issues.</p>
+              </div>
+            </div>
+
+            <div class="step-card">
+              <div class="step-num">4</div>
+              <div>
+                <h4>RAG (Retrieval-Augmented Generation)</h4>
+                <p>Embed user queries with any embedding model. Retrieve top-K relevant chunks from a vector database (Pinecone, pgvector, Weaviate). Inject chunks into the system prompt as context. Claude synthesises an answer grounded in your data, not hallucinated.</p>
+              </div>
+            </div>
+
+            <div class="step-card">
+              <div class="step-num">5</div>
+              <div>
+                <h4>Multi-Agent Orchestration</h4>
+                <p>Use one Claude instance as an "orchestrator" that breaks tasks into subtasks and dispatches them to specialised "worker" agents (each with their own system prompt and tools). The orchestrator collects results and synthesises the final output. Powerful for complex multi-step workflows.</p>
+              </div>
+            </div>
+
+            <h2>10. Cost Optimisation</h2>
+
+            <p>Claude API costs scale with tokens. Here are the strategies that make the biggest difference:</p>
+
+            <ul>
+              <li><strong>Use the right model for the task.</strong> Haiku costs 12x less than Sonnet. For classification, routing, and simple extraction, Haiku is more than sufficient.</li>
+              <li><strong>Prompt caching</strong> (beta): If your system prompt is large and repeated, enable prompt caching to reduce input costs by up to 90% on cached tokens.</li>
+              <li><strong>Set appropriate max_tokens.</strong> If you know responses will be short, set a lower limit — you're not billed for unused tokens, but it prevents runaway responses.</li>
+              <li><strong>Compress conversation history.</strong> For long sessions, periodically ask Claude to summarise earlier exchanges and replace the full history with the summary.</li>
+              <li><strong>Batch non-urgent tasks</strong> using the Batch API for up to 50% cost reduction on async workloads.</li>
+            </ul>
+
+            <div class="info-box green">
+              <strong>Practical cost estimate:</strong> A customer support bot handling 1,000 conversations/day (average 10 exchanges, ~500 tokens each) using claude-sonnet-4-6 costs roughly <strong>$45–90/day</strong> depending on response length. Switching to Haiku for initial triage (80% of cases) drops this to ~$15–20/day.
+            </div>
+
+            <h2>11. Production Checklist</h2>
+
+            <ul>
+              <li>&#9989; API key stored in environment variables, never hardcoded</li>
+              <li>&#9989; Exponential backoff and retry logic for 429/5xx errors</li>
+              <li>&#9989; <code>max_tokens</code> set appropriately to cap costs and prevent runaway responses</li>
+              <li>&#9989; Input validation before sending to API (sanitise user content)</li>
+              <li>&#9989; Logging: log token usage per request for cost monitoring</li>
+              <li>&#9989; Timeout set on HTTP client (default can be too long)</li>
+              <li>&#9989; Rate limiting on your own API endpoints to prevent abuse</li>
+              <li>&#9989; System prompt tested for prompt injection resistance</li>
+              <li>&#9989; Structured output validated with Zod or equivalent before use</li>
+              <li>&#9989; Model version pinned (avoid unexpected behaviour from model updates)</li>
+            </ul>
+
+            <h2>FAQs</h2>
+
+            <div class="faq-item">
+              <h3>How do I get an Anthropic API key?</h3>
+              <p>Sign up at console.anthropic.com. New accounts get free credits to start. Production usage is pay-as-you-go, billed by tokens. No monthly minimum.</p>
+            </div>
+
+            <div class="faq-item">
+              <h3>What's the difference between claude-sonnet-4-6 and claude-opus-4-6?</h3>
+              <p>Opus is Anthropic's most capable model — better at complex reasoning, nuanced instructions, and difficult multi-step tasks. Sonnet is faster and 5x cheaper while still being excellent for most production use cases. Start with Sonnet and only upgrade to Opus if you see clear quality gaps.</p>
+            </div>
+
+            <div class="faq-item">
+              <h3>Can I use the Claude API for commercial applications?</h3>
+              <p>Yes. The Anthropic API is available for commercial use under Anthropic's usage policies. Review the policies at anthropic.com/legal/aup for any content restrictions relevant to your use case.</p>
+            </div>
+
+            <div class="faq-item">
+              <h3>Does the Claude API support images?</h3>
+              <p>Yes. Claude is multimodal — you can include images in messages as base64-encoded data or public URLs. Image tokens are counted separately from text tokens.</p>
+            </div>
+
+            <div style="background:linear-gradient(135deg,#0a2342,#6d28d9);border-radius:16px;padding:32px;color:#fff;text-align:center;margin:40px 0;">
+              <h3 style="color:#fff;font-size:20px;font-weight:700;margin-bottom:10px;">Need a Claude API Integration Built?</h3>
+              <p style="color:rgba(255,255,255,0.9);font-size:14px;margin-bottom:20px;">I build production Claude API integrations, AI chatbots, document processing pipelines, and automation workflows. Free 30-minute technical consultation.</p>
+              <a href="../contact/" style="background:#fff;color:#0a2342;font-weight:700;font-size:14px;padding:12px 28px;border-radius:8px;text-decoration:none;display:inline-block;">Get Free Consultation &#8594;</a>
+            </div>
+
+            <div class="author-box">
+              <img src="../images/abouts.webp" alt="Anju Batta" loading="lazy">
+              <div>
+                <h5>Anju Batta</h5>
+                <p>Senior Full Stack Developer &amp; AI Automation Architect. I build commercial applications with the Claude API, OpenAI API, and automation tools like n8n. Based in Chandigarh, India.</p>
+                <a href="claude-vs-chatgpt-vs-gemini.html" style="color:#6d28d9;font-size:13px;font-weight:700;text-decoration:none;display:inline-block;margin-top:8px;">Read Next: Claude vs ChatGPT vs Gemini Comparison &#8594;</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div style="position:sticky;top:80px;">
+            <div style="background:linear-gradient(135deg,#0a2342,#6d28d9);border-radius:14px;padding:24px;color:#fff;margin-bottom:24px;">
+              <h4 style="color:#fff;font-size:16px;font-weight:700;margin-bottom:10px;">Claude API Developer</h4>
+              <p style="color:rgba(255,255,255,0.8);font-size:13px;margin-bottom:18px;">I build production AI apps with Claude, OpenAI, and n8n. Free 30-min tech consult.</p>
+              <a href="../contact/" style="background:#fff;color:#6d28d9;font-size:13px;font-weight:700;padding:10px 18px;border-radius:8px;display:inline-block;text-decoration:none;">Get Free Consultation &#8594;</a>
+            </div>
+            <div style="background:#fff;border-radius:14px;padding:24px;box-shadow:0 4px 20px rgba(0,0,0,0.07);">
+              <h4 style="font-size:15px;font-weight:700;color:#111;margin-bottom:16px;">Related Articles</h4>
+              <div style="margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid #f0f0f0;">
+                <a href="claude-ai-for-developers.html" style="color:#333;font-size:13px;font-weight:600;text-decoration:none;display:block;margin-bottom:4px;line-height:1.5;">Claude AI for Developers: Co-Working Guide</a>
+                <span style="font-size:11px;color:#888;">11 min read</span>
+              </div>
+              <div style="margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid #f0f0f0;">
+                <a href="claude-code-cli-guide.html" style="color:#333;font-size:13px;font-weight:600;text-decoration:none;display:block;margin-bottom:4px;line-height:1.5;">Claude Code CLI: The Open Claw Tool</a>
+                <span style="font-size:11px;color:#888;">10 min read</span>
+              </div>
+              <div style="margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid #f0f0f0;">
+                <a href="claude-vs-chatgpt-vs-gemini.html" style="color:#333;font-size:13px;font-weight:600;text-decoration:none;display:block;margin-bottom:4px;line-height:1.5;">Claude vs ChatGPT vs Gemini 2026</a>
+                <span style="font-size:11px;color:#888;">12 min read</span>
+              </div>
+              <div>
+                <a href="openclaw-ai.html" style="color:#333;font-size:13px;font-weight:600;text-decoration:none;display:block;margin-bottom:4px;line-height:1.5;">OpenClaw AI: The Autonomous AI Agent</a>
+                <span style="font-size:11px;color:#888;">9 min read</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer style="background:#212529;padding:30px 0;">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6"><p style="color:rgba(255,255,255,0.6);font-size:13px;margin:0;">&copy; <span id="footer-year"></span> Anju Batta. All rights reserved.</p></div>
+        <div class="col-md-6 text-md-right"><a href="../blog.html" style="color:rgba(255,255,255,0.6);font-size:13px;text-decoration:none;">&#8592; All Posts</a></div>
+      </div>
+    </div>
+  </footer>
+  <script src="../js/jquery.min.js"></script>
+  <script src="../js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+  <script>
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
