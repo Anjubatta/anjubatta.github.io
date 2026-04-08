@@ -1,0 +1,35 @@
+# Markdown files
+*.md
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Dependencies
+node_modules/
+package-lock.json
+yarn.lock
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Build/dist directories
+dist/
+build/
+out/
+
+# Logs
+*.log
+logs/
+
+# Cache
+.cache/

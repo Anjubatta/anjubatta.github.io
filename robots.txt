@@ -69,3 +69,4 @@ Allow: /
 
 # Sitemap & AI discovery files
 Sitemap: https://anjubatta.netlify.app/sitemap.xml
+Sitemap: https://anjubatta.netlify.app/image-sitemap.xml

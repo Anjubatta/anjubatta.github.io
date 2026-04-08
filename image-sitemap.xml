@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd
+        http://www.google.com/schemas/sitemap-image/1.1
+        http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd">
+
+  <!-- Home Page Images -->
+  <url>
+    <loc>https://anjubatta.netlify.app/</loc>
+    <image:image>
+      <image:loc>https://anjubatta.netlify.app/images/header_image.png</image:loc>
+      <image:title>Anju Batta - Senior Full Stack Developer</image:title>
+      <image:caption>Technical SEO Engineer & AI Automation Architect</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://anjubatta.netlify.app/images/abouts.png</image:loc>
+      <image:title>Anju Batta Profile Image</image:title>
+      <image:caption>Senior Developer with 15+ years experience</image:caption>
+    </image:image>
+  </url>
+
+  <!-- XML Sitemap Strategy Guide Blog -->
+  <url>
+    <loc>https://anjubatta.netlify.app/blog/xml-sitemap-strategy-guide</loc>
+    <image:image>
+      <image:loc>https://anjubatta.netlify.app/images/blog-xml-sitemap.png</image:loc>
+      <image:title>XML Sitemap Strategy 2026</image:title>
+      <image:caption>Advanced XML sitemap strategies for crawl budget optimization and better SEO rankings</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Technical SEO Audit Checklist Blog -->
+  <url>
+    <loc>https://anjubatta.netlify.app/blog/technical-seo-audit-checklist</loc>
+    <image:image>
+      <image:loc>https://anjubatta.netlify.app/images/blog-seo-audit.png</image:loc>
+      <image:title>Technical SEO Audit Checklist 2026</image:title>
+      <image:caption>50-point technical SEO audit checklist for crawlability, Core Web Vitals, and indexability</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Next.js SEO Architecture Blog -->
+  <url>
+    <loc>https://anjubatta.netlify.app/blog/nextjs-seo-architecture</loc>
+    <image:image>
+      <image:loc>https://anjubatta.netlify.app/images/blog-nextjs-seo.png</image:loc>
+      <image:title>Next.js SEO Architecture</image:title>
+      <image:caption>SSR, SSG, ISR rendering strategies for search optimization</image:caption>
+    </image:image>
+  </url>
+
+  <!-- AEO & GEO Optimization Blog -->
+  <url>
+    <loc>https://anjubatta.netlify.app/blog/aeo-geo-ai-search-optimization</loc>
+    <image:image>
+      <image:loc>https://anjubatta.netlify.app/images/blog-aeo-geo.png</image:loc>
+      <image:title>AEO & GEO - AI Search Optimization</image:title>
+      <image:caption>Answer Engine Optimization for ChatGPT, Gemini, and Perplexity</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Cloudflare Optimization Guide Blog -->
+  <url>
+    <loc>https://anjubatta.netlify.app/blog/cloudflare-optimization-guide</loc>
+    <image:image>
+      <image:loc>https://anjubatta.netlify.app/images/blog-cloudflare.png</image:loc>
+      <image:title>Cloudflare Optimization Guide</image:title>
+      <image:caption>Edge caching, WAF, rate limiting, and bot protection for SEO</image:caption>
+    </image:image>
+  </url>
+
+  <!-- AI Agent Architecture Blog -->
+  <url>
+    <loc>https://anjubatta.netlify.app/blog/ai-agent-architecture</loc>
+    <image:image>
+      <image:loc>https://anjubatta.netlify.app/images/blog-ai-agents.png</image:loc>
+      <image:title>AI Agent Architecture</image:title>
+      <image:caption>Context, memory, tool-calling, and vector database integration</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Schema Engineering Guide Blog -->
+  <url>
+    <loc>https://anjubatta.netlify.app/blog/schema-engineering-guide</loc>
+    <image:image>
+      <image:loc>https://anjubatta.netlify.app/images/blog-schema.png</image:loc>
+      <image:title>Schema Engineering Guide</image:title>
+      <image:caption>JSON-LD structured data and rich results for AI citation readiness</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Ionic Framework Blog -->
+  <url>
+    <loc>https://anjubatta.netlify.app/blog/ionic</loc>
+    <image:image>
+      <image:loc>https://anjubatta.netlify.app/images/blog-ionic.png</image:loc>
+      <image:title>Ionic Framework Guide</image:title>
+      <image:caption>Building cross-platform mobile apps with web technologies</image:caption>
+    </image:image>
+  </url>
+
+  <!-- WordPress Hooks Blog -->
+  <url>
+    <loc>https://anjubatta.netlify.app/blog/wordpress-hooks</loc>
+    <image:image>
+      <image:loc>https://anjubatta.netlify.app/images/blog-wordpress.png</image:loc>
+      <image:title>WordPress Hooks Guide</image:title>
+      <image:caption>Mastering actions and filters for custom WordPress development</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Ghost CMS Blog -->
+  <url>
+    <loc>https://anjubatta.netlify.app/blog/ghost</loc>
+    <image:image>
+      <image:loc>https://anjubatta.netlify.app/images/blog-ghost.png</image:loc>
+      <image:title>Ghost CMS Publishing Platform</image:title>
+      <image:caption>Headless publishing platform for developers using Node.js</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Ionic vs Flutter vs React Native Blog -->
+  <url>
+    <loc>https://anjubatta.netlify.app/blog/ionic-vs-flutter-vs-react-native</loc>
+    <image:image>
+      <image:loc>https://anjubatta.netlify.app/images/blog-frameworks.png</image:loc>
+      <image:title>Ionic vs Flutter vs React Native Comparison</image:title>
+      <image:caption>Comparing mobile development frameworks for 2026</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Ionic App Store Submission Blog -->
+  <url>
+    <loc>https://anjubatta.netlify.app/blog/ionic-app-store-submission-checklist</loc>
+    <image:image>
+      <image:loc>https://anjubatta.netlify.app/images/blog-app-store.png</image:loc>
+      <image:title>Ionic App Store Submission Checklist</image:title>
+      <image:caption>Complete checklist for submitting Ionic apps to Apple App Store and Google Play</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Ionic App Development Cost Blog -->
+  <url>
+    <loc>https://anjubatta.netlify.app/blog/ionic-app-development-cost</loc>
+    <image:image>
+      <image:loc>https://anjubatta.netlify.app/images/blog-app-cost.png</image:loc>
+      <image:title>Ionic App Development Cost</image:title>
+      <image:caption>How much does it cost to build an Ionic mobile app?</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Ionic Laravel API Integration Blog -->
+  <url>
+    <loc>https://anjubatta.netlify.app/blog/ionic-laravel-api-integration</loc>
+    <image:image>
+      <image:loc>https://anjubatta.netlify.app/images/blog-ionic-laravel.png</image:loc>
+      <image:title>Ionic & Laravel API Integration</image:title>
+      <image:caption>Full stack mobile app development with Ionic and Laravel</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Ionic Capacitor Plugins Blog -->
+  <url>
+    <loc>https://anjubatta.netlify.app/blog/ionic-capacitor-plugins-guide</loc>
+    <image:image>
+      <image:loc>https://anjubatta.netlify.app/images/blog-capacitor.png</image:loc>
+      <image:title>Ionic Capacitor Plugins Guide</image:title>
+      <image:caption>Complete guide to native device integration with Capacitor</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Claude AI for Developers Blog -->
+  <url>
+    <loc>https://anjubatta.netlify.app/blog/claude-ai-for-developers</loc>
+    <image:image>
+      <image:loc>https://anjubatta.netlify.app/images/blog-claude-ai.png</image:loc>
+      <image:title>Claude AI for Developers</image:title>
+      <image:caption>Using Claude AI for software development and automation</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Claude Code CLI Guide Blog -->
+  <url>
+    <loc>https://anjubatta.netlify.app/blog/claude-code-cli-guide</loc>
+    <image:image>
+      <image:loc>https://anjubatta.netlify.app/images/blog-claude-code.png</image:loc>
+      <image:title>Claude Code CLI Guide</image:title>
+      <image:caption>Complete guide to Claude Code command line interface</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Claude vs ChatGPT vs Gemini Blog -->
+  <url>
+    <loc>https://anjubatta.netlify.app/blog/claude-vs-chatgpt-vs-gemini</loc>
+    <image:image>
+      <image:loc>https://anjubatta.netlify.app/images/blog-ai-comparison.png</image:loc>
+      <image:title>Claude vs ChatGPT vs Gemini</image:title>
+      <image:caption>Comparing Claude, ChatGPT, and Google Gemini AI models</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Building with Claude API Blog -->
+  <url>
+    <loc>https://anjubatta.netlify.app/blog/building-with-claude-api</loc>
+    <image:image>
+      <image:loc>https://anjubatta.netlify.app/images/blog-claude-api.png</image:loc>
+      <image:title>Building with Claude API</image:title>
+      <image:caption>Build AI applications using the Claude API and Anthropic SDK</image:caption>
+    </image:image>
+  </url>
+
+  <!-- OpenClaw AI Blog -->
+  <url>
+    <loc>https://anjubatta.netlify.app/blog/openclaw-ai</loc>
+    <image:image>
+      <image:loc>https://anjubatta.netlify.app/images/blog-openclaw.png</image:loc>
+      <image:title>OpenClaw AI</image:title>
+      <image:caption>Open-source AI security and automation tools</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Blog Hub -->
+  <url>
+    <loc>https://anjubatta.netlify.app/blog</loc>
+    <image:image>
+      <image:loc>https://anjubatta.netlify.app/images/abouts.png</image:loc>
+      <image:title>Anju Batta Blog</image:title>
+      <image:caption>Technical SEO, Next.js, AI Agents & Web Dev Insights</image:caption>
+    </image:image>
+  </url>
+
+</urlset>
