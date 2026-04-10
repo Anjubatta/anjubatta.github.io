@@ -115,6 +115,12 @@
   <link rel="stylesheet" href="css/icomoon.css">
   <link rel="stylesheet" href="css/style.css">
 
+  <!-- Performance optimizations -->
+  <style>
+    section { contain: layout style paint; }
+    .ftco-animate { contain: layout style paint; }
+  </style>
+
   <!-- Non-critical CSS: loaded asynchronously after first paint -->
   <link rel="stylesheet" href="css/animate.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="css/animate.css"></noscript>
