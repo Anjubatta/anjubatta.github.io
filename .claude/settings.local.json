@@ -10,7 +10,9 @@
       "Bash(mv technical-seo-consulting.html technical-seo-consulting/index.html)",
       "Bash(mv ai-agent-development.html ai-agent-development/index.html)",
       "Bash(mv mobile-app-development.html mobile-app-development/index.html)",
-      "Bash(mv cloudflare-optimization.html cloudflare-optimization/index.html)"
+      "Bash(mv cloudflare-optimization.html cloudflare-optimization/index.html)",
+      "Bash(sed -i 's|href=\"\\\\.\\\\./|href=\"../../|g' technical-seo-consulting/index.html ai-agent-development/index.html mobile-app-development/index.html)",
+      "Bash(sed -i 's|src=\"\\\\.\\\\./|src=\"../../|g' technical-seo-consulting/index.html ai-agent-development/index.html mobile-app-development/index.html)"
     ]
   }
 }
