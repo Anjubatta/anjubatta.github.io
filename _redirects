@@ -1,35 +1,35 @@
-# Netlify redirects
-/sitemap.xml   /sitemap.xml   200
-/robots.txt    /robots.txt    200
-/llms.txt      /llms.txt      200
+# Netlify redirects configuration
+# Ensures consistent URL structure and prevents redirect chains (5xx errors)
 
-# ── Pretty URLs: serve .html files at clean URLs (200 = no redirect, URL stays clean) ──
-# Main pages
-/contact          /contact.html          200
-/project_list     /project_list.html     200
+# Blog posts - enforce trailing slash (prevents duplicate: with/without slash)
+/blog/xml-sitemap-strategy-guide /blog/xml-sitemap-strategy-guide/ 301
+/blog/technical-seo-audit-checklist /blog/technical-seo-audit-checklist/ 301
+/blog/nextjs-seo-architecture /blog/nextjs-seo-architecture/ 301
+/blog/aeo-geo-ai-search-optimization /blog/aeo-geo-ai-search-optimization/ 301
+/blog/cloudflare-optimization-guide /blog/cloudflare-optimization-guide/ 301
+/blog/ai-agent-architecture /blog/ai-agent-architecture/ 301
+/blog/schema-engineering-guide /blog/schema-engineering-guide/ 301
+/blog/wordpress-hooks /blog/wordpress-hooks/ 301
+/blog/ghost /blog/ghost/ 301
+/blog/ionic /blog/ionic/ 301
+/blog/ionic-vs-flutter-vs-react-native /blog/ionic-vs-flutter-vs-react-native/ 301
+/blog/ionic-app-store-submission-checklist /blog/ionic-app-store-submission-checklist/ 301
+/blog/ionic-app-development-cost /blog/ionic-app-development-cost/ 301
+/blog/ionic-laravel-api-integration /blog/ionic-laravel-api-integration/ 301
+/blog/ionic-capacitor-plugins-guide /blog/ionic-capacitor-plugins-guide/ 301
+/blog/claude-ai-for-developers /blog/claude-ai-for-developers/ 301
+/blog/claude-code-cli-guide /blog/claude-code-cli-guide/ 301
+/blog/claude-vs-chatgpt-vs-gemini /blog/claude-vs-chatgpt-vs-gemini/ 301
+/blog/building-with-claude-api /blog/building-with-claude-api/ 301
+/blog/openclaw-ai /blog/openclaw-ai/ 301
 
-# Blog listing (blog/index.html serves /blog and /blog/)
-/blog             /blog/index.html       200
-/blog/            /blog/index.html       200
+# Service pages - enforce trailing slash
+/services/ionic-app-development /services/ionic-app-development/ 301
+/services/technical-seo-consulting /services/technical-seo-consulting/ 301
+/services/ai-agent-development /services/ai-agent-development/ 301
+/services/mobile-app-development /services/mobile-app-development/ 301
 
-# Blog posts – trailing slash → canonical (301 permanent redirect)
-/blog/ionic/                          /blog/ionic                          301
-/blog/nextjs-seo-architecture/        /blog/nextjs-seo-architecture        301
-/blog/technical-seo-audit-checklist/  /blog/technical-seo-audit-checklist  301
-/blog/aeo-geo-ai-search-optimization/ /blog/aeo-geo-ai-search-optimization 301
-/blog/cloudflare-optimization-guide/  /blog/cloudflare-optimization-guide  301
-/blog/ai-agent-architecture/          /blog/ai-agent-architecture          301
-/blog/schema-engineering-guide/       /blog/schema-engineering-guide       301
-/blog/wordpress-hooks/                /blog/wordpress-hooks                301
-/blog/ghost/                          /blog/ghost                          301
-
-# Blog posts – clean URL → .html (200 rewrite keeps URL clean in browser)
-/blog/ionic                          /blog/ionic.html                          200
-/blog/nextjs-seo-architecture        /blog/nextjs-seo-architecture.html        200
-/blog/technical-seo-audit-checklist  /blog/technical-seo-audit-checklist.html  200
-/blog/aeo-geo-ai-search-optimization /blog/aeo-geo-ai-search-optimization.html 200
-/blog/cloudflare-optimization-guide  /blog/cloudflare-optimization-guide.html  200
-/blog/ai-agent-architecture          /blog/ai-agent-architecture.html          200
-/blog/schema-engineering-guide       /blog/schema-engineering-guide.html       200
-/blog/wordpress-hooks                /blog/wordpress-hooks.html                200
-/blog/ghost                          /blog/ghost.html                          200
+# Main sections - enforce trailing slash
+/project_list /project_list/ 301
+/blog /blog/ 301
+/contact /contact/ 301

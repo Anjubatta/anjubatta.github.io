@@ -3,7 +3,10 @@
     "allow": [
       "WebFetch(domain:anjubatta.netlify.app)",
       "Bash(ls -lh *.md)",
-      "Bash(awk '{print $9, \"\\(\" $5 \"\\)\"}')"
+      "Bash(awk '{print $9, \"\\(\" $5 \"\\)\"}')",
+      "Bash(find blog:*)",
+      "Bash(grep -l \"../blog.html\" blog/*.html)",
+      "Bash(grep -l \"blog\\\\.html\" blog/*.html)"
     ]
   }
 }

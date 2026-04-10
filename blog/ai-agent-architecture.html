@@ -123,7 +123,7 @@
           <li class="nav-item"><a href="../index.html#ai-services-section" class="nav-link"><span>Services</span></a></li>
           <li class="nav-item"><a href="../index.html#nextjs-seo-section" class="nav-link"><span>Next.js &amp; SEO</span></a></li>
           <li class="nav-item"><a href="../index.html#project-section" class="nav-link"><span>Projects</span></a></li>
-          <li class="nav-item active"><a href="../blog.html" class="nav-link"><span>Blog</span></a></li>
+          <li class="nav-item active"><a href="../" class="nav-link"><span>Blog</span></a></li>
           <li class="nav-item"><a href="../contact/" class="nav-link"><span>Contact</span></a></li>
         </ul>
       </div>
@@ -133,7 +133,7 @@
   <!-- Post Hero -->
   <div class="post-hero" style="margin-top:56px;">
     <div class="container">
-      <a href="../blog.html" class="back-link">&#8592; Back to Blog</a>
+      <a href="../" class="back-link">&#8592; Back to Blog</a>
       <span class="post-badge">AI Agents</span>
       <h1>AI Agent Architecture: Context, Memory, Tool-Calling &amp; Vector Databases Explained</h1>
       <div class="post-meta">
@@ -162,6 +162,11 @@
               <span class="post-tag">Pinecone</span>
             </div>
             <img src="../images/blog-ai-agents.png" alt="AI Agent Architecture: Context, Memory, Tool-Calling & Vector Databases Explained" class="featured-image" loading="lazy">
+
+            <!-- Service Link -->
+            <div class="info-box" style="background:#f5f0ff;border-left:4px solid #7c3aed;margin:24px 0;">
+              <p style="margin:0;font-size:14px;"><strong>🤖 Build Production AI Agents?</strong><br>Our <a href="../services/ai-agent-development/" style="color:#7c3aed;font-weight:bold;text-decoration:none;">AI Agent Development Service</a> helps you design, build, and deploy production-ready agents with memory management, tool-calling, and RAG integration. <a href="../index.html#contact-section" style="color:#7c3aed;font-weight:bold;text-decoration:none;">Get started →</a></p>
+            </div>
 
             <p>The term "AI agent" is used loosely — sometimes to mean a chatbot that answers questions, sometimes to mean a fully autonomous system that plans multi-step tasks, calls external APIs, writes code, searches the web, and updates its own memory. These are fundamentally different things, and understanding the architecture behind a true AI agent is essential if you want to build them that actually work reliably in production.</p>
 
@@ -202,7 +207,7 @@
             </div>
 
             <h3>Planning and Reasoning</h3>
-            <p>The LLM receives the goal, its current context (including memory retrieval results), and the available tools. It generates a plan — breaking the goal into sub-tasks and selecting which tool to call first. This is where model quality matters most: GPT-4o, Claude 3.7, and Gemini 1.5 Pro significantly outperform smaller models for complex multi-step planning.</p>
+            <p>The LLM receives the goal, its current context (including memory retrieval results), and the available tools. It generates a plan — breaking the goal into sub-tasks and selecting which tool to call first. This is where model quality matters most: GPT-4o, Claude 3.7, and Gemini 1.5 Pro significantly outperform smaller models for complex multi-step planning. Learn more about implementing this with Claude in our <a href="building-with-claude-api.html" style="color:#7c3aed;font-weight:bold;text-decoration:none;">guide to building with the Claude API</a>.</p>
 
             <pre><code># Conceptual Agent System Prompt Structure
 
@@ -495,7 +500,7 @@ return "MAX_ITERATIONS reached — task incomplete"</code></pre>
       <div class="row align-items-center">
         <div class="col-md-6"><p style="color:rgba(255,255,255,0.6);font-size:13px;margin:0;">&copy; <span id="footer-year"></span> Anju Batta. All rights reserved.</p></div>
         <div class="col-md-6 text-md-right">
-          <a href="../blog.html" style="color:rgba(255,255,255,0.6);font-size:13px;text-decoration:none;">&#8592; All Posts</a>
+          <a href="../" style="color:rgba(255,255,255,0.6);font-size:13px;text-decoration:none;">&#8592; All Posts</a>
         </div>
       </div>
     </div>
