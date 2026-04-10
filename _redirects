@@ -28,6 +28,7 @@
 /services/technical-seo-consulting /services/technical-seo-consulting/ 301
 /services/ai-agent-development /services/ai-agent-development/ 301
 /services/mobile-app-development /services/mobile-app-development/ 301
+/services/cloudflare-optimization /services/cloudflare-optimization/ 301
 
 # Main sections - enforce trailing slash
 /project_list /project_list/ 301
