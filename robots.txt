@@ -68,5 +68,4 @@ User-agent: DuckDuckBot
 Allow: /
 
 # Sitemap & AI discovery files
-Sitemap: https://anjubatta.netlify.app/sitemap.xml
-Sitemap: https://anjubatta.netlify.app/image-sitemap.xml
+Sitemap: https://anjubatta.netlify.app/sitemap_index.xml
