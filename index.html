@@ -117,7 +117,7 @@
 
   <!-- Performance optimizations -->
   <style>
-    section { contain: layout style paint; }
+    section:not(#home-section) { contain: layout style paint; }
     .ftco-animate { contain: layout style paint; }
   </style>
 
@@ -1820,20 +1820,20 @@
     </svg>
   </div>
 
-  <!-- Scripts – all at bottom, no duplicates -->
-  <script defer src="js/jquery.min.js"></script>
-  <script defer src="js/jquery-migrate-3.0.1.min.js"></script>
-  <script src="js/popper.min.js"></script>
-  <script defer src="js/bootstrap.min.js"></script>
-  <script defer src="js/jquery.easing.1.3.js"></script>
-  <script defer src="js/jquery.waypoints.min.js"></script>
-  <script defer src="js/jquery.stellar.min.js"></script>
-  <script src="js/owl.carousel.min.js"></script>
-  <script defer src="js/jquery.magnific-popup.min.js"></script>
-  <script src="js/aos.js"></script>
-  <script defer src="js/jquery.animateNumber.min.js"></script>
-  <script src="js/scrollax.min.js"></script>
-  <script defer src="js/jquery.slick.min.js"></script>
+  <!-- Scripts – jQuery loads first (no defer), then main.js after jQuery ready -->
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script async src="js/popper.min.js"></script>
+  <script async src="js/bootstrap.min.js"></script>
+  <script async src="js/jquery.easing.1.3.js"></script>
+  <script async src="js/jquery.waypoints.min.js"></script>
+  <script async src="js/jquery.stellar.min.js"></script>
+  <script async src="js/owl.carousel.min.js"></script>
+  <script async src="js/jquery.magnific-popup.min.js"></script>
+  <script async src="js/aos.js"></script>
+  <script async src="js/jquery.animateNumber.min.js"></script>
+  <script async src="js/scrollax.min.js"></script>
+  <script async src="js/jquery.slick.min.js"></script>
   <script defer src="js/main.js"></script>
 
   <script>
