@@ -30,6 +30,6 @@
 /services/mobile-app-development /services/mobile-app-development/ 301
 
 # Main sections - enforce trailing slash
-/project_list /project_list/ 301
 /blog /blog/ 301
 /contact /contact/ 301
+/projects /projects/ 301
