@@ -92,8 +92,8 @@
     .badge-seo { background: rgba(0,150,136,0.1); color: #009688; }
     .badge-nextjs { background: rgba(0,0,0,0.07); color: #333; }
     .badge-ai { background: rgba(124,58,237,0.1); color: #7c3aed; }
-    .badge-cloudflare { background: rgba(249,109,0,0.1); color: #F96D00; }
-    .badge-schema { background: rgba(0,150,136,0.1); color: #009688; }
+    .badge-mobile { background: rgba(56,128,255,0.1); color: #3880ff; }
+    .badge-cms { background: rgba(57,64,71,0.1); color: #394047; }
 
     .blog-card-body { padding: 26px; flex: 1; display: flex; flex-direction: column; }
     .blog-card-meta { font-size: 12px; color: #888; margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
@@ -107,6 +107,22 @@
     .blog-tag { background: #f0faf9; color: #009688; font-size: 11px; font-weight: 600; padding: 3px 9px; border-radius: 6px; }
     .blog-read-btn { color: #009688; font-size: 13px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 4px; white-space: nowrap; }
     .blog-read-btn:hover { color: #00695c; }
+
+    .cluster-header { margin-bottom: 36px; border-bottom: 2px solid #e0e0e0; padding-bottom: 20px; }
+    .section-label {
+      display: inline-block;
+      background: linear-gradient(135deg, #009688 0%, #00bfa5 100%);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 20px;
+      margin-bottom: 14px;
+    }
+    .cluster-title { font-size: clamp(22px,3vw,32px); font-weight: 800; color: #111; margin-bottom: 8px; }
+    .cluster-desc { color: #666; font-size: 15px; }
 
     .blog-sidebar-card {
       background: #fff;
@@ -124,19 +140,6 @@
     .recent-post-item span { font-size: 11px; color: #888; display: block; margin-top: 4px; }
     .topic-tag { display: inline-block; background: #f0faf9; color: #009688; border: 1px solid #d0ede9; font-size: 12px; font-weight: 600; padding: 5px 12px; border-radius: 8px; margin: 4px; text-decoration: none; }
     .topic-tag:hover { background: #009688; color: #fff; }
-
-    .section-label {
-      display: inline-block;
-      background: linear-gradient(135deg, #009688 0%, #00bfa5 100%);
-      color: #fff;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      padding: 5px 14px;
-      border-radius: 20px;
-      margin-bottom: 14px;
-    }
   </style>
 
   <!-- Blog JSON-LD Schema -->
@@ -179,7 +182,7 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-2XGJV4RHLZ');
+    gtag('config','G-2XGJV4RHLZ');
   </script>
 </head>
 
@@ -199,7 +202,7 @@
           <li class="nav-item"><a href="../index.html#home-section" class="nav-link"><span>Home</span></a></li>
           <li class="nav-item"><a href="../index.html#about-section" class="nav-link"><span>About</span></a></li>
           <li class="nav-item"><a href="../index.html#ai-services-section" class="nav-link"><span>Services</span></a></li>
-          <li class="nav-item"><a href="../index.html#nextjs-seo-section" class="nav-link"><span>Next.js &amp; SEO</span></a></li>
+          <li class="nav-item"><a href="../index.html#nextjs-seo-section" class="nav-link"><span>Next.js & SEO</span></a></li>
           <li class="nav-item"><a href="../index.html#project-section" class="nav-link"><span>Projects</span></a></li>
           <li class="nav-item active"><a href="../" class="nav-link"><span>Blog</span></a></li>
           <li class="nav-item"><a href="../contact/" class="nav-link"><span>Contact</span></a></li>
@@ -211,16 +214,16 @@
   <!-- Blog Hero Banner -->
   <div class="blog-hero" style="margin-top:56px;">
     <div class="container">
-      <a href="index.html" class="back-link">&#8592; Back to Portfolio</a>
-      <h1>Technical Insights &amp; Dev Blog</h1>
+      <a href="index.html" class="back-link">← Back to Portfolio</a>
+      <h1>Technical Insights & Dev Blog</h1>
       <p>In-depth articles on Technical SEO, Next.js, AI agents, Cloudflare, schema engineering, and web performance — by Anju Batta.</p>
       <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:16px;">
         <span style="background:rgba(255,255,255,0.15);color:#fff;font-size:12px;font-weight:600;padding:5px 14px;border-radius:20px;">Technical SEO</span>
         <span style="background:rgba(255,255,255,0.15);color:#fff;font-size:12px;font-weight:600;padding:5px 14px;border-radius:20px;">Next.js</span>
         <span style="background:rgba(255,255,255,0.15);color:#fff;font-size:12px;font-weight:600;padding:5px 14px;border-radius:20px;">AEO / GEO</span>
-        <span style="background:rgba(255,255,255,0.15);color:#fff;font-size:12px;font-weight:600;padding:5px 14px;border-radius:20px;">Cloudflare</span>
         <span style="background:rgba(255,255,255,0.15);color:#fff;font-size:12px;font-weight:600;padding:5px 14px;border-radius:20px;">AI Agents</span>
-        <span style="background:rgba(255,255,255,0.15);color:#fff;font-size:12px;font-weight:600;padding:5px 14px;border-radius:20px;">Schema Engineering</span>
+        <span style="background:rgba(255,255,255,0.15);color:#fff;font-size:12px;font-weight:600;padding:5px 14px;border-radius:20px;">Mobile Dev</span>
+        <span style="background:rgba(255,255,255,0.15);color:#fff;font-size:12px;font-weight:600;padding:5px 14px;border-radius:20px;">Backend</span>
       </div>
     </div>
   </div>
@@ -229,272 +232,75 @@
   <section class="ftco-section" style="background:#f9f9f9;">
     <div class="container">
       <div class="row">
-
         <!-- Blog Posts Grid - Organized by Content Clusters -->
         <div class="col-lg-8">
 
-          <!-- CLUSTER: TECHNICAL SEO -->
-          <div class="row justify-content-start mb-5">
-            <div class="col-12">
-              <span class="section-label">Technical SEO</span>
-              <h2 style="color:#111;font-weight:800;font-size:clamp(22px,3vw,32px);">SEO Strategy & Optimization</h2>
-              <p style="color:#666;font-size:15px;margin:12px 0 30px;">In-depth guides on crawl budget optimization, indexing, Core Web Vitals, schema markup, and site structure.</p>
-            </div>
+          <!-- CLUSTER 1: TECHNICAL SEO (6 posts) -->
+          <div class="cluster-header">
+            <span class="section-label">Technical SEO</span>
+            <h2 class="cluster-title">SEO Strategy & Optimization</h2>
+            <p class="cluster-desc">In-depth guides on crawl budget optimization, indexing, Core Web Vitals, schema markup, and site structure.</p>
+          </div>
+          <div class="row mb-5">
+            <div class="col-md-6 ftco-animate mb-4 d-flex"><div class="blog-card"><div style="background-image:url('../images/blog-xml-sitemap.png');background-size:cover;background-position:center;padding:0;min-height:200px;display:flex;flex-direction:column;justify-content:flex-end;"></div><div class="blog-card-body"><span class="blog-card-badge badge-seo">Technical SEO</span><div class="blog-card-meta"><span>April 8, 2026</span><span class="read-time">10 min read</span></div><h3 class="blog-card-title"><a href="xml-sitemap-strategy-guide.html">XML Sitemap Strategy Guide 2026</a></h3><p class="blog-card-excerpt">Advanced XML sitemap strategies for 2026 — dynamic generation, crawl budget optimization, and maintenance workflows.</p><div class="blog-card-footer"><div class="blog-card-tags"><span class="blog-tag">XML Sitemap</span><span class="blog-tag">Crawl Budget</span></div><a href="xml-sitemap-strategy-guide.html" class="blog-read-btn">Read →</a></div></div></div></div>
+            <div class="col-md-6 ftco-animate mb-4 d-flex"><div class="blog-card"><div style="background-image:url('../images/blog-seo-audit.png');background-size:cover;background-position:center;padding:0;min-height:200px;display:flex;flex-direction:column;justify-content:flex-end;"></div><div class="blog-card-body"><span class="blog-card-badge badge-seo">Technical SEO</span><div class="blog-card-meta"><span>March 12, 2026</span><span class="read-time">12 min read</span></div><h3 class="blog-card-title"><a href="technical-seo-audit-checklist.html">Technical SEO Audit Checklist 2026</a></h3><p class="blog-card-excerpt">Fix crawlability, indexing issues, Core Web Vitals, and schema errors with this comprehensive SEO audit checklist.</p><div class="blog-card-footer"><div class="blog-card-tags"><span class="blog-tag">SEO Audit</span><span class="blog-tag">Crawlability</span></div><a href="technical-seo-audit-checklist.html" class="blog-read-btn">Read →</a></div></div></div></div>
+            <div class="col-md-6 ftco-animate mb-4 d-flex"><div class="blog-card"><div style="background-image:url('../images/blog-nextjs-seo.png');background-size:cover;background-position:center;padding:0;min-height:200px;display:flex;flex-direction:column;justify-content:flex-end;"></div><div class="blog-card-body"><span class="blog-card-badge badge-nextjs">Next.js</span><div class="blog-card-meta"><span>March 15, 2026</span><span class="read-time">8 min read</span></div><h3 class="blog-card-title"><a href="nextjs-seo-architecture.html">Next.js SEO Architecture: SSR, SSG & ISR</a></h3><p class="blog-card-excerpt">A complete guide to Next.js rendering strategies and how each affects search performance and Core Web Vitals.</p><div class="blog-card-footer"><div class="blog-card-tags"><span class="blog-tag">Next.js</span><span class="blog-tag">SEO</span></div><a href="nextjs-seo-architecture.html" class="blog-read-btn">Read →</a></div></div></div></div>
+            <div class="col-md-6 ftco-animate mb-4 d-flex"><div class="blog-card"><div style="background-image:url('../images/blog-cloudflare.png');background-size:cover;background-position:center;padding:0;min-height:200px;display:flex;flex-direction:column;justify-content:flex-end;"></div><div class="blog-card-body"><span class="blog-card-badge" style="background:rgba(249,109,0,0.1);color:#F96D00;">Cloudflare</span><div class="blog-card-meta"><span>March 8, 2026</span><span class="read-time">11 min read</span></div><h3 class="blog-card-title"><a href="cloudflare-optimization-guide.html">Cloudflare Setup: WAF, Caching & Bot Protection</a></h3><p class="blog-card-excerpt">Complete Cloudflare configuration guide for speed, security, reliability, and DDoS protection.</p><div class="blog-card-footer"><div class="blog-card-tags"><span class="blog-tag">Cloudflare</span><span class="blog-tag">CDN</span></div><a href="cloudflare-optimization-guide.html" class="blog-read-btn">Read →</a></div></div></div></div>
+            <div class="col-md-6 ftco-animate mb-4 d-flex"><div class="blog-card"><div style="background-image:url('../images/blog-schema.png');background-size:cover;background-position:center;padding:0;min-height:200px;display:flex;flex-direction:column;justify-content:flex-end;"></div><div class="blog-card-body"><span class="blog-card-badge badge-seo">Schema</span><div class="blog-card-meta"><span>February 28, 2026</span><span class="read-time">13 min read</span></div><h3 class="blog-card-title"><a href="schema-engineering-guide.html">Schema Engineering Guide: JSON-LD & Rich Results</a></h3><p class="blog-card-excerpt">Learn how to engineer schema markup for rich results, AI citation readiness, and increased search visibility.</p><div class="blog-card-footer"><div class="blog-card-tags"><span class="blog-tag">Schema</span><span class="blog-tag">JSON-LD</span></div><a href="schema-engineering-guide.html" class="blog-read-btn">Read →</a></div></div></div></div>
+            <div class="col-md-6 ftco-animate mb-4 d-flex"><div class="blog-card"><div style="background-image:url('../images/blog-aeo.png');background-size:cover;background-position:center;padding:0;min-height:200px;display:flex;flex-direction:column;justify-content:flex-end;"></div><div class="blog-card-body"><span class="blog-card-badge" style="background:rgba(249,109,0,0.1);color:#F96D00;">AEO/GEO</span><div class="blog-card-meta"><span>March 10, 2026</span><span class="read-time">10 min read</span></div><h3 class="blog-card-title"><a href="aeo-geo-ai-search-optimization.html">AEO & GEO: Optimize for AI Search Engines</a></h3><p class="blog-card-excerpt">Answer Engine Optimization and Generative Engine Optimization for ChatGPT, Gemini, and Perplexity visibility.</p><div class="blog-card-footer"><div class="blog-card-tags"><span class="blog-tag">AEO</span><span class="blog-tag">GEO</span></div><a href="aeo-geo-ai-search-optimization.html" class="blog-read-btn">Read →</a></div></div></div></div>
           </div>
 
-          <div class="row">
+          <!-- CLUSTER 2: BACKEND & CMS (2 posts) -->
+          <div class="cluster-header">
+            <span class="section-label" style="background:linear-gradient(135deg,#0073aa,#0091cd);">Backend & CMS</span>
+            <h2 class="cluster-title">Content Management & Backend Systems</h2>
+            <p class="cluster-desc">Guides on WordPress, Ghost, and backend architecture for content-driven applications.</p>
+          </div>
+          <div class="row mb-5">
+            <div class="col-md-6 ftco-animate mb-4 d-flex"><div class="blog-card"><div style="background-image:url('../images/blog-wordpress.png');background-size:cover;background-position:center;padding:0;min-height:200px;display:flex;flex-direction:column;justify-content:flex-end;"></div><div class="blog-card-body"><span class="blog-card-badge badge-cms">WordPress</span><div class="blog-card-meta"><span>January 10, 2026</span><span class="read-time">11 min read</span></div><h3 class="blog-card-title"><a href="wordpress-hooks.html">WordPress Hooks: Mastering Actions & Filters</a></h3><p class="blog-card-excerpt">A complete guide to WordPress hooks — actions and filters for custom development without modifying core files.</p><div class="blog-card-footer"><div class="blog-card-tags"><span class="blog-tag">WordPress</span><span class="blog-tag">PHP</span></div><a href="wordpress-hooks.html" class="blog-read-btn">Read →</a></div></div></div></div>
+            <div class="col-md-6 ftco-animate mb-4 d-flex"><div class="blog-card"><div style="background-image:url('../images/blog-ghost.png');background-size:cover;background-position:center;padding:0;min-height:200px;display:flex;flex-direction:column;justify-content:flex-end;"></div><div class="blog-card-body"><span class="blog-card-badge badge-cms">Headless CMS</span><div class="blog-card-meta"><span>December 15, 2025</span><span class="read-time">9 min read</span></div><h3 class="blog-card-title"><a href="ghost.html">Ghost CMS: Headless Publishing Platform for Developers</a></h3><p class="blog-card-excerpt">Developer's guide to Ghost CMS — Content API, headless setup with Next.js, membership tiers, and newsletter integration.</p><div class="blog-card-footer"><div class="blog-card-tags"><span class="blog-tag">Ghost</span><span class="blog-tag">Headless</span></div><a href="ghost.html" class="blog-read-btn">Read →</a></div></div></div></div>
+          </div>
 
-            <!-- Post 0: XML Sitemap Strategy Guide -->
-            <div class="col-md-6 ftco-animate mb-4 d-flex">
-              <div class="blog-card">
-                <div style="background-image:url('../images/blog-xml-sitemap.png');background-size:cover;background-position:center;padding:0;min-height:200px;display:flex;flex-direction:column;justify-content:flex-end;"></div>
-                <div class="blog-card-body">
-                  <span class="blog-card-badge badge-seo">Technical SEO</span>
-                  <div class="blog-card-meta">
-                    <span>April 8, 2026</span>
-                    <span class="read-time">10 min read</span>
-                  </div>
-                  <h3 class="blog-card-title"><a href="blog/xml-sitemap-strategy-guide.html">XML Sitemap Strategy Guide 2026: Dynamic Generation, Crawl Budget &amp; Performance</a></h3>
-                  <p class="blog-card-excerpt">Advanced XML sitemap strategies for 2026 — dynamic generation, crawl budget optimization, image/video sitemaps, smart priority algorithms, and maintenance workflows to boost indexing and rankings.</p>
-                  <div class="blog-card-footer">
-                    <div class="blog-card-tags">
-                      <span class="blog-tag">XML Sitemap</span>
-                      <span class="blog-tag">Crawl Budget</span>
-                      <span class="blog-tag">SEO</span>
-                    </div>
-                    <a href="blog/xml-sitemap-strategy-guide.html" class="blog-read-btn">Read &#8594;</a>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <!-- CLUSTER 3: IONIC & MOBILE DEVELOPMENT (6 posts) -->
+          <div class="cluster-header">
+            <span class="section-label" style="background:linear-gradient(135deg,#3880ff,#5b9eff);">Mobile Development</span>
+            <h2 class="cluster-title">Ionic & Mobile App Development</h2>
+            <p class="cluster-desc">Complete guides on building cross-platform mobile apps with Ionic, React Native, and Flutter.</p>
+          </div>
+          <div class="row mb-5">
+            <div class="col-md-6 ftco-animate mb-4 d-flex"><div class="blog-card"><div style="background-image:url('../images/blog-ionic-comparison.png');background-size:cover;background-position:center;padding:0;min-height:200px;display:flex;flex-direction:column;justify-content:flex-end;"></div><div class="blog-card-body"><span class="blog-card-badge badge-mobile">Mobile Dev</span><div class="blog-card-meta"><span>February 10, 2026</span><span class="read-time">12 min read</span></div><h3 class="blog-card-title"><a href="ionic-vs-flutter-vs-react-native.html">Ionic vs Flutter vs React Native: Complete Comparison 2026</a></h3><p class="blog-card-excerpt">Detailed comparison of Ionic, Flutter, and React Native for cross-platform mobile development.</p><div class="blog-card-footer"><div class="blog-card-tags"><span class="blog-tag">Ionic</span><span class="blog-tag">Mobile</span></div><a href="ionic-vs-flutter-vs-react-native.html" class="blog-read-btn">Read →</a></div></div></div></div>
+            <div class="col-md-6 ftco-animate mb-4 d-flex"><div class="blog-card"><div style="background-image:url('../images/blog-app-store.png');background-size:cover;background-position:center;padding:0;min-height:200px;display:flex;flex-direction:column;justify-content:flex-end;"></div><div class="blog-card-body"><span class="blog-card-badge badge-mobile">Mobile Dev</span><div class="blog-card-meta"><span>January 25, 2026</span><span class="read-time">10 min read</span></div><h3 class="blog-card-title"><a href="ionic-app-store-submission-checklist.html">Ionic App Store Submission Checklist 2026</a></h3><p class="blog-card-excerpt">Step-by-step checklist for submitting Ionic apps to iOS App Store and Google Play Store.</p><div class="blog-card-footer"><div class="blog-card-tags"><span class="blog-tag">Ionic</span><span class="blog-tag">App Store</span></div><a href="ionic-app-store-submission-checklist.html" class="blog-read-btn">Read →</a></div></div></div></div>
+            <div class="col-md-6 ftco-animate mb-4 d-flex"><div class="blog-card"><div style="background-image:url('../images/blog-app-cost.png');background-size:cover;background-position:center;padding:0;min-height:200px;display:flex;flex-direction:column;justify-content:flex-end;"></div><div class="blog-card-body"><span class="blog-card-badge badge-mobile">Mobile Dev</span><div class="blog-card-meta"><span>January 18, 2026</span><span class="read-time">8 min read</span></div><h3 class="blog-card-title"><a href="ionic-app-development-cost.html">Ionic App Development Cost: Budget & Timeline</a></h3><p class="blog-card-excerpt">Realistic cost breakdown and timeline estimates for Ionic app development projects.</p><div class="blog-card-footer"><div class="blog-card-tags"><span class="blog-tag">Ionic</span><span class="blog-tag">Cost</span></div><a href="ionic-app-development-cost.html" class="blog-read-btn">Read →</a></div></div></div></div>
+            <div class="col-md-6 ftco-animate mb-4 d-flex"><div class="blog-card"><div style="background-image:url('../images/blog-ionic-api.png');background-size:cover;background-position:center;padding:0;min-height:200px;display:flex;flex-direction:column;justify-content:flex-end;"></div><div class="blog-card-body"><span class="blog-card-badge badge-mobile">Mobile Dev</span><div class="blog-card-meta"><span>January 5, 2026</span><span class="read-time">11 min read</span></div><h3 class="blog-card-title"><a href="ionic-laravel-api-integration.html">Ionic + Laravel API Integration: Complete Guide</a></h3><p class="blog-card-excerpt">How to build Ionic mobile apps with Laravel backend REST APIs and secure authentication.</p><div class="blog-card-footer"><div class="blog-card-tags"><span class="blog-tag">Ionic</span><span class="blog-tag">Laravel</span></div><a href="ionic-laravel-api-integration.html" class="blog-read-btn">Read →</a></div></div></div></div>
+            <div class="col-md-6 ftco-animate mb-4 d-flex"><div class="blog-card"><div style="background-image:url('../images/blog-capacitor.png');background-size:cover;background-position:center;padding:0;min-height:200px;display:flex;flex-direction:column;justify-content:flex-end;"></div><div class="blog-card-body"><span class="blog-card-badge badge-mobile">Mobile Dev</span><div class="blog-card-meta"><span>December 22, 2025</span><span class="read-time">10 min read</span></div><h3 class="blog-card-title"><a href="ionic-capacitor-plugins-guide.html">Ionic Capacitor Plugins: Native Device API Integration</a></h3><p class="blog-card-excerpt">Complete guide to Ionic Capacitor plugins for accessing camera, geolocation, storage, and other native APIs.</p><div class="blog-card-footer"><div class="blog-card-tags"><span class="blog-tag">Ionic</span><span class="blog-tag">Capacitor</span></div><a href="ionic-capacitor-plugins-guide.html" class="blog-read-btn">Read →</a></div></div></div></div>
+            <div class="col-md-6 ftco-animate mb-4 d-flex"><div class="blog-card"><div style="background-image:url('../images/blog-ionic.png');background-size:cover;background-position:center;padding:0;min-height:200px;display:flex;flex-direction:column;justify-content:flex-end;"></div><div class="blog-card-body"><span class="blog-card-badge badge-mobile">Mobile Dev</span><div class="blog-card-meta"><span>January 20, 2026</span><span class="read-time">10 min read</span></div><h3 class="blog-card-title"><a href="ionic.html">Ionic Framework: Building Cross-Platform Mobile Apps</a></h3><p class="blog-card-excerpt">Complete guide to Ionic Framework covering Capacitor, UI components, native device APIs, and deployment.</p><div class="blog-card-footer"><div class="blog-card-tags"><span class="blog-tag">Ionic</span><span class="blog-tag">Framework</span></div><a href="ionic.html" class="blog-read-btn">Read →</a></div></div></div></div>
+          </div>
 
-            <!-- Post 1: Next.js SEO Architecture -->
-            <div class="col-md-6 ftco-animate mb-4 d-flex">
-              <div class="blog-card">
-                <div style="background-image:url('../images/blog-nextjs-seo.png');background-size:cover;background-position:center;padding:0;min-height:200px;display:flex;flex-direction:column;justify-content:flex-end;"></div>
-                <div class="blog-card-body">
-                  <span class="blog-card-badge badge-nextjs">Next.js</span>
-                  <div class="blog-card-meta">
-                    <span>March 15, 2026</span>
-                    <span class="read-time">8 min read</span>
-                  </div>
-                  <h3 class="blog-card-title"><a href="blog/nextjs-seo-architecture.html">Next.js SEO Architecture: SSR, SSG &amp; ISR — Choosing the Right Strategy for Search Rankings</a></h3>
-                  <p class="blog-card-excerpt">A complete guide to Next.js rendering strategies — how SSR, SSG, and ISR each affect your search performance, crawlability, and Core Web Vitals. Includes real implementation examples and when to use each mode.</p>
-                  <div class="blog-card-footer">
-                    <div class="blog-card-tags">
-                      <span class="blog-tag">Next.js</span>
-                      <span class="blog-tag">SSR</span>
-                      <span class="blog-tag">SEO</span>
-                    </div>
-                    <a href="blog/nextjs-seo-architecture.html" class="blog-read-btn">Read &#8594;</a>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <!-- CLUSTER 4: AI & CLAUDE (6 posts) -->
+          <div class="cluster-header">
+            <span class="section-label" style="background:linear-gradient(135deg,#7c3aed,#a855f7);">AI & Claude</span>
+            <h2 class="cluster-title">AI Agents & Claude API Development</h2>
+            <p class="cluster-desc">In-depth guides on building production AI agents, Claude API integration, and LLM architecture.</p>
+          </div>
+          <div class="row mb-5">
+            <div class="col-md-6 ftco-animate mb-4 d-flex"><div class="blog-card"><div style="background-image:url('../images/blog-ai-agent.png');background-size:cover;background-position:center;padding:0;min-height:200px;display:flex;flex-direction:column;justify-content:flex-end;"></div><div class="blog-card-body"><span class="blog-card-badge badge-ai">AI Agents</span><div class="blog-card-meta"><span>March 5, 2026</span><span class="read-time">14 min read</span></div><h3 class="blog-card-title"><a href="ai-agent-architecture.html">AI Agent Architecture: Memory, Tools & Vector DBs</a></h3><p class="blog-card-excerpt">Complete guide to building production-ready AI agents with memory management, tool-calling, and RAG integration.</p><div class="blog-card-footer"><div class="blog-card-tags"><span class="blog-tag">AI Agents</span><span class="blog-tag">Architecture</span></div><a href="ai-agent-architecture.html" class="blog-read-btn">Read →</a></div></div></div></div>
+            <div class="col-md-6 ftco-animate mb-4 d-flex"><div class="blog-card"><div style="background-image:url('../images/blog-claude-api.png');background-size:cover;background-position:center;padding:0;min-height:200px;display:flex;flex-direction:column;justify-content:flex-end;"></div><div class="blog-card-body"><span class="blog-card-badge badge-ai">Claude</span><div class="blog-card-meta"><span>February 20, 2026</span><span class="read-time">11 min read</span></div><h3 class="blog-card-title"><a href="building-with-claude-api.html">Building with Claude API: Complete Developer Guide</a></h3><p class="blog-card-excerpt">Comprehensive guide to Claude API — prompting, tool-use, vision, batch processing, and production deployment.</p><div class="blog-card-footer"><div class="blog-card-tags"><span class="blog-tag">Claude</span><span class="blog-tag">API</span></div><a href="building-with-claude-api.html" class="blog-read-btn">Read →</a></div></div></div></div>
+            <div class="col-md-6 ftco-animate mb-4 d-flex"><div class="blog-card"><div style="background-image:url('../images/blog-claude-dev.png');background-size:cover;background-position:center;padding:0;min-height:200px;display:flex;flex-direction:column;justify-content:flex-end;"></div><div class="blog-card-body"><span class="blog-card-badge badge-ai">Claude</span><div class="blog-card-meta"><span>February 5, 2026</span><span class="read-time">9 min read</span></div><h3 class="blog-card-title"><a href="claude-ai-for-developers.html">Claude AI for Developers: Co-Working & Pair Programming</a></h3><p class="blog-card-excerpt">How to use Claude effectively as a co-developer for code generation, debugging, and architecture design.</p><div class="blog-card-footer"><div class="blog-card-tags"><span class="blog-tag">Claude</span><span class="blog-tag">Development</span></div><a href="claude-ai-for-developers.html" class="blog-read-btn">Read →</a></div></div></div></div>
+            <div class="col-md-6 ftco-animate mb-4 d-flex"><div class="blog-card"><div style="background-image:url('../images/blog-claude-code.png');background-size:cover;background-position:center;padding:0;min-height:200px;display:flex;flex-direction:column;justify-content:flex-end;"></div><div class="blog-card-body"><span class="blog-card-badge badge-ai">Claude</span><div class="blog-card-meta"><span>January 30, 2026</span><span class="read-time">10 min read</span></div><h3 class="blog-card-title"><a href="claude-code-cli-guide.html">Claude Code CLI: Command Line AI Development</a></h3><p class="blog-card-excerpt">Complete guide to Claude Code CLI for building, testing, and deploying projects from the terminal.</p><div class="blog-card-footer"><div class="blog-card-tags"><span class="blog-tag">Claude</span><span class="blog-tag">CLI</span></div><a href="claude-code-cli-guide.html" class="blog-read-btn">Read →</a></div></div></div></div>
+            <div class="col-md-6 ftco-animate mb-4 d-flex"><div class="blog-card"><div style="background-image:url('../images/blog-claude-comparison.png');background-size:cover;background-position:center;padding:0;min-height:200px;display:flex;flex-direction:column;justify-content:flex-end;"></div><div class="blog-card-body"><span class="blog-card-badge badge-ai">LLM</span><div class="blog-card-meta"><span>January 15, 2026</span><span class="read-time">13 min read</span></div><h3 class="blog-card-title"><a href="claude-vs-chatgpt-vs-gemini.html">Claude vs ChatGPT vs Gemini: 2026 LLM Comparison</a></h3><p class="blog-card-excerpt">Detailed comparison of Claude, GPT-4, and Gemini — performance, pricing, reasoning, and best use cases.</p><div class="blog-card-footer"><div class="blog-card-tags"><span class="blog-tag">Claude</span><span class="blog-tag">LLM</span></div><a href="claude-vs-chatgpt-vs-gemini.html" class="blog-read-btn">Read →</a></div></div></div></div>
+            <div class="col-md-6 ftco-animate mb-4 d-flex"><div class="blog-card"><div style="background-image:url('../images/blog-openclaw.png');background-size:cover;background-position:center;padding:0;min-height:200px;display:flex;flex-direction:column;justify-content:flex-end;"></div><div class="blog-card-body"><span class="blog-card-badge badge-ai">AI Tools</span><div class="blog-card-meta"><span>January 12, 2026</span><span class="read-time">8 min read</span></div><h3 class="blog-card-title"><a href="openclaw-ai.html">OpenClaw AI: Advanced LLM Reasoning Framework</a></h3><p class="blog-card-excerpt">Guide to OpenClaw AI framework for building reasoning systems with chain-of-thought and multi-step planning.</p><div class="blog-card-footer"><div class="blog-card-tags"><span class="blog-tag">AI</span><span class="blog-tag">Reasoning</span></div><a href="openclaw-ai.html" class="blog-read-btn">Read →</a></div></div></div></div>
+          </div>
 
-            <!-- Post 2: Technical SEO Checklist -->
-            <div class="col-md-6 ftco-animate mb-4 d-flex">
-              <div class="blog-card">
-                <div style="background-image:url('../images/blog-seo-audit.png');background-size:cover;background-position:center;padding:0;min-height:200px;display:flex;flex-direction:column;justify-content:flex-end;"></div>
-                <div class="blog-card-body">
-                  <span class="blog-card-badge badge-seo">Technical SEO</span>
-                  <div class="blog-card-meta">
-                    <span>March 12, 2026</span>
-                    <span class="read-time">12 min read</span>
-                  </div>
-                  <h3 class="blog-card-title"><a href="blog/technical-seo-audit-checklist.html">Technical SEO Audit Checklist: Fix Crawlability, Indexing &amp; Core Web Vitals in 2026</a></h3>
-                  <p class="blog-card-excerpt">A battle-tested 50-point technical SEO audit checklist covering crawl budget, canonicalization, JavaScript rendering, Core Web Vitals, duplicate content, and indexability repair — with tools and fix instructions.</p>
-                  <div class="blog-card-footer">
-                    <div class="blog-card-tags">
-                      <span class="blog-tag">Technical SEO</span>
-                      <span class="blog-tag">Crawlability</span>
-                    </div>
-                    <a href="blog/technical-seo-audit-checklist.html" class="blog-read-btn">Read &#8594;</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Post 3: AEO / GEO -->
-            <div class="col-md-6 ftco-animate mb-4 d-flex">
-              <div class="blog-card">
-                <div style="background-image:url('../images/blog-aeo-geo.png');background-size:cover;background-position:center;padding:0;min-height:200px;display:flex;flex-direction:column;justify-content:flex-end;"></div>
-                <div class="blog-card-body">
-                  <span class="blog-card-badge badge-ai">AEO / GEO</span>
-                  <div class="blog-card-meta">
-                    <span>March 10, 2026</span>
-                    <span class="read-time">10 min read</span>
-                  </div>
-                  <h3 class="blog-card-title"><a href="blog/aeo-geo-ai-search-optimization.html">AEO &amp; GEO: How to Optimize Your Website for ChatGPT, Gemini &amp; Perplexity in 2026</a></h3>
-                  <p class="blog-card-excerpt">Answer Engine Optimization (AEO) and Generative Engine Optimization (GEO) are the new frontier. Learn how to structure your content, schema, and signals so AI search engines cite your site in generated answers.</p>
-                  <div class="blog-card-footer">
-                    <div class="blog-card-tags">
-                      <span class="blog-tag">AEO</span>
-                      <span class="blog-tag">GEO</span>
-                      <span class="blog-tag">AI Search</span>
-                    </div>
-                    <a href="blog/aeo-geo-ai-search-optimization.html" class="blog-read-btn">Read &#8594;</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Post 4: Cloudflare Optimization -->
-            <div class="col-md-6 ftco-animate mb-4 d-flex">
-              <div class="blog-card">
-                <div style="background-image:url('../images/blog-cloudflare.png');background-size:cover;background-position:center;padding:0;min-height:200px;display:flex;flex-direction:column;justify-content:flex-end;"></div>
-                <div class="blog-card-body">
-                  <span class="blog-card-badge badge-cloudflare">Cloudflare</span>
-                  <div class="blog-card-meta">
-                    <span>March 8, 2026</span>
-                    <span class="read-time">11 min read</span>
-                  </div>
-                  <h3 class="blog-card-title"><a href="blog/cloudflare-optimization-guide.html">Cloudflare Setup Guide: Edge Caching, WAF, Rate Limiting &amp; Bot Protection for SEO</a></h3>
-                  <p class="blog-card-excerpt">A complete Cloudflare configuration walkthrough for developers — covering prerender setup, edge caching rules, WAF configuration, bot protection scoring, rate limiting strategies, and how Cloudflare improves SEO crawlability.</p>
-                  <div class="blog-card-footer">
-                    <div class="blog-card-tags">
-                      <span class="blog-tag">Cloudflare</span>
-                      <span class="blog-tag">WAF</span>
-                      <span class="blog-tag">Performance</span>
-                    </div>
-                    <a href="blog/cloudflare-optimization-guide.html" class="blog-read-btn">Read &#8594;</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Post 5: AI Agent Architecture -->
-            <div class="col-md-6 ftco-animate mb-4 d-flex">
-              <div class="blog-card">
-                <div style="background-image:url('../images/blog-ai-agents.png');background-size:cover;background-position:center;padding:0;min-height:200px;display:flex;flex-direction:column;justify-content:flex-end;"></div>
-                <div class="blog-card-body">
-                  <span class="blog-card-badge badge-ai">AI Agents</span>
-                  <div class="blog-card-meta">
-                    <span>March 5, 2026</span>
-                    <span class="read-time">14 min read</span>
-                  </div>
-                  <h3 class="blog-card-title"><a href="blog/ai-agent-architecture.html">AI Agent Architecture: Context, Memory, Tool-Calling &amp; Vector Databases Explained</a></h3>
-                  <p class="blog-card-excerpt">A deep dive into how production AI agents are actually built — covering planning loops, memory systems (session vs. long-term), RAG pipelines, vector database integration (Pinecone, Weaviate), and tool-calling with OpenAI and Claude APIs.</p>
-                  <div class="blog-card-footer">
-                    <div class="blog-card-tags">
-                      <span class="blog-tag">AI Agents</span>
-                      <span class="blog-tag">RAG</span>
-                      <span class="blog-tag">Vector DB</span>
-                    </div>
-                    <a href="blog/ai-agent-architecture.html" class="blog-read-btn">Read &#8594;</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Post 6: Schema Engineering -->
-            <div class="col-md-6 ftco-animate mb-4 d-flex">
-              <div class="blog-card">
-                <div style="background-image:url('../images/blog-schema.png');background-size:cover;background-position:center;padding:0;min-height:200px;display:flex;flex-direction:column;justify-content:flex-end;"></div>
-                <div class="blog-card-body">
-                  <span class="blog-card-badge badge-schema">Schema Engineering</span>
-                  <div class="blog-card-meta">
-                    <span>March 2, 2026</span>
-                    <span class="read-time">9 min read</span>
-                  </div>
-                  <h3 class="blog-card-title"><a href="blog/schema-engineering-guide.html">Schema Engineering Guide: JSON-LD, Rich Results &amp; AI Citation Readiness in 2026</a></h3>
-                  <p class="blog-card-excerpt">Learn how to engineer schema markup that goes beyond basic FAQ — covering Organization, Service, Person, Review, HowTo, and Article schema types, validation with Google Rich Results Test, and how schema signals help AI search engines cite your content.</p>
-                  <div class="blog-card-footer">
-                    <div class="blog-card-tags">
-                      <span class="blog-tag">Schema</span>
-                      <span class="blog-tag">JSON-LD</span>
-                      <span class="blog-tag">Rich Results</span>
-                    </div>
-                    <a href="blog/schema-engineering-guide.html" class="blog-read-btn">Read &#8594;</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Post 7: WordPress Hooks -->
-            <div class="col-md-6 ftco-animate mb-4 d-flex">
-              <div class="blog-card">
-                <div style="background-image:url('../images/blog-wordpress.png');background-size:cover;background-position:center;padding:0;min-height:200px;display:flex;flex-direction:column;justify-content:flex-end;"></div>
-                <div class="blog-card-body">
-                  <span class="blog-card-badge" style="background:rgba(0,115,170,0.1);color:#0073aa;">WordPress</span>
-                  <div class="blog-card-meta">
-                    <span>January 10, 2026</span>
-                    <span class="read-time">11 min read</span>
-                  </div>
-                  <h3 class="blog-card-title"><a href="blog/wordpress-hooks.html">WordPress Hooks: Mastering Actions &amp; Filters for Custom Development</a></h3>
-                  <p class="blog-card-excerpt">A complete guide to WordPress hooks — actions and filters. Learn how to use add_action, add_filter, do_action, and apply_filters to build modular, maintainable plugins and themes without modifying core files.</p>
-                  <div class="blog-card-footer">
-                    <div class="blog-card-tags">
-                      <span class="blog-tag">WordPress</span>
-                      <span class="blog-tag">PHP</span>
-                      <span class="blog-tag">Plugins</span>
-                    </div>
-                    <a href="blog/wordpress-hooks.html" class="blog-read-btn">Read &#8594;</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Post 8: Ghost CMS -->
-            <div class="col-md-6 ftco-animate mb-4 d-flex">
-              <div class="blog-card">
-                <div style="background-image:url('../images/blog-ghost.png');background-size:cover;background-position:center;padding:0;min-height:200px;display:flex;flex-direction:column;justify-content:flex-end;"></div>
-                <div class="blog-card-body">
-                  <span class="blog-card-badge" style="background:rgba(57,64,71,0.1);color:#394047;">Headless CMS</span>
-                  <div class="blog-card-meta">
-                    <span>December 15, 2025</span>
-                    <span class="read-time">9 min read</span>
-                  </div>
-                  <h3 class="blog-card-title"><a href="blog/ghost.html">Ghost CMS: Headless Publishing Platform for Developers</a></h3>
-                  <p class="blog-card-excerpt">A complete developer's guide to Ghost CMS — the Node.js-based headless publishing platform. Covers the Content API, headless setup with Next.js, membership tiers, newsletter integration, and Ghost vs WordPress comparison.</p>
-                  <div class="blog-card-footer">
-                    <div class="blog-card-tags">
-                      <span class="blog-tag">Ghost</span>
-                      <span class="blog-tag">Headless</span>
-                      <span class="blog-tag">Node.js</span>
-                    </div>
-                    <a href="blog/ghost.html" class="blog-read-btn">Read &#8594;</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Post 9: Ionic Framework -->
-            <div class="col-md-6 ftco-animate mb-4 d-flex">
-              <div class="blog-card">
-                <div style="background-image:url('../images/blog-ionic.png');background-size:cover;background-position:center;padding:0;min-height:200px;display:flex;flex-direction:column;justify-content:flex-end;"></div>
-                <div class="blog-card-body">
-                  <span class="blog-card-badge" style="background:rgba(56,128,255,0.1);color:#3880ff;">Mobile Dev</span>
-                  <div class="blog-card-meta">
-                    <span>January 20, 2026</span>
-                    <span class="read-time">10 min read</span>
-                  </div>
-                  <h3 class="blog-card-title"><a href="blog/ionic.html">Ionic Framework: Building Cross-Platform Mobile Apps with Web Technologies</a></h3>
-                  <p class="blog-card-excerpt">A complete guide to Ionic Framework for building performant cross-platform iOS and Android apps using HTML, CSS, and JavaScript. Covers Capacitor, UI components, native device APIs, performance best practices, and deployment.</p>
-                  <div class="blog-card-footer">
-                    <div class="blog-card-tags">
-                      <span class="blog-tag">Ionic</span>
-                      <span class="blog-tag">Capacitor</span>
-                      <span class="blog-tag">Mobile</span>
-                    </div>
-                    <a href="blog/ionic.html" class="blog-read-btn">Read &#8594;</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div><!-- /row posts -->
         </div><!-- /col-lg-8 -->
 
         <!-- Sidebar -->
         <div class="col-lg-4 ftco-animate">
-
           <!-- Author Card -->
           <div class="blog-sidebar-card" style="border-left-color:#009688;text-align:center;">
             <img src="../images/abouts.webp" alt="Anju Batta" style="width:80px;height:80px;border-radius:50%;object-fit:cover;margin:0 auto 14px;display:block;" loading="lazy">
             <h4 style="text-align:center;">Anju Batta</h4>
-            <p style="font-size:13px;color:#555;text-align:center;margin-bottom:14px;">Senior Full Stack Developer, Technical SEO Engineer &amp; AI Automation Architect with 15+ years of experience. Writing about what I build every day.</p>
-            <a href="index.html#contact-section" class="btn btn-primary btn-sm" style="width:100%;">Work With Me</a>
+            <p style="font-size:13px;color:#555;text-align:center;margin-bottom:14px;">Senior Full Stack Developer, Technical SEO Engineer & AI Automation Architect with 15+ years of experience.</p>
+            <a href="../index.html#contact-section" class="btn btn-primary btn-sm" style="width:100%;">Work With Me</a>
           </div>
 
           <!-- Topics -->
@@ -504,60 +310,32 @@
             <a href="#" class="topic-tag">Next.js</a>
             <a href="#" class="topic-tag">AEO / GEO</a>
             <a href="#" class="topic-tag">Cloudflare</a>
-            <a href="#" class="topic-tag">Schema Engineering</a>
             <a href="#" class="topic-tag">AI Agents</a>
-            <a href="#" class="topic-tag">SSR / SSG / ISR</a>
-            <a href="#" class="topic-tag">Crawlability</a>
-            <a href="#" class="topic-tag">Core Web Vitals</a>
-            <a href="#" class="topic-tag">Vector Databases</a>
-            <a href="#" class="topic-tag">RAG Systems</a>
+            <a href="#" class="topic-tag">Claude API</a>
+            <a href="#" class="topic-tag">Ionic</a>
             <a href="#" class="topic-tag">Laravel</a>
-            <a href="#" class="topic-tag">Shopify</a>
-            <a href="#" class="topic-tag">n8n Automation</a>
+            <a href="#" class="topic-tag">Core Web Vitals</a>
+            <a href="#" class="topic-tag">Schema Engineering</a>
+            <a href="#" class="topic-tag">RAG Systems</a>
+            <a href="#" class="topic-tag">WordPress</a>
           </div>
 
           <!-- Recent Posts -->
           <div class="blog-sidebar-card">
             <h4>Recent Posts</h4>
-            <div class="recent-post-item">
-              <div>
-                <a href="blog/nextjs-seo-architecture.html">Next.js SEO Architecture: SSR, SSG &amp; ISR Strategies</a>
-                <span>March 15, 2026 &bull; 8 min read</span>
-              </div>
-            </div>
-            <div class="recent-post-item">
-              <div>
-                <a href="blog/technical-seo-audit-checklist.html">Technical SEO Audit Checklist 2026</a>
-                <span>March 12, 2026 &bull; 12 min read</span>
-              </div>
-            </div>
-            <div class="recent-post-item">
-              <div>
-                <a href="blog/aeo-geo-ai-search-optimization.html">AEO &amp; GEO: Optimize for AI Search Engines</a>
-                <span>March 10, 2026 &bull; 10 min read</span>
-              </div>
-            </div>
-            <div class="recent-post-item">
-              <div>
-                <a href="blog/cloudflare-optimization-guide.html">Cloudflare Setup: WAF, Caching &amp; Bot Protection</a>
-                <span>March 8, 2026 &bull; 11 min read</span>
-              </div>
-            </div>
-            <div class="recent-post-item">
-              <div>
-                <a href="blog/ai-agent-architecture.html">AI Agent Architecture: Memory, Tools &amp; Vector DBs</a>
-                <span>March 5, 2026 &bull; 14 min read</span>
-              </div>
-            </div>
+            <div class="recent-post-item"><div><a href="xml-sitemap-strategy-guide.html">XML Sitemap Strategy Guide 2026</a><span>April 8, 2026 • 10 min read</span></div></div>
+            <div class="recent-post-item"><div><a href="technical-seo-audit-checklist.html">Technical SEO Audit Checklist 2026</a><span>March 12, 2026 • 12 min read</span></div></div>
+            <div class="recent-post-item"><div><a href="ai-agent-architecture.html">AI Agent Architecture: Memory, Tools & Vector DBs</a><span>March 5, 2026 • 14 min read</span></div></div>
+            <div class="recent-post-item"><div><a href="nextjs-seo-architecture.html">Next.js SEO Architecture</a><span>March 15, 2026 • 8 min read</span></div></div>
+            <div class="recent-post-item"><div><a href="building-with-claude-api.html">Building with Claude API</a><span>February 20, 2026 • 11 min read</span></div></div>
           </div>
 
           <!-- CTA Card -->
           <div class="blog-sidebar-card" style="background:linear-gradient(135deg,#009688,#00695c);border-left-color:#00bfa5;color:#fff;">
             <h4 style="color:#fff;">Need a Technical SEO Audit?</h4>
-            <p style="font-size:13px;color:rgba(255,255,255,0.85);margin-bottom:16px;">I fix crawlability issues, Core Web Vitals, schema errors, and Cloudflare setup. Free 30-min consultation.</p>
-            <a href="index.html#contact-section" style="background:#fff;color:#009688;font-size:13px;font-weight:700;padding:10px 18px;border-radius:8px;display:inline-block;text-decoration:none;">Get a Free Audit &#8594;</a>
+            <p style="font-size:13px;color:rgba(255,255,255,0.85);margin-bottom:16px;">I fix crawlability issues, Core Web Vitals, schema errors. Free 30-min consultation.</p>
+            <a href="../index.html#contact-section" style="background:#fff;color:#009688;font-size:13px;font-weight:700;padding:10px 18px;border-radius:8px;display:inline-block;text-decoration:none;">Get a Free Audit →</a>
           </div>
-
         </div><!-- /sidebar -->
 
       </div><!-- /row -->
@@ -569,17 +347,17 @@
     <div class="container">
       <div class="row align-items-center">
         <div class="col-md-6">
-          <p style="color:rgba(255,255,255,0.6);font-size:13px;margin:0;">&copy; <span id="footer-year"></span> Anju Batta. All rights reserved.</p>
+          <p style="color:rgba(255,255,255,0.6);font-size:13px;margin:0;">© <span id="footer-year"></span> Anju Batta. All rights reserved.</p>
         </div>
         <div class="col-md-6 text-md-right">
           <ul class="list-inline mb-0">
-            <li class="list-inline-item"><a href="index.html" style="color:rgba(255,255,255,0.6);font-size:13px;text-decoration:none;">Home</a></li>
+            <li class="list-inline-item"><a href="../index.html" style="color:rgba(255,255,255,0.6);font-size:13px;text-decoration:none;">Home</a></li>
             <li class="list-inline-item" style="color:rgba(255,255,255,0.3);">·</li>
-            <li class="list-inline-item"><a href="index.html#ai-services-section" style="color:rgba(255,255,255,0.6);font-size:13px;text-decoration:none;">Services</a></li>
+            <li class="list-inline-item"><a href="../index.html#ai-services-section" style="color:rgba(255,255,255,0.6);font-size:13px;text-decoration:none;">Services</a></li>
             <li class="list-inline-item" style="color:rgba(255,255,255,0.3);">·</li>
             <li class="list-inline-item"><a href="../projects/" style="color:rgba(255,255,255,0.6);font-size:13px;text-decoration:none;">Projects</a></li>
             <li class="list-inline-item" style="color:rgba(255,255,255,0.3);">·</li>
-            <li class="list-inline-item"><a href="contact.html" style="color:rgba(255,255,255,0.6);font-size:13px;text-decoration:none;">Contact</a></li>
+            <li class="list-inline-item"><a href="../contact/" style="color:rgba(255,255,255,0.6);font-size:13px;text-decoration:none;">Contact</a></li>
           </ul>
         </div>
       </div>
@@ -595,14 +373,11 @@
   <script>
     document.getElementById('footer-year').textContent = new Date().getFullYear();
     AOS.init({ duration: 600, once: true });
-
-    // Fallback: make all ftco-animate visible after 1.5s
     setTimeout(function () {
       document.querySelectorAll('.ftco-animate').forEach(function(el) {
         el.classList.add('fadeInUp', 'ftco-animated');
       });
     }, 1500);
   </script>
-
 </body>
 </html>
