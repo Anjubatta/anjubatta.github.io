@@ -14,7 +14,12 @@
       "Bash(sed -i 's|href=\"\\\\.\\\\./|href=\"../../|g' technical-seo-consulting/index.html ai-agent-development/index.html mobile-app-development/index.html)",
       "Bash(sed -i 's|src=\"\\\\.\\\\./|src=\"../../|g' technical-seo-consulting/index.html ai-agent-development/index.html mobile-app-development/index.html)",
       "Bash(sed -i 's|project_list|projects|g' index.html)",
-      "Bash(sed -i 's|./projects.html|./projects/|g' index.html)"
+      "Bash(sed -i 's|./projects.html|./projects/|g' index.html)",
+      "Bash(ls -1 *.html)",
+      "Bash(rm index.html)",
+      "Bash(mv index-new.html index.html)",
+      "Bash(find . -name \"*.html\" -type f ! -path \"./.claude/*\" -exec sed -i 's/<img src=\\\\\\([^>]*\\\\\\)alt=/loading=\"lazy\" decoding=\"async\" src=\\\\1alt=/g' {} \\\\;)",
+      "Bash(find . -name \"*.html\" -type f ! -path \"./.claude/*\" -exec sed -i 's/<script src=\"\\\\\\(.*jquery.*\\\\\\)\"><\\\\/script>/<script defer src=\"\\\\1\"><\\\\/script>/g; s/<script src=\"\\\\\\(.*bootstrap.*\\\\\\)\"><\\\\/script>/<script defer src=\"\\\\1\"><\\\\/script>/g; s/<script src=\"\\\\\\(.*main\\\\.js.*\\\\\\)\"><\\\\/script>/<script defer src=\"\\\\1\"><\\\\/script>/g' {} \\\\;)"
     ]
   }
 }
