@@ -22,12 +22,6 @@
 [context.production]
   environment = { NODE_ENV = "production" }
 
-[[redirects]]
-  from = "/blog/"
-  to = "/blog/index.html"
-  status = 200
-  force = false
-
 [[headers]]
   for = "/*"
   [headers.values]
