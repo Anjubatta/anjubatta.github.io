@@ -86,9 +86,8 @@
   <!-- Canonical URL -->
   <link rel="canonical" href="https://anjubatta.netlify.app/">
 
-  <!-- Favicon (SVG + ICO fallback) -->
+  <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <link rel="alternate icon" href="favicon.ico" type="image/x-icon">
   <link rel="apple-touch-icon" href="favicon.svg">
 
   <!-- Sitemap reference -->
@@ -105,7 +104,7 @@
   <link rel="preload" as="image" href="images/background.webp" fetchpriority="high">
 
   <!-- Preload icomoon font to avoid FOIT -->
-  <link rel="preload" href="fonts/icomoon/icomoon.woff?6tt51o" as="font" type="font/woff">
+  <link rel="preload" href="fonts/icomoon/icomoon.woff?6tt51o" as="font" type="font/woff" crossorigin>
 
   <!-- Google Fonts – only needed weights + display=swap -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -651,12 +650,12 @@
   <!-- Hero Section -->
   <section id="home-section" class="hero">
     <div class="home-slider owl-carousel">
-      <div class="slider-item">
+      <div class="slider-item" style="background-image:url(images/background.webp);">
         <div class="overlay"></div>
         <div class="container">
           <div class="row d-md-flex no-gutters slider-text align-items-end justify-content-end" data-scrollax-parent="true">
             <div class="overlay"></div>
-            <div class="one-third js-fullheight order-md-last img" style="background-image:url(images/background.webp);">
+            <div class="one-third js-fullheight order-md-last img" style="background-image:url(images/Image.webp);">
               <div class="overlay"></div>
             </div>
             <div class="one-forth d-flex align-items-center ftco-animate" data-scrollax="properties: { translateY: '70%' }">
@@ -1835,7 +1834,7 @@
   <script async src="js/aos.js"></script>
   <script async src="js/jquery.animateNumber.min.js"></script>
   <script async src="js/scrollax.min.js"></script>
-  <script async src="js/jquery.slick.min.js"></script>
+  <script src="js/jquery.slick.min.js"></script>
   <script defer src="js/main.js"></script>
 
   <script>
