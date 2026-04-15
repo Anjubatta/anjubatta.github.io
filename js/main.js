@@ -1,7 +1,9 @@
- AOS.init({
- 	duration: 800,
- 	easing: 'slide'
- });
+ if (typeof AOS !== 'undefined') {
+   AOS.init({
+     duration: 800,
+     easing: 'slide'
+   });
+ }
 
 (function($) {
 
