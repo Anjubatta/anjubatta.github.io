@@ -15,8 +15,14 @@
   <meta property="og:url" content="https://anjubatta.netlify.app/services/nextjs-development/">
   <meta property="og:title" content="Next.js Development Services India">
   <meta property="og:description" content="Expert Next.js development for SEO-optimized web apps. SSR, SSG, API routes. 15+ years, 500+ projects.">
-  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
-  <link rel="stylesheet" href="../css/style.css">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="sitemap" type="application/xml" href="../../sitemap.xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/open-iconic-bootstrap.min.css">
+  <link rel="stylesheet" href="../../css/icomoon.css">
+  <link rel="stylesheet" href="../../css/style.css">
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"Service","name":"Next.js Development Services","description":"Expert Next.js development for fast, SEO-optimized apps. SSR, SSG, API routes. 15+ years, 500+ projects.","url":"https://anjubatta.netlify.app/services/nextjs-development/","serviceType":"Next.js Development","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"47"}}
   </script>
@@ -26,26 +32,227 @@
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://anjubatta.netlify.app/"},{"@type":"ListItem","position":2,"name":"Services","item":"https://anjubatta.netlify.app/services/"},{"@type":"ListItem","position":3,"name":"Next.js","item":"https://anjubatta.netlify.app/services/nextjs-development/"}]}
   </script>
+  <script async defer src="https://www.googletagmanager.com/gtag/js?id=G-2XGJV4RHLZ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2XGJV4RHLZ');</script>
+  <style>
+    :root { --primary: #009688; --primary-dark: #00695c; --primary-light: #e0f2f1; --primary-mid: #004d40; }
+    .service-hero { background: linear-gradient(135deg, #004d40 0%, #009688 60%, #26a69a 100%); padding: 100px 0 70px; color: #fff; position: relative; overflow: hidden; }
+    .service-hero::before { content: ''; position: absolute; width: 600px; height: 600px; background: rgba(255,255,255,0.04); border-radius: 50%; top: -200px; right: -100px; pointer-events: none; }
+    .service-hero .breadcrumb-nav { font-size: 12px; color: rgba(255,255,255,0.65); margin-bottom: 20px; }
+    .service-hero .breadcrumb-nav a { color: rgba(255,255,255,0.65); text-decoration: none; }
+    .service-hero .breadcrumb-nav a:hover { color: #fff; }
+    .service-hero .hero-badge { display: inline-block; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); color: #fff; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 5px 14px; border-radius: 20px; margin-bottom: 18px; }
+    .service-hero h1 { font-size: clamp(28px, 4.5vw, 52px); font-weight: 800; line-height: 1.2; max-width: 750px; margin-bottom: 20px; }
+    .service-hero h1 span { color: #a7ffeb; }
+    .service-hero .hero-sub { font-size: 17px; color: rgba(255,255,255,0.82); max-width: 600px; line-height: 1.7; margin-bottom: 32px; }
+    .hero-cta-group { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-hero-primary { background: #fff; color: var(--primary); font-weight: 700; font-size: 14px; padding: 13px 28px; border-radius: 8px; text-decoration: none; display: inline-block; transition: all .2s; }
+    .btn-hero-primary:hover { background: #e0f2f1; color: var(--primary-dark); text-decoration: none; transform: translateY(-2px); }
+    .btn-hero-outline { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,0.5); font-weight: 700; font-size: 14px; padding: 13px 28px; border-radius: 8px; text-decoration: none; display: inline-block; transition: all .2s; }
+    .btn-hero-outline:hover { border-color: #fff; color: #fff; text-decoration: none; }
+    .hero-stats { display: flex; gap: 40px; flex-wrap: wrap; margin-top: 48px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.15); }
+    .hero-stat-num { font-size: 32px; font-weight: 800; color: #fff; line-height: 1; }
+    .hero-stat-label { font-size: 12px; color: rgba(255,255,255,0.65); margin-top: 4px; }
+    .page-section { padding: 70px 0; }
+    .page-section.bg-light-grey { background: #f8f9fc; }
+    .section-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--primary); margin-bottom: 10px; }
+    .section-title { font-size: clamp(22px, 3vw, 34px); font-weight: 800; color: #111; line-height: 1.3; margin-bottom: 16px; }
+    .service-card { background: #fff; border-radius: 14px; padding: 28px 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); border-top: 4px solid var(--primary); height: 100%; transition: transform .2s, box-shadow .2s; }
+    .service-card:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(0,150,136,0.15); }
+    .service-card .sc-icon { width: 50px; height: 50px; background: var(--primary-light); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 16px; }
+    .service-card h3 { font-size: 17px; font-weight: 700; color: #111; margin-bottom: 10px; }
+    .service-card p { font-size: 14px; color: #555; line-height: 1.7; margin: 0; }
+    .info-box { background: var(--primary-light); border-left: 4px solid var(--primary); border-radius: 0 10px 10px 0; padding: 18px 22px; margin: 24px 0; font-size: 14.5px; color: #333; line-height: 1.7; }
+    .info-box strong { color: var(--primary-dark); }
+    .faq-item { border-bottom: 1px solid #eee; padding: 20px 0; }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-item h4 { font-size: 16px; font-weight: 700; color: #111; margin-bottom: 8px; }
+    .faq-item p { font-size: 14.5px; color: #555; line-height: 1.7; margin: 0; }
+    .sidebar-cta { background: linear-gradient(135deg, var(--primary), var(--primary-mid)); border-radius: 16px; padding: 28px 24px; color: #fff; margin-bottom: 24px; position: sticky; top: 80px; }
+    .sidebar-cta h4 { color: #fff; font-size: 17px; font-weight: 700; margin-bottom: 10px; }
+    .sidebar-cta p { color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 20px; line-height: 1.6; }
+    .btn-sidebar-cta { display: block; text-align: center; background: #fff; color: var(--primary); font-size: 14px; font-weight: 700; padding: 12px; border-radius: 8px; text-decoration: none; margin-bottom: 10px; transition: all .2s; }
+    .btn-sidebar-cta:hover { background: var(--primary-light); color: var(--primary-dark); text-decoration: none; }
+    .cta-banner { background: linear-gradient(135deg, var(--primary-mid), var(--primary)); border-radius: 18px; padding: 50px 40px; text-align: center; color: #fff; }
+    .cta-banner h2 { font-size: clamp(22px, 3vw, 34px); font-weight: 800; margin-bottom: 14px; color: #fff; }
+    .cta-banner p { font-size: 16px; color: rgba(255,255,255,0.85); margin-bottom: 30px; }
+    .btn-cta-white { background: #fff; color: var(--primary); font-size: 15px; font-weight: 700; padding: 14px 32px; border-radius: 8px; text-decoration: none; display: inline-block; margin: 6px; transition: all .2s; }
+    .btn-cta-white:hover { background: var(--primary-light); color: var(--primary-dark); text-decoration: none; transform: translateY(-2px); }
+    @media (max-width: 768px) {
+      .service-hero { padding: 80px 0 50px; }
+      .page-section { padding: 50px 0; }
+      .cta-banner { padding: 36px 24px; }
+    }
+  </style>
 </head>
 <body>
-<h1>Next.js Development Services in India</h1>
-<p>Expert Next.js development for fast, SEO-optimized web applications. Built-in SSR, static generation, API routes, and automatic performance optimization. 15+ years, 500+ projects.</p>
-<h2>Services Offered</h2>
-<ul>
-<li>Server-Side Rendering (SSR) Applications</li>
-<li>Static Generation (SSG) & Incremental Static Regeneration (ISR)</li>
-<li>API Routes & Backend Integration</li>
-<li>E-commerce Platforms (NextCommerce, Shopify API)</li>
-<li>Performance Optimization & Core Web Vitals</li>
-<li>SEO Optimization (Metadata, Structured Data, Sitemaps)</li>
-</ul>
-<h2>Why Next.js?</h2>
-<p>Next.js combines React power with built-in SEO, performance, and scalability. Ideal for SaaS, e-commerce, blogs, and content-driven sites that need speed and rankings.</p>
-<h2>Frequently Asked Questions</h2>
-<p><strong>What is SSR and SSG?</strong> SSR renders pages on each request (fresh content), SSG pre-renders pages at build time (faster). Both are SEO-friendly.</p>
-<p><strong>Is Next.js good for SEO?</strong> Yes, Next.js is built for SEO with metadata, structured data, sitemaps, and server-side rendering.</p>
-<p><strong>Can I build e-commerce with Next.js?</strong> Yes, with product pages, cart, checkout, and payment integration.</p>
-<p><a href="/blog/nextjs-seo-architecture/">Learn about Next.js SEO Architecture</a></p>
-<p><a href="mailto:battaanju983@gmail.com">Schedule Free Consultation</a></p>
+  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
+    <div class="container">
+      <a class="navbar-brand" href="../../index.html">
+        <img loading="lazy" decoding="async" src="../../images/logo.svg" alt="Anju Batta – Full Stack Developer" height="36" width="140" style="vertical-align:middle;">
+      </a>
+      <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="oi oi-menu"></span> Menu
+      </button>
+      <div class="collapse navbar-collapse" id="ftco-nav">
+        <ul class="navbar-nav nav ml-auto">
+          <li class="nav-item"><a href="../../index.html#home-section" class="nav-link"><span>Home</span></a></li>
+          <li class="nav-item"><a href="../../index.html#about-section" class="nav-link"><span>About</span></a></li>
+          <li class="nav-item active"><a href="../../index.html#ai-services-section" class="nav-link"><span>Services</span></a></li>
+          <li class="nav-item"><a href="../../index.html#project-section" class="nav-link"><span>Projects</span></a></li>
+          <li class="nav-item"><a href="../../" class="nav-link"><span>Blog</span></a></li>
+          <li class="nav-item"><a href="../../contact/" class="nav-link"><span>Contact</span></a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section class="service-hero" style="margin-top:56px;">
+    <div class="container">
+      <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+        <a href="../../index.html">Home</a> &nbsp;/&nbsp;
+        <a href="#">Services</a> &nbsp;/&nbsp;
+        <span style="color:rgba(255,255,255,0.9);">Next.js Development</span>
+      </nav>
+      <span class="hero-badge">⚡ Next.js Services</span>
+      <h1>Next.js Development Services — <span>Fast, SEO-First Web Apps</span></h1>
+      <p class="hero-sub">Build blazing-fast web apps with built-in SSR, SSG, API routes, and automatic performance optimization. 15+ years, 500+ projects.</p>
+      <div class="hero-cta-group">
+        <a href="../../contact/" class="btn-hero-primary">⚡ Get Free Next.js Consultation</a>
+        <a href="#faq-section" class="btn-hero-outline">View FAQs</a>
+      </div>
+      <div class="hero-stats">
+        <div><div class="hero-stat-num">15+</div><div class="hero-stat-label">Years Experience</div></div>
+        <div><div class="hero-stat-num">500+</div><div class="hero-stat-label">Projects Delivered</div></div>
+        <div><div class="hero-stat-num">Top 1%</div><div class="hero-stat-label">SEO Performance</div></div>
+        <div><div class="hero-stat-num">5-Star</div><div class="hero-stat-label">Reviews</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section bg-light-grey">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+
+          <div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);margin-bottom:32px;">
+            <p class="section-eyebrow">What We Build</p>
+            <h2 class="section-title">Professional Next.js Web Applications</h2>
+            <p style="font-size:15px;color:#444;line-height:1.8;">
+              Next.js is the gold standard for modern React applications that demand speed, SEO, and scalability. I build production-grade Next.js apps using the App Router, React Server Components, and the full power of the Next.js ecosystem — so your site ranks, converts, and scales.
+            </p>
+            <div class="info-box">
+              <strong>Why Next.js?</strong> SEO-friendly server rendering, React-powered interactivity, automatic code splitting, built-in image optimization, and edge-ready deployment. One framework covers it all — from landing pages to full SaaS platforms.
+            </div>
+          </div>
+
+          <div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);margin-bottom:32px;">
+            <p class="section-eyebrow">Services</p>
+            <h2 class="section-title">Next.js Development Services</h2>
+            <div class="row">
+              <div class="col-md-6 mb-4">
+                <div class="service-card">
+                  <div class="sc-icon">🖥️</div>
+                  <h3>SSR Applications</h3>
+                  <p>Server-side rendered Next.js apps that deliver fresh, dynamic content on every request. Perfect for dashboards, news feeds, and user-specific pages.</p>
+                </div>
+              </div>
+              <div class="col-md-6 mb-4">
+                <div class="service-card">
+                  <div class="sc-icon">⚡</div>
+                  <h3>Static Generation (SSG / ISR)</h3>
+                  <p>Pre-rendered pages at build time with Incremental Static Regeneration. Blazing-fast load times and top Core Web Vitals scores for content-heavy sites.</p>
+                </div>
+              </div>
+              <div class="col-md-6 mb-4">
+                <div class="service-card">
+                  <div class="sc-icon">🔌</div>
+                  <h3>API Routes &amp; Backend</h3>
+                  <p>Full-stack Next.js with API routes, Route Handlers, and server actions. Build complete backends without a separate server — authentication, CRUD, and more.</p>
+                </div>
+              </div>
+              <div class="col-md-6 mb-4">
+                <div class="service-card">
+                  <div class="sc-icon">🛒</div>
+                  <h3>E-commerce (NextCommerce, Shopify API)</h3>
+                  <p>High-converting e-commerce storefronts with product pages, cart, checkout, and payment integration via Shopify Storefront API or custom solutions.</p>
+                </div>
+              </div>
+              <div class="col-md-6 mb-4">
+                <div class="service-card">
+                  <div class="sc-icon">📊</div>
+                  <h3>Performance &amp; Core Web Vitals</h3>
+                  <p>Lighthouse audits, image optimization, lazy loading, font subsetting, and bundle analysis to achieve green Core Web Vitals and sub-2s load times.</p>
+                </div>
+              </div>
+              <div class="col-md-6 mb-4">
+                <div class="service-card">
+                  <div class="sc-icon">🔍</div>
+                  <h3>SEO Optimization</h3>
+                  <p>Metadata API, Open Graph tags, JSON-LD structured data, XML sitemaps, robots.txt, and canonical URLs — everything Google needs to rank your pages.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="faq-section" style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);margin-bottom:32px;">
+            <p class="section-eyebrow">FAQ</p>
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="faq-item">
+              <h4>What is Next.js?</h4>
+              <p>Next.js is a React framework for production apps with built-in SSR, SSG, API routes, and automatic optimization. It removes the complexity of configuring webpack, Babel, and routing — so you ship faster.</p>
+            </div>
+            <div class="faq-item">
+              <h4>Why use Next.js for SEO?</h4>
+              <p>Next.js provides server-side rendering (SSR) and static generation (SSG) which Google crawlers love, improving rankings. Pages are fully rendered HTML before the browser receives them — no JavaScript required to read the content.</p>
+            </div>
+            <div class="faq-item">
+              <h4>Can you build e-commerce with Next.js?</h4>
+              <p>Yes, Next.js is perfect for fast, SEO-friendly e-commerce sites with product pages, cart, and checkout. I've integrated Shopify Storefront API, Stripe, and custom inventory systems in Next.js storefronts.</p>
+            </div>
+            <div class="faq-item">
+              <h4>How much does Next.js development cost?</h4>
+              <p>Starts at $1,500 for small apps, $5,000–$10,000 for medium projects, $15,000+ for complex enterprise apps. Scope a free consultation to get an accurate estimate for your project.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="col-lg-4">
+          <div class="sidebar-cta">
+            <h4>Ready to Build with Next.js?</h4>
+            <p>Tell me about your project. I'll outline the best Next.js architecture for your goals, timeline, and budget.</p>
+            <a href="../../contact/" class="btn-sidebar-cta">⚡ Book Free Consultation</a>
+            <a href="../../contact/" class="btn-sidebar-cta" style="background:rgba(255,255,255,0.15);color:#fff;border:1px solid rgba(255,255,255,0.3);">📧 Send a Message</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section bg-white">
+    <div class="container">
+      <div class="cta-banner">
+        <h2>Build Your Next.js App — Fast, SEO-First, Production-Ready</h2>
+        <p>From architecture to deployment — let's ship a Next.js application that ranks and converts.</p>
+        <a href="../../contact/" class="btn-cta-white">Start Your Next.js Project →</a>
+      </div>
+    </div>
+  </section>
+
+  <footer style="background:#212529;padding:30px 0;">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6"><p style="color:rgba(255,255,255,0.6);font-size:13px;margin:0;">&copy; <span id="footer-year"></span> Anju Batta. All rights reserved.</p></div>
+        <div class="col-md-6 text-md-right"><a href="../../" style="color:rgba(255,255,255,0.6);font-size:13px;text-decoration:none;">← Back to Home</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script defer src="../../js/jquery.min.js"></script>
+  <script src="../../js/popper.min.js"></script>
+  <script defer src="../../js/bootstrap.min.js"></script>
+  <script defer src="../../js/main.js"></script>
+  <script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
