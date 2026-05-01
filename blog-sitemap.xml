@@ -14,140 +14,140 @@
 
   <!-- Blog posts -->
   <url>
-    <loc>https://anjubatta.netlify.app/blog/xml-sitemap-strategy-guide/</loc>
+    <loc>https://anjubatta.netlify.app/blog/xml-sitemap-strategy-guide</loc>
     <lastmod>2026-04-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://anjubatta.netlify.app/blog/technical-seo-audit-checklist/</loc>
+    <loc>https://anjubatta.netlify.app/blog/technical-seo-audit-checklist</loc>
     <lastmod>2026-04-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://anjubatta.netlify.app/blog/nextjs-seo-architecture/</loc>
+    <loc>https://anjubatta.netlify.app/blog/nextjs-seo-architecture</loc>
     <lastmod>2026-04-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://anjubatta.netlify.app/blog/aeo-geo-ai-search-optimization/</loc>
+    <loc>https://anjubatta.netlify.app/blog/aeo-geo-ai-search-optimization</loc>
     <lastmod>2026-04-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://anjubatta.netlify.app/blog/cloudflare-optimization-guide/</loc>
+    <loc>https://anjubatta.netlify.app/blog/cloudflare-optimization-guide</loc>
     <lastmod>2026-04-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://anjubatta.netlify.app/blog/ai-agent-architecture/</loc>
+    <loc>https://anjubatta.netlify.app/blog/ai-agent-architecture</loc>
     <lastmod>2026-04-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://anjubatta.netlify.app/blog/schema-engineering-guide/</loc>
+    <loc>https://anjubatta.netlify.app/blog/schema-engineering-guide</loc>
     <lastmod>2026-04-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://anjubatta.netlify.app/blog/wordpress-hooks/</loc>
+    <loc>https://anjubatta.netlify.app/blog/wordpress-hooks</loc>
     <lastmod>2026-04-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://anjubatta.netlify.app/blog/ghost/</loc>
+    <loc>https://anjubatta.netlify.app/blog/ghost</loc>
     <lastmod>2026-04-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://anjubatta.netlify.app/blog/ionic/</loc>
+    <loc>https://anjubatta.netlify.app/blog/ionic</loc>
     <lastmod>2026-04-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://anjubatta.netlify.app/blog/ionic-vs-flutter-vs-react-native/</loc>
+    <loc>https://anjubatta.netlify.app/blog/ionic-vs-flutter-vs-react-native</loc>
     <lastmod>2026-04-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://anjubatta.netlify.app/blog/ionic-app-store-submission-checklist/</loc>
+    <loc>https://anjubatta.netlify.app/blog/ionic-app-store-submission-checklist</loc>
     <lastmod>2026-04-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://anjubatta.netlify.app/blog/ionic-app-development-cost/</loc>
+    <loc>https://anjubatta.netlify.app/blog/ionic-app-development-cost</loc>
     <lastmod>2026-04-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://anjubatta.netlify.app/blog/ionic-laravel-api-integration/</loc>
+    <loc>https://anjubatta.netlify.app/blog/ionic-laravel-api-integration</loc>
     <lastmod>2026-04-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://anjubatta.netlify.app/blog/ionic-capacitor-plugins-guide/</loc>
+    <loc>https://anjubatta.netlify.app/blog/ionic-capacitor-plugins-guide</loc>
     <lastmod>2026-04-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://anjubatta.netlify.app/blog/claude-ai-for-developers/</loc>
+    <loc>https://anjubatta.netlify.app/blog/claude-ai-for-developers</loc>
     <lastmod>2026-04-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://anjubatta.netlify.app/blog/claude-code-cli-guide/</loc>
+    <loc>https://anjubatta.netlify.app/blog/claude-code-cli-guide</loc>
     <lastmod>2026-04-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://anjubatta.netlify.app/blog/claude-vs-chatgpt-vs-gemini/</loc>
+    <loc>https://anjubatta.netlify.app/blog/claude-vs-chatgpt-vs-gemini</loc>
     <lastmod>2026-04-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://anjubatta.netlify.app/blog/building-with-claude-api/</loc>
+    <loc>https://anjubatta.netlify.app/blog/building-with-claude-api</loc>
     <lastmod>2026-04-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://anjubatta.netlify.app/blog/openclaw-ai/</loc>
+    <loc>https://anjubatta.netlify.app/blog/openclaw-ai</loc>
     <lastmod>2026-04-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
