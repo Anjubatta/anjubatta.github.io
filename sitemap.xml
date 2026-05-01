@@ -30,4 +30,11 @@
   <!-- See: blog-sitemap.xml and services-sitemap.xml -->
   <!-- This keeps crawl budget focused on core pages -->
 
+  <url>
+    <loc>https://anjubatta.netlify.app/sitemap/</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
 </urlset>
