@@ -1,16 +1,17 @@
 # Anju Batta
 
-> Senior Full Stack Developer & AI Automation Architect with 12+ years of experience, based in Chandigarh, India. Expert in AI Agent Development, n8n Automation, Shopify, Laravel, WordPress, and Mobile App Development. Available for new projects — response within 2 hours.
+> Senior Full Stack Web Developer, Laravel Developer, AI Agent Developer, and Mobile App Developer in India with 15+ years of experience. Available for client projects, remote work, and fixed-price builds.
 
-Anju Batta helps businesses build scalable digital systems while automating repetitive processes to drive real revenue. She bridges complex code (Laravel/Shopify) with modern automation (n8n/AI Agents), eliminating 20+ hours of manual work weekly for her clients. Best suited for Shopify stores, SaaS companies, and agencies ready to scale.
+Anju Batta helps businesses hire one senior developer for Laravel web apps, AI agents, mobile apps, business websites, APIs, Shopify, WordPress, and n8n automation. Best suited for founders, agencies, SaaS teams, and businesses that need reliable development delivery from India.
 
 ## Core Services
 
-- [AI Agent Development](https://anjubatta.netlify.app/#ai-services-section): Builds autonomous AI agents using Claude, ChatGPT, and OpenAI APIs. Support bots with context awareness, data analysis agents, and research assistants. Rapid prototyping with Bolt, Lovable, and V0.
-- [Business Automation – n8n & Zapier](https://anjubatta.netlify.app/#ai-services-section): Replaces fragile Zaps with robust n8n workflows. eCommerce: Shopify → Inventory → Shipping → Customer Email. CRM Sync, Lead Routing, Financial Reporting. Self-hosted n8n for enterprise-grade reliability.
-- [Full Stack & Shopify Architecture](https://anjubatta.netlify.app/#ai-services-section): Custom Shopify 2.0 themes with automated inventory and Stripe/PayPal. Laravel/Node.js clean backend for SaaS apps. React, VueJS, Tailwind CSS frontends. REST APIs and GraphQL.
-- [Mobile App Development – Ionic](https://anjubatta.netlify.app/services/ionic-app-development): Cross-platform iOS and Android apps using Ionic Framework (v7+), Angular, and Capacitor. Services include custom Ionic app development, cross-platform deployment, API integration, PWA development, Ionic migration (Cordova → Capacitor), and post-launch maintenance. Pricing from $800 USD. Free 30-minute consultation available.
-- [WordPress Development](https://anjubatta.netlify.app/#project-section): Custom themes, plugins, and WooCommerce integrations.
+- [Hire Laravel Developer in India](https://anjubatta.netlify.app/services/laravel-development/): Custom Laravel web apps, SaaS platforms, REST APIs, admin dashboards, eCommerce systems, migrations, and ongoing PHP/Laravel support.
+- [Hire AI Agent Developer in India](https://anjubatta.netlify.app/services/ai-agent-development/): OpenAI and Claude agents, RAG systems, tool-calling workflows, internal copilots, AI chatbots, and business automation.
+- [Hire Mobile App Developer in India](https://anjubatta.netlify.app/services/mobile-app-development/): iOS, Android, and cross-platform business apps with APIs, admin panels, payments, notifications, and launch support.
+- [Hire Web Developer in India](https://anjubatta.netlify.app/services/nextjs-development/): SEO-ready websites, Next.js/React web apps, landing pages, business websites, and API integrations.
+- [Business Automation - n8n & Zapier](https://anjubatta.netlify.app/services/workflow-automation/): CRM sync, lead routing, reporting, eCommerce workflows, self-hosted n8n, and operations automation.
+- [Shopify & WordPress Development](https://anjubatta.netlify.app/): Custom Shopify themes, WooCommerce/WordPress builds, CMS integrations, and maintenance.
 
 ## Technology Stack
 
@@ -21,7 +22,7 @@ Anju Batta helps businesses build scalable digital systems while automating repe
 - CMS: WordPress, Shopify, Ghost, Wix, BigCommerce, Kajabi, Framer
 - Databases: MySQL, PostgreSQL, MongoDB, Redis, Airtable
 - BI Tools: Power BI, Google Analytics, Tableau
-- Mobile: Ionic, Angular
+- Mobile: iOS, Android, Ionic, Flutter, React Native, Angular
 
 ## Portfolio
 
