@@ -9,4 +9,7 @@
   <sitemap>
     <loc>https://anjubatta.netlify.app/services-sitemap.xml</loc>
   </sitemap>
+  <sitemap>
+    <loc>https://anjubatta.netlify.app/image-sitemap.xml</loc>
+  </sitemap>
 </sitemapindex>
