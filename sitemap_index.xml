@@ -2,14 +2,18 @@
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <sitemap>
     <loc>https://anjubatta.netlify.app/sitemap.xml</loc>
-  </sitemap>
-  <sitemap>
-    <loc>https://anjubatta.netlify.app/blog-sitemap.xml</loc>
+    <lastmod>2026-05-15</lastmod>
   </sitemap>
   <sitemap>
     <loc>https://anjubatta.netlify.app/services-sitemap.xml</loc>
+    <lastmod>2026-05-15</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://anjubatta.netlify.app/blog-sitemap.xml</loc>
+    <lastmod>2026-05-15</lastmod>
   </sitemap>
   <sitemap>
     <loc>https://anjubatta.netlify.app/image-sitemap.xml</loc>
+    <lastmod>2026-05-15</lastmod>
   </sitemap>
 </sitemapindex>

@@ -38,3 +38,7 @@
 /blog /blog/ 301
 /contact /contact/ 301
 /projects /projects/ 301
+
+# Catch ghost URLs Google already indexed
+/blog.html /blog/ 301
+/services/index.html /services/ 301
