@@ -40,30 +40,30 @@
 /projects /projects/ 301
 
 # Catch ghost URLs Google already indexed
-/blog.html /blog/ 301
-/services/index.html /services/ 301
+/blog.html /blog/ 301!
+/services/index.html /services/ 301!
 
 # Legacy .html URL cleanup - canonical pretty URLs
-/blog/aeo-geo-ai-search-optimization.html /blog/aeo-geo-ai-search-optimization 301
-/blog/ai-agent-architecture.html /blog/ai-agent-architecture 301
-/blog/building-with-claude-api.html /blog/building-with-claude-api 301
-/blog/claude-ai-for-developers.html /blog/claude-ai-for-developers 301
-/blog/claude-code-cli-guide.html /blog/claude-code-cli-guide 301
-/blog/claude-vs-chatgpt-vs-gemini.html /blog/claude-vs-chatgpt-vs-gemini 301
-/blog/cloudflare-optimization-guide.html /blog/cloudflare-optimization-guide 301
-/blog/ghost.html /blog/ghost 301
-/blog/index.html /blog/ 301
-/blog/ionic-app-development-cost.html /blog/ionic-app-development-cost 301
-/blog/ionic-app-store-submission-checklist.html /blog/ionic-app-store-submission-checklist 301
-/blog/ionic-capacitor-plugins-guide.html /blog/ionic-capacitor-plugins-guide 301
-/blog/ionic-laravel-api-integration.html /blog/ionic-laravel-api-integration 301
-/blog/ionic-vs-flutter-vs-react-native.html /blog/ionic-vs-flutter-vs-react-native 301
-/blog/ionic.html /blog/ionic 301
-/blog/nextjs-seo-architecture.html /blog/nextjs-seo-architecture 301
-/blog/openclaw-ai.html /blog/openclaw-ai 301
-/blog/schema-engineering-guide.html /blog/schema-engineering-guide 301
-/blog/technical-seo-audit-checklist.html /blog/technical-seo-audit-checklist 301
-/blog/wordpress-hooks.html /blog/wordpress-hooks 301
-/blog/xml-sitemap-strategy-guide.html /blog/xml-sitemap-strategy-guide 301
-/index.html / 301
-/services/ionic-app-development.html /services/ionic-app-development 301
+/blog/aeo-geo-ai-search-optimization.html /blog/aeo-geo-ai-search-optimization 301!
+/blog/ai-agent-architecture.html /blog/ai-agent-architecture 301!
+/blog/building-with-claude-api.html /blog/building-with-claude-api 301!
+/blog/claude-ai-for-developers.html /blog/claude-ai-for-developers 301!
+/blog/claude-code-cli-guide.html /blog/claude-code-cli-guide 301!
+/blog/claude-vs-chatgpt-vs-gemini.html /blog/claude-vs-chatgpt-vs-gemini 301!
+/blog/cloudflare-optimization-guide.html /blog/cloudflare-optimization-guide 301!
+/blog/ghost.html /blog/ghost 301!
+/blog/index.html /blog/ 301!
+/blog/ionic-app-development-cost.html /blog/ionic-app-development-cost 301!
+/blog/ionic-app-store-submission-checklist.html /blog/ionic-app-store-submission-checklist 301!
+/blog/ionic-capacitor-plugins-guide.html /blog/ionic-capacitor-plugins-guide 301!
+/blog/ionic-laravel-api-integration.html /blog/ionic-laravel-api-integration 301!
+/blog/ionic-vs-flutter-vs-react-native.html /blog/ionic-vs-flutter-vs-react-native 301!
+/blog/ionic.html /blog/ionic 301!
+/blog/nextjs-seo-architecture.html /blog/nextjs-seo-architecture 301!
+/blog/openclaw-ai.html /blog/openclaw-ai 301!
+/blog/schema-engineering-guide.html /blog/schema-engineering-guide 301!
+/blog/technical-seo-audit-checklist.html /blog/technical-seo-audit-checklist 301!
+/blog/wordpress-hooks.html /blog/wordpress-hooks 301!
+/blog/xml-sitemap-strategy-guide.html /blog/xml-sitemap-strategy-guide 301!
+/index.html / 301!
+/services/ionic-app-development.html /services/ionic-app-development 301!
