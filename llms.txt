@@ -6,12 +6,12 @@ Anju Batta helps businesses hire one senior developer for Laravel web apps, AI a
 
 ## Core Services
 
-- [Hire Laravel Developer in India](https://anjubatta.netlify.app/services/laravel-development/): Custom Laravel web apps, SaaS platforms, REST APIs, admin dashboards, eCommerce systems, migrations, and ongoing PHP/Laravel support.
-- [Hire AI Agent Developer in India](https://anjubatta.netlify.app/services/ai-agent-development/): OpenAI and Claude agents, RAG systems, tool-calling workflows, internal copilots, AI chatbots, and business automation.
-- [Hire Mobile App Developer in India](https://anjubatta.netlify.app/services/mobile-app-development/): iOS, Android, and cross-platform business apps with APIs, admin panels, payments, notifications, and launch support.
-- [Hire Web Developer in India](https://anjubatta.netlify.app/services/nextjs-development/): SEO-ready websites, Next.js/React web apps, landing pages, business websites, and API integrations.
-- [Business Automation - n8n & Zapier](https://anjubatta.netlify.app/services/workflow-automation/): CRM sync, lead routing, reporting, eCommerce workflows, self-hosted n8n, and operations automation.
-- [Shopify & WordPress Development](https://anjubatta.netlify.app/): Custom Shopify themes, WooCommerce/WordPress builds, CMS integrations, and maintenance.
+- [Hire Laravel Developer in India](https://anjubatta.github.io/services/laravel-development/): Custom Laravel web apps, SaaS platforms, REST APIs, admin dashboards, eCommerce systems, migrations, and ongoing PHP/Laravel support.
+- [Hire AI Agent Developer in India](https://anjubatta.github.io/services/ai-agent-development/): OpenAI and Claude agents, RAG systems, tool-calling workflows, internal copilots, AI chatbots, and business automation.
+- [Hire Mobile App Developer in India](https://anjubatta.github.io/services/mobile-app-development/): iOS, Android, and cross-platform business apps with APIs, admin panels, payments, notifications, and launch support.
+- [Hire Web Developer in India](https://anjubatta.github.io/services/nextjs-development/): SEO-ready websites, Next.js/React web apps, landing pages, business websites, and API integrations.
+- [Business Automation - n8n & Zapier](https://anjubatta.github.io/services/workflow-automation/): CRM sync, lead routing, reporting, eCommerce workflows, self-hosted n8n, and operations automation.
+- [Shopify & WordPress Development](https://anjubatta.github.io/): Custom Shopify themes, WooCommerce/WordPress builds, CMS integrations, and maintenance.
 
 ## Technology Stack
 
@@ -26,7 +26,7 @@ Anju Batta helps businesses hire one senior developer for Laravel web apps, AI a
 
 ## Portfolio
 
-- [All Projects (20+)](https://anjubatta.netlify.app/project_list.html): Web development, eCommerce, real estate, SaaS, and automation projects for clients in India, UK, USA, and Australia.
+- [All Projects (20+)](https://anjubatta.github.io/project_list.html): Web development, eCommerce, real estate, SaaS, and automation projects for clients in India, UK, USA, and Australia.
 
 ## Experience
 
@@ -48,11 +48,11 @@ Anju Batta helps businesses hire one senior developer for Laravel web apps, AI a
 - Location: Chandigarh, India
 - LinkedIn: https://www.linkedin.com/in/anju-batta-820a3660/
 - GitHub: https://github.com/anjudeveloper/
-- Portfolio: https://anjubatta.netlify.app/
+- Portfolio: https://anjubatta.github.io/
 - Response time: Within 2 hours
 - Free 30-minute consultation available
 
 ## Optional
 
-- [Download CV](https://anjubatta.netlify.app/BlueSimpleProfessionalCVResume.pdf)
-- [Contact Page](https://anjubatta.netlify.app/contact.html)
+- [Download CV](https://anjubatta.github.io/BlueSimpleProfessionalCVResume.pdf)
+- [Contact Page](https://anjubatta.github.io/contact.html)

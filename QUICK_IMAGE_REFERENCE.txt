@@ -53,7 +53,7 @@ LinkedIn: https://www.linkedin.com/feed/
 Twitter:  https://cards-dev.twitter.com/validator
 Generic:  https://www.opengraphcheck.com/
 
-Copy blog URL: https://anjubatta.netlify.app/blog/[blog-name]
+Copy blog URL: https://anjubatta.github.io/blog/[blog-name]
 Should show unique featured image + title + description
 
 ───────────────────────────────────────────────────────────────────
