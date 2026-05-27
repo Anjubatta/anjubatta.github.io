@@ -69,7 +69,3 @@ Allow: /
 
 # Sitemap & AI discovery files
 Sitemap: https://anjubatta.github.io/sitemap.xml
-Sitemap: https://anjubatta.github.io/pages-sitemap.xml
-Sitemap: https://anjubatta.github.io/services-sitemap.xml
-Sitemap: https://anjubatta.github.io/blog-sitemap.xml
-Sitemap: https://anjubatta.github.io/image-sitemap.xml
