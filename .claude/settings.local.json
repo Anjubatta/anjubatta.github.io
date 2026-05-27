@@ -22,7 +22,9 @@
       "Bash(find . -name \"*.html\" -type f ! -path \"./.claude/*\" -exec sed -i 's/<script src=\"\\\\\\(.*jquery.*\\\\\\)\"><\\\\/script>/<script defer src=\"\\\\1\"><\\\\/script>/g; s/<script src=\"\\\\\\(.*bootstrap.*\\\\\\)\"><\\\\/script>/<script defer src=\"\\\\1\"><\\\\/script>/g; s/<script src=\"\\\\\\(.*main\\\\.js.*\\\\\\)\"><\\\\/script>/<script defer src=\"\\\\1\"><\\\\/script>/g' {} \\\\;)",
       "Bash(git add *)",
       "Bash(git commit -m ' *)",
-      "Bash(git push *)"
+      "Bash(git push *)",
+      "PowerShell(git add *)",
+      "PowerShell(git push *)"
     ]
   }
 }
