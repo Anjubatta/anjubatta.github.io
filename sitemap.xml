@@ -1,30 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-<url>
-  <loc>https://anjubatta.github.io/</loc>
-  <lastmod>2026-05-18</lastmod>
-</url>
-
-<url>
-  <loc>https://anjubatta.github.io/contact/</loc>
-  <lastmod>2026-05-18</lastmod>
-</url>
-
-<url>
-  <loc>https://anjubatta.github.io/projects/</loc>
-  <lastmod>2026-05-18</lastmod>
-</url>
-
-<url>
-  <loc>https://anjubatta.github.io/services/</loc>
-  <lastmod>2026-05-18</lastmod>
-</url>
-
-<url>
-  <loc>https://anjubatta.github.io/blog/</loc>
-  <lastmod>2026-05-18</lastmod>
-</url>
-
-</urlset>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <sitemap>
+    <loc>https://anjubatta.github.io/pages-sitemap.xml</loc>
+    <lastmod>2026-05-27</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://anjubatta.github.io/services-sitemap.xml</loc>
+    <lastmod>2026-05-27</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://anjubatta.github.io/blog-sitemap.xml</loc>
+    <lastmod>2026-05-27</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://anjubatta.github.io/image-sitemap.xml</loc>
+    <lastmod>2026-05-27</lastmod>
+  </sitemap>
+</sitemapindex>
