@@ -4,180 +4,180 @@
 
   <!-- Home Page Images -->
   <url>
-    <loc>https://anjubatta.github.io/</loc>
+    <loc>https://anjubatta.netlify.app/</loc>
     <image:image>
-      <image:loc>https://anjubatta.github.io/images/header_image.png</image:loc>
+      <image:loc>https://anjubatta.netlify.app/images/header_image.png</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://anjubatta.github.io/images/abouts.png</image:loc>
+      <image:loc>https://anjubatta.netlify.app/images/abouts.png</image:loc>
     </image:image>
   </url>
 
   <!-- XML Sitemap Strategy Guide Blog -->
   <url>
-    <loc>https://anjubatta.github.io/blog/xml-sitemap-strategy-guide</loc>
+    <loc>https://anjubatta.netlify.app/blog/xml-sitemap-strategy-guide</loc>
     <image:image>
-      <image:loc>https://anjubatta.github.io/images/blog-xml-sitemap.png</image:loc>
+      <image:loc>https://anjubatta.netlify.app/images/blog-xml-sitemap.png</image:loc>
     </image:image>
   </url>
 
   <!-- Technical SEO Audit Checklist Blog -->
   <url>
-    <loc>https://anjubatta.github.io/blog/technical-seo-audit-checklist</loc>
+    <loc>https://anjubatta.netlify.app/blog/technical-seo-audit-checklist</loc>
     <image:image>
-      <image:loc>https://anjubatta.github.io/images/blog-seo-audit.png</image:loc>
+      <image:loc>https://anjubatta.netlify.app/images/blog-seo-audit.png</image:loc>
     </image:image>
   </url>
 
   <!-- Next.js SEO Architecture Blog -->
   <url>
-    <loc>https://anjubatta.github.io/blog/nextjs-seo-architecture</loc>
+    <loc>https://anjubatta.netlify.app/blog/nextjs-seo-architecture</loc>
     <image:image>
-      <image:loc>https://anjubatta.github.io/images/blog-nextjs-seo.png</image:loc>
+      <image:loc>https://anjubatta.netlify.app/images/blog-nextjs-seo.png</image:loc>
     </image:image>
   </url>
 
   <!-- AEO & GEO Optimization Blog -->
   <url>
-    <loc>https://anjubatta.github.io/blog/aeo-geo-ai-search-optimization</loc>
+    <loc>https://anjubatta.netlify.app/blog/aeo-geo-ai-search-optimization</loc>
     <image:image>
-      <image:loc>https://anjubatta.github.io/images/blog-aeo-geo.png</image:loc>
+      <image:loc>https://anjubatta.netlify.app/images/blog-aeo-geo.png</image:loc>
     </image:image>
   </url>
 
   <!-- Cloudflare Optimization Guide Blog -->
   <url>
-    <loc>https://anjubatta.github.io/blog/cloudflare-optimization-guide</loc>
+    <loc>https://anjubatta.netlify.app/blog/cloudflare-optimization-guide</loc>
     <image:image>
-      <image:loc>https://anjubatta.github.io/images/blog-cloudflare.png</image:loc>
+      <image:loc>https://anjubatta.netlify.app/images/blog-cloudflare.png</image:loc>
     </image:image>
   </url>
 
   <!-- AI Agent Architecture Blog -->
   <url>
-    <loc>https://anjubatta.github.io/blog/ai-agent-architecture</loc>
+    <loc>https://anjubatta.netlify.app/blog/ai-agent-architecture</loc>
     <image:image>
-      <image:loc>https://anjubatta.github.io/images/blog-ai-agents.png</image:loc>
+      <image:loc>https://anjubatta.netlify.app/images/blog-ai-agents.png</image:loc>
     </image:image>
   </url>
 
   <!-- Schema Engineering Guide Blog -->
   <url>
-    <loc>https://anjubatta.github.io/blog/schema-engineering-guide</loc>
+    <loc>https://anjubatta.netlify.app/blog/schema-engineering-guide</loc>
     <image:image>
-      <image:loc>https://anjubatta.github.io/images/blog-schema.png</image:loc>
+      <image:loc>https://anjubatta.netlify.app/images/blog-schema.png</image:loc>
     </image:image>
   </url>
 
   <!-- Ionic Framework Blog -->
   <url>
-    <loc>https://anjubatta.github.io/blog/ionic</loc>
+    <loc>https://anjubatta.netlify.app/blog/ionic</loc>
     <image:image>
-      <image:loc>https://anjubatta.github.io/images/blog-ionic.png</image:loc>
+      <image:loc>https://anjubatta.netlify.app/images/blog-ionic.png</image:loc>
     </image:image>
   </url>
 
   <!-- WordPress Hooks Blog -->
   <url>
-    <loc>https://anjubatta.github.io/blog/wordpress-hooks</loc>
+    <loc>https://anjubatta.netlify.app/blog/wordpress-hooks</loc>
     <image:image>
-      <image:loc>https://anjubatta.github.io/images/blog-wordpress.png</image:loc>
+      <image:loc>https://anjubatta.netlify.app/images/blog-wordpress.png</image:loc>
     </image:image>
   </url>
 
   <!-- Ghost CMS Blog -->
   <url>
-    <loc>https://anjubatta.github.io/blog/ghost</loc>
+    <loc>https://anjubatta.netlify.app/blog/ghost</loc>
     <image:image>
-      <image:loc>https://anjubatta.github.io/images/blog-ghost.png</image:loc>
+      <image:loc>https://anjubatta.netlify.app/images/blog-ghost.png</image:loc>
     </image:image>
   </url>
 
   <!-- Ionic vs Flutter vs React Native Blog -->
   <url>
-    <loc>https://anjubatta.github.io/blog/ionic-vs-flutter-vs-react-native</loc>
+    <loc>https://anjubatta.netlify.app/blog/ionic-vs-flutter-vs-react-native</loc>
     <image:image>
-      <image:loc>https://anjubatta.github.io/images/blog-frameworks.png</image:loc>
+      <image:loc>https://anjubatta.netlify.app/images/blog-frameworks.png</image:loc>
     </image:image>
   </url>
 
   <!-- Ionic App Store Submission Blog -->
   <url>
-    <loc>https://anjubatta.github.io/blog/ionic-app-store-submission-checklist</loc>
+    <loc>https://anjubatta.netlify.app/blog/ionic-app-store-submission-checklist</loc>
     <image:image>
-      <image:loc>https://anjubatta.github.io/images/blog-app-store.png</image:loc>
+      <image:loc>https://anjubatta.netlify.app/images/blog-app-store.png</image:loc>
     </image:image>
   </url>
 
   <!-- Ionic App Development Cost Blog -->
   <url>
-    <loc>https://anjubatta.github.io/blog/ionic-app-development-cost</loc>
+    <loc>https://anjubatta.netlify.app/blog/ionic-app-development-cost</loc>
     <image:image>
-      <image:loc>https://anjubatta.github.io/images/blog-app-cost.png</image:loc>
+      <image:loc>https://anjubatta.netlify.app/images/blog-app-cost.png</image:loc>
     </image:image>
   </url>
 
   <!-- Ionic Laravel API Integration Blog -->
   <url>
-    <loc>https://anjubatta.github.io/blog/ionic-laravel-api-integration</loc>
+    <loc>https://anjubatta.netlify.app/blog/ionic-laravel-api-integration</loc>
     <image:image>
-      <image:loc>https://anjubatta.github.io/images/blog-ionic-laravel.png</image:loc>
+      <image:loc>https://anjubatta.netlify.app/images/blog-ionic-laravel.png</image:loc>
     </image:image>
   </url>
 
   <!-- Ionic Capacitor Plugins Blog -->
   <url>
-    <loc>https://anjubatta.github.io/blog/ionic-capacitor-plugins-guide</loc>
+    <loc>https://anjubatta.netlify.app/blog/ionic-capacitor-plugins-guide</loc>
     <image:image>
-      <image:loc>https://anjubatta.github.io/images/blog-capacitor.png</image:loc>
+      <image:loc>https://anjubatta.netlify.app/images/blog-capacitor.png</image:loc>
     </image:image>
   </url>
 
   <!-- Claude AI for Developers Blog -->
   <url>
-    <loc>https://anjubatta.github.io/blog/claude-ai-for-developers</loc>
+    <loc>https://anjubatta.netlify.app/blog/claude-ai-for-developers</loc>
     <image:image>
-      <image:loc>https://anjubatta.github.io/images/blog-claude-ai.png</image:loc>
+      <image:loc>https://anjubatta.netlify.app/images/blog-claude-ai.png</image:loc>
     </image:image>
   </url>
 
   <!-- Claude Code CLI Guide Blog -->
   <url>
-    <loc>https://anjubatta.github.io/blog/claude-code-cli-guide</loc>
+    <loc>https://anjubatta.netlify.app/blog/claude-code-cli-guide</loc>
     <image:image>
-      <image:loc>https://anjubatta.github.io/images/blog-claude-code.png</image:loc>
+      <image:loc>https://anjubatta.netlify.app/images/blog-claude-code.png</image:loc>
     </image:image>
   </url>
 
   <!-- Claude vs ChatGPT vs Gemini Blog -->
   <url>
-    <loc>https://anjubatta.github.io/blog/claude-vs-chatgpt-vs-gemini</loc>
+    <loc>https://anjubatta.netlify.app/blog/claude-vs-chatgpt-vs-gemini</loc>
     <image:image>
-      <image:loc>https://anjubatta.github.io/images/blog-ai-comparison.png</image:loc>
+      <image:loc>https://anjubatta.netlify.app/images/blog-ai-comparison.png</image:loc>
     </image:image>
   </url>
 
   <!-- Building with Claude API Blog -->
   <url>
-    <loc>https://anjubatta.github.io/blog/building-with-claude-api</loc>
+    <loc>https://anjubatta.netlify.app/blog/building-with-claude-api</loc>
     <image:image>
-      <image:loc>https://anjubatta.github.io/images/blog-claude-api.png</image:loc>
+      <image:loc>https://anjubatta.netlify.app/images/blog-claude-api.png</image:loc>
     </image:image>
   </url>
 
   <!-- OpenClaw AI Blog -->
   <url>
-    <loc>https://anjubatta.github.io/blog/openclaw-ai</loc>
+    <loc>https://anjubatta.netlify.app/blog/openclaw-ai</loc>
     <image:image>
-      <image:loc>https://anjubatta.github.io/images/blog-openclaw.png</image:loc>
+      <image:loc>https://anjubatta.netlify.app/images/blog-openclaw.png</image:loc>
     </image:image>
   </url>
 
   <!-- Blog Hub -->
   <url>
-    <loc>https://anjubatta.github.io/blog</loc>
+    <loc>https://anjubatta.netlify.app/blog</loc>
     <image:image>
-      <image:loc>https://anjubatta.github.io/images/abouts.png</image:loc>
+      <image:loc>https://anjubatta.netlify.app/images/abouts.png</image:loc>
     </image:image>
   </url>
 

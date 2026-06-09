@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://anjubatta.github.io/</loc>
+    <loc>https://anjubatta.netlify.app/</loc>
     <lastmod>2026-05-27</lastmod>
   </url>
   <url>
-    <loc>https://anjubatta.github.io/contact/</loc>
+    <loc>https://anjubatta.netlify.app/contact/</loc>
     <lastmod>2026-05-27</lastmod>
   </url>
   <url>
-    <loc>https://anjubatta.github.io/projects/</loc>
+    <loc>https://anjubatta.netlify.app/projects/</loc>
     <lastmod>2026-05-27</lastmod>
   </url>
   <url>
-    <loc>https://anjubatta.github.io/services/</loc>
+    <loc>https://anjubatta.netlify.app/services/</loc>
     <lastmod>2026-05-27</lastmod>
   </url>
   <url>
-    <loc>https://anjubatta.github.io/blog/</loc>
+    <loc>https://anjubatta.netlify.app/blog/</loc>
     <lastmod>2026-05-27</lastmod>
   </url>
   <url>
-    <loc>https://anjubatta.github.io/sitemap/</loc>
+    <loc>https://anjubatta.netlify.app/sitemap/</loc>
     <lastmod>2026-05-27</lastmod>
   </url>
 </urlset>
