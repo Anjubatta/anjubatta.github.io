@@ -44,7 +44,6 @@ Anju Batta helps businesses hire one senior developer for Laravel web apps, AI a
 ## Contact
 
 - Email: battaanju983@gmail.com
-- Phone: +91 9646175638
 - Location: Chandigarh, India
 - LinkedIn: https://www.linkedin.com/in/anju-batta-820a3660/
 - GitHub: https://github.com/anjudeveloper/
